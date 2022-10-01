@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "mydestiny",
+    "slug": "mydestiny",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
