@@ -1,4 +1,11 @@
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  ToastAndroid,
+} from "react-native";
 import firestore from "@react-native-firebase/firestore";
 import React, { useState, useEffect } from "react";
 import { useTailwind } from "tailwind-rn";
@@ -47,7 +54,19 @@ const ModalScreen = () => {
         age: age,
       })
       .then(() => {
+        ToastAndroid.showWithGravity(
+          "Update Profile successfully! 🎉",
+          ToastAndroid.SHORT,
+          ToastAndroid.BOTTOM
+        );
         navigation.navigate("Home");
+      })
+      .catch((error) => {
+        ToastAndroid.showWithGravity(
+          error.message,
+          ToastAndroid.SHORT,
+          ToastAndroid.BOTTOM
+        );
       });
   };
 
@@ -133,15 +152,6 @@ const ModalScreen = () => {
       >
         <Text style={tailwind("text-center font-bold text-white text-xl")}>
           Update Profile
-        </Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={tailwind("w-64 p-3 rounded-xl bg-red-400 mt-10")}
-        // onPress={getUser}
-      >
-        <Text style={tailwind("text-center font-bold text-white text-xl")}>
-          Test
         </Text>
       </TouchableOpacity>
     </View>

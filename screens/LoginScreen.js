@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ImageBackground, Button } from "react-native";
+import { Text, View, ImageBackground, ToastAndroid } from "react-native";
 import "expo-dev-client";
 import { GoogleSigninButton } from "@react-native-google-signin/google-signin";
 
@@ -11,6 +11,24 @@ export default function LoginScreen() {
   const { onGoogleButtonPress, loading } = useAuth();
   const navigation = useNavigation();
   const tailwind = useTailwind();
+
+  const logIn = () => {
+    onGoogleButtonPress()
+      .then(() =>
+        ToastAndroid.showWithGravity(
+          "Welcome to Tinder, have a great day! 🎉",
+          ToastAndroid.SHORT,
+          ToastAndroid.BOTTOM
+        )
+      )
+      .catch((error) => {
+        ToastAndroid.showWithGravity(
+          error.message,
+          ToastAndroid.SHORT,
+          ToastAndroid.BOTTOM
+        );
+      });
+  };
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -33,7 +51,7 @@ export default function LoginScreen() {
         <GoogleSigninButton
           style={tailwind("w-80 h-16 absolute bottom-40 rounded-2xl ml-9")}
           size={GoogleSigninButton.Size.Wide}
-          onPress={onGoogleButtonPress}
+          onPress={logIn}
         />
       </ImageBackground>
     </View>

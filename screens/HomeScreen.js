@@ -6,9 +6,12 @@ import {
   TouchableOpacity,
   Image,
   StyleSheet,
+  ToastAndroid,
+  Alert,
 } from "react-native";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import useAuth from "../hooks/useAuth";
+import firestore from "@react-native-firebase/firestore";
 import { useTailwind } from "tailwind-rn";
 import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -50,13 +53,66 @@ const HomeScreen = () => {
   const [profiles, setProfiles] = useState([]);
   const swipeRef = useRef(null);
 
+  const confirmLogout = () => {
+    Alert.alert("Sign Out", "Are you sure want to sign out?", [
+      {
+        text: "Cancel",
+        style: "cancel",
+      },
+      {
+        text: "OK",
+        onPress: () => {
+          signOut().then(() => {
+            ToastAndroid.showWithGravity(
+              "You've been logged out successfully! 🎉",
+              ToastAndroid.SHORT,
+              ToastAndroid.BOTTOM
+            );
+          });
+        },
+      },
+    ]);
+  };
+
+  useLayoutEffect(() => {
+    return firestore()
+      .collection("users")
+      .doc(currentUser.uid)
+      .onSnapshot({
+        next: (documentSnapshot) => {
+          if (!documentSnapshot.exists) {
+            navigation.navigate("Modal");
+          }
+        },
+      });
+  }, []);
+
+  useEffect(() => {
+    firestore()
+      .collection("users")
+      .onSnapshot({
+        next: (snapshot) => {
+          setProfiles(
+            snapshot.docs
+              .filter((doc) => doc.id !== currentUser.uid)
+              .map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+              }))
+          );
+        },
+      });
+  }, []);
+
+  // console.log("Profiles: ", profiles);
+
   return (
     <SafeAreaView style={tailwind("flex-1")}>
       {/* Header */}
       <View
         style={tailwind("flex-row px-3 items-center justify-between relative")}
       >
-        <TouchableOpacity onPress={signOut}>
+        <TouchableOpacity onPress={confirmLogout}>
           <Image
             style={tailwind("h-10 w-10 rounded-full")}
             source={{ uri: currentUser.photoURL }}
@@ -132,7 +188,7 @@ const HomeScreen = () => {
                 >
                   <View>
                     <Text style={tailwind("text-xl font-bold")}>
-                      {card.firstName} {card.lastName}
+                      {card.displayName}
                     </Text>
                     <Text>{card.job}</Text>
                   </View>

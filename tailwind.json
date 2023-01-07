@@ -100,6 +100,11 @@
 			"width": "100%"
 		}
 	},
+	"w-20": {
+		"style": {
+			"width": 80
+		}
+	},
 	"w-16": {
 		"style": {
 			"width": 64
@@ -113,11 +118,6 @@
 	"w-64": {
 		"style": {
 			"width": 256
-		}
-	},
-	"w-20": {
-		"style": {
-			"width": 80
 		}
 	},
 	"flex-1": {
@@ -260,6 +260,11 @@
 			"paddingBottom": 8
 		}
 	},
+	"pb-5": {
+		"style": {
+			"paddingBottom": 20
+		}
+	},
 	"pt-1": {
 		"style": {
 			"paddingTop": 4
@@ -268,11 +273,6 @@
 	"pb-2": {
 		"style": {
 			"paddingBottom": 8
-		}
-	},
-	"pb-5": {
-		"style": {
-			"paddingBottom": 20
 		}
 	},
 	"text-center": {
