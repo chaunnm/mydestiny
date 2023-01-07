@@ -1,21 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import StackNavigator from "./StackNavigator";
+import { NavigationContainer } from "@react-navigation/native";
+import { AuthProvider } from "./hooks/useAuth";
+import { TailwindProvider } from "tailwind-rn";
+import utilities from "./tailwind.json";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Hello 12345</Text>
-      <StatusBar style="auto" />
-    </View>
+    <TailwindProvider utilities={utilities}>
+      <NavigationContainer>
+        <AuthProvider>
+          <StackNavigator />
+        </AuthProvider>
+      </NavigationContainer>
+    </TailwindProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
