@@ -16,6 +16,7 @@ import { useTailwind } from "tailwind-rn";
 import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import Swiper from "react-native-deck-swiper";
+import generateId from "../lib/generateId";
 
 const DUMMY_DATA = [
   {
@@ -79,7 +80,7 @@ const HomeScreen = () => {
   const swipeLeft = async (cardIndex) => {
     if (!profiles[cardIndex]) return;
     const userSwiped = profiles[cardIndex];
-    console.log(`You swiped PASS on ${userSwiped.displayName}`);
+    // console.log(`You swiped PASS on ${userSwiped.displayName}`);
 
     firestore()
       .collection("users")
@@ -93,23 +94,64 @@ const HomeScreen = () => {
     if (!profiles[cardIndex]) return;
     const userSwiped = profiles[cardIndex];
 
-    const loggedInProfile = await firestore()
+    const infor = await firestore()
       .collection("users")
       .doc(currentUser.uid)
       .get();
 
-    console.log("Login: ", loggedInProfile);
+    const loggedInProfile = infor.data();
 
-    console.log(
-      `You swiped MATCH on ${userSwiped.displayName} (${userSwiped.job})`
-    );
+    // console.log("User hien tai: ", loggedInProfile);
+    // console.log("User yeu thich: ", userSwiped);
 
+    // Check if the user swiped on you...
     firestore()
       .collection("users")
-      .doc(currentUser.uid)
-      .collection("swipes")
       .doc(userSwiped.id)
-      .set(userSwiped);
+      .collection("swipes")
+      .doc(currentUser.uid)
+      .onSnapshot({
+        next: (documentSnapshot) => {
+          // console.log("check exists: ", documentSnapshot.exists);
+          if (documentSnapshot.exists) {
+            console.log(`YEAH, you MATCHED with ${userSwiped.displayName}`);
+
+            firestore()
+              .collection("users")
+              .doc(currentUser.uid)
+              .collection("swipes")
+              .doc(userSwiped.id)
+              .set(userSwiped);
+            //Create a match
+            firestore()
+              .collection("matches")
+              .doc(generateId(currentUser.uid, userSwiped.id))
+              .set({
+                users: {
+                  [currentUser.uid]: loggedInProfile,
+                  [userSwiped.id]: userSwiped,
+                },
+                usersMatched: [currentUser.uid, userSwiped.id],
+              });
+
+            navigation.navigate("Match", {
+              loggedInProfile,
+              userSwiped,
+            });
+          } else {
+            console.log(
+              `You swiped MATCH on ${userSwiped.displayName} (${userSwiped.job})`
+            );
+
+            firestore()
+              .collection("users")
+              .doc(currentUser.uid)
+              .collection("swipes")
+              .doc(userSwiped.id)
+              .set(userSwiped);
+          }
+        },
+      });
   };
 
   useLayoutEffect(() => {
@@ -321,7 +363,7 @@ const HomeScreen = () => {
 
     fetchCards();
     // return unsub;
-  }, []);
+  }, [currentUser]);
 
   // console.log("Passes: ", passedUserIds);
 
