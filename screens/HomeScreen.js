@@ -289,24 +289,16 @@ const HomeScreen = () => {
   // console.log("Profiles: ", profiles);
 
   useEffect(() => {
-    // let passedUsers = [];
-    // let unsub;
     const fetchCards = async () => {
       firestore()
         .collection("users")
         .doc(currentUser.uid)
         .collection("passes")
         .onSnapshot({
-          // next: (snapshot) => snapshot.docs.map((doc) => doc.id),
           next: (snapshot) => {
-            // passedUsers = snapshot.docs.map((doc) => doc.id);
-            // console.log("Snapshot: ", snapshot.docs);
+            // console.log("Passes: ", snapshot.docs);
             const newSnapshot = [...snapshot.docs];
-            setPasses(
-              // newSnapshot.map((doc) => ({ ...doc.data(), id: doc.id }))
-              newSnapshot.map((doc) => doc.id)
-            );
-            // console.log("State: ", snapshot);
+            setPasses(newSnapshot.map((doc) => doc.id));
           },
         });
 
@@ -315,15 +307,10 @@ const HomeScreen = () => {
         .doc(currentUser.uid)
         .collection("swipes")
         .onSnapshot({
-          // next: (snapshot) => snapshot.docs.map((doc) => doc.id),
           next: (snapshot) => {
-            // passedUsers = snapshot.docs.map((doc) => doc.id);
-            // console.log("Snapshot: ", snapshot.docs);
+            // console.log("Swipes: ", snapshot.docs);
             const newSnapshot = [...snapshot.docs];
-            setSwipes(
-              // newSnapshot.map((doc) => ({ ...doc.data(), id: doc.id }))
-              newSnapshot.map((doc) => doc.id)
-            );
+            setSwipes(newSnapshot.map((doc) => doc.id));
           },
         });
 
@@ -332,23 +319,12 @@ const HomeScreen = () => {
       const temp = [...passedUserIds, ...swipedUserIds];
       temp.push(currentUser.uid);
 
-      // console.log("temp: ", temp);
+      // console.log("State swipes: ", swipes);
 
       firestore()
         .collection("users")
-        // .where("id", "not-in", [...passedUserIds])
         .onSnapshot({
           next: (snapshot) => {
-            // console.log(
-            //   "Toan bo: ",
-            //   snapshot.docs
-            //     .filter((doc) => !passedUserIds.includes(doc.id))
-            //     .map((doc) => ({
-            //       id: doc.id,
-            //       ...doc.data(),
-            //     }))
-            // );
-
             setProfiles(
               snapshot.docs
                 .filter((doc) => !temp.includes(doc.id))
@@ -362,8 +338,7 @@ const HomeScreen = () => {
     };
 
     fetchCards();
-    // return unsub;
-  }, [currentUser]);
+  }, []);
 
   // console.log("Passes: ", passedUserIds);
 
