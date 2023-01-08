@@ -18,35 +18,6 @@ import { useNavigation } from "@react-navigation/native";
 import Swiper from "react-native-deck-swiper";
 import generateId from "../lib/generateId";
 
-const DUMMY_DATA = [
-  {
-    id: 1,
-    firstName: "Sonny",
-    lastName: "Sangha",
-    job: "Software Developer",
-    photoURL: "http://avatars.githubusercontent.com/u/24712956?v=4",
-    age: 40,
-  },
-  {
-    id: 2,
-    firstName: "Barack",
-    lastName: "Obama",
-    job: "Software Developer",
-    photoURL:
-      "https://images.fandango.com/ImageRenderer/300/0/redesign/static/img/default_poster.png/0/images/masterrepository/performer%20images/496675/barackobama-1.jpg",
-    age: 45,
-  },
-  {
-    id: 3,
-    firstName: "Elon",
-    lastName: "Musk",
-    job: "Software Developer",
-    photoURL:
-      "https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg",
-    age: 40,
-  },
-];
-
 const HomeScreen = () => {
   const { signOut, currentUser } = useAuth();
   const tailwind = useTailwind();
@@ -167,127 +138,6 @@ const HomeScreen = () => {
       });
   }, []);
 
-  // useEffect(() => {
-  //   const subscriber = () => {
-  //     firestore()
-  //       .collection("users")
-  //       .doc(currentUser.uid)
-  //       .collection("passes")
-  //       .onSnapshot((documentSnapshot) => {
-  //         if (documentSnapshot.docs) {
-  //           const temp = documentSnapshot.docs.map((doc) => doc.id);
-  //           setPasses(temp);
-  //           console.log("Passes: ", passes);
-  //           // const passedUserIds = temp.length > 0 ? temp : ["test"];
-  //           // passedUserIds.push(currentUser.uid);
-
-  //           // // setPasses(documentSnapshot.docs);
-  //           // firestore()
-  //           //   .collection("users")
-  //           //   // .where("id", "not-in", [...passedUserIds])
-  //           //   .onSnapshot({
-  //           //     next: (snapshot) => {
-  //           //       // console.log("Current user: ", passedUserIds);
-
-  //           //       setProfiles(
-  //           //         snapshot.docs
-  //           //           // .filter((doc) => doc.id !== currentUser.uid)
-  //           //           .filter((doc) => !passedUserIds.includes(doc.id))
-  //           //           // .filter((doc) => {
-  //           //           //   console.log("Current user: ", passedUserIds.indexOf(doc));
-
-  //           //           //   return passedUserIds.indexOf(doc);
-  //           //           // })
-  //           //           .map((doc) => ({
-  //           //             id: doc.id,
-  //           //             ...doc.data(),
-  //           //           }))
-  //           //       );
-  //           //     },
-  //           //   });
-  //         }
-  //       });
-  //   };
-  //   return () => subscriber();
-  // }, []);
-
-  // useEffect(() => {
-  //   const subscriber = firestore()
-  //     .collection("users")
-  //     .doc(currentUser.uid)
-  //     .collection("swipes")
-  //     .onSnapshot((documentSnapshot) => {
-  //       // console.log(documentSnapshot.docs);
-  //       if (documentSnapshot.docs) {
-  //         const temp = documentSnapshot.docs.map((doc) => doc.id);
-  //         setSwipes(temp);
-  //         // const passedUserIds = temp.length > 0 ? temp : ["test"];
-  //         // passedUserIds.push(currentUser.uid);
-
-  //         // // setPasses(documentSnapshot.docs);
-  //         // firestore()
-  //         //   .collection("users")
-  //         //   // .where("id", "not-in", [...passedUserIds])
-  //         //   .onSnapshot({
-  //         //     next: (snapshot) => {
-  //         //       // console.log("Current user: ", passedUserIds);
-
-  //         //       setProfiles(
-  //         //         snapshot.docs
-  //         //           // .filter((doc) => doc.id !== currentUser.uid)
-  //         //           .filter((doc) => !passedUserIds.includes(doc.id))
-  //         //           // .filter((doc) => {
-  //         //           //   console.log("Current user: ", passedUserIds.indexOf(doc));
-
-  //         //           //   return passedUserIds.indexOf(doc);
-  //         //           // })
-  //         //           .map((doc) => ({
-  //         //             id: doc.id,
-  //         //             ...doc.data(),
-  //         //           }))
-  //         //       );
-  //         //     },
-  //         //   });
-  //       }
-  //     });
-
-  //   return () => subscriber();
-  // }, []);
-
-  // useEffect(() => {
-  //   const passedUserIds = passes.length > 0 ? passes : ["test"];
-  //   const swipedUserIds = swipes.length > 0 ? swipes : ["test"];
-  //   const temp = [...passedUserIds, ...swipedUserIds];
-  //   temp.push(currentUser.uid);
-
-  //   // console.log("temp: ", temp);
-
-  //   const subscriber = firestore()
-  //     .collection("users")
-  //     // .where("id", "not-in", [...passedUserIds])
-  //     .onSnapshot({
-  //       next: (snapshot) => {
-  //         setProfiles(
-  //           snapshot.docs
-  //             // .filter((doc) => doc.id !== currentUser.uid)
-  //             .filter((doc) => !temp.includes(doc.id))
-  //             // .filter((doc) => {
-  //             //   console.log("Current user: ", passedUserIds.indexOf(doc));
-
-  //             //   return passedUserIds.indexOf(doc);
-  //             // })
-  //             .map((doc) => ({
-  //               id: doc.id,
-  //               ...doc.data(),
-  //             }))
-  //         );
-  //       },
-  //     });
-  //   return () => subscriber();
-  // }, [currentUser.uid]);
-
-  // console.log("Profiles: ", profiles);
-
   useEffect(() => {
     // let passedUsers = [];
     // let unsub;
@@ -339,16 +189,6 @@ const HomeScreen = () => {
         // .where("id", "not-in", [...passedUserIds])
         .onSnapshot({
           next: (snapshot) => {
-            // console.log(
-            //   "Toan bo: ",
-            //   snapshot.docs
-            //     .filter((doc) => !passedUserIds.includes(doc.id))
-            //     .map((doc) => ({
-            //       id: doc.id,
-            //       ...doc.data(),
-            //     }))
-            // );
-
             setProfiles(
               snapshot.docs
                 .filter((doc) => !temp.includes(doc.id))
@@ -364,10 +204,6 @@ const HomeScreen = () => {
     fetchCards();
     // return unsub;
   }, [currentUser]);
-
-  // console.log("Passes: ", passedUserIds);
-
-  // console.log("Profiles: ", profiles);
 
   return (
     <SafeAreaView style={tailwind("flex-1")}>
