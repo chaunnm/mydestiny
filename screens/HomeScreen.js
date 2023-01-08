@@ -51,6 +51,8 @@ const HomeScreen = () => {
   const tailwind = useTailwind();
   const navigation = useNavigation();
   const [profiles, setProfiles] = useState([]);
+  const [passes, setPasses] = useState([]);
+  const [swipes, setSwipes] = useState([]);
   const swipeRef = useRef(null);
 
   const confirmLogout = () => {
@@ -74,6 +76,42 @@ const HomeScreen = () => {
     ]);
   };
 
+  const swipeLeft = async (cardIndex) => {
+    if (!profiles[cardIndex]) return;
+    const userSwiped = profiles[cardIndex];
+    console.log(`You swiped PASS on ${userSwiped.displayName}`);
+
+    firestore()
+      .collection("users")
+      .doc(currentUser.uid)
+      .collection("passes")
+      .doc(userSwiped.id)
+      .set(userSwiped);
+  };
+
+  const swipeRight = async (cardIndex) => {
+    if (!profiles[cardIndex]) return;
+    const userSwiped = profiles[cardIndex];
+
+    const loggedInProfile = await firestore()
+      .collection("users")
+      .doc(currentUser.uid)
+      .get();
+
+    console.log("Login: ", loggedInProfile);
+
+    console.log(
+      `You swiped MATCH on ${userSwiped.displayName} (${userSwiped.job})`
+    );
+
+    firestore()
+      .collection("users")
+      .doc(currentUser.uid)
+      .collection("swipes")
+      .doc(userSwiped.id)
+      .set(userSwiped);
+  };
+
   useLayoutEffect(() => {
     return firestore()
       .collection("users")
@@ -87,22 +125,205 @@ const HomeScreen = () => {
       });
   }, []);
 
+  // useEffect(() => {
+  //   const subscriber = () => {
+  //     firestore()
+  //       .collection("users")
+  //       .doc(currentUser.uid)
+  //       .collection("passes")
+  //       .onSnapshot((documentSnapshot) => {
+  //         if (documentSnapshot.docs) {
+  //           const temp = documentSnapshot.docs.map((doc) => doc.id);
+  //           setPasses(temp);
+  //           console.log("Passes: ", passes);
+  //           // const passedUserIds = temp.length > 0 ? temp : ["test"];
+  //           // passedUserIds.push(currentUser.uid);
+
+  //           // // setPasses(documentSnapshot.docs);
+  //           // firestore()
+  //           //   .collection("users")
+  //           //   // .where("id", "not-in", [...passedUserIds])
+  //           //   .onSnapshot({
+  //           //     next: (snapshot) => {
+  //           //       // console.log("Current user: ", passedUserIds);
+
+  //           //       setProfiles(
+  //           //         snapshot.docs
+  //           //           // .filter((doc) => doc.id !== currentUser.uid)
+  //           //           .filter((doc) => !passedUserIds.includes(doc.id))
+  //           //           // .filter((doc) => {
+  //           //           //   console.log("Current user: ", passedUserIds.indexOf(doc));
+
+  //           //           //   return passedUserIds.indexOf(doc);
+  //           //           // })
+  //           //           .map((doc) => ({
+  //           //             id: doc.id,
+  //           //             ...doc.data(),
+  //           //           }))
+  //           //       );
+  //           //     },
+  //           //   });
+  //         }
+  //       });
+  //   };
+  //   return () => subscriber();
+  // }, []);
+
+  // useEffect(() => {
+  //   const subscriber = firestore()
+  //     .collection("users")
+  //     .doc(currentUser.uid)
+  //     .collection("swipes")
+  //     .onSnapshot((documentSnapshot) => {
+  //       // console.log(documentSnapshot.docs);
+  //       if (documentSnapshot.docs) {
+  //         const temp = documentSnapshot.docs.map((doc) => doc.id);
+  //         setSwipes(temp);
+  //         // const passedUserIds = temp.length > 0 ? temp : ["test"];
+  //         // passedUserIds.push(currentUser.uid);
+
+  //         // // setPasses(documentSnapshot.docs);
+  //         // firestore()
+  //         //   .collection("users")
+  //         //   // .where("id", "not-in", [...passedUserIds])
+  //         //   .onSnapshot({
+  //         //     next: (snapshot) => {
+  //         //       // console.log("Current user: ", passedUserIds);
+
+  //         //       setProfiles(
+  //         //         snapshot.docs
+  //         //           // .filter((doc) => doc.id !== currentUser.uid)
+  //         //           .filter((doc) => !passedUserIds.includes(doc.id))
+  //         //           // .filter((doc) => {
+  //         //           //   console.log("Current user: ", passedUserIds.indexOf(doc));
+
+  //         //           //   return passedUserIds.indexOf(doc);
+  //         //           // })
+  //         //           .map((doc) => ({
+  //         //             id: doc.id,
+  //         //             ...doc.data(),
+  //         //           }))
+  //         //       );
+  //         //     },
+  //         //   });
+  //       }
+  //     });
+
+  //   return () => subscriber();
+  // }, []);
+
+  // useEffect(() => {
+  //   const passedUserIds = passes.length > 0 ? passes : ["test"];
+  //   const swipedUserIds = swipes.length > 0 ? swipes : ["test"];
+  //   const temp = [...passedUserIds, ...swipedUserIds];
+  //   temp.push(currentUser.uid);
+
+  //   // console.log("temp: ", temp);
+
+  //   const subscriber = firestore()
+  //     .collection("users")
+  //     // .where("id", "not-in", [...passedUserIds])
+  //     .onSnapshot({
+  //       next: (snapshot) => {
+  //         setProfiles(
+  //           snapshot.docs
+  //             // .filter((doc) => doc.id !== currentUser.uid)
+  //             .filter((doc) => !temp.includes(doc.id))
+  //             // .filter((doc) => {
+  //             //   console.log("Current user: ", passedUserIds.indexOf(doc));
+
+  //             //   return passedUserIds.indexOf(doc);
+  //             // })
+  //             .map((doc) => ({
+  //               id: doc.id,
+  //               ...doc.data(),
+  //             }))
+  //         );
+  //       },
+  //     });
+  //   return () => subscriber();
+  // }, [currentUser.uid]);
+
+  // console.log("Profiles: ", profiles);
+
   useEffect(() => {
-    firestore()
-      .collection("users")
-      .onSnapshot({
-        next: (snapshot) => {
-          setProfiles(
-            snapshot.docs
-              .filter((doc) => doc.id !== currentUser.uid)
-              .map((doc) => ({
-                id: doc.id,
-                ...doc.data(),
-              }))
-          );
-        },
-      });
+    // let passedUsers = [];
+    // let unsub;
+    const fetchCards = async () => {
+      firestore()
+        .collection("users")
+        .doc(currentUser.uid)
+        .collection("passes")
+        .onSnapshot({
+          // next: (snapshot) => snapshot.docs.map((doc) => doc.id),
+          next: (snapshot) => {
+            // passedUsers = snapshot.docs.map((doc) => doc.id);
+            // console.log("Snapshot: ", snapshot.docs);
+            const newSnapshot = [...snapshot.docs];
+            setPasses(
+              // newSnapshot.map((doc) => ({ ...doc.data(), id: doc.id }))
+              newSnapshot.map((doc) => doc.id)
+            );
+            // console.log("State: ", snapshot);
+          },
+        });
+
+      firestore()
+        .collection("users")
+        .doc(currentUser.uid)
+        .collection("swipes")
+        .onSnapshot({
+          // next: (snapshot) => snapshot.docs.map((doc) => doc.id),
+          next: (snapshot) => {
+            // passedUsers = snapshot.docs.map((doc) => doc.id);
+            // console.log("Snapshot: ", snapshot.docs);
+            const newSnapshot = [...snapshot.docs];
+            setSwipes(
+              // newSnapshot.map((doc) => ({ ...doc.data(), id: doc.id }))
+              newSnapshot.map((doc) => doc.id)
+            );
+          },
+        });
+
+      const passedUserIds = passes.length > 0 ? passes : ["test"];
+      const swipedUserIds = swipes.length > 0 ? swipes : ["test"];
+      const temp = [...passedUserIds, ...swipedUserIds];
+      temp.push(currentUser.uid);
+
+      // console.log("temp: ", temp);
+
+      firestore()
+        .collection("users")
+        // .where("id", "not-in", [...passedUserIds])
+        .onSnapshot({
+          next: (snapshot) => {
+            // console.log(
+            //   "Toan bo: ",
+            //   snapshot.docs
+            //     .filter((doc) => !passedUserIds.includes(doc.id))
+            //     .map((doc) => ({
+            //       id: doc.id,
+            //       ...doc.data(),
+            //     }))
+            // );
+
+            setProfiles(
+              snapshot.docs
+                .filter((doc) => !temp.includes(doc.id))
+                .map((doc) => ({
+                  id: doc.id,
+                  ...doc.data(),
+                }))
+            );
+          },
+        });
+    };
+
+    fetchCards();
+    // return unsub;
   }, []);
+
+  // console.log("Passes: ", passedUserIds);
 
   // console.log("Profiles: ", profiles);
 
@@ -137,15 +358,18 @@ const HomeScreen = () => {
           ref={swipeRef}
           containerStyle={{ backgroundColor: "transparent" }}
           cards={profiles}
+          // cards={DUMMY_DATA}
           stackSize={5}
           cardIndex={0}
           animateCardOpacity
           verticalSwipe={false}
-          onSwipedLeft={() => {
-            console.log("Swipe PASS");
+          onSwipedLeft={(cardIndex) => {
+            // console.log("Swipe PASS");
+            swipeLeft(cardIndex);
           }}
-          onSwipedRight={() => {
-            console.log("Swipe MATCH");
+          onSwipedRight={(cardIndex) => {
+            // console.log("Swipe MATCH");
+            swipeRight(cardIndex);
           }}
           backgroundColor={"#4FD0E9"}
           overlayLabels={{
