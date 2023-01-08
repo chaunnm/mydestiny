@@ -21,7 +21,9 @@ const Header = ({ title, callEnabled }) => {
       </View>
 
       {callEnabled && (
-        <TouchableOpacity style={tailwind("rounded-full mr-4 p-3 bg-red-200")}>
+        <TouchableOpacity
+          style={tailwind("rounded-full w-10 mr-4 p-3 bg-red-200")}
+        >
           <Foundation
             style={tailwind("")}
             name="telephone"
