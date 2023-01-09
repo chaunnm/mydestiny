@@ -111,7 +111,7 @@ export default function LoginScreen() {
         <View
           style={{
             marginTop: 20,
-            flexDirection: "row",
+            flexDirection: "column",
             alignItems: "center",
             alignSelf: "center",
           }}
@@ -130,6 +130,19 @@ export default function LoginScreen() {
             >
               {" "}
               Sign Up
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Phone")}>
+            <Text
+              style={{
+                color: "black",
+                fontWeight: "800",
+                fontSize: 18,
+                textDecorationLine: "underline",
+              }}
+            >
+              {" "}
+              Log in with Phone Number
             </Text>
           </TouchableOpacity>
         </View>
