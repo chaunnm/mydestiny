@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import ChatScreen from "./screens/ChatScreen";
 import LoginScreen from "./screens/LoginScreen";
+import SignupScreen from "./screens/SignupScreen";
 import MessageScreen from "./screens/MessageScreen";
 import useAuth from "./hooks/useAuth";
 import ModalScreen from "./screens/ModalScreen";
@@ -33,7 +34,10 @@ const StackNavigator = () => {
           </Stack.Group>
         </>
       ) : (
-        <Stack.Screen name="Login" component={LoginScreen} />
+        <>
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Signup" component={SignupScreen} />
+        </>
       )}
     </Stack.Navigator>
   );

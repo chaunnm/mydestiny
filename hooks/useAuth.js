@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useMemo,
 } from "react";
+import { ToastAndroid } from "react-native";
 import {
   GoogleSignin,
   GoogleSigninButton,
@@ -28,6 +29,7 @@ export const AuthProvider = ({ children }) => {
   // Handle user state changes
   function onAuthStateChanged(currentUser) {
     setCurrentUser(currentUser);
+    // console.log("Current User: ", currentUser);
     if (initializing) setInitializing(false);
   }
 
@@ -61,12 +63,106 @@ export const AuthProvider = ({ children }) => {
       });
   };
 
+  // const updateProfile = async (displayName, avatar) => {
+  //   // try {
+  //   //   auth().currentUser.updateProfile({
+  //   //     displayName: displayName,
+  //   //     photoURL: avatar,
+  //   //   });
+  //   // } catch (error) {
+  //   //   console.log("Error when updating profile: ", error);
+  //   // }
+  //   auth().currentUser.updateProfile({
+  //     displayName: displayName,
+  //     photoURL: avatar,
+  //   });
+  // };
+
+  const signUp = async (email, password, displayName, avatar) => {
+    auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(async (newUser) => {
+        if (newUser.user) {
+          await newUser.user
+            .updateProfile({
+              displayName: displayName,
+              photoURL: avatar,
+            })
+            .then(() => {
+              signOut();
+              return newUser.user.reload();
+            })
+            .then(auth().currentUser.reload());
+          // .then((s) => {
+          //   ToastAndroid.showWithGravity(
+          //     "Welcome to Tinder, have a great day! 🎉",
+          //     ToastAndroid.SHORT,
+          //     ToastAndroid.BOTTOM
+          //   );
+          //   console.log("Bên trong: ", newUser.user);
+          //   return auth().currentUser.reload();
+          // });
+        }
+
+        // return newUser.user
+        //   .updateProfile({
+        //     displayName: displayName,
+        //     photoURL: avatar,
+        //   })
+        //   .then(() => {
+        //     ToastAndroid.showWithGravity(
+        //       "Welcome to Tinder, have a great day! 🎉",
+        //       ToastAndroid.SHORT,
+        //       ToastAndroid.BOTTOM
+        //     );
+        //     return newUser.user.reload();
+        //   });
+      })
+      .catch((error) => {
+        if (error.code === "auth/email-already-in-use") {
+          ToastAndroid.showWithGravity(
+            "That email address is already in use! 😿",
+            ToastAndroid.SHORT,
+            ToastAndroid.BOTTOM
+          );
+        }
+
+        if (error.code === "auth/invalid-email") {
+          ToastAndroid.showWithGravity(
+            "That email address is invalid! 😿",
+            ToastAndroid.SHORT,
+            ToastAndroid.BOTTOM
+          );
+        }
+        console.error(error);
+      });
+  };
+
+  const signIn = async (email, password) => {
+    auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        ToastAndroid.showWithGravity(
+          "Welcome to Tinder, have a great day! 🎉",
+          ToastAndroid.SHORT,
+          ToastAndroid.BOTTOM
+        );
+      })
+      .catch((error) => {
+        ToastAndroid.showWithGravity(
+          `${error}`,
+          ToastAndroid.SHORT,
+          ToastAndroid.BOTTOM
+        );
+      });
+  };
+
   // console.log("Current ben useAuth: ", currentUser);
 
   const signOut = async () => {
     try {
-      await GoogleSignin.revokeAccess();
       await auth().signOut();
+      await GoogleSignin.revokeAccess();
     } catch (error) {
       console.error(error);
     }
@@ -78,6 +174,8 @@ export const AuthProvider = ({ children }) => {
       loading,
       error,
       onGoogleButtonPress,
+      signIn,
+      signUp,
       signOut,
     }),
     [currentUser, loading, error]
