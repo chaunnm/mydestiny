@@ -8,6 +8,7 @@ import {
   StyleSheet,
   ToastAndroid,
   Alert,
+  ActivityIndicator,
 } from "react-native";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import useAuth from "../hooks/useAuth";
@@ -25,7 +26,14 @@ const HomeScreen = () => {
   const [profiles, setProfiles] = useState([]);
   const [passes, setPasses] = useState([]);
   const [swipes, setSwipes] = useState([]);
+  const [loader, setLoader] = useState(true);
   const swipeRef = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(false);
+    }, 3000);
+  }, []);
 
   const confirmLogout = () => {
     Alert.alert("Sign Out", "Are you sure want to sign out?", [
@@ -190,7 +198,15 @@ const HomeScreen = () => {
     fetchCards();
   }, []);
 
-  return (
+  // console.log("Passes: ", passedUserIds);
+
+  // console.log("Profiles: ", profiles);
+
+  return loader ? (
+    <View style={tailwind("flex-1 justify-center items-center")}>
+      <ActivityIndicator size={55} />
+    </View>
+  ) : (
     <SafeAreaView style={tailwind("flex-1")}>
       {/* Header */}
       <View
