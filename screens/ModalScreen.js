@@ -10,8 +10,6 @@ import firestore from "@react-native-firebase/firestore";
 import React, { useState, useEffect } from "react";
 import { useTailwind } from "tailwind-rn";
 import useAuth from "../hooks/useAuth";
-// import { db } from "../firebase";
-// import { serverTimestamp, setDoc } from "firebase/firebase-firestore";
 import { useNavigation } from "@react-navigation/native";
 
 const ModalScreen = () => {
@@ -152,6 +150,15 @@ const ModalScreen = () => {
       >
         <Text style={tailwind("text-center font-bold text-white text-xl")}>
           Update Profile
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={[tailwind("w-64 p-3 rounded-xl bg-red-400 mt-10")]}
+        onPress={() => navigation.navigate("Profile")}
+      >
+        <Text style={tailwind("text-center font-bold text-white text-xl")}>
+          Edit Profile
         </Text>
       </TouchableOpacity>
     </View>
