@@ -109,49 +109,14 @@ const ModalScreen = () => {
       </Text>
 
       <Text style={tailwind("text-center p-4 font-bold text-red-400 text-xl")}>
-        Step 1: The Profile picture
+        Minh Châu ui này là UI gì đó chào mừng nha, ngựa bà thêm gif vô chỗ này
+        hợp lý nè =)) mà đừng ngựa quá 30p 1 tiếng nha nhấn Edit mới navigate
+        tới trang edit, MC muốn nút hay gì gì cũng được, edit chưa có xong nên
+        MC đừng đụng Profile Screen nha để t làm cho còn trang này MC muốn xoá
+        hết làm lại cũng được, sáng mai dậy merge xong hú t 1 tiếng để làm tiếp
+        nhen, đừng đánh lẻ merge mà khum nói nhen :(( Vì độc lập của Trái đất,
+        để bảo vệ nền hoà bình nhân loại
       </Text>
-      <TextInput
-        value={image}
-        onChangeText={setImage}
-        style={tailwind("text-xl text-center text-xl pb-2")}
-        placeholder="Enter a Profile Picture URL"
-      />
-
-      <Text style={tailwind("text-center p-4 font-bold text-red-400 text-xl")}>
-        Step 2: What is your job?
-      </Text>
-      <TextInput
-        value={job}
-        onChangeText={setJob}
-        style={tailwind("text-center text-xl pb-2")}
-        placeholder="Enter your occupation"
-      />
-
-      <Text style={tailwind("text-center p-4 font-bold text-red-400 text-xl")}>
-        Step 3: The Age
-      </Text>
-      <TextInput
-        value={age}
-        onChangeText={setAge}
-        style={tailwind("text-center text-xl pb-2")}
-        placeholder="Enter your age"
-        keyboardType="numeric"
-        maxLength={2}
-      />
-
-      <TouchableOpacity
-        disabled={incompletedForm}
-        style={[
-          tailwind("w-64 p-3 rounded-xl bg-red-400 mt-10"),
-          incompletedForm ? tailwind("bg-gray-400") : tailwind("bg-red-400"),
-        ]}
-        onPress={updateUserProfile}
-      >
-        <Text style={tailwind("text-center font-bold text-white text-xl")}>
-          Update Profile
-        </Text>
-      </TouchableOpacity>
 
       <TouchableOpacity
         style={[tailwind("w-64 p-3 rounded-xl bg-red-400 mt-10")]}

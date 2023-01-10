@@ -476,7 +476,7 @@ const ProfileScreen = () => {
                 "w-full h-11 mt-2 mb-2 rounded-full border border-gray-300 pl-4 text-lg pt-2"
               )}
             >
-              {date.toJSON().slice(0, 10).split("-").reverse().join("/")}
+              {date?.toJSON().slice(0, 10).split("-").reverse().join("/")}
             </Text>
           </TouchableOpacity>
           <DateTimePickerModal
