@@ -276,61 +276,3370 @@
 			"borderTopWidth": 1
 		}
 	},
-	"border-gray-200": {
+	"border-gray-d9": {
 		"style": {
 			"--tw-border-opacity": 1,
-			"borderTopColor": "rgb(229 231 235 / var(--tw-border-opacity))",
-			"borderRightColor": "rgb(229 231 235 / var(--tw-border-opacity))",
-			"borderBottomColor": "rgb(229 231 235 / var(--tw-border-opacity))",
-			"borderLeftColor": "rgb(229 231 235 / var(--tw-border-opacity))"
+			"borderTopColor": "rgb(217 217 217 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(217 217 217 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(217 217 217 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(217 217 217 / var(--tw-border-opacity))"
 		}
 	},
-	"bg-slate-500": {
+	"border-purple-other": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(61 59 115 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(61 59 115 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(61 59 115 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(61 59 115 / var(--tw-border-opacity))"
+		}
+	},
+	"border-blue": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(29 161 242 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(29 161 242 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(29 161 242 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(29 161 242 / var(--tw-border-opacity))"
+		}
+	},
+	"border-green": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(112 215 166 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(112 215 166 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(112 215 166 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(112 215 166 / var(--tw-border-opacity))"
+		}
+	},
+	"border-yellow": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(251 188 5 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(251 188 5 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(251 188 5 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(251 188 5 / var(--tw-border-opacity))"
+		}
+	},
+	"border-orange": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(245 145 36 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(245 145 36 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(245 145 36 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(245 145 36 / var(--tw-border-opacity))"
+		}
+	},
+	"border-pink-primary": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(255 133 162 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(255 133 162 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(255 133 162 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(255 133 162 / var(--tw-border-opacity))"
+		}
+	},
+	"border-pink-region1": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(255 158 181 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(255 158 181 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(255 158 181 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(255 158 181 / var(--tw-border-opacity))"
+		}
+	},
+	"border-pink-region2": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(255 184 201 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(255 184 201 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(255 184 201 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(255 184 201 / var(--tw-border-opacity))"
+		}
+	},
+	"border-pink-region3": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(255 209 220 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(255 209 220 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(255 209 220 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(255 209 220 / var(--tw-border-opacity))"
+		}
+	},
+	"border-pink-region4": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(255 235 239 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(255 235 239 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(255 235 239 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(255 235 239 / var(--tw-border-opacity))"
+		}
+	},
+	"border-pink-dark": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(255 46 96 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(255 46 96 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(255 46 96 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(255 46 96 / var(--tw-border-opacity))"
+		}
+	},
+	"border-black-normal": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(9 16 29 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(9 16 29 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(9 16 29 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(9 16 29 / var(--tw-border-opacity))"
+		}
+	},
+	"border-black-light": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(97 97 97 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(97 97 97 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(97 97 97 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(97 97 97 / var(--tw-border-opacity))"
+		}
+	},
+	"border-red-something": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(153 0 36 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(153 0 36 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(153 0 36 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(153 0 36 / var(--tw-border-opacity))"
+		}
+	},
+	"border-red-important": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(218 37 29 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(218 37 29 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(218 37 29 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(218 37 29 / var(--tw-border-opacity))"
+		}
+	},
+	"border-gray-d9/0": {
+		"style": {
+			"borderTopColor": "rgb(217 217 217 / 0)",
+			"borderRightColor": "rgb(217 217 217 / 0)",
+			"borderBottomColor": "rgb(217 217 217 / 0)",
+			"borderLeftColor": "rgb(217 217 217 / 0)"
+		}
+	},
+	"border-gray-d9/5": {
+		"style": {
+			"borderTopColor": "rgb(217 217 217 / 0.05)",
+			"borderRightColor": "rgb(217 217 217 / 0.05)",
+			"borderBottomColor": "rgb(217 217 217 / 0.05)",
+			"borderLeftColor": "rgb(217 217 217 / 0.05)"
+		}
+	},
+	"border-gray-d9/10": {
+		"style": {
+			"borderTopColor": "rgb(217 217 217 / 0.1)",
+			"borderRightColor": "rgb(217 217 217 / 0.1)",
+			"borderBottomColor": "rgb(217 217 217 / 0.1)",
+			"borderLeftColor": "rgb(217 217 217 / 0.1)"
+		}
+	},
+	"border-gray-d9/20": {
+		"style": {
+			"borderTopColor": "rgb(217 217 217 / 0.2)",
+			"borderRightColor": "rgb(217 217 217 / 0.2)",
+			"borderBottomColor": "rgb(217 217 217 / 0.2)",
+			"borderLeftColor": "rgb(217 217 217 / 0.2)"
+		}
+	},
+	"border-gray-d9/25": {
+		"style": {
+			"borderTopColor": "rgb(217 217 217 / 0.25)",
+			"borderRightColor": "rgb(217 217 217 / 0.25)",
+			"borderBottomColor": "rgb(217 217 217 / 0.25)",
+			"borderLeftColor": "rgb(217 217 217 / 0.25)"
+		}
+	},
+	"border-gray-d9/30": {
+		"style": {
+			"borderTopColor": "rgb(217 217 217 / 0.3)",
+			"borderRightColor": "rgb(217 217 217 / 0.3)",
+			"borderBottomColor": "rgb(217 217 217 / 0.3)",
+			"borderLeftColor": "rgb(217 217 217 / 0.3)"
+		}
+	},
+	"border-gray-d9/40": {
+		"style": {
+			"borderTopColor": "rgb(217 217 217 / 0.4)",
+			"borderRightColor": "rgb(217 217 217 / 0.4)",
+			"borderBottomColor": "rgb(217 217 217 / 0.4)",
+			"borderLeftColor": "rgb(217 217 217 / 0.4)"
+		}
+	},
+	"border-gray-d9/50": {
+		"style": {
+			"borderTopColor": "rgb(217 217 217 / 0.5)",
+			"borderRightColor": "rgb(217 217 217 / 0.5)",
+			"borderBottomColor": "rgb(217 217 217 / 0.5)",
+			"borderLeftColor": "rgb(217 217 217 / 0.5)"
+		}
+	},
+	"border-gray-d9/60": {
+		"style": {
+			"borderTopColor": "rgb(217 217 217 / 0.6)",
+			"borderRightColor": "rgb(217 217 217 / 0.6)",
+			"borderBottomColor": "rgb(217 217 217 / 0.6)",
+			"borderLeftColor": "rgb(217 217 217 / 0.6)"
+		}
+	},
+	"border-gray-d9/70": {
+		"style": {
+			"borderTopColor": "rgb(217 217 217 / 0.7)",
+			"borderRightColor": "rgb(217 217 217 / 0.7)",
+			"borderBottomColor": "rgb(217 217 217 / 0.7)",
+			"borderLeftColor": "rgb(217 217 217 / 0.7)"
+		}
+	},
+	"border-gray-d9/75": {
+		"style": {
+			"borderTopColor": "rgb(217 217 217 / 0.75)",
+			"borderRightColor": "rgb(217 217 217 / 0.75)",
+			"borderBottomColor": "rgb(217 217 217 / 0.75)",
+			"borderLeftColor": "rgb(217 217 217 / 0.75)"
+		}
+	},
+	"border-gray-d9/80": {
+		"style": {
+			"borderTopColor": "rgb(217 217 217 / 0.8)",
+			"borderRightColor": "rgb(217 217 217 / 0.8)",
+			"borderBottomColor": "rgb(217 217 217 / 0.8)",
+			"borderLeftColor": "rgb(217 217 217 / 0.8)"
+		}
+	},
+	"border-gray-d9/90": {
+		"style": {
+			"borderTopColor": "rgb(217 217 217 / 0.9)",
+			"borderRightColor": "rgb(217 217 217 / 0.9)",
+			"borderBottomColor": "rgb(217 217 217 / 0.9)",
+			"borderLeftColor": "rgb(217 217 217 / 0.9)"
+		}
+	},
+	"border-gray-d9/95": {
+		"style": {
+			"borderTopColor": "rgb(217 217 217 / 0.95)",
+			"borderRightColor": "rgb(217 217 217 / 0.95)",
+			"borderBottomColor": "rgb(217 217 217 / 0.95)",
+			"borderLeftColor": "rgb(217 217 217 / 0.95)"
+		}
+	},
+	"border-gray-d9/100": {
+		"style": {
+			"borderTopColor": "rgb(217 217 217 / 1)",
+			"borderRightColor": "rgb(217 217 217 / 1)",
+			"borderBottomColor": "rgb(217 217 217 / 1)",
+			"borderLeftColor": "rgb(217 217 217 / 1)"
+		}
+	},
+	"border-purple-other/0": {
+		"style": {
+			"borderTopColor": "rgb(61 59 115 / 0)",
+			"borderRightColor": "rgb(61 59 115 / 0)",
+			"borderBottomColor": "rgb(61 59 115 / 0)",
+			"borderLeftColor": "rgb(61 59 115 / 0)"
+		}
+	},
+	"border-purple-other/5": {
+		"style": {
+			"borderTopColor": "rgb(61 59 115 / 0.05)",
+			"borderRightColor": "rgb(61 59 115 / 0.05)",
+			"borderBottomColor": "rgb(61 59 115 / 0.05)",
+			"borderLeftColor": "rgb(61 59 115 / 0.05)"
+		}
+	},
+	"border-purple-other/10": {
+		"style": {
+			"borderTopColor": "rgb(61 59 115 / 0.1)",
+			"borderRightColor": "rgb(61 59 115 / 0.1)",
+			"borderBottomColor": "rgb(61 59 115 / 0.1)",
+			"borderLeftColor": "rgb(61 59 115 / 0.1)"
+		}
+	},
+	"border-purple-other/20": {
+		"style": {
+			"borderTopColor": "rgb(61 59 115 / 0.2)",
+			"borderRightColor": "rgb(61 59 115 / 0.2)",
+			"borderBottomColor": "rgb(61 59 115 / 0.2)",
+			"borderLeftColor": "rgb(61 59 115 / 0.2)"
+		}
+	},
+	"border-purple-other/25": {
+		"style": {
+			"borderTopColor": "rgb(61 59 115 / 0.25)",
+			"borderRightColor": "rgb(61 59 115 / 0.25)",
+			"borderBottomColor": "rgb(61 59 115 / 0.25)",
+			"borderLeftColor": "rgb(61 59 115 / 0.25)"
+		}
+	},
+	"border-purple-other/30": {
+		"style": {
+			"borderTopColor": "rgb(61 59 115 / 0.3)",
+			"borderRightColor": "rgb(61 59 115 / 0.3)",
+			"borderBottomColor": "rgb(61 59 115 / 0.3)",
+			"borderLeftColor": "rgb(61 59 115 / 0.3)"
+		}
+	},
+	"border-purple-other/40": {
+		"style": {
+			"borderTopColor": "rgb(61 59 115 / 0.4)",
+			"borderRightColor": "rgb(61 59 115 / 0.4)",
+			"borderBottomColor": "rgb(61 59 115 / 0.4)",
+			"borderLeftColor": "rgb(61 59 115 / 0.4)"
+		}
+	},
+	"border-purple-other/50": {
+		"style": {
+			"borderTopColor": "rgb(61 59 115 / 0.5)",
+			"borderRightColor": "rgb(61 59 115 / 0.5)",
+			"borderBottomColor": "rgb(61 59 115 / 0.5)",
+			"borderLeftColor": "rgb(61 59 115 / 0.5)"
+		}
+	},
+	"border-purple-other/60": {
+		"style": {
+			"borderTopColor": "rgb(61 59 115 / 0.6)",
+			"borderRightColor": "rgb(61 59 115 / 0.6)",
+			"borderBottomColor": "rgb(61 59 115 / 0.6)",
+			"borderLeftColor": "rgb(61 59 115 / 0.6)"
+		}
+	},
+	"border-purple-other/70": {
+		"style": {
+			"borderTopColor": "rgb(61 59 115 / 0.7)",
+			"borderRightColor": "rgb(61 59 115 / 0.7)",
+			"borderBottomColor": "rgb(61 59 115 / 0.7)",
+			"borderLeftColor": "rgb(61 59 115 / 0.7)"
+		}
+	},
+	"border-purple-other/75": {
+		"style": {
+			"borderTopColor": "rgb(61 59 115 / 0.75)",
+			"borderRightColor": "rgb(61 59 115 / 0.75)",
+			"borderBottomColor": "rgb(61 59 115 / 0.75)",
+			"borderLeftColor": "rgb(61 59 115 / 0.75)"
+		}
+	},
+	"border-purple-other/80": {
+		"style": {
+			"borderTopColor": "rgb(61 59 115 / 0.8)",
+			"borderRightColor": "rgb(61 59 115 / 0.8)",
+			"borderBottomColor": "rgb(61 59 115 / 0.8)",
+			"borderLeftColor": "rgb(61 59 115 / 0.8)"
+		}
+	},
+	"border-purple-other/90": {
+		"style": {
+			"borderTopColor": "rgb(61 59 115 / 0.9)",
+			"borderRightColor": "rgb(61 59 115 / 0.9)",
+			"borderBottomColor": "rgb(61 59 115 / 0.9)",
+			"borderLeftColor": "rgb(61 59 115 / 0.9)"
+		}
+	},
+	"border-purple-other/95": {
+		"style": {
+			"borderTopColor": "rgb(61 59 115 / 0.95)",
+			"borderRightColor": "rgb(61 59 115 / 0.95)",
+			"borderBottomColor": "rgb(61 59 115 / 0.95)",
+			"borderLeftColor": "rgb(61 59 115 / 0.95)"
+		}
+	},
+	"border-purple-other/100": {
+		"style": {
+			"borderTopColor": "rgb(61 59 115 / 1)",
+			"borderRightColor": "rgb(61 59 115 / 1)",
+			"borderBottomColor": "rgb(61 59 115 / 1)",
+			"borderLeftColor": "rgb(61 59 115 / 1)"
+		}
+	},
+	"border-blue/0": {
+		"style": {
+			"borderTopColor": "rgb(29 161 242 / 0)",
+			"borderRightColor": "rgb(29 161 242 / 0)",
+			"borderBottomColor": "rgb(29 161 242 / 0)",
+			"borderLeftColor": "rgb(29 161 242 / 0)"
+		}
+	},
+	"border-blue/5": {
+		"style": {
+			"borderTopColor": "rgb(29 161 242 / 0.05)",
+			"borderRightColor": "rgb(29 161 242 / 0.05)",
+			"borderBottomColor": "rgb(29 161 242 / 0.05)",
+			"borderLeftColor": "rgb(29 161 242 / 0.05)"
+		}
+	},
+	"border-blue/10": {
+		"style": {
+			"borderTopColor": "rgb(29 161 242 / 0.1)",
+			"borderRightColor": "rgb(29 161 242 / 0.1)",
+			"borderBottomColor": "rgb(29 161 242 / 0.1)",
+			"borderLeftColor": "rgb(29 161 242 / 0.1)"
+		}
+	},
+	"border-blue/20": {
+		"style": {
+			"borderTopColor": "rgb(29 161 242 / 0.2)",
+			"borderRightColor": "rgb(29 161 242 / 0.2)",
+			"borderBottomColor": "rgb(29 161 242 / 0.2)",
+			"borderLeftColor": "rgb(29 161 242 / 0.2)"
+		}
+	},
+	"border-blue/25": {
+		"style": {
+			"borderTopColor": "rgb(29 161 242 / 0.25)",
+			"borderRightColor": "rgb(29 161 242 / 0.25)",
+			"borderBottomColor": "rgb(29 161 242 / 0.25)",
+			"borderLeftColor": "rgb(29 161 242 / 0.25)"
+		}
+	},
+	"border-blue/30": {
+		"style": {
+			"borderTopColor": "rgb(29 161 242 / 0.3)",
+			"borderRightColor": "rgb(29 161 242 / 0.3)",
+			"borderBottomColor": "rgb(29 161 242 / 0.3)",
+			"borderLeftColor": "rgb(29 161 242 / 0.3)"
+		}
+	},
+	"border-blue/40": {
+		"style": {
+			"borderTopColor": "rgb(29 161 242 / 0.4)",
+			"borderRightColor": "rgb(29 161 242 / 0.4)",
+			"borderBottomColor": "rgb(29 161 242 / 0.4)",
+			"borderLeftColor": "rgb(29 161 242 / 0.4)"
+		}
+	},
+	"border-blue/50": {
+		"style": {
+			"borderTopColor": "rgb(29 161 242 / 0.5)",
+			"borderRightColor": "rgb(29 161 242 / 0.5)",
+			"borderBottomColor": "rgb(29 161 242 / 0.5)",
+			"borderLeftColor": "rgb(29 161 242 / 0.5)"
+		}
+	},
+	"border-blue/60": {
+		"style": {
+			"borderTopColor": "rgb(29 161 242 / 0.6)",
+			"borderRightColor": "rgb(29 161 242 / 0.6)",
+			"borderBottomColor": "rgb(29 161 242 / 0.6)",
+			"borderLeftColor": "rgb(29 161 242 / 0.6)"
+		}
+	},
+	"border-blue/70": {
+		"style": {
+			"borderTopColor": "rgb(29 161 242 / 0.7)",
+			"borderRightColor": "rgb(29 161 242 / 0.7)",
+			"borderBottomColor": "rgb(29 161 242 / 0.7)",
+			"borderLeftColor": "rgb(29 161 242 / 0.7)"
+		}
+	},
+	"border-blue/75": {
+		"style": {
+			"borderTopColor": "rgb(29 161 242 / 0.75)",
+			"borderRightColor": "rgb(29 161 242 / 0.75)",
+			"borderBottomColor": "rgb(29 161 242 / 0.75)",
+			"borderLeftColor": "rgb(29 161 242 / 0.75)"
+		}
+	},
+	"border-blue/80": {
+		"style": {
+			"borderTopColor": "rgb(29 161 242 / 0.8)",
+			"borderRightColor": "rgb(29 161 242 / 0.8)",
+			"borderBottomColor": "rgb(29 161 242 / 0.8)",
+			"borderLeftColor": "rgb(29 161 242 / 0.8)"
+		}
+	},
+	"border-blue/90": {
+		"style": {
+			"borderTopColor": "rgb(29 161 242 / 0.9)",
+			"borderRightColor": "rgb(29 161 242 / 0.9)",
+			"borderBottomColor": "rgb(29 161 242 / 0.9)",
+			"borderLeftColor": "rgb(29 161 242 / 0.9)"
+		}
+	},
+	"border-blue/95": {
+		"style": {
+			"borderTopColor": "rgb(29 161 242 / 0.95)",
+			"borderRightColor": "rgb(29 161 242 / 0.95)",
+			"borderBottomColor": "rgb(29 161 242 / 0.95)",
+			"borderLeftColor": "rgb(29 161 242 / 0.95)"
+		}
+	},
+	"border-blue/100": {
+		"style": {
+			"borderTopColor": "rgb(29 161 242 / 1)",
+			"borderRightColor": "rgb(29 161 242 / 1)",
+			"borderBottomColor": "rgb(29 161 242 / 1)",
+			"borderLeftColor": "rgb(29 161 242 / 1)"
+		}
+	},
+	"border-green/0": {
+		"style": {
+			"borderTopColor": "rgb(112 215 166 / 0)",
+			"borderRightColor": "rgb(112 215 166 / 0)",
+			"borderBottomColor": "rgb(112 215 166 / 0)",
+			"borderLeftColor": "rgb(112 215 166 / 0)"
+		}
+	},
+	"border-green/5": {
+		"style": {
+			"borderTopColor": "rgb(112 215 166 / 0.05)",
+			"borderRightColor": "rgb(112 215 166 / 0.05)",
+			"borderBottomColor": "rgb(112 215 166 / 0.05)",
+			"borderLeftColor": "rgb(112 215 166 / 0.05)"
+		}
+	},
+	"border-green/10": {
+		"style": {
+			"borderTopColor": "rgb(112 215 166 / 0.1)",
+			"borderRightColor": "rgb(112 215 166 / 0.1)",
+			"borderBottomColor": "rgb(112 215 166 / 0.1)",
+			"borderLeftColor": "rgb(112 215 166 / 0.1)"
+		}
+	},
+	"border-green/20": {
+		"style": {
+			"borderTopColor": "rgb(112 215 166 / 0.2)",
+			"borderRightColor": "rgb(112 215 166 / 0.2)",
+			"borderBottomColor": "rgb(112 215 166 / 0.2)",
+			"borderLeftColor": "rgb(112 215 166 / 0.2)"
+		}
+	},
+	"border-green/25": {
+		"style": {
+			"borderTopColor": "rgb(112 215 166 / 0.25)",
+			"borderRightColor": "rgb(112 215 166 / 0.25)",
+			"borderBottomColor": "rgb(112 215 166 / 0.25)",
+			"borderLeftColor": "rgb(112 215 166 / 0.25)"
+		}
+	},
+	"border-green/30": {
+		"style": {
+			"borderTopColor": "rgb(112 215 166 / 0.3)",
+			"borderRightColor": "rgb(112 215 166 / 0.3)",
+			"borderBottomColor": "rgb(112 215 166 / 0.3)",
+			"borderLeftColor": "rgb(112 215 166 / 0.3)"
+		}
+	},
+	"border-green/40": {
+		"style": {
+			"borderTopColor": "rgb(112 215 166 / 0.4)",
+			"borderRightColor": "rgb(112 215 166 / 0.4)",
+			"borderBottomColor": "rgb(112 215 166 / 0.4)",
+			"borderLeftColor": "rgb(112 215 166 / 0.4)"
+		}
+	},
+	"border-green/50": {
+		"style": {
+			"borderTopColor": "rgb(112 215 166 / 0.5)",
+			"borderRightColor": "rgb(112 215 166 / 0.5)",
+			"borderBottomColor": "rgb(112 215 166 / 0.5)",
+			"borderLeftColor": "rgb(112 215 166 / 0.5)"
+		}
+	},
+	"border-green/60": {
+		"style": {
+			"borderTopColor": "rgb(112 215 166 / 0.6)",
+			"borderRightColor": "rgb(112 215 166 / 0.6)",
+			"borderBottomColor": "rgb(112 215 166 / 0.6)",
+			"borderLeftColor": "rgb(112 215 166 / 0.6)"
+		}
+	},
+	"border-green/70": {
+		"style": {
+			"borderTopColor": "rgb(112 215 166 / 0.7)",
+			"borderRightColor": "rgb(112 215 166 / 0.7)",
+			"borderBottomColor": "rgb(112 215 166 / 0.7)",
+			"borderLeftColor": "rgb(112 215 166 / 0.7)"
+		}
+	},
+	"border-green/75": {
+		"style": {
+			"borderTopColor": "rgb(112 215 166 / 0.75)",
+			"borderRightColor": "rgb(112 215 166 / 0.75)",
+			"borderBottomColor": "rgb(112 215 166 / 0.75)",
+			"borderLeftColor": "rgb(112 215 166 / 0.75)"
+		}
+	},
+	"border-green/80": {
+		"style": {
+			"borderTopColor": "rgb(112 215 166 / 0.8)",
+			"borderRightColor": "rgb(112 215 166 / 0.8)",
+			"borderBottomColor": "rgb(112 215 166 / 0.8)",
+			"borderLeftColor": "rgb(112 215 166 / 0.8)"
+		}
+	},
+	"border-green/90": {
+		"style": {
+			"borderTopColor": "rgb(112 215 166 / 0.9)",
+			"borderRightColor": "rgb(112 215 166 / 0.9)",
+			"borderBottomColor": "rgb(112 215 166 / 0.9)",
+			"borderLeftColor": "rgb(112 215 166 / 0.9)"
+		}
+	},
+	"border-green/95": {
+		"style": {
+			"borderTopColor": "rgb(112 215 166 / 0.95)",
+			"borderRightColor": "rgb(112 215 166 / 0.95)",
+			"borderBottomColor": "rgb(112 215 166 / 0.95)",
+			"borderLeftColor": "rgb(112 215 166 / 0.95)"
+		}
+	},
+	"border-green/100": {
+		"style": {
+			"borderTopColor": "rgb(112 215 166 / 1)",
+			"borderRightColor": "rgb(112 215 166 / 1)",
+			"borderBottomColor": "rgb(112 215 166 / 1)",
+			"borderLeftColor": "rgb(112 215 166 / 1)"
+		}
+	},
+	"border-yellow/0": {
+		"style": {
+			"borderTopColor": "rgb(251 188 5 / 0)",
+			"borderRightColor": "rgb(251 188 5 / 0)",
+			"borderBottomColor": "rgb(251 188 5 / 0)",
+			"borderLeftColor": "rgb(251 188 5 / 0)"
+		}
+	},
+	"border-yellow/5": {
+		"style": {
+			"borderTopColor": "rgb(251 188 5 / 0.05)",
+			"borderRightColor": "rgb(251 188 5 / 0.05)",
+			"borderBottomColor": "rgb(251 188 5 / 0.05)",
+			"borderLeftColor": "rgb(251 188 5 / 0.05)"
+		}
+	},
+	"border-yellow/10": {
+		"style": {
+			"borderTopColor": "rgb(251 188 5 / 0.1)",
+			"borderRightColor": "rgb(251 188 5 / 0.1)",
+			"borderBottomColor": "rgb(251 188 5 / 0.1)",
+			"borderLeftColor": "rgb(251 188 5 / 0.1)"
+		}
+	},
+	"border-yellow/20": {
+		"style": {
+			"borderTopColor": "rgb(251 188 5 / 0.2)",
+			"borderRightColor": "rgb(251 188 5 / 0.2)",
+			"borderBottomColor": "rgb(251 188 5 / 0.2)",
+			"borderLeftColor": "rgb(251 188 5 / 0.2)"
+		}
+	},
+	"border-yellow/25": {
+		"style": {
+			"borderTopColor": "rgb(251 188 5 / 0.25)",
+			"borderRightColor": "rgb(251 188 5 / 0.25)",
+			"borderBottomColor": "rgb(251 188 5 / 0.25)",
+			"borderLeftColor": "rgb(251 188 5 / 0.25)"
+		}
+	},
+	"border-yellow/30": {
+		"style": {
+			"borderTopColor": "rgb(251 188 5 / 0.3)",
+			"borderRightColor": "rgb(251 188 5 / 0.3)",
+			"borderBottomColor": "rgb(251 188 5 / 0.3)",
+			"borderLeftColor": "rgb(251 188 5 / 0.3)"
+		}
+	},
+	"border-yellow/40": {
+		"style": {
+			"borderTopColor": "rgb(251 188 5 / 0.4)",
+			"borderRightColor": "rgb(251 188 5 / 0.4)",
+			"borderBottomColor": "rgb(251 188 5 / 0.4)",
+			"borderLeftColor": "rgb(251 188 5 / 0.4)"
+		}
+	},
+	"border-yellow/50": {
+		"style": {
+			"borderTopColor": "rgb(251 188 5 / 0.5)",
+			"borderRightColor": "rgb(251 188 5 / 0.5)",
+			"borderBottomColor": "rgb(251 188 5 / 0.5)",
+			"borderLeftColor": "rgb(251 188 5 / 0.5)"
+		}
+	},
+	"border-yellow/60": {
+		"style": {
+			"borderTopColor": "rgb(251 188 5 / 0.6)",
+			"borderRightColor": "rgb(251 188 5 / 0.6)",
+			"borderBottomColor": "rgb(251 188 5 / 0.6)",
+			"borderLeftColor": "rgb(251 188 5 / 0.6)"
+		}
+	},
+	"border-yellow/70": {
+		"style": {
+			"borderTopColor": "rgb(251 188 5 / 0.7)",
+			"borderRightColor": "rgb(251 188 5 / 0.7)",
+			"borderBottomColor": "rgb(251 188 5 / 0.7)",
+			"borderLeftColor": "rgb(251 188 5 / 0.7)"
+		}
+	},
+	"border-yellow/75": {
+		"style": {
+			"borderTopColor": "rgb(251 188 5 / 0.75)",
+			"borderRightColor": "rgb(251 188 5 / 0.75)",
+			"borderBottomColor": "rgb(251 188 5 / 0.75)",
+			"borderLeftColor": "rgb(251 188 5 / 0.75)"
+		}
+	},
+	"border-yellow/80": {
+		"style": {
+			"borderTopColor": "rgb(251 188 5 / 0.8)",
+			"borderRightColor": "rgb(251 188 5 / 0.8)",
+			"borderBottomColor": "rgb(251 188 5 / 0.8)",
+			"borderLeftColor": "rgb(251 188 5 / 0.8)"
+		}
+	},
+	"border-yellow/90": {
+		"style": {
+			"borderTopColor": "rgb(251 188 5 / 0.9)",
+			"borderRightColor": "rgb(251 188 5 / 0.9)",
+			"borderBottomColor": "rgb(251 188 5 / 0.9)",
+			"borderLeftColor": "rgb(251 188 5 / 0.9)"
+		}
+	},
+	"border-yellow/95": {
+		"style": {
+			"borderTopColor": "rgb(251 188 5 / 0.95)",
+			"borderRightColor": "rgb(251 188 5 / 0.95)",
+			"borderBottomColor": "rgb(251 188 5 / 0.95)",
+			"borderLeftColor": "rgb(251 188 5 / 0.95)"
+		}
+	},
+	"border-yellow/100": {
+		"style": {
+			"borderTopColor": "rgb(251 188 5 / 1)",
+			"borderRightColor": "rgb(251 188 5 / 1)",
+			"borderBottomColor": "rgb(251 188 5 / 1)",
+			"borderLeftColor": "rgb(251 188 5 / 1)"
+		}
+	},
+	"border-orange/0": {
+		"style": {
+			"borderTopColor": "rgb(245 145 36 / 0)",
+			"borderRightColor": "rgb(245 145 36 / 0)",
+			"borderBottomColor": "rgb(245 145 36 / 0)",
+			"borderLeftColor": "rgb(245 145 36 / 0)"
+		}
+	},
+	"border-orange/5": {
+		"style": {
+			"borderTopColor": "rgb(245 145 36 / 0.05)",
+			"borderRightColor": "rgb(245 145 36 / 0.05)",
+			"borderBottomColor": "rgb(245 145 36 / 0.05)",
+			"borderLeftColor": "rgb(245 145 36 / 0.05)"
+		}
+	},
+	"border-orange/10": {
+		"style": {
+			"borderTopColor": "rgb(245 145 36 / 0.1)",
+			"borderRightColor": "rgb(245 145 36 / 0.1)",
+			"borderBottomColor": "rgb(245 145 36 / 0.1)",
+			"borderLeftColor": "rgb(245 145 36 / 0.1)"
+		}
+	},
+	"border-orange/20": {
+		"style": {
+			"borderTopColor": "rgb(245 145 36 / 0.2)",
+			"borderRightColor": "rgb(245 145 36 / 0.2)",
+			"borderBottomColor": "rgb(245 145 36 / 0.2)",
+			"borderLeftColor": "rgb(245 145 36 / 0.2)"
+		}
+	},
+	"border-orange/25": {
+		"style": {
+			"borderTopColor": "rgb(245 145 36 / 0.25)",
+			"borderRightColor": "rgb(245 145 36 / 0.25)",
+			"borderBottomColor": "rgb(245 145 36 / 0.25)",
+			"borderLeftColor": "rgb(245 145 36 / 0.25)"
+		}
+	},
+	"border-orange/30": {
+		"style": {
+			"borderTopColor": "rgb(245 145 36 / 0.3)",
+			"borderRightColor": "rgb(245 145 36 / 0.3)",
+			"borderBottomColor": "rgb(245 145 36 / 0.3)",
+			"borderLeftColor": "rgb(245 145 36 / 0.3)"
+		}
+	},
+	"border-orange/40": {
+		"style": {
+			"borderTopColor": "rgb(245 145 36 / 0.4)",
+			"borderRightColor": "rgb(245 145 36 / 0.4)",
+			"borderBottomColor": "rgb(245 145 36 / 0.4)",
+			"borderLeftColor": "rgb(245 145 36 / 0.4)"
+		}
+	},
+	"border-orange/50": {
+		"style": {
+			"borderTopColor": "rgb(245 145 36 / 0.5)",
+			"borderRightColor": "rgb(245 145 36 / 0.5)",
+			"borderBottomColor": "rgb(245 145 36 / 0.5)",
+			"borderLeftColor": "rgb(245 145 36 / 0.5)"
+		}
+	},
+	"border-orange/60": {
+		"style": {
+			"borderTopColor": "rgb(245 145 36 / 0.6)",
+			"borderRightColor": "rgb(245 145 36 / 0.6)",
+			"borderBottomColor": "rgb(245 145 36 / 0.6)",
+			"borderLeftColor": "rgb(245 145 36 / 0.6)"
+		}
+	},
+	"border-orange/70": {
+		"style": {
+			"borderTopColor": "rgb(245 145 36 / 0.7)",
+			"borderRightColor": "rgb(245 145 36 / 0.7)",
+			"borderBottomColor": "rgb(245 145 36 / 0.7)",
+			"borderLeftColor": "rgb(245 145 36 / 0.7)"
+		}
+	},
+	"border-orange/75": {
+		"style": {
+			"borderTopColor": "rgb(245 145 36 / 0.75)",
+			"borderRightColor": "rgb(245 145 36 / 0.75)",
+			"borderBottomColor": "rgb(245 145 36 / 0.75)",
+			"borderLeftColor": "rgb(245 145 36 / 0.75)"
+		}
+	},
+	"border-orange/80": {
+		"style": {
+			"borderTopColor": "rgb(245 145 36 / 0.8)",
+			"borderRightColor": "rgb(245 145 36 / 0.8)",
+			"borderBottomColor": "rgb(245 145 36 / 0.8)",
+			"borderLeftColor": "rgb(245 145 36 / 0.8)"
+		}
+	},
+	"border-orange/90": {
+		"style": {
+			"borderTopColor": "rgb(245 145 36 / 0.9)",
+			"borderRightColor": "rgb(245 145 36 / 0.9)",
+			"borderBottomColor": "rgb(245 145 36 / 0.9)",
+			"borderLeftColor": "rgb(245 145 36 / 0.9)"
+		}
+	},
+	"border-orange/95": {
+		"style": {
+			"borderTopColor": "rgb(245 145 36 / 0.95)",
+			"borderRightColor": "rgb(245 145 36 / 0.95)",
+			"borderBottomColor": "rgb(245 145 36 / 0.95)",
+			"borderLeftColor": "rgb(245 145 36 / 0.95)"
+		}
+	},
+	"border-orange/100": {
+		"style": {
+			"borderTopColor": "rgb(245 145 36 / 1)",
+			"borderRightColor": "rgb(245 145 36 / 1)",
+			"borderBottomColor": "rgb(245 145 36 / 1)",
+			"borderLeftColor": "rgb(245 145 36 / 1)"
+		}
+	},
+	"border-pink-primary/0": {
+		"style": {
+			"borderTopColor": "rgb(255 133 162 / 0)",
+			"borderRightColor": "rgb(255 133 162 / 0)",
+			"borderBottomColor": "rgb(255 133 162 / 0)",
+			"borderLeftColor": "rgb(255 133 162 / 0)"
+		}
+	},
+	"border-pink-primary/5": {
+		"style": {
+			"borderTopColor": "rgb(255 133 162 / 0.05)",
+			"borderRightColor": "rgb(255 133 162 / 0.05)",
+			"borderBottomColor": "rgb(255 133 162 / 0.05)",
+			"borderLeftColor": "rgb(255 133 162 / 0.05)"
+		}
+	},
+	"border-pink-primary/10": {
+		"style": {
+			"borderTopColor": "rgb(255 133 162 / 0.1)",
+			"borderRightColor": "rgb(255 133 162 / 0.1)",
+			"borderBottomColor": "rgb(255 133 162 / 0.1)",
+			"borderLeftColor": "rgb(255 133 162 / 0.1)"
+		}
+	},
+	"border-pink-primary/20": {
+		"style": {
+			"borderTopColor": "rgb(255 133 162 / 0.2)",
+			"borderRightColor": "rgb(255 133 162 / 0.2)",
+			"borderBottomColor": "rgb(255 133 162 / 0.2)",
+			"borderLeftColor": "rgb(255 133 162 / 0.2)"
+		}
+	},
+	"border-pink-primary/25": {
+		"style": {
+			"borderTopColor": "rgb(255 133 162 / 0.25)",
+			"borderRightColor": "rgb(255 133 162 / 0.25)",
+			"borderBottomColor": "rgb(255 133 162 / 0.25)",
+			"borderLeftColor": "rgb(255 133 162 / 0.25)"
+		}
+	},
+	"border-pink-primary/30": {
+		"style": {
+			"borderTopColor": "rgb(255 133 162 / 0.3)",
+			"borderRightColor": "rgb(255 133 162 / 0.3)",
+			"borderBottomColor": "rgb(255 133 162 / 0.3)",
+			"borderLeftColor": "rgb(255 133 162 / 0.3)"
+		}
+	},
+	"border-pink-primary/40": {
+		"style": {
+			"borderTopColor": "rgb(255 133 162 / 0.4)",
+			"borderRightColor": "rgb(255 133 162 / 0.4)",
+			"borderBottomColor": "rgb(255 133 162 / 0.4)",
+			"borderLeftColor": "rgb(255 133 162 / 0.4)"
+		}
+	},
+	"border-pink-primary/50": {
+		"style": {
+			"borderTopColor": "rgb(255 133 162 / 0.5)",
+			"borderRightColor": "rgb(255 133 162 / 0.5)",
+			"borderBottomColor": "rgb(255 133 162 / 0.5)",
+			"borderLeftColor": "rgb(255 133 162 / 0.5)"
+		}
+	},
+	"border-pink-primary/60": {
+		"style": {
+			"borderTopColor": "rgb(255 133 162 / 0.6)",
+			"borderRightColor": "rgb(255 133 162 / 0.6)",
+			"borderBottomColor": "rgb(255 133 162 / 0.6)",
+			"borderLeftColor": "rgb(255 133 162 / 0.6)"
+		}
+	},
+	"border-pink-primary/70": {
+		"style": {
+			"borderTopColor": "rgb(255 133 162 / 0.7)",
+			"borderRightColor": "rgb(255 133 162 / 0.7)",
+			"borderBottomColor": "rgb(255 133 162 / 0.7)",
+			"borderLeftColor": "rgb(255 133 162 / 0.7)"
+		}
+	},
+	"border-pink-primary/75": {
+		"style": {
+			"borderTopColor": "rgb(255 133 162 / 0.75)",
+			"borderRightColor": "rgb(255 133 162 / 0.75)",
+			"borderBottomColor": "rgb(255 133 162 / 0.75)",
+			"borderLeftColor": "rgb(255 133 162 / 0.75)"
+		}
+	},
+	"border-pink-primary/80": {
+		"style": {
+			"borderTopColor": "rgb(255 133 162 / 0.8)",
+			"borderRightColor": "rgb(255 133 162 / 0.8)",
+			"borderBottomColor": "rgb(255 133 162 / 0.8)",
+			"borderLeftColor": "rgb(255 133 162 / 0.8)"
+		}
+	},
+	"border-pink-primary/90": {
+		"style": {
+			"borderTopColor": "rgb(255 133 162 / 0.9)",
+			"borderRightColor": "rgb(255 133 162 / 0.9)",
+			"borderBottomColor": "rgb(255 133 162 / 0.9)",
+			"borderLeftColor": "rgb(255 133 162 / 0.9)"
+		}
+	},
+	"border-pink-primary/95": {
+		"style": {
+			"borderTopColor": "rgb(255 133 162 / 0.95)",
+			"borderRightColor": "rgb(255 133 162 / 0.95)",
+			"borderBottomColor": "rgb(255 133 162 / 0.95)",
+			"borderLeftColor": "rgb(255 133 162 / 0.95)"
+		}
+	},
+	"border-pink-primary/100": {
+		"style": {
+			"borderTopColor": "rgb(255 133 162 / 1)",
+			"borderRightColor": "rgb(255 133 162 / 1)",
+			"borderBottomColor": "rgb(255 133 162 / 1)",
+			"borderLeftColor": "rgb(255 133 162 / 1)"
+		}
+	},
+	"border-pink-region1/0": {
+		"style": {
+			"borderTopColor": "rgb(255 158 181 / 0)",
+			"borderRightColor": "rgb(255 158 181 / 0)",
+			"borderBottomColor": "rgb(255 158 181 / 0)",
+			"borderLeftColor": "rgb(255 158 181 / 0)"
+		}
+	},
+	"border-pink-region1/5": {
+		"style": {
+			"borderTopColor": "rgb(255 158 181 / 0.05)",
+			"borderRightColor": "rgb(255 158 181 / 0.05)",
+			"borderBottomColor": "rgb(255 158 181 / 0.05)",
+			"borderLeftColor": "rgb(255 158 181 / 0.05)"
+		}
+	},
+	"border-pink-region1/10": {
+		"style": {
+			"borderTopColor": "rgb(255 158 181 / 0.1)",
+			"borderRightColor": "rgb(255 158 181 / 0.1)",
+			"borderBottomColor": "rgb(255 158 181 / 0.1)",
+			"borderLeftColor": "rgb(255 158 181 / 0.1)"
+		}
+	},
+	"border-pink-region1/20": {
+		"style": {
+			"borderTopColor": "rgb(255 158 181 / 0.2)",
+			"borderRightColor": "rgb(255 158 181 / 0.2)",
+			"borderBottomColor": "rgb(255 158 181 / 0.2)",
+			"borderLeftColor": "rgb(255 158 181 / 0.2)"
+		}
+	},
+	"border-pink-region1/25": {
+		"style": {
+			"borderTopColor": "rgb(255 158 181 / 0.25)",
+			"borderRightColor": "rgb(255 158 181 / 0.25)",
+			"borderBottomColor": "rgb(255 158 181 / 0.25)",
+			"borderLeftColor": "rgb(255 158 181 / 0.25)"
+		}
+	},
+	"border-pink-region1/30": {
+		"style": {
+			"borderTopColor": "rgb(255 158 181 / 0.3)",
+			"borderRightColor": "rgb(255 158 181 / 0.3)",
+			"borderBottomColor": "rgb(255 158 181 / 0.3)",
+			"borderLeftColor": "rgb(255 158 181 / 0.3)"
+		}
+	},
+	"border-pink-region1/40": {
+		"style": {
+			"borderTopColor": "rgb(255 158 181 / 0.4)",
+			"borderRightColor": "rgb(255 158 181 / 0.4)",
+			"borderBottomColor": "rgb(255 158 181 / 0.4)",
+			"borderLeftColor": "rgb(255 158 181 / 0.4)"
+		}
+	},
+	"border-pink-region1/50": {
+		"style": {
+			"borderTopColor": "rgb(255 158 181 / 0.5)",
+			"borderRightColor": "rgb(255 158 181 / 0.5)",
+			"borderBottomColor": "rgb(255 158 181 / 0.5)",
+			"borderLeftColor": "rgb(255 158 181 / 0.5)"
+		}
+	},
+	"border-pink-region1/60": {
+		"style": {
+			"borderTopColor": "rgb(255 158 181 / 0.6)",
+			"borderRightColor": "rgb(255 158 181 / 0.6)",
+			"borderBottomColor": "rgb(255 158 181 / 0.6)",
+			"borderLeftColor": "rgb(255 158 181 / 0.6)"
+		}
+	},
+	"border-pink-region1/70": {
+		"style": {
+			"borderTopColor": "rgb(255 158 181 / 0.7)",
+			"borderRightColor": "rgb(255 158 181 / 0.7)",
+			"borderBottomColor": "rgb(255 158 181 / 0.7)",
+			"borderLeftColor": "rgb(255 158 181 / 0.7)"
+		}
+	},
+	"border-pink-region1/75": {
+		"style": {
+			"borderTopColor": "rgb(255 158 181 / 0.75)",
+			"borderRightColor": "rgb(255 158 181 / 0.75)",
+			"borderBottomColor": "rgb(255 158 181 / 0.75)",
+			"borderLeftColor": "rgb(255 158 181 / 0.75)"
+		}
+	},
+	"border-pink-region1/80": {
+		"style": {
+			"borderTopColor": "rgb(255 158 181 / 0.8)",
+			"borderRightColor": "rgb(255 158 181 / 0.8)",
+			"borderBottomColor": "rgb(255 158 181 / 0.8)",
+			"borderLeftColor": "rgb(255 158 181 / 0.8)"
+		}
+	},
+	"border-pink-region1/90": {
+		"style": {
+			"borderTopColor": "rgb(255 158 181 / 0.9)",
+			"borderRightColor": "rgb(255 158 181 / 0.9)",
+			"borderBottomColor": "rgb(255 158 181 / 0.9)",
+			"borderLeftColor": "rgb(255 158 181 / 0.9)"
+		}
+	},
+	"border-pink-region1/95": {
+		"style": {
+			"borderTopColor": "rgb(255 158 181 / 0.95)",
+			"borderRightColor": "rgb(255 158 181 / 0.95)",
+			"borderBottomColor": "rgb(255 158 181 / 0.95)",
+			"borderLeftColor": "rgb(255 158 181 / 0.95)"
+		}
+	},
+	"border-pink-region1/100": {
+		"style": {
+			"borderTopColor": "rgb(255 158 181 / 1)",
+			"borderRightColor": "rgb(255 158 181 / 1)",
+			"borderBottomColor": "rgb(255 158 181 / 1)",
+			"borderLeftColor": "rgb(255 158 181 / 1)"
+		}
+	},
+	"border-pink-region2/0": {
+		"style": {
+			"borderTopColor": "rgb(255 184 201 / 0)",
+			"borderRightColor": "rgb(255 184 201 / 0)",
+			"borderBottomColor": "rgb(255 184 201 / 0)",
+			"borderLeftColor": "rgb(255 184 201 / 0)"
+		}
+	},
+	"border-pink-region2/5": {
+		"style": {
+			"borderTopColor": "rgb(255 184 201 / 0.05)",
+			"borderRightColor": "rgb(255 184 201 / 0.05)",
+			"borderBottomColor": "rgb(255 184 201 / 0.05)",
+			"borderLeftColor": "rgb(255 184 201 / 0.05)"
+		}
+	},
+	"border-pink-region2/10": {
+		"style": {
+			"borderTopColor": "rgb(255 184 201 / 0.1)",
+			"borderRightColor": "rgb(255 184 201 / 0.1)",
+			"borderBottomColor": "rgb(255 184 201 / 0.1)",
+			"borderLeftColor": "rgb(255 184 201 / 0.1)"
+		}
+	},
+	"border-pink-region2/20": {
+		"style": {
+			"borderTopColor": "rgb(255 184 201 / 0.2)",
+			"borderRightColor": "rgb(255 184 201 / 0.2)",
+			"borderBottomColor": "rgb(255 184 201 / 0.2)",
+			"borderLeftColor": "rgb(255 184 201 / 0.2)"
+		}
+	},
+	"border-pink-region2/25": {
+		"style": {
+			"borderTopColor": "rgb(255 184 201 / 0.25)",
+			"borderRightColor": "rgb(255 184 201 / 0.25)",
+			"borderBottomColor": "rgb(255 184 201 / 0.25)",
+			"borderLeftColor": "rgb(255 184 201 / 0.25)"
+		}
+	},
+	"border-pink-region2/30": {
+		"style": {
+			"borderTopColor": "rgb(255 184 201 / 0.3)",
+			"borderRightColor": "rgb(255 184 201 / 0.3)",
+			"borderBottomColor": "rgb(255 184 201 / 0.3)",
+			"borderLeftColor": "rgb(255 184 201 / 0.3)"
+		}
+	},
+	"border-pink-region2/40": {
+		"style": {
+			"borderTopColor": "rgb(255 184 201 / 0.4)",
+			"borderRightColor": "rgb(255 184 201 / 0.4)",
+			"borderBottomColor": "rgb(255 184 201 / 0.4)",
+			"borderLeftColor": "rgb(255 184 201 / 0.4)"
+		}
+	},
+	"border-pink-region2/50": {
+		"style": {
+			"borderTopColor": "rgb(255 184 201 / 0.5)",
+			"borderRightColor": "rgb(255 184 201 / 0.5)",
+			"borderBottomColor": "rgb(255 184 201 / 0.5)",
+			"borderLeftColor": "rgb(255 184 201 / 0.5)"
+		}
+	},
+	"border-pink-region2/60": {
+		"style": {
+			"borderTopColor": "rgb(255 184 201 / 0.6)",
+			"borderRightColor": "rgb(255 184 201 / 0.6)",
+			"borderBottomColor": "rgb(255 184 201 / 0.6)",
+			"borderLeftColor": "rgb(255 184 201 / 0.6)"
+		}
+	},
+	"border-pink-region2/70": {
+		"style": {
+			"borderTopColor": "rgb(255 184 201 / 0.7)",
+			"borderRightColor": "rgb(255 184 201 / 0.7)",
+			"borderBottomColor": "rgb(255 184 201 / 0.7)",
+			"borderLeftColor": "rgb(255 184 201 / 0.7)"
+		}
+	},
+	"border-pink-region2/75": {
+		"style": {
+			"borderTopColor": "rgb(255 184 201 / 0.75)",
+			"borderRightColor": "rgb(255 184 201 / 0.75)",
+			"borderBottomColor": "rgb(255 184 201 / 0.75)",
+			"borderLeftColor": "rgb(255 184 201 / 0.75)"
+		}
+	},
+	"border-pink-region2/80": {
+		"style": {
+			"borderTopColor": "rgb(255 184 201 / 0.8)",
+			"borderRightColor": "rgb(255 184 201 / 0.8)",
+			"borderBottomColor": "rgb(255 184 201 / 0.8)",
+			"borderLeftColor": "rgb(255 184 201 / 0.8)"
+		}
+	},
+	"border-pink-region2/90": {
+		"style": {
+			"borderTopColor": "rgb(255 184 201 / 0.9)",
+			"borderRightColor": "rgb(255 184 201 / 0.9)",
+			"borderBottomColor": "rgb(255 184 201 / 0.9)",
+			"borderLeftColor": "rgb(255 184 201 / 0.9)"
+		}
+	},
+	"border-pink-region2/95": {
+		"style": {
+			"borderTopColor": "rgb(255 184 201 / 0.95)",
+			"borderRightColor": "rgb(255 184 201 / 0.95)",
+			"borderBottomColor": "rgb(255 184 201 / 0.95)",
+			"borderLeftColor": "rgb(255 184 201 / 0.95)"
+		}
+	},
+	"border-pink-region2/100": {
+		"style": {
+			"borderTopColor": "rgb(255 184 201 / 1)",
+			"borderRightColor": "rgb(255 184 201 / 1)",
+			"borderBottomColor": "rgb(255 184 201 / 1)",
+			"borderLeftColor": "rgb(255 184 201 / 1)"
+		}
+	},
+	"border-pink-region3/0": {
+		"style": {
+			"borderTopColor": "rgb(255 209 220 / 0)",
+			"borderRightColor": "rgb(255 209 220 / 0)",
+			"borderBottomColor": "rgb(255 209 220 / 0)",
+			"borderLeftColor": "rgb(255 209 220 / 0)"
+		}
+	},
+	"border-pink-region3/5": {
+		"style": {
+			"borderTopColor": "rgb(255 209 220 / 0.05)",
+			"borderRightColor": "rgb(255 209 220 / 0.05)",
+			"borderBottomColor": "rgb(255 209 220 / 0.05)",
+			"borderLeftColor": "rgb(255 209 220 / 0.05)"
+		}
+	},
+	"border-pink-region3/10": {
+		"style": {
+			"borderTopColor": "rgb(255 209 220 / 0.1)",
+			"borderRightColor": "rgb(255 209 220 / 0.1)",
+			"borderBottomColor": "rgb(255 209 220 / 0.1)",
+			"borderLeftColor": "rgb(255 209 220 / 0.1)"
+		}
+	},
+	"border-pink-region3/20": {
+		"style": {
+			"borderTopColor": "rgb(255 209 220 / 0.2)",
+			"borderRightColor": "rgb(255 209 220 / 0.2)",
+			"borderBottomColor": "rgb(255 209 220 / 0.2)",
+			"borderLeftColor": "rgb(255 209 220 / 0.2)"
+		}
+	},
+	"border-pink-region3/25": {
+		"style": {
+			"borderTopColor": "rgb(255 209 220 / 0.25)",
+			"borderRightColor": "rgb(255 209 220 / 0.25)",
+			"borderBottomColor": "rgb(255 209 220 / 0.25)",
+			"borderLeftColor": "rgb(255 209 220 / 0.25)"
+		}
+	},
+	"border-pink-region3/30": {
+		"style": {
+			"borderTopColor": "rgb(255 209 220 / 0.3)",
+			"borderRightColor": "rgb(255 209 220 / 0.3)",
+			"borderBottomColor": "rgb(255 209 220 / 0.3)",
+			"borderLeftColor": "rgb(255 209 220 / 0.3)"
+		}
+	},
+	"border-pink-region3/40": {
+		"style": {
+			"borderTopColor": "rgb(255 209 220 / 0.4)",
+			"borderRightColor": "rgb(255 209 220 / 0.4)",
+			"borderBottomColor": "rgb(255 209 220 / 0.4)",
+			"borderLeftColor": "rgb(255 209 220 / 0.4)"
+		}
+	},
+	"border-pink-region3/50": {
+		"style": {
+			"borderTopColor": "rgb(255 209 220 / 0.5)",
+			"borderRightColor": "rgb(255 209 220 / 0.5)",
+			"borderBottomColor": "rgb(255 209 220 / 0.5)",
+			"borderLeftColor": "rgb(255 209 220 / 0.5)"
+		}
+	},
+	"border-pink-region3/60": {
+		"style": {
+			"borderTopColor": "rgb(255 209 220 / 0.6)",
+			"borderRightColor": "rgb(255 209 220 / 0.6)",
+			"borderBottomColor": "rgb(255 209 220 / 0.6)",
+			"borderLeftColor": "rgb(255 209 220 / 0.6)"
+		}
+	},
+	"border-pink-region3/70": {
+		"style": {
+			"borderTopColor": "rgb(255 209 220 / 0.7)",
+			"borderRightColor": "rgb(255 209 220 / 0.7)",
+			"borderBottomColor": "rgb(255 209 220 / 0.7)",
+			"borderLeftColor": "rgb(255 209 220 / 0.7)"
+		}
+	},
+	"border-pink-region3/75": {
+		"style": {
+			"borderTopColor": "rgb(255 209 220 / 0.75)",
+			"borderRightColor": "rgb(255 209 220 / 0.75)",
+			"borderBottomColor": "rgb(255 209 220 / 0.75)",
+			"borderLeftColor": "rgb(255 209 220 / 0.75)"
+		}
+	},
+	"border-pink-region3/80": {
+		"style": {
+			"borderTopColor": "rgb(255 209 220 / 0.8)",
+			"borderRightColor": "rgb(255 209 220 / 0.8)",
+			"borderBottomColor": "rgb(255 209 220 / 0.8)",
+			"borderLeftColor": "rgb(255 209 220 / 0.8)"
+		}
+	},
+	"border-pink-region3/90": {
+		"style": {
+			"borderTopColor": "rgb(255 209 220 / 0.9)",
+			"borderRightColor": "rgb(255 209 220 / 0.9)",
+			"borderBottomColor": "rgb(255 209 220 / 0.9)",
+			"borderLeftColor": "rgb(255 209 220 / 0.9)"
+		}
+	},
+	"border-pink-region3/95": {
+		"style": {
+			"borderTopColor": "rgb(255 209 220 / 0.95)",
+			"borderRightColor": "rgb(255 209 220 / 0.95)",
+			"borderBottomColor": "rgb(255 209 220 / 0.95)",
+			"borderLeftColor": "rgb(255 209 220 / 0.95)"
+		}
+	},
+	"border-pink-region3/100": {
+		"style": {
+			"borderTopColor": "rgb(255 209 220 / 1)",
+			"borderRightColor": "rgb(255 209 220 / 1)",
+			"borderBottomColor": "rgb(255 209 220 / 1)",
+			"borderLeftColor": "rgb(255 209 220 / 1)"
+		}
+	},
+	"border-pink-region4/0": {
+		"style": {
+			"borderTopColor": "rgb(255 235 239 / 0)",
+			"borderRightColor": "rgb(255 235 239 / 0)",
+			"borderBottomColor": "rgb(255 235 239 / 0)",
+			"borderLeftColor": "rgb(255 235 239 / 0)"
+		}
+	},
+	"border-pink-region4/5": {
+		"style": {
+			"borderTopColor": "rgb(255 235 239 / 0.05)",
+			"borderRightColor": "rgb(255 235 239 / 0.05)",
+			"borderBottomColor": "rgb(255 235 239 / 0.05)",
+			"borderLeftColor": "rgb(255 235 239 / 0.05)"
+		}
+	},
+	"border-pink-region4/10": {
+		"style": {
+			"borderTopColor": "rgb(255 235 239 / 0.1)",
+			"borderRightColor": "rgb(255 235 239 / 0.1)",
+			"borderBottomColor": "rgb(255 235 239 / 0.1)",
+			"borderLeftColor": "rgb(255 235 239 / 0.1)"
+		}
+	},
+	"border-pink-region4/20": {
+		"style": {
+			"borderTopColor": "rgb(255 235 239 / 0.2)",
+			"borderRightColor": "rgb(255 235 239 / 0.2)",
+			"borderBottomColor": "rgb(255 235 239 / 0.2)",
+			"borderLeftColor": "rgb(255 235 239 / 0.2)"
+		}
+	},
+	"border-pink-region4/25": {
+		"style": {
+			"borderTopColor": "rgb(255 235 239 / 0.25)",
+			"borderRightColor": "rgb(255 235 239 / 0.25)",
+			"borderBottomColor": "rgb(255 235 239 / 0.25)",
+			"borderLeftColor": "rgb(255 235 239 / 0.25)"
+		}
+	},
+	"border-pink-region4/30": {
+		"style": {
+			"borderTopColor": "rgb(255 235 239 / 0.3)",
+			"borderRightColor": "rgb(255 235 239 / 0.3)",
+			"borderBottomColor": "rgb(255 235 239 / 0.3)",
+			"borderLeftColor": "rgb(255 235 239 / 0.3)"
+		}
+	},
+	"border-pink-region4/40": {
+		"style": {
+			"borderTopColor": "rgb(255 235 239 / 0.4)",
+			"borderRightColor": "rgb(255 235 239 / 0.4)",
+			"borderBottomColor": "rgb(255 235 239 / 0.4)",
+			"borderLeftColor": "rgb(255 235 239 / 0.4)"
+		}
+	},
+	"border-pink-region4/50": {
+		"style": {
+			"borderTopColor": "rgb(255 235 239 / 0.5)",
+			"borderRightColor": "rgb(255 235 239 / 0.5)",
+			"borderBottomColor": "rgb(255 235 239 / 0.5)",
+			"borderLeftColor": "rgb(255 235 239 / 0.5)"
+		}
+	},
+	"border-pink-region4/60": {
+		"style": {
+			"borderTopColor": "rgb(255 235 239 / 0.6)",
+			"borderRightColor": "rgb(255 235 239 / 0.6)",
+			"borderBottomColor": "rgb(255 235 239 / 0.6)",
+			"borderLeftColor": "rgb(255 235 239 / 0.6)"
+		}
+	},
+	"border-pink-region4/70": {
+		"style": {
+			"borderTopColor": "rgb(255 235 239 / 0.7)",
+			"borderRightColor": "rgb(255 235 239 / 0.7)",
+			"borderBottomColor": "rgb(255 235 239 / 0.7)",
+			"borderLeftColor": "rgb(255 235 239 / 0.7)"
+		}
+	},
+	"border-pink-region4/75": {
+		"style": {
+			"borderTopColor": "rgb(255 235 239 / 0.75)",
+			"borderRightColor": "rgb(255 235 239 / 0.75)",
+			"borderBottomColor": "rgb(255 235 239 / 0.75)",
+			"borderLeftColor": "rgb(255 235 239 / 0.75)"
+		}
+	},
+	"border-pink-region4/80": {
+		"style": {
+			"borderTopColor": "rgb(255 235 239 / 0.8)",
+			"borderRightColor": "rgb(255 235 239 / 0.8)",
+			"borderBottomColor": "rgb(255 235 239 / 0.8)",
+			"borderLeftColor": "rgb(255 235 239 / 0.8)"
+		}
+	},
+	"border-pink-region4/90": {
+		"style": {
+			"borderTopColor": "rgb(255 235 239 / 0.9)",
+			"borderRightColor": "rgb(255 235 239 / 0.9)",
+			"borderBottomColor": "rgb(255 235 239 / 0.9)",
+			"borderLeftColor": "rgb(255 235 239 / 0.9)"
+		}
+	},
+	"border-pink-region4/95": {
+		"style": {
+			"borderTopColor": "rgb(255 235 239 / 0.95)",
+			"borderRightColor": "rgb(255 235 239 / 0.95)",
+			"borderBottomColor": "rgb(255 235 239 / 0.95)",
+			"borderLeftColor": "rgb(255 235 239 / 0.95)"
+		}
+	},
+	"border-pink-region4/100": {
+		"style": {
+			"borderTopColor": "rgb(255 235 239 / 1)",
+			"borderRightColor": "rgb(255 235 239 / 1)",
+			"borderBottomColor": "rgb(255 235 239 / 1)",
+			"borderLeftColor": "rgb(255 235 239 / 1)"
+		}
+	},
+	"border-pink-dark/0": {
+		"style": {
+			"borderTopColor": "rgb(255 46 96 / 0)",
+			"borderRightColor": "rgb(255 46 96 / 0)",
+			"borderBottomColor": "rgb(255 46 96 / 0)",
+			"borderLeftColor": "rgb(255 46 96 / 0)"
+		}
+	},
+	"border-pink-dark/5": {
+		"style": {
+			"borderTopColor": "rgb(255 46 96 / 0.05)",
+			"borderRightColor": "rgb(255 46 96 / 0.05)",
+			"borderBottomColor": "rgb(255 46 96 / 0.05)",
+			"borderLeftColor": "rgb(255 46 96 / 0.05)"
+		}
+	},
+	"border-pink-dark/10": {
+		"style": {
+			"borderTopColor": "rgb(255 46 96 / 0.1)",
+			"borderRightColor": "rgb(255 46 96 / 0.1)",
+			"borderBottomColor": "rgb(255 46 96 / 0.1)",
+			"borderLeftColor": "rgb(255 46 96 / 0.1)"
+		}
+	},
+	"border-pink-dark/20": {
+		"style": {
+			"borderTopColor": "rgb(255 46 96 / 0.2)",
+			"borderRightColor": "rgb(255 46 96 / 0.2)",
+			"borderBottomColor": "rgb(255 46 96 / 0.2)",
+			"borderLeftColor": "rgb(255 46 96 / 0.2)"
+		}
+	},
+	"border-pink-dark/25": {
+		"style": {
+			"borderTopColor": "rgb(255 46 96 / 0.25)",
+			"borderRightColor": "rgb(255 46 96 / 0.25)",
+			"borderBottomColor": "rgb(255 46 96 / 0.25)",
+			"borderLeftColor": "rgb(255 46 96 / 0.25)"
+		}
+	},
+	"border-pink-dark/30": {
+		"style": {
+			"borderTopColor": "rgb(255 46 96 / 0.3)",
+			"borderRightColor": "rgb(255 46 96 / 0.3)",
+			"borderBottomColor": "rgb(255 46 96 / 0.3)",
+			"borderLeftColor": "rgb(255 46 96 / 0.3)"
+		}
+	},
+	"border-pink-dark/40": {
+		"style": {
+			"borderTopColor": "rgb(255 46 96 / 0.4)",
+			"borderRightColor": "rgb(255 46 96 / 0.4)",
+			"borderBottomColor": "rgb(255 46 96 / 0.4)",
+			"borderLeftColor": "rgb(255 46 96 / 0.4)"
+		}
+	},
+	"border-pink-dark/50": {
+		"style": {
+			"borderTopColor": "rgb(255 46 96 / 0.5)",
+			"borderRightColor": "rgb(255 46 96 / 0.5)",
+			"borderBottomColor": "rgb(255 46 96 / 0.5)",
+			"borderLeftColor": "rgb(255 46 96 / 0.5)"
+		}
+	},
+	"border-pink-dark/60": {
+		"style": {
+			"borderTopColor": "rgb(255 46 96 / 0.6)",
+			"borderRightColor": "rgb(255 46 96 / 0.6)",
+			"borderBottomColor": "rgb(255 46 96 / 0.6)",
+			"borderLeftColor": "rgb(255 46 96 / 0.6)"
+		}
+	},
+	"border-pink-dark/70": {
+		"style": {
+			"borderTopColor": "rgb(255 46 96 / 0.7)",
+			"borderRightColor": "rgb(255 46 96 / 0.7)",
+			"borderBottomColor": "rgb(255 46 96 / 0.7)",
+			"borderLeftColor": "rgb(255 46 96 / 0.7)"
+		}
+	},
+	"border-pink-dark/75": {
+		"style": {
+			"borderTopColor": "rgb(255 46 96 / 0.75)",
+			"borderRightColor": "rgb(255 46 96 / 0.75)",
+			"borderBottomColor": "rgb(255 46 96 / 0.75)",
+			"borderLeftColor": "rgb(255 46 96 / 0.75)"
+		}
+	},
+	"border-pink-dark/80": {
+		"style": {
+			"borderTopColor": "rgb(255 46 96 / 0.8)",
+			"borderRightColor": "rgb(255 46 96 / 0.8)",
+			"borderBottomColor": "rgb(255 46 96 / 0.8)",
+			"borderLeftColor": "rgb(255 46 96 / 0.8)"
+		}
+	},
+	"border-pink-dark/90": {
+		"style": {
+			"borderTopColor": "rgb(255 46 96 / 0.9)",
+			"borderRightColor": "rgb(255 46 96 / 0.9)",
+			"borderBottomColor": "rgb(255 46 96 / 0.9)",
+			"borderLeftColor": "rgb(255 46 96 / 0.9)"
+		}
+	},
+	"border-pink-dark/95": {
+		"style": {
+			"borderTopColor": "rgb(255 46 96 / 0.95)",
+			"borderRightColor": "rgb(255 46 96 / 0.95)",
+			"borderBottomColor": "rgb(255 46 96 / 0.95)",
+			"borderLeftColor": "rgb(255 46 96 / 0.95)"
+		}
+	},
+	"border-pink-dark/100": {
+		"style": {
+			"borderTopColor": "rgb(255 46 96 / 1)",
+			"borderRightColor": "rgb(255 46 96 / 1)",
+			"borderBottomColor": "rgb(255 46 96 / 1)",
+			"borderLeftColor": "rgb(255 46 96 / 1)"
+		}
+	},
+	"border-black-normal/0": {
+		"style": {
+			"borderTopColor": "rgb(9 16 29 / 0)",
+			"borderRightColor": "rgb(9 16 29 / 0)",
+			"borderBottomColor": "rgb(9 16 29 / 0)",
+			"borderLeftColor": "rgb(9 16 29 / 0)"
+		}
+	},
+	"border-black-normal/5": {
+		"style": {
+			"borderTopColor": "rgb(9 16 29 / 0.05)",
+			"borderRightColor": "rgb(9 16 29 / 0.05)",
+			"borderBottomColor": "rgb(9 16 29 / 0.05)",
+			"borderLeftColor": "rgb(9 16 29 / 0.05)"
+		}
+	},
+	"border-black-normal/10": {
+		"style": {
+			"borderTopColor": "rgb(9 16 29 / 0.1)",
+			"borderRightColor": "rgb(9 16 29 / 0.1)",
+			"borderBottomColor": "rgb(9 16 29 / 0.1)",
+			"borderLeftColor": "rgb(9 16 29 / 0.1)"
+		}
+	},
+	"border-black-normal/20": {
+		"style": {
+			"borderTopColor": "rgb(9 16 29 / 0.2)",
+			"borderRightColor": "rgb(9 16 29 / 0.2)",
+			"borderBottomColor": "rgb(9 16 29 / 0.2)",
+			"borderLeftColor": "rgb(9 16 29 / 0.2)"
+		}
+	},
+	"border-black-normal/25": {
+		"style": {
+			"borderTopColor": "rgb(9 16 29 / 0.25)",
+			"borderRightColor": "rgb(9 16 29 / 0.25)",
+			"borderBottomColor": "rgb(9 16 29 / 0.25)",
+			"borderLeftColor": "rgb(9 16 29 / 0.25)"
+		}
+	},
+	"border-black-normal/30": {
+		"style": {
+			"borderTopColor": "rgb(9 16 29 / 0.3)",
+			"borderRightColor": "rgb(9 16 29 / 0.3)",
+			"borderBottomColor": "rgb(9 16 29 / 0.3)",
+			"borderLeftColor": "rgb(9 16 29 / 0.3)"
+		}
+	},
+	"border-black-normal/40": {
+		"style": {
+			"borderTopColor": "rgb(9 16 29 / 0.4)",
+			"borderRightColor": "rgb(9 16 29 / 0.4)",
+			"borderBottomColor": "rgb(9 16 29 / 0.4)",
+			"borderLeftColor": "rgb(9 16 29 / 0.4)"
+		}
+	},
+	"border-black-normal/50": {
+		"style": {
+			"borderTopColor": "rgb(9 16 29 / 0.5)",
+			"borderRightColor": "rgb(9 16 29 / 0.5)",
+			"borderBottomColor": "rgb(9 16 29 / 0.5)",
+			"borderLeftColor": "rgb(9 16 29 / 0.5)"
+		}
+	},
+	"border-black-normal/60": {
+		"style": {
+			"borderTopColor": "rgb(9 16 29 / 0.6)",
+			"borderRightColor": "rgb(9 16 29 / 0.6)",
+			"borderBottomColor": "rgb(9 16 29 / 0.6)",
+			"borderLeftColor": "rgb(9 16 29 / 0.6)"
+		}
+	},
+	"border-black-normal/70": {
+		"style": {
+			"borderTopColor": "rgb(9 16 29 / 0.7)",
+			"borderRightColor": "rgb(9 16 29 / 0.7)",
+			"borderBottomColor": "rgb(9 16 29 / 0.7)",
+			"borderLeftColor": "rgb(9 16 29 / 0.7)"
+		}
+	},
+	"border-black-normal/75": {
+		"style": {
+			"borderTopColor": "rgb(9 16 29 / 0.75)",
+			"borderRightColor": "rgb(9 16 29 / 0.75)",
+			"borderBottomColor": "rgb(9 16 29 / 0.75)",
+			"borderLeftColor": "rgb(9 16 29 / 0.75)"
+		}
+	},
+	"border-black-normal/80": {
+		"style": {
+			"borderTopColor": "rgb(9 16 29 / 0.8)",
+			"borderRightColor": "rgb(9 16 29 / 0.8)",
+			"borderBottomColor": "rgb(9 16 29 / 0.8)",
+			"borderLeftColor": "rgb(9 16 29 / 0.8)"
+		}
+	},
+	"border-black-normal/90": {
+		"style": {
+			"borderTopColor": "rgb(9 16 29 / 0.9)",
+			"borderRightColor": "rgb(9 16 29 / 0.9)",
+			"borderBottomColor": "rgb(9 16 29 / 0.9)",
+			"borderLeftColor": "rgb(9 16 29 / 0.9)"
+		}
+	},
+	"border-black-normal/95": {
+		"style": {
+			"borderTopColor": "rgb(9 16 29 / 0.95)",
+			"borderRightColor": "rgb(9 16 29 / 0.95)",
+			"borderBottomColor": "rgb(9 16 29 / 0.95)",
+			"borderLeftColor": "rgb(9 16 29 / 0.95)"
+		}
+	},
+	"border-black-normal/100": {
+		"style": {
+			"borderTopColor": "rgb(9 16 29 / 1)",
+			"borderRightColor": "rgb(9 16 29 / 1)",
+			"borderBottomColor": "rgb(9 16 29 / 1)",
+			"borderLeftColor": "rgb(9 16 29 / 1)"
+		}
+	},
+	"border-black-light/0": {
+		"style": {
+			"borderTopColor": "rgb(97 97 97 / 0)",
+			"borderRightColor": "rgb(97 97 97 / 0)",
+			"borderBottomColor": "rgb(97 97 97 / 0)",
+			"borderLeftColor": "rgb(97 97 97 / 0)"
+		}
+	},
+	"border-black-light/5": {
+		"style": {
+			"borderTopColor": "rgb(97 97 97 / 0.05)",
+			"borderRightColor": "rgb(97 97 97 / 0.05)",
+			"borderBottomColor": "rgb(97 97 97 / 0.05)",
+			"borderLeftColor": "rgb(97 97 97 / 0.05)"
+		}
+	},
+	"border-black-light/10": {
+		"style": {
+			"borderTopColor": "rgb(97 97 97 / 0.1)",
+			"borderRightColor": "rgb(97 97 97 / 0.1)",
+			"borderBottomColor": "rgb(97 97 97 / 0.1)",
+			"borderLeftColor": "rgb(97 97 97 / 0.1)"
+		}
+	},
+	"border-black-light/20": {
+		"style": {
+			"borderTopColor": "rgb(97 97 97 / 0.2)",
+			"borderRightColor": "rgb(97 97 97 / 0.2)",
+			"borderBottomColor": "rgb(97 97 97 / 0.2)",
+			"borderLeftColor": "rgb(97 97 97 / 0.2)"
+		}
+	},
+	"border-black-light/25": {
+		"style": {
+			"borderTopColor": "rgb(97 97 97 / 0.25)",
+			"borderRightColor": "rgb(97 97 97 / 0.25)",
+			"borderBottomColor": "rgb(97 97 97 / 0.25)",
+			"borderLeftColor": "rgb(97 97 97 / 0.25)"
+		}
+	},
+	"border-black-light/30": {
+		"style": {
+			"borderTopColor": "rgb(97 97 97 / 0.3)",
+			"borderRightColor": "rgb(97 97 97 / 0.3)",
+			"borderBottomColor": "rgb(97 97 97 / 0.3)",
+			"borderLeftColor": "rgb(97 97 97 / 0.3)"
+		}
+	},
+	"border-black-light/40": {
+		"style": {
+			"borderTopColor": "rgb(97 97 97 / 0.4)",
+			"borderRightColor": "rgb(97 97 97 / 0.4)",
+			"borderBottomColor": "rgb(97 97 97 / 0.4)",
+			"borderLeftColor": "rgb(97 97 97 / 0.4)"
+		}
+	},
+	"border-black-light/50": {
+		"style": {
+			"borderTopColor": "rgb(97 97 97 / 0.5)",
+			"borderRightColor": "rgb(97 97 97 / 0.5)",
+			"borderBottomColor": "rgb(97 97 97 / 0.5)",
+			"borderLeftColor": "rgb(97 97 97 / 0.5)"
+		}
+	},
+	"border-black-light/60": {
+		"style": {
+			"borderTopColor": "rgb(97 97 97 / 0.6)",
+			"borderRightColor": "rgb(97 97 97 / 0.6)",
+			"borderBottomColor": "rgb(97 97 97 / 0.6)",
+			"borderLeftColor": "rgb(97 97 97 / 0.6)"
+		}
+	},
+	"border-black-light/70": {
+		"style": {
+			"borderTopColor": "rgb(97 97 97 / 0.7)",
+			"borderRightColor": "rgb(97 97 97 / 0.7)",
+			"borderBottomColor": "rgb(97 97 97 / 0.7)",
+			"borderLeftColor": "rgb(97 97 97 / 0.7)"
+		}
+	},
+	"border-black-light/75": {
+		"style": {
+			"borderTopColor": "rgb(97 97 97 / 0.75)",
+			"borderRightColor": "rgb(97 97 97 / 0.75)",
+			"borderBottomColor": "rgb(97 97 97 / 0.75)",
+			"borderLeftColor": "rgb(97 97 97 / 0.75)"
+		}
+	},
+	"border-black-light/80": {
+		"style": {
+			"borderTopColor": "rgb(97 97 97 / 0.8)",
+			"borderRightColor": "rgb(97 97 97 / 0.8)",
+			"borderBottomColor": "rgb(97 97 97 / 0.8)",
+			"borderLeftColor": "rgb(97 97 97 / 0.8)"
+		}
+	},
+	"border-black-light/90": {
+		"style": {
+			"borderTopColor": "rgb(97 97 97 / 0.9)",
+			"borderRightColor": "rgb(97 97 97 / 0.9)",
+			"borderBottomColor": "rgb(97 97 97 / 0.9)",
+			"borderLeftColor": "rgb(97 97 97 / 0.9)"
+		}
+	},
+	"border-black-light/95": {
+		"style": {
+			"borderTopColor": "rgb(97 97 97 / 0.95)",
+			"borderRightColor": "rgb(97 97 97 / 0.95)",
+			"borderBottomColor": "rgb(97 97 97 / 0.95)",
+			"borderLeftColor": "rgb(97 97 97 / 0.95)"
+		}
+	},
+	"border-black-light/100": {
+		"style": {
+			"borderTopColor": "rgb(97 97 97 / 1)",
+			"borderRightColor": "rgb(97 97 97 / 1)",
+			"borderBottomColor": "rgb(97 97 97 / 1)",
+			"borderLeftColor": "rgb(97 97 97 / 1)"
+		}
+	},
+	"border-red-something/0": {
+		"style": {
+			"borderTopColor": "rgb(153 0 36 / 0)",
+			"borderRightColor": "rgb(153 0 36 / 0)",
+			"borderBottomColor": "rgb(153 0 36 / 0)",
+			"borderLeftColor": "rgb(153 0 36 / 0)"
+		}
+	},
+	"border-red-something/5": {
+		"style": {
+			"borderTopColor": "rgb(153 0 36 / 0.05)",
+			"borderRightColor": "rgb(153 0 36 / 0.05)",
+			"borderBottomColor": "rgb(153 0 36 / 0.05)",
+			"borderLeftColor": "rgb(153 0 36 / 0.05)"
+		}
+	},
+	"border-red-something/10": {
+		"style": {
+			"borderTopColor": "rgb(153 0 36 / 0.1)",
+			"borderRightColor": "rgb(153 0 36 / 0.1)",
+			"borderBottomColor": "rgb(153 0 36 / 0.1)",
+			"borderLeftColor": "rgb(153 0 36 / 0.1)"
+		}
+	},
+	"border-red-something/20": {
+		"style": {
+			"borderTopColor": "rgb(153 0 36 / 0.2)",
+			"borderRightColor": "rgb(153 0 36 / 0.2)",
+			"borderBottomColor": "rgb(153 0 36 / 0.2)",
+			"borderLeftColor": "rgb(153 0 36 / 0.2)"
+		}
+	},
+	"border-red-something/25": {
+		"style": {
+			"borderTopColor": "rgb(153 0 36 / 0.25)",
+			"borderRightColor": "rgb(153 0 36 / 0.25)",
+			"borderBottomColor": "rgb(153 0 36 / 0.25)",
+			"borderLeftColor": "rgb(153 0 36 / 0.25)"
+		}
+	},
+	"border-red-something/30": {
+		"style": {
+			"borderTopColor": "rgb(153 0 36 / 0.3)",
+			"borderRightColor": "rgb(153 0 36 / 0.3)",
+			"borderBottomColor": "rgb(153 0 36 / 0.3)",
+			"borderLeftColor": "rgb(153 0 36 / 0.3)"
+		}
+	},
+	"border-red-something/40": {
+		"style": {
+			"borderTopColor": "rgb(153 0 36 / 0.4)",
+			"borderRightColor": "rgb(153 0 36 / 0.4)",
+			"borderBottomColor": "rgb(153 0 36 / 0.4)",
+			"borderLeftColor": "rgb(153 0 36 / 0.4)"
+		}
+	},
+	"border-red-something/50": {
+		"style": {
+			"borderTopColor": "rgb(153 0 36 / 0.5)",
+			"borderRightColor": "rgb(153 0 36 / 0.5)",
+			"borderBottomColor": "rgb(153 0 36 / 0.5)",
+			"borderLeftColor": "rgb(153 0 36 / 0.5)"
+		}
+	},
+	"border-red-something/60": {
+		"style": {
+			"borderTopColor": "rgb(153 0 36 / 0.6)",
+			"borderRightColor": "rgb(153 0 36 / 0.6)",
+			"borderBottomColor": "rgb(153 0 36 / 0.6)",
+			"borderLeftColor": "rgb(153 0 36 / 0.6)"
+		}
+	},
+	"border-red-something/70": {
+		"style": {
+			"borderTopColor": "rgb(153 0 36 / 0.7)",
+			"borderRightColor": "rgb(153 0 36 / 0.7)",
+			"borderBottomColor": "rgb(153 0 36 / 0.7)",
+			"borderLeftColor": "rgb(153 0 36 / 0.7)"
+		}
+	},
+	"border-red-something/75": {
+		"style": {
+			"borderTopColor": "rgb(153 0 36 / 0.75)",
+			"borderRightColor": "rgb(153 0 36 / 0.75)",
+			"borderBottomColor": "rgb(153 0 36 / 0.75)",
+			"borderLeftColor": "rgb(153 0 36 / 0.75)"
+		}
+	},
+	"border-red-something/80": {
+		"style": {
+			"borderTopColor": "rgb(153 0 36 / 0.8)",
+			"borderRightColor": "rgb(153 0 36 / 0.8)",
+			"borderBottomColor": "rgb(153 0 36 / 0.8)",
+			"borderLeftColor": "rgb(153 0 36 / 0.8)"
+		}
+	},
+	"border-red-something/90": {
+		"style": {
+			"borderTopColor": "rgb(153 0 36 / 0.9)",
+			"borderRightColor": "rgb(153 0 36 / 0.9)",
+			"borderBottomColor": "rgb(153 0 36 / 0.9)",
+			"borderLeftColor": "rgb(153 0 36 / 0.9)"
+		}
+	},
+	"border-red-something/95": {
+		"style": {
+			"borderTopColor": "rgb(153 0 36 / 0.95)",
+			"borderRightColor": "rgb(153 0 36 / 0.95)",
+			"borderBottomColor": "rgb(153 0 36 / 0.95)",
+			"borderLeftColor": "rgb(153 0 36 / 0.95)"
+		}
+	},
+	"border-red-something/100": {
+		"style": {
+			"borderTopColor": "rgb(153 0 36 / 1)",
+			"borderRightColor": "rgb(153 0 36 / 1)",
+			"borderBottomColor": "rgb(153 0 36 / 1)",
+			"borderLeftColor": "rgb(153 0 36 / 1)"
+		}
+	},
+	"border-red-important/0": {
+		"style": {
+			"borderTopColor": "rgb(218 37 29 / 0)",
+			"borderRightColor": "rgb(218 37 29 / 0)",
+			"borderBottomColor": "rgb(218 37 29 / 0)",
+			"borderLeftColor": "rgb(218 37 29 / 0)"
+		}
+	},
+	"border-red-important/5": {
+		"style": {
+			"borderTopColor": "rgb(218 37 29 / 0.05)",
+			"borderRightColor": "rgb(218 37 29 / 0.05)",
+			"borderBottomColor": "rgb(218 37 29 / 0.05)",
+			"borderLeftColor": "rgb(218 37 29 / 0.05)"
+		}
+	},
+	"border-red-important/10": {
+		"style": {
+			"borderTopColor": "rgb(218 37 29 / 0.1)",
+			"borderRightColor": "rgb(218 37 29 / 0.1)",
+			"borderBottomColor": "rgb(218 37 29 / 0.1)",
+			"borderLeftColor": "rgb(218 37 29 / 0.1)"
+		}
+	},
+	"border-red-important/20": {
+		"style": {
+			"borderTopColor": "rgb(218 37 29 / 0.2)",
+			"borderRightColor": "rgb(218 37 29 / 0.2)",
+			"borderBottomColor": "rgb(218 37 29 / 0.2)",
+			"borderLeftColor": "rgb(218 37 29 / 0.2)"
+		}
+	},
+	"border-red-important/25": {
+		"style": {
+			"borderTopColor": "rgb(218 37 29 / 0.25)",
+			"borderRightColor": "rgb(218 37 29 / 0.25)",
+			"borderBottomColor": "rgb(218 37 29 / 0.25)",
+			"borderLeftColor": "rgb(218 37 29 / 0.25)"
+		}
+	},
+	"border-red-important/30": {
+		"style": {
+			"borderTopColor": "rgb(218 37 29 / 0.3)",
+			"borderRightColor": "rgb(218 37 29 / 0.3)",
+			"borderBottomColor": "rgb(218 37 29 / 0.3)",
+			"borderLeftColor": "rgb(218 37 29 / 0.3)"
+		}
+	},
+	"border-red-important/40": {
+		"style": {
+			"borderTopColor": "rgb(218 37 29 / 0.4)",
+			"borderRightColor": "rgb(218 37 29 / 0.4)",
+			"borderBottomColor": "rgb(218 37 29 / 0.4)",
+			"borderLeftColor": "rgb(218 37 29 / 0.4)"
+		}
+	},
+	"border-red-important/50": {
+		"style": {
+			"borderTopColor": "rgb(218 37 29 / 0.5)",
+			"borderRightColor": "rgb(218 37 29 / 0.5)",
+			"borderBottomColor": "rgb(218 37 29 / 0.5)",
+			"borderLeftColor": "rgb(218 37 29 / 0.5)"
+		}
+	},
+	"border-red-important/60": {
+		"style": {
+			"borderTopColor": "rgb(218 37 29 / 0.6)",
+			"borderRightColor": "rgb(218 37 29 / 0.6)",
+			"borderBottomColor": "rgb(218 37 29 / 0.6)",
+			"borderLeftColor": "rgb(218 37 29 / 0.6)"
+		}
+	},
+	"border-red-important/70": {
+		"style": {
+			"borderTopColor": "rgb(218 37 29 / 0.7)",
+			"borderRightColor": "rgb(218 37 29 / 0.7)",
+			"borderBottomColor": "rgb(218 37 29 / 0.7)",
+			"borderLeftColor": "rgb(218 37 29 / 0.7)"
+		}
+	},
+	"border-red-important/75": {
+		"style": {
+			"borderTopColor": "rgb(218 37 29 / 0.75)",
+			"borderRightColor": "rgb(218 37 29 / 0.75)",
+			"borderBottomColor": "rgb(218 37 29 / 0.75)",
+			"borderLeftColor": "rgb(218 37 29 / 0.75)"
+		}
+	},
+	"border-red-important/80": {
+		"style": {
+			"borderTopColor": "rgb(218 37 29 / 0.8)",
+			"borderRightColor": "rgb(218 37 29 / 0.8)",
+			"borderBottomColor": "rgb(218 37 29 / 0.8)",
+			"borderLeftColor": "rgb(218 37 29 / 0.8)"
+		}
+	},
+	"border-red-important/90": {
+		"style": {
+			"borderTopColor": "rgb(218 37 29 / 0.9)",
+			"borderRightColor": "rgb(218 37 29 / 0.9)",
+			"borderBottomColor": "rgb(218 37 29 / 0.9)",
+			"borderLeftColor": "rgb(218 37 29 / 0.9)"
+		}
+	},
+	"border-red-important/95": {
+		"style": {
+			"borderTopColor": "rgb(218 37 29 / 0.95)",
+			"borderRightColor": "rgb(218 37 29 / 0.95)",
+			"borderBottomColor": "rgb(218 37 29 / 0.95)",
+			"borderLeftColor": "rgb(218 37 29 / 0.95)"
+		}
+	},
+	"border-red-important/100": {
+		"style": {
+			"borderTopColor": "rgb(218 37 29 / 1)",
+			"borderRightColor": "rgb(218 37 29 / 1)",
+			"borderBottomColor": "rgb(218 37 29 / 1)",
+			"borderLeftColor": "rgb(218 37 29 / 1)"
+		}
+	},
+	"bg-gray-d9": {
 		"style": {
 			"--tw-bg-opacity": 1,
-			"backgroundColor": "rgb(100 116 139 / var(--tw-bg-opacity))"
+			"backgroundColor": "rgb(217 217 217 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-purple-other": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(61 59 115 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-blue": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(29 161 242 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-green": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(112 215 166 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-yellow": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(251 188 5 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-orange": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(245 145 36 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-pink-primary": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(255 133 162 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-pink-region1": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(255 158 181 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-pink-region2": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(255 184 201 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-pink-region3": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(255 209 220 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-pink-region4": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(255 235 239 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-pink-dark": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(255 46 96 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-black-normal": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(9 16 29 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-black-light": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(97 97 97 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-red-something": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(153 0 36 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-red-important": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(218 37 29 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-gray-d9/0": {
+		"style": {
+			"backgroundColor": "rgb(217 217 217 / 0)"
+		}
+	},
+	"bg-gray-d9/5": {
+		"style": {
+			"backgroundColor": "rgb(217 217 217 / 0.05)"
+		}
+	},
+	"bg-gray-d9/10": {
+		"style": {
+			"backgroundColor": "rgb(217 217 217 / 0.1)"
+		}
+	},
+	"bg-gray-d9/20": {
+		"style": {
+			"backgroundColor": "rgb(217 217 217 / 0.2)"
+		}
+	},
+	"bg-gray-d9/25": {
+		"style": {
+			"backgroundColor": "rgb(217 217 217 / 0.25)"
+		}
+	},
+	"bg-gray-d9/30": {
+		"style": {
+			"backgroundColor": "rgb(217 217 217 / 0.3)"
+		}
+	},
+	"bg-gray-d9/40": {
+		"style": {
+			"backgroundColor": "rgb(217 217 217 / 0.4)"
+		}
+	},
+	"bg-gray-d9/50": {
+		"style": {
+			"backgroundColor": "rgb(217 217 217 / 0.5)"
+		}
+	},
+	"bg-gray-d9/60": {
+		"style": {
+			"backgroundColor": "rgb(217 217 217 / 0.6)"
+		}
+	},
+	"bg-gray-d9/70": {
+		"style": {
+			"backgroundColor": "rgb(217 217 217 / 0.7)"
+		}
+	},
+	"bg-gray-d9/75": {
+		"style": {
+			"backgroundColor": "rgb(217 217 217 / 0.75)"
+		}
+	},
+	"bg-gray-d9/80": {
+		"style": {
+			"backgroundColor": "rgb(217 217 217 / 0.8)"
+		}
+	},
+	"bg-gray-d9/90": {
+		"style": {
+			"backgroundColor": "rgb(217 217 217 / 0.9)"
+		}
+	},
+	"bg-gray-d9/95": {
+		"style": {
+			"backgroundColor": "rgb(217 217 217 / 0.95)"
+		}
+	},
+	"bg-gray-d9/100": {
+		"style": {
+			"backgroundColor": "rgb(217 217 217 / 1)"
+		}
+	},
+	"bg-purple-other/0": {
+		"style": {
+			"backgroundColor": "rgb(61 59 115 / 0)"
+		}
+	},
+	"bg-purple-other/5": {
+		"style": {
+			"backgroundColor": "rgb(61 59 115 / 0.05)"
+		}
+	},
+	"bg-purple-other/10": {
+		"style": {
+			"backgroundColor": "rgb(61 59 115 / 0.1)"
+		}
+	},
+	"bg-purple-other/20": {
+		"style": {
+			"backgroundColor": "rgb(61 59 115 / 0.2)"
+		}
+	},
+	"bg-purple-other/25": {
+		"style": {
+			"backgroundColor": "rgb(61 59 115 / 0.25)"
+		}
+	},
+	"bg-purple-other/30": {
+		"style": {
+			"backgroundColor": "rgb(61 59 115 / 0.3)"
+		}
+	},
+	"bg-purple-other/40": {
+		"style": {
+			"backgroundColor": "rgb(61 59 115 / 0.4)"
+		}
+	},
+	"bg-purple-other/50": {
+		"style": {
+			"backgroundColor": "rgb(61 59 115 / 0.5)"
+		}
+	},
+	"bg-purple-other/60": {
+		"style": {
+			"backgroundColor": "rgb(61 59 115 / 0.6)"
+		}
+	},
+	"bg-purple-other/70": {
+		"style": {
+			"backgroundColor": "rgb(61 59 115 / 0.7)"
+		}
+	},
+	"bg-purple-other/75": {
+		"style": {
+			"backgroundColor": "rgb(61 59 115 / 0.75)"
+		}
+	},
+	"bg-purple-other/80": {
+		"style": {
+			"backgroundColor": "rgb(61 59 115 / 0.8)"
+		}
+	},
+	"bg-purple-other/90": {
+		"style": {
+			"backgroundColor": "rgb(61 59 115 / 0.9)"
+		}
+	},
+	"bg-purple-other/95": {
+		"style": {
+			"backgroundColor": "rgb(61 59 115 / 0.95)"
+		}
+	},
+	"bg-purple-other/100": {
+		"style": {
+			"backgroundColor": "rgb(61 59 115 / 1)"
+		}
+	},
+	"bg-blue/0": {
+		"style": {
+			"backgroundColor": "rgb(29 161 242 / 0)"
+		}
+	},
+	"bg-blue/5": {
+		"style": {
+			"backgroundColor": "rgb(29 161 242 / 0.05)"
+		}
+	},
+	"bg-blue/10": {
+		"style": {
+			"backgroundColor": "rgb(29 161 242 / 0.1)"
+		}
+	},
+	"bg-blue/20": {
+		"style": {
+			"backgroundColor": "rgb(29 161 242 / 0.2)"
+		}
+	},
+	"bg-blue/25": {
+		"style": {
+			"backgroundColor": "rgb(29 161 242 / 0.25)"
+		}
+	},
+	"bg-blue/30": {
+		"style": {
+			"backgroundColor": "rgb(29 161 242 / 0.3)"
+		}
+	},
+	"bg-blue/40": {
+		"style": {
+			"backgroundColor": "rgb(29 161 242 / 0.4)"
+		}
+	},
+	"bg-blue/50": {
+		"style": {
+			"backgroundColor": "rgb(29 161 242 / 0.5)"
+		}
+	},
+	"bg-blue/60": {
+		"style": {
+			"backgroundColor": "rgb(29 161 242 / 0.6)"
+		}
+	},
+	"bg-blue/70": {
+		"style": {
+			"backgroundColor": "rgb(29 161 242 / 0.7)"
+		}
+	},
+	"bg-blue/75": {
+		"style": {
+			"backgroundColor": "rgb(29 161 242 / 0.75)"
+		}
+	},
+	"bg-blue/80": {
+		"style": {
+			"backgroundColor": "rgb(29 161 242 / 0.8)"
+		}
+	},
+	"bg-blue/90": {
+		"style": {
+			"backgroundColor": "rgb(29 161 242 / 0.9)"
+		}
+	},
+	"bg-blue/95": {
+		"style": {
+			"backgroundColor": "rgb(29 161 242 / 0.95)"
+		}
+	},
+	"bg-blue/100": {
+		"style": {
+			"backgroundColor": "rgb(29 161 242 / 1)"
+		}
+	},
+	"bg-green/0": {
+		"style": {
+			"backgroundColor": "rgb(112 215 166 / 0)"
+		}
+	},
+	"bg-green/5": {
+		"style": {
+			"backgroundColor": "rgb(112 215 166 / 0.05)"
+		}
+	},
+	"bg-green/10": {
+		"style": {
+			"backgroundColor": "rgb(112 215 166 / 0.1)"
+		}
+	},
+	"bg-green/20": {
+		"style": {
+			"backgroundColor": "rgb(112 215 166 / 0.2)"
+		}
+	},
+	"bg-green/25": {
+		"style": {
+			"backgroundColor": "rgb(112 215 166 / 0.25)"
+		}
+	},
+	"bg-green/30": {
+		"style": {
+			"backgroundColor": "rgb(112 215 166 / 0.3)"
+		}
+	},
+	"bg-green/40": {
+		"style": {
+			"backgroundColor": "rgb(112 215 166 / 0.4)"
+		}
+	},
+	"bg-green/50": {
+		"style": {
+			"backgroundColor": "rgb(112 215 166 / 0.5)"
+		}
+	},
+	"bg-green/60": {
+		"style": {
+			"backgroundColor": "rgb(112 215 166 / 0.6)"
+		}
+	},
+	"bg-green/70": {
+		"style": {
+			"backgroundColor": "rgb(112 215 166 / 0.7)"
+		}
+	},
+	"bg-green/75": {
+		"style": {
+			"backgroundColor": "rgb(112 215 166 / 0.75)"
+		}
+	},
+	"bg-green/80": {
+		"style": {
+			"backgroundColor": "rgb(112 215 166 / 0.8)"
+		}
+	},
+	"bg-green/90": {
+		"style": {
+			"backgroundColor": "rgb(112 215 166 / 0.9)"
+		}
+	},
+	"bg-green/95": {
+		"style": {
+			"backgroundColor": "rgb(112 215 166 / 0.95)"
+		}
+	},
+	"bg-green/100": {
+		"style": {
+			"backgroundColor": "rgb(112 215 166 / 1)"
+		}
+	},
+	"bg-yellow/0": {
+		"style": {
+			"backgroundColor": "rgb(251 188 5 / 0)"
+		}
+	},
+	"bg-yellow/5": {
+		"style": {
+			"backgroundColor": "rgb(251 188 5 / 0.05)"
+		}
+	},
+	"bg-yellow/10": {
+		"style": {
+			"backgroundColor": "rgb(251 188 5 / 0.1)"
+		}
+	},
+	"bg-yellow/20": {
+		"style": {
+			"backgroundColor": "rgb(251 188 5 / 0.2)"
+		}
+	},
+	"bg-yellow/25": {
+		"style": {
+			"backgroundColor": "rgb(251 188 5 / 0.25)"
+		}
+	},
+	"bg-yellow/30": {
+		"style": {
+			"backgroundColor": "rgb(251 188 5 / 0.3)"
+		}
+	},
+	"bg-yellow/40": {
+		"style": {
+			"backgroundColor": "rgb(251 188 5 / 0.4)"
+		}
+	},
+	"bg-yellow/50": {
+		"style": {
+			"backgroundColor": "rgb(251 188 5 / 0.5)"
+		}
+	},
+	"bg-yellow/60": {
+		"style": {
+			"backgroundColor": "rgb(251 188 5 / 0.6)"
+		}
+	},
+	"bg-yellow/70": {
+		"style": {
+			"backgroundColor": "rgb(251 188 5 / 0.7)"
+		}
+	},
+	"bg-yellow/75": {
+		"style": {
+			"backgroundColor": "rgb(251 188 5 / 0.75)"
+		}
+	},
+	"bg-yellow/80": {
+		"style": {
+			"backgroundColor": "rgb(251 188 5 / 0.8)"
+		}
+	},
+	"bg-yellow/90": {
+		"style": {
+			"backgroundColor": "rgb(251 188 5 / 0.9)"
+		}
+	},
+	"bg-yellow/95": {
+		"style": {
+			"backgroundColor": "rgb(251 188 5 / 0.95)"
+		}
+	},
+	"bg-yellow/100": {
+		"style": {
+			"backgroundColor": "rgb(251 188 5 / 1)"
+		}
+	},
+	"bg-orange/0": {
+		"style": {
+			"backgroundColor": "rgb(245 145 36 / 0)"
+		}
+	},
+	"bg-orange/5": {
+		"style": {
+			"backgroundColor": "rgb(245 145 36 / 0.05)"
+		}
+	},
+	"bg-orange/10": {
+		"style": {
+			"backgroundColor": "rgb(245 145 36 / 0.1)"
+		}
+	},
+	"bg-orange/20": {
+		"style": {
+			"backgroundColor": "rgb(245 145 36 / 0.2)"
+		}
+	},
+	"bg-orange/25": {
+		"style": {
+			"backgroundColor": "rgb(245 145 36 / 0.25)"
+		}
+	},
+	"bg-orange/30": {
+		"style": {
+			"backgroundColor": "rgb(245 145 36 / 0.3)"
+		}
+	},
+	"bg-orange/40": {
+		"style": {
+			"backgroundColor": "rgb(245 145 36 / 0.4)"
+		}
+	},
+	"bg-orange/50": {
+		"style": {
+			"backgroundColor": "rgb(245 145 36 / 0.5)"
+		}
+	},
+	"bg-orange/60": {
+		"style": {
+			"backgroundColor": "rgb(245 145 36 / 0.6)"
+		}
+	},
+	"bg-orange/70": {
+		"style": {
+			"backgroundColor": "rgb(245 145 36 / 0.7)"
+		}
+	},
+	"bg-orange/75": {
+		"style": {
+			"backgroundColor": "rgb(245 145 36 / 0.75)"
+		}
+	},
+	"bg-orange/80": {
+		"style": {
+			"backgroundColor": "rgb(245 145 36 / 0.8)"
+		}
+	},
+	"bg-orange/90": {
+		"style": {
+			"backgroundColor": "rgb(245 145 36 / 0.9)"
+		}
+	},
+	"bg-orange/95": {
+		"style": {
+			"backgroundColor": "rgb(245 145 36 / 0.95)"
+		}
+	},
+	"bg-orange/100": {
+		"style": {
+			"backgroundColor": "rgb(245 145 36 / 1)"
+		}
+	},
+	"bg-pink-primary/0": {
+		"style": {
+			"backgroundColor": "rgb(255 133 162 / 0)"
+		}
+	},
+	"bg-pink-primary/5": {
+		"style": {
+			"backgroundColor": "rgb(255 133 162 / 0.05)"
+		}
+	},
+	"bg-pink-primary/10": {
+		"style": {
+			"backgroundColor": "rgb(255 133 162 / 0.1)"
+		}
+	},
+	"bg-pink-primary/20": {
+		"style": {
+			"backgroundColor": "rgb(255 133 162 / 0.2)"
+		}
+	},
+	"bg-pink-primary/25": {
+		"style": {
+			"backgroundColor": "rgb(255 133 162 / 0.25)"
+		}
+	},
+	"bg-pink-primary/30": {
+		"style": {
+			"backgroundColor": "rgb(255 133 162 / 0.3)"
+		}
+	},
+	"bg-pink-primary/40": {
+		"style": {
+			"backgroundColor": "rgb(255 133 162 / 0.4)"
+		}
+	},
+	"bg-pink-primary/50": {
+		"style": {
+			"backgroundColor": "rgb(255 133 162 / 0.5)"
+		}
+	},
+	"bg-pink-primary/60": {
+		"style": {
+			"backgroundColor": "rgb(255 133 162 / 0.6)"
+		}
+	},
+	"bg-pink-primary/70": {
+		"style": {
+			"backgroundColor": "rgb(255 133 162 / 0.7)"
+		}
+	},
+	"bg-pink-primary/75": {
+		"style": {
+			"backgroundColor": "rgb(255 133 162 / 0.75)"
+		}
+	},
+	"bg-pink-primary/80": {
+		"style": {
+			"backgroundColor": "rgb(255 133 162 / 0.8)"
+		}
+	},
+	"bg-pink-primary/90": {
+		"style": {
+			"backgroundColor": "rgb(255 133 162 / 0.9)"
+		}
+	},
+	"bg-pink-primary/95": {
+		"style": {
+			"backgroundColor": "rgb(255 133 162 / 0.95)"
+		}
+	},
+	"bg-pink-primary/100": {
+		"style": {
+			"backgroundColor": "rgb(255 133 162 / 1)"
+		}
+	},
+	"bg-pink-region1/0": {
+		"style": {
+			"backgroundColor": "rgb(255 158 181 / 0)"
+		}
+	},
+	"bg-pink-region1/5": {
+		"style": {
+			"backgroundColor": "rgb(255 158 181 / 0.05)"
+		}
+	},
+	"bg-pink-region1/10": {
+		"style": {
+			"backgroundColor": "rgb(255 158 181 / 0.1)"
+		}
+	},
+	"bg-pink-region1/20": {
+		"style": {
+			"backgroundColor": "rgb(255 158 181 / 0.2)"
+		}
+	},
+	"bg-pink-region1/25": {
+		"style": {
+			"backgroundColor": "rgb(255 158 181 / 0.25)"
+		}
+	},
+	"bg-pink-region1/30": {
+		"style": {
+			"backgroundColor": "rgb(255 158 181 / 0.3)"
+		}
+	},
+	"bg-pink-region1/40": {
+		"style": {
+			"backgroundColor": "rgb(255 158 181 / 0.4)"
+		}
+	},
+	"bg-pink-region1/50": {
+		"style": {
+			"backgroundColor": "rgb(255 158 181 / 0.5)"
+		}
+	},
+	"bg-pink-region1/60": {
+		"style": {
+			"backgroundColor": "rgb(255 158 181 / 0.6)"
+		}
+	},
+	"bg-pink-region1/70": {
+		"style": {
+			"backgroundColor": "rgb(255 158 181 / 0.7)"
+		}
+	},
+	"bg-pink-region1/75": {
+		"style": {
+			"backgroundColor": "rgb(255 158 181 / 0.75)"
+		}
+	},
+	"bg-pink-region1/80": {
+		"style": {
+			"backgroundColor": "rgb(255 158 181 / 0.8)"
+		}
+	},
+	"bg-pink-region1/90": {
+		"style": {
+			"backgroundColor": "rgb(255 158 181 / 0.9)"
+		}
+	},
+	"bg-pink-region1/95": {
+		"style": {
+			"backgroundColor": "rgb(255 158 181 / 0.95)"
+		}
+	},
+	"bg-pink-region1/100": {
+		"style": {
+			"backgroundColor": "rgb(255 158 181 / 1)"
+		}
+	},
+	"bg-pink-region2/0": {
+		"style": {
+			"backgroundColor": "rgb(255 184 201 / 0)"
+		}
+	},
+	"bg-pink-region2/5": {
+		"style": {
+			"backgroundColor": "rgb(255 184 201 / 0.05)"
+		}
+	},
+	"bg-pink-region2/10": {
+		"style": {
+			"backgroundColor": "rgb(255 184 201 / 0.1)"
+		}
+	},
+	"bg-pink-region2/20": {
+		"style": {
+			"backgroundColor": "rgb(255 184 201 / 0.2)"
+		}
+	},
+	"bg-pink-region2/25": {
+		"style": {
+			"backgroundColor": "rgb(255 184 201 / 0.25)"
+		}
+	},
+	"bg-pink-region2/30": {
+		"style": {
+			"backgroundColor": "rgb(255 184 201 / 0.3)"
+		}
+	},
+	"bg-pink-region2/40": {
+		"style": {
+			"backgroundColor": "rgb(255 184 201 / 0.4)"
+		}
+	},
+	"bg-pink-region2/50": {
+		"style": {
+			"backgroundColor": "rgb(255 184 201 / 0.5)"
+		}
+	},
+	"bg-pink-region2/60": {
+		"style": {
+			"backgroundColor": "rgb(255 184 201 / 0.6)"
+		}
+	},
+	"bg-pink-region2/70": {
+		"style": {
+			"backgroundColor": "rgb(255 184 201 / 0.7)"
+		}
+	},
+	"bg-pink-region2/75": {
+		"style": {
+			"backgroundColor": "rgb(255 184 201 / 0.75)"
+		}
+	},
+	"bg-pink-region2/80": {
+		"style": {
+			"backgroundColor": "rgb(255 184 201 / 0.8)"
+		}
+	},
+	"bg-pink-region2/90": {
+		"style": {
+			"backgroundColor": "rgb(255 184 201 / 0.9)"
+		}
+	},
+	"bg-pink-region2/95": {
+		"style": {
+			"backgroundColor": "rgb(255 184 201 / 0.95)"
+		}
+	},
+	"bg-pink-region2/100": {
+		"style": {
+			"backgroundColor": "rgb(255 184 201 / 1)"
+		}
+	},
+	"bg-pink-region3/0": {
+		"style": {
+			"backgroundColor": "rgb(255 209 220 / 0)"
+		}
+	},
+	"bg-pink-region3/5": {
+		"style": {
+			"backgroundColor": "rgb(255 209 220 / 0.05)"
+		}
+	},
+	"bg-pink-region3/10": {
+		"style": {
+			"backgroundColor": "rgb(255 209 220 / 0.1)"
+		}
+	},
+	"bg-pink-region3/20": {
+		"style": {
+			"backgroundColor": "rgb(255 209 220 / 0.2)"
+		}
+	},
+	"bg-pink-region3/25": {
+		"style": {
+			"backgroundColor": "rgb(255 209 220 / 0.25)"
+		}
+	},
+	"bg-pink-region3/30": {
+		"style": {
+			"backgroundColor": "rgb(255 209 220 / 0.3)"
+		}
+	},
+	"bg-pink-region3/40": {
+		"style": {
+			"backgroundColor": "rgb(255 209 220 / 0.4)"
+		}
+	},
+	"bg-pink-region3/50": {
+		"style": {
+			"backgroundColor": "rgb(255 209 220 / 0.5)"
+		}
+	},
+	"bg-pink-region3/60": {
+		"style": {
+			"backgroundColor": "rgb(255 209 220 / 0.6)"
+		}
+	},
+	"bg-pink-region3/70": {
+		"style": {
+			"backgroundColor": "rgb(255 209 220 / 0.7)"
+		}
+	},
+	"bg-pink-region3/75": {
+		"style": {
+			"backgroundColor": "rgb(255 209 220 / 0.75)"
+		}
+	},
+	"bg-pink-region3/80": {
+		"style": {
+			"backgroundColor": "rgb(255 209 220 / 0.8)"
+		}
+	},
+	"bg-pink-region3/90": {
+		"style": {
+			"backgroundColor": "rgb(255 209 220 / 0.9)"
+		}
+	},
+	"bg-pink-region3/95": {
+		"style": {
+			"backgroundColor": "rgb(255 209 220 / 0.95)"
+		}
+	},
+	"bg-pink-region3/100": {
+		"style": {
+			"backgroundColor": "rgb(255 209 220 / 1)"
+		}
+	},
+	"bg-pink-region4/0": {
+		"style": {
+			"backgroundColor": "rgb(255 235 239 / 0)"
+		}
+	},
+	"bg-pink-region4/5": {
+		"style": {
+			"backgroundColor": "rgb(255 235 239 / 0.05)"
+		}
+	},
+	"bg-pink-region4/10": {
+		"style": {
+			"backgroundColor": "rgb(255 235 239 / 0.1)"
+		}
+	},
+	"bg-pink-region4/20": {
+		"style": {
+			"backgroundColor": "rgb(255 235 239 / 0.2)"
+		}
+	},
+	"bg-pink-region4/25": {
+		"style": {
+			"backgroundColor": "rgb(255 235 239 / 0.25)"
+		}
+	},
+	"bg-pink-region4/30": {
+		"style": {
+			"backgroundColor": "rgb(255 235 239 / 0.3)"
+		}
+	},
+	"bg-pink-region4/40": {
+		"style": {
+			"backgroundColor": "rgb(255 235 239 / 0.4)"
+		}
+	},
+	"bg-pink-region4/50": {
+		"style": {
+			"backgroundColor": "rgb(255 235 239 / 0.5)"
+		}
+	},
+	"bg-pink-region4/60": {
+		"style": {
+			"backgroundColor": "rgb(255 235 239 / 0.6)"
+		}
+	},
+	"bg-pink-region4/70": {
+		"style": {
+			"backgroundColor": "rgb(255 235 239 / 0.7)"
+		}
+	},
+	"bg-pink-region4/75": {
+		"style": {
+			"backgroundColor": "rgb(255 235 239 / 0.75)"
+		}
+	},
+	"bg-pink-region4/80": {
+		"style": {
+			"backgroundColor": "rgb(255 235 239 / 0.8)"
+		}
+	},
+	"bg-pink-region4/90": {
+		"style": {
+			"backgroundColor": "rgb(255 235 239 / 0.9)"
+		}
+	},
+	"bg-pink-region4/95": {
+		"style": {
+			"backgroundColor": "rgb(255 235 239 / 0.95)"
+		}
+	},
+	"bg-pink-region4/100": {
+		"style": {
+			"backgroundColor": "rgb(255 235 239 / 1)"
+		}
+	},
+	"bg-pink-dark/0": {
+		"style": {
+			"backgroundColor": "rgb(255 46 96 / 0)"
+		}
+	},
+	"bg-pink-dark/5": {
+		"style": {
+			"backgroundColor": "rgb(255 46 96 / 0.05)"
+		}
+	},
+	"bg-pink-dark/10": {
+		"style": {
+			"backgroundColor": "rgb(255 46 96 / 0.1)"
+		}
+	},
+	"bg-pink-dark/20": {
+		"style": {
+			"backgroundColor": "rgb(255 46 96 / 0.2)"
+		}
+	},
+	"bg-pink-dark/25": {
+		"style": {
+			"backgroundColor": "rgb(255 46 96 / 0.25)"
+		}
+	},
+	"bg-pink-dark/30": {
+		"style": {
+			"backgroundColor": "rgb(255 46 96 / 0.3)"
+		}
+	},
+	"bg-pink-dark/40": {
+		"style": {
+			"backgroundColor": "rgb(255 46 96 / 0.4)"
+		}
+	},
+	"bg-pink-dark/50": {
+		"style": {
+			"backgroundColor": "rgb(255 46 96 / 0.5)"
+		}
+	},
+	"bg-pink-dark/60": {
+		"style": {
+			"backgroundColor": "rgb(255 46 96 / 0.6)"
+		}
+	},
+	"bg-pink-dark/70": {
+		"style": {
+			"backgroundColor": "rgb(255 46 96 / 0.7)"
+		}
+	},
+	"bg-pink-dark/75": {
+		"style": {
+			"backgroundColor": "rgb(255 46 96 / 0.75)"
+		}
+	},
+	"bg-pink-dark/80": {
+		"style": {
+			"backgroundColor": "rgb(255 46 96 / 0.8)"
+		}
+	},
+	"bg-pink-dark/90": {
+		"style": {
+			"backgroundColor": "rgb(255 46 96 / 0.9)"
+		}
+	},
+	"bg-pink-dark/95": {
+		"style": {
+			"backgroundColor": "rgb(255 46 96 / 0.95)"
+		}
+	},
+	"bg-pink-dark/100": {
+		"style": {
+			"backgroundColor": "rgb(255 46 96 / 1)"
+		}
+	},
+	"bg-black-normal/0": {
+		"style": {
+			"backgroundColor": "rgb(9 16 29 / 0)"
+		}
+	},
+	"bg-black-normal/5": {
+		"style": {
+			"backgroundColor": "rgb(9 16 29 / 0.05)"
+		}
+	},
+	"bg-black-normal/10": {
+		"style": {
+			"backgroundColor": "rgb(9 16 29 / 0.1)"
+		}
+	},
+	"bg-black-normal/20": {
+		"style": {
+			"backgroundColor": "rgb(9 16 29 / 0.2)"
+		}
+	},
+	"bg-black-normal/25": {
+		"style": {
+			"backgroundColor": "rgb(9 16 29 / 0.25)"
+		}
+	},
+	"bg-black-normal/30": {
+		"style": {
+			"backgroundColor": "rgb(9 16 29 / 0.3)"
+		}
+	},
+	"bg-black-normal/40": {
+		"style": {
+			"backgroundColor": "rgb(9 16 29 / 0.4)"
+		}
+	},
+	"bg-black-normal/50": {
+		"style": {
+			"backgroundColor": "rgb(9 16 29 / 0.5)"
+		}
+	},
+	"bg-black-normal/60": {
+		"style": {
+			"backgroundColor": "rgb(9 16 29 / 0.6)"
+		}
+	},
+	"bg-black-normal/70": {
+		"style": {
+			"backgroundColor": "rgb(9 16 29 / 0.7)"
+		}
+	},
+	"bg-black-normal/75": {
+		"style": {
+			"backgroundColor": "rgb(9 16 29 / 0.75)"
+		}
+	},
+	"bg-black-normal/80": {
+		"style": {
+			"backgroundColor": "rgb(9 16 29 / 0.8)"
+		}
+	},
+	"bg-black-normal/90": {
+		"style": {
+			"backgroundColor": "rgb(9 16 29 / 0.9)"
+		}
+	},
+	"bg-black-normal/95": {
+		"style": {
+			"backgroundColor": "rgb(9 16 29 / 0.95)"
+		}
+	},
+	"bg-black-normal/100": {
+		"style": {
+			"backgroundColor": "rgb(9 16 29 / 1)"
+		}
+	},
+	"bg-black-light/0": {
+		"style": {
+			"backgroundColor": "rgb(97 97 97 / 0)"
+		}
+	},
+	"bg-black-light/5": {
+		"style": {
+			"backgroundColor": "rgb(97 97 97 / 0.05)"
+		}
+	},
+	"bg-black-light/10": {
+		"style": {
+			"backgroundColor": "rgb(97 97 97 / 0.1)"
+		}
+	},
+	"bg-black-light/20": {
+		"style": {
+			"backgroundColor": "rgb(97 97 97 / 0.2)"
+		}
+	},
+	"bg-black-light/25": {
+		"style": {
+			"backgroundColor": "rgb(97 97 97 / 0.25)"
+		}
+	},
+	"bg-black-light/30": {
+		"style": {
+			"backgroundColor": "rgb(97 97 97 / 0.3)"
+		}
+	},
+	"bg-black-light/40": {
+		"style": {
+			"backgroundColor": "rgb(97 97 97 / 0.4)"
+		}
+	},
+	"bg-black-light/50": {
+		"style": {
+			"backgroundColor": "rgb(97 97 97 / 0.5)"
+		}
+	},
+	"bg-black-light/60": {
+		"style": {
+			"backgroundColor": "rgb(97 97 97 / 0.6)"
+		}
+	},
+	"bg-black-light/70": {
+		"style": {
+			"backgroundColor": "rgb(97 97 97 / 0.7)"
+		}
+	},
+	"bg-black-light/75": {
+		"style": {
+			"backgroundColor": "rgb(97 97 97 / 0.75)"
+		}
+	},
+	"bg-black-light/80": {
+		"style": {
+			"backgroundColor": "rgb(97 97 97 / 0.8)"
+		}
+	},
+	"bg-black-light/90": {
+		"style": {
+			"backgroundColor": "rgb(97 97 97 / 0.9)"
+		}
+	},
+	"bg-black-light/95": {
+		"style": {
+			"backgroundColor": "rgb(97 97 97 / 0.95)"
+		}
+	},
+	"bg-black-light/100": {
+		"style": {
+			"backgroundColor": "rgb(97 97 97 / 1)"
+		}
+	},
+	"bg-red-something/0": {
+		"style": {
+			"backgroundColor": "rgb(153 0 36 / 0)"
+		}
+	},
+	"bg-red-something/5": {
+		"style": {
+			"backgroundColor": "rgb(153 0 36 / 0.05)"
+		}
+	},
+	"bg-red-something/10": {
+		"style": {
+			"backgroundColor": "rgb(153 0 36 / 0.1)"
+		}
+	},
+	"bg-red-something/20": {
+		"style": {
+			"backgroundColor": "rgb(153 0 36 / 0.2)"
+		}
+	},
+	"bg-red-something/25": {
+		"style": {
+			"backgroundColor": "rgb(153 0 36 / 0.25)"
+		}
+	},
+	"bg-red-something/30": {
+		"style": {
+			"backgroundColor": "rgb(153 0 36 / 0.3)"
+		}
+	},
+	"bg-red-something/40": {
+		"style": {
+			"backgroundColor": "rgb(153 0 36 / 0.4)"
+		}
+	},
+	"bg-red-something/50": {
+		"style": {
+			"backgroundColor": "rgb(153 0 36 / 0.5)"
+		}
+	},
+	"bg-red-something/60": {
+		"style": {
+			"backgroundColor": "rgb(153 0 36 / 0.6)"
+		}
+	},
+	"bg-red-something/70": {
+		"style": {
+			"backgroundColor": "rgb(153 0 36 / 0.7)"
+		}
+	},
+	"bg-red-something/75": {
+		"style": {
+			"backgroundColor": "rgb(153 0 36 / 0.75)"
+		}
+	},
+	"bg-red-something/80": {
+		"style": {
+			"backgroundColor": "rgb(153 0 36 / 0.8)"
+		}
+	},
+	"bg-red-something/90": {
+		"style": {
+			"backgroundColor": "rgb(153 0 36 / 0.9)"
+		}
+	},
+	"bg-red-something/95": {
+		"style": {
+			"backgroundColor": "rgb(153 0 36 / 0.95)"
+		}
+	},
+	"bg-red-something/100": {
+		"style": {
+			"backgroundColor": "rgb(153 0 36 / 1)"
+		}
+	},
+	"bg-red-important/0": {
+		"style": {
+			"backgroundColor": "rgb(218 37 29 / 0)"
+		}
+	},
+	"bg-red-important/5": {
+		"style": {
+			"backgroundColor": "rgb(218 37 29 / 0.05)"
+		}
+	},
+	"bg-red-important/10": {
+		"style": {
+			"backgroundColor": "rgb(218 37 29 / 0.1)"
+		}
+	},
+	"bg-red-important/20": {
+		"style": {
+			"backgroundColor": "rgb(218 37 29 / 0.2)"
+		}
+	},
+	"bg-red-important/25": {
+		"style": {
+			"backgroundColor": "rgb(218 37 29 / 0.25)"
+		}
+	},
+	"bg-red-important/30": {
+		"style": {
+			"backgroundColor": "rgb(218 37 29 / 0.3)"
+		}
+	},
+	"bg-red-important/40": {
+		"style": {
+			"backgroundColor": "rgb(218 37 29 / 0.4)"
+		}
+	},
+	"bg-red-important/50": {
+		"style": {
+			"backgroundColor": "rgb(218 37 29 / 0.5)"
+		}
+	},
+	"bg-red-important/60": {
+		"style": {
+			"backgroundColor": "rgb(218 37 29 / 0.6)"
+		}
+	},
+	"bg-red-important/70": {
+		"style": {
+			"backgroundColor": "rgb(218 37 29 / 0.7)"
+		}
+	},
+	"bg-red-important/75": {
+		"style": {
+			"backgroundColor": "rgb(218 37 29 / 0.75)"
+		}
+	},
+	"bg-red-important/80": {
+		"style": {
+			"backgroundColor": "rgb(218 37 29 / 0.8)"
+		}
+	},
+	"bg-red-important/90": {
+		"style": {
+			"backgroundColor": "rgb(218 37 29 / 0.9)"
+		}
+	},
+	"bg-red-important/95": {
+		"style": {
+			"backgroundColor": "rgb(218 37 29 / 0.95)"
+		}
+	},
+	"bg-red-important/100": {
+		"style": {
+			"backgroundColor": "rgb(218 37 29 / 1)"
 		}
 	},
 	"bg-white": {
 		"style": {
 			"--tw-bg-opacity": 1,
 			"backgroundColor": "rgb(255 255 255 / var(--tw-bg-opacity))"
-		}
-	},
-	"bg-red-200": {
-		"style": {
-			"--tw-bg-opacity": 1,
-			"backgroundColor": "rgb(254 202 202 / var(--tw-bg-opacity))"
-		}
-	},
-	"bg-green-200": {
-		"style": {
-			"--tw-bg-opacity": 1,
-			"backgroundColor": "rgb(187 247 208 / var(--tw-bg-opacity))"
-		}
-	},
-	"bg-red-500": {
-		"style": {
-			"--tw-bg-opacity": 1,
-			"backgroundColor": "rgb(239 68 68 / var(--tw-bg-opacity))"
-		}
-	},
-	"bg-red-400": {
-		"style": {
-			"--tw-bg-opacity": 1,
-			"backgroundColor": "rgb(248 113 113 / var(--tw-bg-opacity))"
-		}
-	},
-	"bg-gray-400": {
-		"style": {
-			"--tw-bg-opacity": 1,
-			"backgroundColor": "rgb(156 163 175 / var(--tw-bg-opacity))"
-		}
-	},
-	"bg-purple-600": {
-		"style": {
-			"--tw-bg-opacity": 1,
-			"backgroundColor": "rgb(147 51 234 / var(--tw-bg-opacity))"
 		}
 	},
 	"p-2": {
@@ -482,27 +3791,1355 @@
 			"fontWeight": "600"
 		}
 	},
+	"text-gray-d9": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(217 217 217 / var(--tw-text-opacity))"
+		}
+	},
+	"text-purple-other": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(61 59 115 / var(--tw-text-opacity))"
+		}
+	},
+	"text-blue": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(29 161 242 / var(--tw-text-opacity))"
+		}
+	},
+	"text-green": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(112 215 166 / var(--tw-text-opacity))"
+		}
+	},
+	"text-yellow": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(251 188 5 / var(--tw-text-opacity))"
+		}
+	},
+	"text-orange": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(245 145 36 / var(--tw-text-opacity))"
+		}
+	},
+	"text-pink-primary": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(255 133 162 / var(--tw-text-opacity))"
+		}
+	},
+	"text-pink-region1": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(255 158 181 / var(--tw-text-opacity))"
+		}
+	},
+	"text-pink-region2": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(255 184 201 / var(--tw-text-opacity))"
+		}
+	},
+	"text-pink-region3": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(255 209 220 / var(--tw-text-opacity))"
+		}
+	},
+	"text-pink-region4": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(255 235 239 / var(--tw-text-opacity))"
+		}
+	},
+	"text-pink-dark": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(255 46 96 / var(--tw-text-opacity))"
+		}
+	},
+	"text-black-normal": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(9 16 29 / var(--tw-text-opacity))"
+		}
+	},
+	"text-black-light": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(97 97 97 / var(--tw-text-opacity))"
+		}
+	},
+	"text-red-something": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(153 0 36 / var(--tw-text-opacity))"
+		}
+	},
+	"text-red-important": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(218 37 29 / var(--tw-text-opacity))"
+		}
+	},
+	"text-gray-d9/0": {
+		"style": {
+			"color": "rgb(217 217 217 / 0)"
+		}
+	},
+	"text-gray-d9/5": {
+		"style": {
+			"color": "rgb(217 217 217 / 0.05)"
+		}
+	},
+	"text-gray-d9/10": {
+		"style": {
+			"color": "rgb(217 217 217 / 0.1)"
+		}
+	},
+	"text-gray-d9/20": {
+		"style": {
+			"color": "rgb(217 217 217 / 0.2)"
+		}
+	},
+	"text-gray-d9/25": {
+		"style": {
+			"color": "rgb(217 217 217 / 0.25)"
+		}
+	},
+	"text-gray-d9/30": {
+		"style": {
+			"color": "rgb(217 217 217 / 0.3)"
+		}
+	},
+	"text-gray-d9/40": {
+		"style": {
+			"color": "rgb(217 217 217 / 0.4)"
+		}
+	},
+	"text-gray-d9/50": {
+		"style": {
+			"color": "rgb(217 217 217 / 0.5)"
+		}
+	},
+	"text-gray-d9/60": {
+		"style": {
+			"color": "rgb(217 217 217 / 0.6)"
+		}
+	},
+	"text-gray-d9/70": {
+		"style": {
+			"color": "rgb(217 217 217 / 0.7)"
+		}
+	},
+	"text-gray-d9/75": {
+		"style": {
+			"color": "rgb(217 217 217 / 0.75)"
+		}
+	},
+	"text-gray-d9/80": {
+		"style": {
+			"color": "rgb(217 217 217 / 0.8)"
+		}
+	},
+	"text-gray-d9/90": {
+		"style": {
+			"color": "rgb(217 217 217 / 0.9)"
+		}
+	},
+	"text-gray-d9/95": {
+		"style": {
+			"color": "rgb(217 217 217 / 0.95)"
+		}
+	},
+	"text-gray-d9/100": {
+		"style": {
+			"color": "rgb(217 217 217 / 1)"
+		}
+	},
+	"text-purple-other/0": {
+		"style": {
+			"color": "rgb(61 59 115 / 0)"
+		}
+	},
+	"text-purple-other/5": {
+		"style": {
+			"color": "rgb(61 59 115 / 0.05)"
+		}
+	},
+	"text-purple-other/10": {
+		"style": {
+			"color": "rgb(61 59 115 / 0.1)"
+		}
+	},
+	"text-purple-other/20": {
+		"style": {
+			"color": "rgb(61 59 115 / 0.2)"
+		}
+	},
+	"text-purple-other/25": {
+		"style": {
+			"color": "rgb(61 59 115 / 0.25)"
+		}
+	},
+	"text-purple-other/30": {
+		"style": {
+			"color": "rgb(61 59 115 / 0.3)"
+		}
+	},
+	"text-purple-other/40": {
+		"style": {
+			"color": "rgb(61 59 115 / 0.4)"
+		}
+	},
+	"text-purple-other/50": {
+		"style": {
+			"color": "rgb(61 59 115 / 0.5)"
+		}
+	},
+	"text-purple-other/60": {
+		"style": {
+			"color": "rgb(61 59 115 / 0.6)"
+		}
+	},
+	"text-purple-other/70": {
+		"style": {
+			"color": "rgb(61 59 115 / 0.7)"
+		}
+	},
+	"text-purple-other/75": {
+		"style": {
+			"color": "rgb(61 59 115 / 0.75)"
+		}
+	},
+	"text-purple-other/80": {
+		"style": {
+			"color": "rgb(61 59 115 / 0.8)"
+		}
+	},
+	"text-purple-other/90": {
+		"style": {
+			"color": "rgb(61 59 115 / 0.9)"
+		}
+	},
+	"text-purple-other/95": {
+		"style": {
+			"color": "rgb(61 59 115 / 0.95)"
+		}
+	},
+	"text-purple-other/100": {
+		"style": {
+			"color": "rgb(61 59 115 / 1)"
+		}
+	},
+	"text-blue/0": {
+		"style": {
+			"color": "rgb(29 161 242 / 0)"
+		}
+	},
+	"text-blue/5": {
+		"style": {
+			"color": "rgb(29 161 242 / 0.05)"
+		}
+	},
+	"text-blue/10": {
+		"style": {
+			"color": "rgb(29 161 242 / 0.1)"
+		}
+	},
+	"text-blue/20": {
+		"style": {
+			"color": "rgb(29 161 242 / 0.2)"
+		}
+	},
+	"text-blue/25": {
+		"style": {
+			"color": "rgb(29 161 242 / 0.25)"
+		}
+	},
+	"text-blue/30": {
+		"style": {
+			"color": "rgb(29 161 242 / 0.3)"
+		}
+	},
+	"text-blue/40": {
+		"style": {
+			"color": "rgb(29 161 242 / 0.4)"
+		}
+	},
+	"text-blue/50": {
+		"style": {
+			"color": "rgb(29 161 242 / 0.5)"
+		}
+	},
+	"text-blue/60": {
+		"style": {
+			"color": "rgb(29 161 242 / 0.6)"
+		}
+	},
+	"text-blue/70": {
+		"style": {
+			"color": "rgb(29 161 242 / 0.7)"
+		}
+	},
+	"text-blue/75": {
+		"style": {
+			"color": "rgb(29 161 242 / 0.75)"
+		}
+	},
+	"text-blue/80": {
+		"style": {
+			"color": "rgb(29 161 242 / 0.8)"
+		}
+	},
+	"text-blue/90": {
+		"style": {
+			"color": "rgb(29 161 242 / 0.9)"
+		}
+	},
+	"text-blue/95": {
+		"style": {
+			"color": "rgb(29 161 242 / 0.95)"
+		}
+	},
+	"text-blue/100": {
+		"style": {
+			"color": "rgb(29 161 242 / 1)"
+		}
+	},
+	"text-green/0": {
+		"style": {
+			"color": "rgb(112 215 166 / 0)"
+		}
+	},
+	"text-green/5": {
+		"style": {
+			"color": "rgb(112 215 166 / 0.05)"
+		}
+	},
+	"text-green/10": {
+		"style": {
+			"color": "rgb(112 215 166 / 0.1)"
+		}
+	},
+	"text-green/20": {
+		"style": {
+			"color": "rgb(112 215 166 / 0.2)"
+		}
+	},
+	"text-green/25": {
+		"style": {
+			"color": "rgb(112 215 166 / 0.25)"
+		}
+	},
+	"text-green/30": {
+		"style": {
+			"color": "rgb(112 215 166 / 0.3)"
+		}
+	},
+	"text-green/40": {
+		"style": {
+			"color": "rgb(112 215 166 / 0.4)"
+		}
+	},
+	"text-green/50": {
+		"style": {
+			"color": "rgb(112 215 166 / 0.5)"
+		}
+	},
+	"text-green/60": {
+		"style": {
+			"color": "rgb(112 215 166 / 0.6)"
+		}
+	},
+	"text-green/70": {
+		"style": {
+			"color": "rgb(112 215 166 / 0.7)"
+		}
+	},
+	"text-green/75": {
+		"style": {
+			"color": "rgb(112 215 166 / 0.75)"
+		}
+	},
+	"text-green/80": {
+		"style": {
+			"color": "rgb(112 215 166 / 0.8)"
+		}
+	},
+	"text-green/90": {
+		"style": {
+			"color": "rgb(112 215 166 / 0.9)"
+		}
+	},
+	"text-green/95": {
+		"style": {
+			"color": "rgb(112 215 166 / 0.95)"
+		}
+	},
+	"text-green/100": {
+		"style": {
+			"color": "rgb(112 215 166 / 1)"
+		}
+	},
+	"text-yellow/0": {
+		"style": {
+			"color": "rgb(251 188 5 / 0)"
+		}
+	},
+	"text-yellow/5": {
+		"style": {
+			"color": "rgb(251 188 5 / 0.05)"
+		}
+	},
+	"text-yellow/10": {
+		"style": {
+			"color": "rgb(251 188 5 / 0.1)"
+		}
+	},
+	"text-yellow/20": {
+		"style": {
+			"color": "rgb(251 188 5 / 0.2)"
+		}
+	},
+	"text-yellow/25": {
+		"style": {
+			"color": "rgb(251 188 5 / 0.25)"
+		}
+	},
+	"text-yellow/30": {
+		"style": {
+			"color": "rgb(251 188 5 / 0.3)"
+		}
+	},
+	"text-yellow/40": {
+		"style": {
+			"color": "rgb(251 188 5 / 0.4)"
+		}
+	},
+	"text-yellow/50": {
+		"style": {
+			"color": "rgb(251 188 5 / 0.5)"
+		}
+	},
+	"text-yellow/60": {
+		"style": {
+			"color": "rgb(251 188 5 / 0.6)"
+		}
+	},
+	"text-yellow/70": {
+		"style": {
+			"color": "rgb(251 188 5 / 0.7)"
+		}
+	},
+	"text-yellow/75": {
+		"style": {
+			"color": "rgb(251 188 5 / 0.75)"
+		}
+	},
+	"text-yellow/80": {
+		"style": {
+			"color": "rgb(251 188 5 / 0.8)"
+		}
+	},
+	"text-yellow/90": {
+		"style": {
+			"color": "rgb(251 188 5 / 0.9)"
+		}
+	},
+	"text-yellow/95": {
+		"style": {
+			"color": "rgb(251 188 5 / 0.95)"
+		}
+	},
+	"text-yellow/100": {
+		"style": {
+			"color": "rgb(251 188 5 / 1)"
+		}
+	},
+	"text-orange/0": {
+		"style": {
+			"color": "rgb(245 145 36 / 0)"
+		}
+	},
+	"text-orange/5": {
+		"style": {
+			"color": "rgb(245 145 36 / 0.05)"
+		}
+	},
+	"text-orange/10": {
+		"style": {
+			"color": "rgb(245 145 36 / 0.1)"
+		}
+	},
+	"text-orange/20": {
+		"style": {
+			"color": "rgb(245 145 36 / 0.2)"
+		}
+	},
+	"text-orange/25": {
+		"style": {
+			"color": "rgb(245 145 36 / 0.25)"
+		}
+	},
+	"text-orange/30": {
+		"style": {
+			"color": "rgb(245 145 36 / 0.3)"
+		}
+	},
+	"text-orange/40": {
+		"style": {
+			"color": "rgb(245 145 36 / 0.4)"
+		}
+	},
+	"text-orange/50": {
+		"style": {
+			"color": "rgb(245 145 36 / 0.5)"
+		}
+	},
+	"text-orange/60": {
+		"style": {
+			"color": "rgb(245 145 36 / 0.6)"
+		}
+	},
+	"text-orange/70": {
+		"style": {
+			"color": "rgb(245 145 36 / 0.7)"
+		}
+	},
+	"text-orange/75": {
+		"style": {
+			"color": "rgb(245 145 36 / 0.75)"
+		}
+	},
+	"text-orange/80": {
+		"style": {
+			"color": "rgb(245 145 36 / 0.8)"
+		}
+	},
+	"text-orange/90": {
+		"style": {
+			"color": "rgb(245 145 36 / 0.9)"
+		}
+	},
+	"text-orange/95": {
+		"style": {
+			"color": "rgb(245 145 36 / 0.95)"
+		}
+	},
+	"text-orange/100": {
+		"style": {
+			"color": "rgb(245 145 36 / 1)"
+		}
+	},
+	"text-pink-primary/0": {
+		"style": {
+			"color": "rgb(255 133 162 / 0)"
+		}
+	},
+	"text-pink-primary/5": {
+		"style": {
+			"color": "rgb(255 133 162 / 0.05)"
+		}
+	},
+	"text-pink-primary/10": {
+		"style": {
+			"color": "rgb(255 133 162 / 0.1)"
+		}
+	},
+	"text-pink-primary/20": {
+		"style": {
+			"color": "rgb(255 133 162 / 0.2)"
+		}
+	},
+	"text-pink-primary/25": {
+		"style": {
+			"color": "rgb(255 133 162 / 0.25)"
+		}
+	},
+	"text-pink-primary/30": {
+		"style": {
+			"color": "rgb(255 133 162 / 0.3)"
+		}
+	},
+	"text-pink-primary/40": {
+		"style": {
+			"color": "rgb(255 133 162 / 0.4)"
+		}
+	},
+	"text-pink-primary/50": {
+		"style": {
+			"color": "rgb(255 133 162 / 0.5)"
+		}
+	},
+	"text-pink-primary/60": {
+		"style": {
+			"color": "rgb(255 133 162 / 0.6)"
+		}
+	},
+	"text-pink-primary/70": {
+		"style": {
+			"color": "rgb(255 133 162 / 0.7)"
+		}
+	},
+	"text-pink-primary/75": {
+		"style": {
+			"color": "rgb(255 133 162 / 0.75)"
+		}
+	},
+	"text-pink-primary/80": {
+		"style": {
+			"color": "rgb(255 133 162 / 0.8)"
+		}
+	},
+	"text-pink-primary/90": {
+		"style": {
+			"color": "rgb(255 133 162 / 0.9)"
+		}
+	},
+	"text-pink-primary/95": {
+		"style": {
+			"color": "rgb(255 133 162 / 0.95)"
+		}
+	},
+	"text-pink-primary/100": {
+		"style": {
+			"color": "rgb(255 133 162 / 1)"
+		}
+	},
+	"text-pink-region1/0": {
+		"style": {
+			"color": "rgb(255 158 181 / 0)"
+		}
+	},
+	"text-pink-region1/5": {
+		"style": {
+			"color": "rgb(255 158 181 / 0.05)"
+		}
+	},
+	"text-pink-region1/10": {
+		"style": {
+			"color": "rgb(255 158 181 / 0.1)"
+		}
+	},
+	"text-pink-region1/20": {
+		"style": {
+			"color": "rgb(255 158 181 / 0.2)"
+		}
+	},
+	"text-pink-region1/25": {
+		"style": {
+			"color": "rgb(255 158 181 / 0.25)"
+		}
+	},
+	"text-pink-region1/30": {
+		"style": {
+			"color": "rgb(255 158 181 / 0.3)"
+		}
+	},
+	"text-pink-region1/40": {
+		"style": {
+			"color": "rgb(255 158 181 / 0.4)"
+		}
+	},
+	"text-pink-region1/50": {
+		"style": {
+			"color": "rgb(255 158 181 / 0.5)"
+		}
+	},
+	"text-pink-region1/60": {
+		"style": {
+			"color": "rgb(255 158 181 / 0.6)"
+		}
+	},
+	"text-pink-region1/70": {
+		"style": {
+			"color": "rgb(255 158 181 / 0.7)"
+		}
+	},
+	"text-pink-region1/75": {
+		"style": {
+			"color": "rgb(255 158 181 / 0.75)"
+		}
+	},
+	"text-pink-region1/80": {
+		"style": {
+			"color": "rgb(255 158 181 / 0.8)"
+		}
+	},
+	"text-pink-region1/90": {
+		"style": {
+			"color": "rgb(255 158 181 / 0.9)"
+		}
+	},
+	"text-pink-region1/95": {
+		"style": {
+			"color": "rgb(255 158 181 / 0.95)"
+		}
+	},
+	"text-pink-region1/100": {
+		"style": {
+			"color": "rgb(255 158 181 / 1)"
+		}
+	},
+	"text-pink-region2/0": {
+		"style": {
+			"color": "rgb(255 184 201 / 0)"
+		}
+	},
+	"text-pink-region2/5": {
+		"style": {
+			"color": "rgb(255 184 201 / 0.05)"
+		}
+	},
+	"text-pink-region2/10": {
+		"style": {
+			"color": "rgb(255 184 201 / 0.1)"
+		}
+	},
+	"text-pink-region2/20": {
+		"style": {
+			"color": "rgb(255 184 201 / 0.2)"
+		}
+	},
+	"text-pink-region2/25": {
+		"style": {
+			"color": "rgb(255 184 201 / 0.25)"
+		}
+	},
+	"text-pink-region2/30": {
+		"style": {
+			"color": "rgb(255 184 201 / 0.3)"
+		}
+	},
+	"text-pink-region2/40": {
+		"style": {
+			"color": "rgb(255 184 201 / 0.4)"
+		}
+	},
+	"text-pink-region2/50": {
+		"style": {
+			"color": "rgb(255 184 201 / 0.5)"
+		}
+	},
+	"text-pink-region2/60": {
+		"style": {
+			"color": "rgb(255 184 201 / 0.6)"
+		}
+	},
+	"text-pink-region2/70": {
+		"style": {
+			"color": "rgb(255 184 201 / 0.7)"
+		}
+	},
+	"text-pink-region2/75": {
+		"style": {
+			"color": "rgb(255 184 201 / 0.75)"
+		}
+	},
+	"text-pink-region2/80": {
+		"style": {
+			"color": "rgb(255 184 201 / 0.8)"
+		}
+	},
+	"text-pink-region2/90": {
+		"style": {
+			"color": "rgb(255 184 201 / 0.9)"
+		}
+	},
+	"text-pink-region2/95": {
+		"style": {
+			"color": "rgb(255 184 201 / 0.95)"
+		}
+	},
+	"text-pink-region2/100": {
+		"style": {
+			"color": "rgb(255 184 201 / 1)"
+		}
+	},
+	"text-pink-region3/0": {
+		"style": {
+			"color": "rgb(255 209 220 / 0)"
+		}
+	},
+	"text-pink-region3/5": {
+		"style": {
+			"color": "rgb(255 209 220 / 0.05)"
+		}
+	},
+	"text-pink-region3/10": {
+		"style": {
+			"color": "rgb(255 209 220 / 0.1)"
+		}
+	},
+	"text-pink-region3/20": {
+		"style": {
+			"color": "rgb(255 209 220 / 0.2)"
+		}
+	},
+	"text-pink-region3/25": {
+		"style": {
+			"color": "rgb(255 209 220 / 0.25)"
+		}
+	},
+	"text-pink-region3/30": {
+		"style": {
+			"color": "rgb(255 209 220 / 0.3)"
+		}
+	},
+	"text-pink-region3/40": {
+		"style": {
+			"color": "rgb(255 209 220 / 0.4)"
+		}
+	},
+	"text-pink-region3/50": {
+		"style": {
+			"color": "rgb(255 209 220 / 0.5)"
+		}
+	},
+	"text-pink-region3/60": {
+		"style": {
+			"color": "rgb(255 209 220 / 0.6)"
+		}
+	},
+	"text-pink-region3/70": {
+		"style": {
+			"color": "rgb(255 209 220 / 0.7)"
+		}
+	},
+	"text-pink-region3/75": {
+		"style": {
+			"color": "rgb(255 209 220 / 0.75)"
+		}
+	},
+	"text-pink-region3/80": {
+		"style": {
+			"color": "rgb(255 209 220 / 0.8)"
+		}
+	},
+	"text-pink-region3/90": {
+		"style": {
+			"color": "rgb(255 209 220 / 0.9)"
+		}
+	},
+	"text-pink-region3/95": {
+		"style": {
+			"color": "rgb(255 209 220 / 0.95)"
+		}
+	},
+	"text-pink-region3/100": {
+		"style": {
+			"color": "rgb(255 209 220 / 1)"
+		}
+	},
+	"text-pink-region4/0": {
+		"style": {
+			"color": "rgb(255 235 239 / 0)"
+		}
+	},
+	"text-pink-region4/5": {
+		"style": {
+			"color": "rgb(255 235 239 / 0.05)"
+		}
+	},
+	"text-pink-region4/10": {
+		"style": {
+			"color": "rgb(255 235 239 / 0.1)"
+		}
+	},
+	"text-pink-region4/20": {
+		"style": {
+			"color": "rgb(255 235 239 / 0.2)"
+		}
+	},
+	"text-pink-region4/25": {
+		"style": {
+			"color": "rgb(255 235 239 / 0.25)"
+		}
+	},
+	"text-pink-region4/30": {
+		"style": {
+			"color": "rgb(255 235 239 / 0.3)"
+		}
+	},
+	"text-pink-region4/40": {
+		"style": {
+			"color": "rgb(255 235 239 / 0.4)"
+		}
+	},
+	"text-pink-region4/50": {
+		"style": {
+			"color": "rgb(255 235 239 / 0.5)"
+		}
+	},
+	"text-pink-region4/60": {
+		"style": {
+			"color": "rgb(255 235 239 / 0.6)"
+		}
+	},
+	"text-pink-region4/70": {
+		"style": {
+			"color": "rgb(255 235 239 / 0.7)"
+		}
+	},
+	"text-pink-region4/75": {
+		"style": {
+			"color": "rgb(255 235 239 / 0.75)"
+		}
+	},
+	"text-pink-region4/80": {
+		"style": {
+			"color": "rgb(255 235 239 / 0.8)"
+		}
+	},
+	"text-pink-region4/90": {
+		"style": {
+			"color": "rgb(255 235 239 / 0.9)"
+		}
+	},
+	"text-pink-region4/95": {
+		"style": {
+			"color": "rgb(255 235 239 / 0.95)"
+		}
+	},
+	"text-pink-region4/100": {
+		"style": {
+			"color": "rgb(255 235 239 / 1)"
+		}
+	},
+	"text-pink-dark/0": {
+		"style": {
+			"color": "rgb(255 46 96 / 0)"
+		}
+	},
+	"text-pink-dark/5": {
+		"style": {
+			"color": "rgb(255 46 96 / 0.05)"
+		}
+	},
+	"text-pink-dark/10": {
+		"style": {
+			"color": "rgb(255 46 96 / 0.1)"
+		}
+	},
+	"text-pink-dark/20": {
+		"style": {
+			"color": "rgb(255 46 96 / 0.2)"
+		}
+	},
+	"text-pink-dark/25": {
+		"style": {
+			"color": "rgb(255 46 96 / 0.25)"
+		}
+	},
+	"text-pink-dark/30": {
+		"style": {
+			"color": "rgb(255 46 96 / 0.3)"
+		}
+	},
+	"text-pink-dark/40": {
+		"style": {
+			"color": "rgb(255 46 96 / 0.4)"
+		}
+	},
+	"text-pink-dark/50": {
+		"style": {
+			"color": "rgb(255 46 96 / 0.5)"
+		}
+	},
+	"text-pink-dark/60": {
+		"style": {
+			"color": "rgb(255 46 96 / 0.6)"
+		}
+	},
+	"text-pink-dark/70": {
+		"style": {
+			"color": "rgb(255 46 96 / 0.7)"
+		}
+	},
+	"text-pink-dark/75": {
+		"style": {
+			"color": "rgb(255 46 96 / 0.75)"
+		}
+	},
+	"text-pink-dark/80": {
+		"style": {
+			"color": "rgb(255 46 96 / 0.8)"
+		}
+	},
+	"text-pink-dark/90": {
+		"style": {
+			"color": "rgb(255 46 96 / 0.9)"
+		}
+	},
+	"text-pink-dark/95": {
+		"style": {
+			"color": "rgb(255 46 96 / 0.95)"
+		}
+	},
+	"text-pink-dark/100": {
+		"style": {
+			"color": "rgb(255 46 96 / 1)"
+		}
+	},
+	"text-black-normal/0": {
+		"style": {
+			"color": "rgb(9 16 29 / 0)"
+		}
+	},
+	"text-black-normal/5": {
+		"style": {
+			"color": "rgb(9 16 29 / 0.05)"
+		}
+	},
+	"text-black-normal/10": {
+		"style": {
+			"color": "rgb(9 16 29 / 0.1)"
+		}
+	},
+	"text-black-normal/20": {
+		"style": {
+			"color": "rgb(9 16 29 / 0.2)"
+		}
+	},
+	"text-black-normal/25": {
+		"style": {
+			"color": "rgb(9 16 29 / 0.25)"
+		}
+	},
+	"text-black-normal/30": {
+		"style": {
+			"color": "rgb(9 16 29 / 0.3)"
+		}
+	},
+	"text-black-normal/40": {
+		"style": {
+			"color": "rgb(9 16 29 / 0.4)"
+		}
+	},
+	"text-black-normal/50": {
+		"style": {
+			"color": "rgb(9 16 29 / 0.5)"
+		}
+	},
+	"text-black-normal/60": {
+		"style": {
+			"color": "rgb(9 16 29 / 0.6)"
+		}
+	},
+	"text-black-normal/70": {
+		"style": {
+			"color": "rgb(9 16 29 / 0.7)"
+		}
+	},
+	"text-black-normal/75": {
+		"style": {
+			"color": "rgb(9 16 29 / 0.75)"
+		}
+	},
+	"text-black-normal/80": {
+		"style": {
+			"color": "rgb(9 16 29 / 0.8)"
+		}
+	},
+	"text-black-normal/90": {
+		"style": {
+			"color": "rgb(9 16 29 / 0.9)"
+		}
+	},
+	"text-black-normal/95": {
+		"style": {
+			"color": "rgb(9 16 29 / 0.95)"
+		}
+	},
+	"text-black-normal/100": {
+		"style": {
+			"color": "rgb(9 16 29 / 1)"
+		}
+	},
+	"text-black-light/0": {
+		"style": {
+			"color": "rgb(97 97 97 / 0)"
+		}
+	},
+	"text-black-light/5": {
+		"style": {
+			"color": "rgb(97 97 97 / 0.05)"
+		}
+	},
+	"text-black-light/10": {
+		"style": {
+			"color": "rgb(97 97 97 / 0.1)"
+		}
+	},
+	"text-black-light/20": {
+		"style": {
+			"color": "rgb(97 97 97 / 0.2)"
+		}
+	},
+	"text-black-light/25": {
+		"style": {
+			"color": "rgb(97 97 97 / 0.25)"
+		}
+	},
+	"text-black-light/30": {
+		"style": {
+			"color": "rgb(97 97 97 / 0.3)"
+		}
+	},
+	"text-black-light/40": {
+		"style": {
+			"color": "rgb(97 97 97 / 0.4)"
+		}
+	},
+	"text-black-light/50": {
+		"style": {
+			"color": "rgb(97 97 97 / 0.5)"
+		}
+	},
+	"text-black-light/60": {
+		"style": {
+			"color": "rgb(97 97 97 / 0.6)"
+		}
+	},
+	"text-black-light/70": {
+		"style": {
+			"color": "rgb(97 97 97 / 0.7)"
+		}
+	},
+	"text-black-light/75": {
+		"style": {
+			"color": "rgb(97 97 97 / 0.75)"
+		}
+	},
+	"text-black-light/80": {
+		"style": {
+			"color": "rgb(97 97 97 / 0.8)"
+		}
+	},
+	"text-black-light/90": {
+		"style": {
+			"color": "rgb(97 97 97 / 0.9)"
+		}
+	},
+	"text-black-light/95": {
+		"style": {
+			"color": "rgb(97 97 97 / 0.95)"
+		}
+	},
+	"text-black-light/100": {
+		"style": {
+			"color": "rgb(97 97 97 / 1)"
+		}
+	},
+	"text-red-something/0": {
+		"style": {
+			"color": "rgb(153 0 36 / 0)"
+		}
+	},
+	"text-red-something/5": {
+		"style": {
+			"color": "rgb(153 0 36 / 0.05)"
+		}
+	},
+	"text-red-something/10": {
+		"style": {
+			"color": "rgb(153 0 36 / 0.1)"
+		}
+	},
+	"text-red-something/20": {
+		"style": {
+			"color": "rgb(153 0 36 / 0.2)"
+		}
+	},
+	"text-red-something/25": {
+		"style": {
+			"color": "rgb(153 0 36 / 0.25)"
+		}
+	},
+	"text-red-something/30": {
+		"style": {
+			"color": "rgb(153 0 36 / 0.3)"
+		}
+	},
+	"text-red-something/40": {
+		"style": {
+			"color": "rgb(153 0 36 / 0.4)"
+		}
+	},
+	"text-red-something/50": {
+		"style": {
+			"color": "rgb(153 0 36 / 0.5)"
+		}
+	},
+	"text-red-something/60": {
+		"style": {
+			"color": "rgb(153 0 36 / 0.6)"
+		}
+	},
+	"text-red-something/70": {
+		"style": {
+			"color": "rgb(153 0 36 / 0.7)"
+		}
+	},
+	"text-red-something/75": {
+		"style": {
+			"color": "rgb(153 0 36 / 0.75)"
+		}
+	},
+	"text-red-something/80": {
+		"style": {
+			"color": "rgb(153 0 36 / 0.8)"
+		}
+	},
+	"text-red-something/90": {
+		"style": {
+			"color": "rgb(153 0 36 / 0.9)"
+		}
+	},
+	"text-red-something/95": {
+		"style": {
+			"color": "rgb(153 0 36 / 0.95)"
+		}
+	},
+	"text-red-something/100": {
+		"style": {
+			"color": "rgb(153 0 36 / 1)"
+		}
+	},
+	"text-red-important/0": {
+		"style": {
+			"color": "rgb(218 37 29 / 0)"
+		}
+	},
+	"text-red-important/5": {
+		"style": {
+			"color": "rgb(218 37 29 / 0.05)"
+		}
+	},
+	"text-red-important/10": {
+		"style": {
+			"color": "rgb(218 37 29 / 0.1)"
+		}
+	},
+	"text-red-important/20": {
+		"style": {
+			"color": "rgb(218 37 29 / 0.2)"
+		}
+	},
+	"text-red-important/25": {
+		"style": {
+			"color": "rgb(218 37 29 / 0.25)"
+		}
+	},
+	"text-red-important/30": {
+		"style": {
+			"color": "rgb(218 37 29 / 0.3)"
+		}
+	},
+	"text-red-important/40": {
+		"style": {
+			"color": "rgb(218 37 29 / 0.4)"
+		}
+	},
+	"text-red-important/50": {
+		"style": {
+			"color": "rgb(218 37 29 / 0.5)"
+		}
+	},
+	"text-red-important/60": {
+		"style": {
+			"color": "rgb(218 37 29 / 0.6)"
+		}
+	},
+	"text-red-important/70": {
+		"style": {
+			"color": "rgb(218 37 29 / 0.7)"
+		}
+	},
+	"text-red-important/75": {
+		"style": {
+			"color": "rgb(218 37 29 / 0.75)"
+		}
+	},
+	"text-red-important/80": {
+		"style": {
+			"color": "rgb(218 37 29 / 0.8)"
+		}
+	},
+	"text-red-important/90": {
+		"style": {
+			"color": "rgb(218 37 29 / 0.9)"
+		}
+	},
+	"text-red-important/95": {
+		"style": {
+			"color": "rgb(218 37 29 / 0.95)"
+		}
+	},
+	"text-red-important/100": {
+		"style": {
+			"color": "rgb(218 37 29 / 1)"
+		}
+	},
 	"text-white": {
 		"style": {
 			"--tw-text-opacity": 1,
 			"color": "rgb(255 255 255 / var(--tw-text-opacity))"
 		}
 	},
-	"text-gray-500": {
-		"style": {
-			"--tw-text-opacity": 1,
-			"color": "rgb(107 114 128 / var(--tw-text-opacity))"
-		}
-	},
-	"text-red-400": {
-		"style": {
-			"--tw-text-opacity": 1,
-			"color": "rgb(248 113 113 / var(--tw-text-opacity))"
-		}
-	},
 	"underline": {
 		"style": {
 			"textDecorationLine": "underline"
+		}
+	},
+	"*": {
+		"style": {
+			"--tw-border-spacing-x": 0,
+			"--tw-border-spacing-y": 0,
+			"--tw-ordinal": "",
+			"--tw-slashed-zero": "",
+			"--tw-numeric-figure": "",
+			"--tw-numeric-spacing": "",
+			"--tw-numeric-fraction": ""
+		}
+	},
+	"::before": {
+		"style": {
+			"--tw-border-spacing-x": 0,
+			"--tw-border-spacing-y": 0,
+			"--tw-ordinal": "",
+			"--tw-slashed-zero": "",
+			"--tw-numeric-figure": "",
+			"--tw-numeric-spacing": "",
+			"--tw-numeric-fraction": ""
+		}
+	},
+	"::after": {
+		"style": {
+			"--tw-border-spacing-x": 0,
+			"--tw-border-spacing-y": 0,
+			"--tw-ordinal": "",
+			"--tw-slashed-zero": "",
+			"--tw-numeric-figure": "",
+			"--tw-numeric-spacing": "",
+			"--tw-numeric-fraction": ""
+		}
+	},
+	"::backdrop": {
+		"style": {
+			"--tw-border-spacing-x": 0,
+			"--tw-border-spacing-y": 0,
+			"--tw-ordinal": "",
+			"--tw-slashed-zero": "",
+			"--tw-numeric-figure": "",
+			"--tw-numeric-spacing": "",
+			"--tw-numeric-fraction": ""
 		}
 	}
 }
