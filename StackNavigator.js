@@ -9,13 +9,15 @@ import MessageScreen from "./screens/MessageScreen";
 import useAuth from "./hooks/useAuth";
 import ModalScreen from "./screens/ModalScreen";
 import MatchedScreen from "./screens/MatchedScreen";
+import PhoneScreen from "./screens/PhoneScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+import SucceededScreen from "./screens/SucceededScreen";
 import ExploreScreen from "./screens/ExploreScreen";
 import LikeScreen from "./screens/LikeScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const Stack = createNativeStackNavigator();
 
@@ -168,11 +170,15 @@ const StackNavigator = () => {
           <Stack.Group screenOptions={{ presentation: "transparentModal" }}>
             <Stack.Screen name="Match" component={MatchedScreen} />
           </Stack.Group>
+          <Stack.Group screenOptions={{ presentation: "transparentModal" }}>
+            <Stack.Screen name="Success" component={SucceededScreen} />
+          </Stack.Group>
         </>
       ) : (
         <>
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Signup" component={SignupScreen} />
+          <Stack.Screen name="Phone" component={PhoneScreen} />
         </>
       )}
     </Stack.Navigator>
