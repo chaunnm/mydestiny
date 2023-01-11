@@ -14,7 +14,7 @@ import ProfileScreen from "./screens/ProfileScreen";
 import SucceededScreen from "./screens/SucceededScreen";
 import ExploreScreen from "./screens/ExploreScreen";
 import LikeScreen from "./screens/LikeScreen";
-import ProfileScreen from "./screens/ProfileScreen";
+import AccountScreen from "./screens/AccountScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -121,7 +121,7 @@ const BottomNavigator = () => {
             iconName = focused ? "star-shooting" : "star-shooting-outline";
           } else if (route.name === "Chat") {
             iconName = focused ? "puzzle-heart" : "puzzle-heart-outline";
-          } else if (route.name === "Profile") {
+          } else if (route.name === "Account") {
             iconName = focused ? "account" : "account-outline";
           }
           return (
@@ -136,7 +136,7 @@ const BottomNavigator = () => {
       <Tab.Screen name="Explore" component={ExploreScreen} />
       <Tab.Screen name="Like" component={LikeScreen} />
       <Tab.Screen name="Chat" component={ChatScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Account" component={AccountScreen} />
     </Tab.Navigator>
   );
 };
@@ -156,13 +156,14 @@ const StackNavigator = () => {
               }}
               options={{ headerTitle: (props) => <LogoHeader {...props} /> }}
             />
-            <Stack.Screen
-              name="Message"
-              component={MessageScreen}
-              screenOptions={{
-                headerShown: false,
-              }}
-            />
+          </Stack.Group>
+          <Stack.Group
+            screenOptions={{
+              headerShown: false,
+            }}
+          >
+            <Stack.Screen name="Profile" component={ProfileScreen} />
+            <Stack.Screen name="Message" component={MessageScreen} />
           </Stack.Group>
           <Stack.Group screenOptions={{ presentation: "modal" }}>
             <Stack.Screen name="Modal" component={ModalScreen} />
