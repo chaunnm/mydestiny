@@ -12,7 +12,7 @@ import {
   ToastAndroid,
   Modal,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import useAuth from "../hooks/useAuth";
 import { useTailwind } from "tailwind-rn";
@@ -27,6 +27,43 @@ const ProfileScreen = () => {
   const { currentUser } = useAuth();
   const tailwind = useTailwind();
 
+  const [profile, setProfile] = useState();
+
+  useEffect(() => {
+    let unsubcribe = firestore()
+      .collection("users")
+      .doc(currentUser.uid)
+      .onSnapshot((snapshot) => {
+        const temp = snapshot.data();
+        setDisplayname(temp.displayName);
+        setEmail(temp.email);
+        setPhone(temp.phone);
+        setGender(temp.gender);
+        setJob(temp.job);
+        setDate(temp.dayOfBirth.toDate("dd/MM/yyyy"));
+        setLocation(temp.location);
+        setImage1(temp.photos[0].photoURL);
+        setImage2(temp.photos[1].photoURL);
+        setImage3(temp.photos[2].photoURL);
+        setImage4(temp.photos[3].photoURL);
+        setInterests(
+          interests.map((interest) =>
+            temp.interests.includes(interest.name)
+              ? { ...interest, selected: true }
+              : interest
+          )
+        );
+        setIdeals(
+          ideals.map((ideal) =>
+            temp.ideals.includes(ideal.name)
+              ? { ...ideal, selected: true }
+              : ideal
+          )
+        );
+      });
+    return () => unsubcribe();
+  }, []);
+
   const [loader, setLoader] = useState(false);
 
   const [step1, setStep1] = useState(true);
@@ -35,21 +72,21 @@ const ProfileScreen = () => {
   const [step4, setStep4] = useState(false);
   const [step5, setStep5] = useState(false);
 
-  const [displayName, setDisplayname] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [gender, setGender] = useState("male");
+  const [displayName, setDisplayname] = useState();
+  const [email, setEmail] = useState();
+  const [phone, setPhone] = useState();
+  const [gender, setGender] = useState();
   const [date, setDate] = useState();
-  const [job, setJob] = useState("");
+  const [job, setJob] = useState(currentUser.jobo);
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   const [modalVisible, setModalVisible] = useState(false);
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState();
 
-  const [image1, setImage1] = useState(null);
-  const [image2, setImage2] = useState(null);
-  const [image3, setImage3] = useState(null);
-  const [image4, setImage4] = useState(null);
+  const [image1, setImage1] = useState();
+  const [image2, setImage2] = useState();
+  const [image3, setImage3] = useState();
+  const [image4, setImage4] = useState();
   const [images, setImages] = useState([
     {
       id: 1,
@@ -230,10 +267,6 @@ const ProfileScreen = () => {
   const handleConfirm = (date) => {
     setDate(date);
     hideDatePicker();
-    console.log(
-      "Date:",
-      date.toJSON().slice(0, 10).split("-").reverse().join("/")
-    );
   };
 
   const updateImages = (id, newValue) => {
@@ -347,7 +380,6 @@ const ProfileScreen = () => {
         })
         .then((data) => {
           updateImages(id, data.url);
-          console.log("Images: ", images);
         });
     }
   };
@@ -359,10 +391,13 @@ const ProfileScreen = () => {
       .set({
         id: currentUser.uid,
         displayName: displayName,
+        email: email,
+        phone: phone,
+        gender: gender,
+        job: job,
+        location: location,
         photos: images,
         dayOfBirth: date,
-        email: email,
-        job: job,
         interests: interests
           .filter((interest) => interest.selected === true)
           .map((interest) => interest.name),
@@ -708,10 +743,18 @@ const ProfileScreen = () => {
         <TouchableOpacity
           style={[tailwind("w-11/12 p-3 mx-auto rounded-xl bg-red-400 my-5")]}
           onPress={() => {
-            if (image1 !== null) handleUploadImage(image1, 1);
-            if (image2 !== null) handleUploadImage(image2, 2);
-            if (image3 !== null) handleUploadImage(image3, 2);
-            if (image4 !== null) handleUploadImage(image4, 4);
+            if (image1 !== null) {
+              if (!image1.includes("http")) handleUploadImage(image1, 1);
+            }
+            if (image2 !== null) {
+              if (!image2.includes("http")) handleUploadImage(image2, 2);
+            }
+            if (image3 !== null) {
+              if (!image3.includes("http")) handleUploadImage(image3, 3);
+            }
+            if (image4 !== null) {
+              if (!image4.includes("http")) handleUploadImage(image4, 4);
+            }
             setStep3(false);
             setStep4(true);
           }}
