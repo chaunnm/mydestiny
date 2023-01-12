@@ -133,6 +133,14 @@ const HomeScreen = () => {
       });
   };
 
+  const showInfor = async (cardIndex) => {
+    if (!profiles[cardIndex]) return;
+    const userSelected = profiles[cardIndex];
+    navigation.navigate("Individual", {
+      userSelected,
+    });
+  };
+
   useLayoutEffect(() => {
     return firestore()
       .collection("users")
@@ -250,6 +258,10 @@ const HomeScreen = () => {
             // console.log("Swipe MATCH");
             swipeRight(cardIndex);
           }}
+          onTapCard={(cardIndex) => {
+            // console.log("Selected");
+            showInfor(cardIndex);
+          }}
           backgroundColor={"#4FD0E9"}
           overlayLabels={{
             left: {
@@ -279,7 +291,7 @@ const HomeScreen = () => {
               >
                 <Image
                   style={tailwind("absolute top-0 h-full w-full rounded-xl")}
-                  source={{ uri: card.photoURL }}
+                  source={{ uri: card.photos[0]?.photoURL }}
                 />
                 <View
                   style={[
@@ -295,7 +307,12 @@ const HomeScreen = () => {
                     </Text>
                     <Text>{card.job}</Text>
                   </View>
-                  <Text style={tailwind("text-2xl font-bold")}>{card.age}</Text>
+                  <Text style={tailwind("text-2xl font-bold")}>
+                    {Math.floor(
+                      (new Date() - card.dayOfBirth.toDate().getTime()) /
+                        3.15576e10
+                    )}
+                  </Text>
                 </View>
               </View>
             ) : (

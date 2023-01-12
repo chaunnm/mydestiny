@@ -78,14 +78,13 @@ export const AuthProvider = ({ children }) => {
   //   });
   // };
 
-  const signUp = async (email, password, displayName, avatar) => {
+  const signUp = async (email, password, avatar) => {
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(async (newUser) => {
         if (newUser.user) {
           await newUser.user
             .updateProfile({
-              displayName: displayName,
               photoURL: avatar,
             })
             .then(() => {
@@ -125,11 +124,27 @@ export const AuthProvider = ({ children }) => {
             ToastAndroid.SHORT,
             ToastAndroid.BOTTOM
           );
-        }
-
-        if (error.code === "auth/invalid-email") {
+        } else if (error.code === "auth/invalid-email") {
           ToastAndroid.showWithGravity(
             "That email address is invalid! 😿",
+            ToastAndroid.SHORT,
+            ToastAndroid.BOTTOM
+          );
+        } else if (error.code === "auth/operation-not-allowed") {
+          ToastAndroid.showWithGravity(
+            "Your account was not allowed! 😿",
+            ToastAndroid.SHORT,
+            ToastAndroid.BOTTOM
+          );
+        } else if (error.code === "auth/weak-password") {
+          ToastAndroid.showWithGravity(
+            "Your password is not strong enough! 😿",
+            ToastAndroid.SHORT,
+            ToastAndroid.BOTTOM
+          );
+        } else {
+          ToastAndroid.showWithGravity(
+            "There is an error in firebase server! 😿",
             ToastAndroid.SHORT,
             ToastAndroid.BOTTOM
           );
@@ -149,11 +164,25 @@ export const AuthProvider = ({ children }) => {
         );
       })
       .catch((error) => {
-        ToastAndroid.showWithGravity(
-          `${error}`,
-          ToastAndroid.SHORT,
-          ToastAndroid.BOTTOM
-        );
+        if (error.code === "auth/wrong-password") {
+          ToastAndroid.showWithGravity(
+            "You provided a wrong password! 😿",
+            ToastAndroid.SHORT,
+            ToastAndroid.BOTTOM
+          );
+        } else if (error.code === "auth/user-not-found") {
+          ToastAndroid.showWithGravity(
+            "User not found, try again! 😿",
+            ToastAndroid.SHORT,
+            ToastAndroid.BOTTOM
+          );
+        } else {
+          ToastAndroid.showWithGravity(
+            `${error}`,
+            ToastAndroid.SHORT,
+            ToastAndroid.BOTTOM
+          );
+        }
       });
   };
 

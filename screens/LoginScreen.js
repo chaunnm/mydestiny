@@ -6,10 +6,10 @@ import {
   ToastAndroid,
   TouchableOpacity,
   StyleSheet,
+  Image,
 } from "react-native";
 import "expo-dev-client";
-import { GoogleSigninButton } from "@react-native-google-signin/google-signin";
-
+import { Entypo, MaterialIcons } from "@expo/vector-icons";
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import useAuth from "../hooks/useAuth";
 import { useTailwind } from "tailwind-rn";
@@ -40,28 +40,6 @@ export default function LoginScreen() {
       });
   };
 
-  const onHandleLogin = () => {
-    if (email === "") {
-      ToastAndroid.showWithGravity(
-        "Please type your email! 😿",
-        ToastAndroid.SHORT,
-        ToastAndroid.BOTTOM
-      );
-      return;
-    }
-    if (password === "") {
-      ToastAndroid.showWithGravity(
-        "Please type your password! 😿",
-        ToastAndroid.SHORT,
-        ToastAndroid.BOTTOM
-      );
-      return;
-    }
-    if (email !== "" && password !== "") {
-      signIn(email, password);
-    }
-  };
-
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
@@ -71,90 +49,98 @@ export default function LoginScreen() {
   // console.log("User ben Login: ", user);
 
   return (
-    <View style={tailwind("flex-1")}>
+    <View style={tailwind("flex-1 relative")}>
       <ImageBackground
         resizeMode="cover"
-        style={tailwind(" flex-1")}
-        source={{ uri: "https://tinder.com/static/tinder.png" }}
+        style={tailwind("flex-1")}
+        source={{ uri: "https://i.imgur.com/OcN0LpS.png" }}
       >
-        <Text style={tailwind("text-3xl font-semibold mx-auto mt-10")}>
-          Welcome to Tinder
-        </Text>
-        <View style={tailwind("flex-1")}>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter email"
-            autoCapitalize="none"
-            keyboardType="email-address"
-            textContentType="emailAddress"
-            autoFocus={true}
-            value={email}
-            onChangeText={setEmail}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Enter password"
-            autoCapitalize="none"
-            autoCorrect={false}
-            secureTextEntry={true}
-            textContentType="password"
-            value={password}
-            onChangeText={setPassword}
-          />
-          <TouchableOpacity style={styles.button} onPress={onHandleLogin}>
-            <Text style={{ fontWeight: "bold", color: "#fff", fontSize: 18 }}>
-              {" "}
-              Log In
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            marginTop: 20,
-            flexDirection: "column",
-            alignItems: "center",
-            alignSelf: "center",
-          }}
+        <Text
+          style={tailwind(
+            "font-semibold mx-auto mt-10 px-5 text-center text-white top-2/5 leading-5"
+          )}
         >
-          <Text style={{ color: "black", fontWeight: "600", fontSize: 14 }}>
-            Don't have an account?{" "}
-          </Text>
-          <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
-            <Text
-              style={{
-                color: "black",
-                fontWeight: "800",
-                fontSize: 18,
-                textDecorationLine: "underline",
+          By clicking <Text style={tailwind("font-bold")}>Sign In</Text>, you
+          agree with our <Text style={tailwind("font-bold")}>Terms</Text>. Learn
+          how we process your data in our{" "}
+          <Text style={tailwind("font-bold underline")}>Privacy Policy</Text>{" "}
+          and{" "}
+          <Text style={tailwind("font-bold underline")}>Cookies Policy</Text>.
+        </Text>
+
+        <View style={tailwind("bottom-0 absolute mx-3 mr-2")}>
+          <TouchableOpacity
+            style={[
+              tailwind(
+                "w-11/12 flex-row justify-between items-center p-3 px-12 mx-auto rounded-xl border-2 border-primary my-1 mt-3 bg-white"
+              ),
+            ]}
+            onPress={logIn}
+          >
+            <Image
+              style={tailwind("w-7 h-7 ml-1.5 rounded-full")}
+              source={{
+                uri: "https://pbs.twimg.com/profile_images/1605297940242669568/q8-vPggS_400x400.jpg",
               }}
+            />
+            <Text
+              style={tailwind("text-center font-bold text-gray-600 text-lg")}
             >
-              {" "}
-              Sign Up
+              SIGN IN WITH GOOGLE
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("Phone")}>
+
+          <TouchableOpacity
+            style={[
+              tailwind(
+                "w-11/12 flex-row justify-between items-center p-3 px-14 mx-auto rounded-xl border-2 border-primary my-1 mt-3 bg-white"
+              ),
+            ]}
+            onPress={() => navigation.navigate("Email")}
+          >
+            <MaterialIcons name="email" size={22} color="black" />
             <Text
-              style={{
-                color: "black",
-                fontWeight: "800",
-                fontSize: 18,
-                textDecorationLine: "underline",
-              }}
+              style={tailwind("text-center font-bold text-gray-600 text-lg")}
             >
-              {" "}
-              Log in with Phone Number
+              SIGN IN WITH EMAIL
             </Text>
           </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[
+              tailwind(
+                "w-11/12 flex-row justify-between items-center p-3 px-8 mx-auto rounded-xl border-2 border-primary my-1 mt-3 bg-white"
+              ),
+            ]}
+            onPress={() => navigation.navigate("Phone")}
+          >
+            <MaterialIcons name="phone" size={22} color="black" />
+            <Text
+              style={tailwind("text-center font-bold text-gray-600 text-lg")}
+            >
+              SIGN IN WITH PHONE NUMBER
+            </Text>
+          </TouchableOpacity>
+
+          <View style={tailwind("flex-row justify-center my-3 items-center")}>
+            <Text style={tailwind("text-gray-500 font-bold")}>
+              Don't have an account yet?{" "}
+            </Text>
+            <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+              <Text
+                style={tailwind("text-primary font-bold text-xl underline")}
+              >
+                {" "}
+                Sign Up
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <GoogleSigninButton
-          style={tailwind("w-80 h-16 absolute bottom-40 rounded-2xl ml-9")}
-          size={GoogleSigninButton.Size.Wide}
-          onPress={logIn}
-        />
       </ImageBackground>
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   input: {
     backgroundColor: "#F6F7FB",

@@ -16,7 +16,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import useAuth from "../hooks/useAuth";
 import { useTailwind } from "tailwind-rn";
-import { useNavigation } from "@react-navigation/native";
+import { ThemeProvider, useNavigation } from "@react-navigation/native";
 import firestore from "@react-native-firebase/firestore";
 import { RadioButton } from "react-native-paper";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
@@ -35,31 +35,37 @@ const ProfileScreen = () => {
       .doc(currentUser.uid)
       .onSnapshot((snapshot) => {
         const temp = snapshot.data();
-        setDisplayname(temp.displayName);
-        setEmail(temp.email);
-        setPhone(temp.phone);
-        setGender(temp.gender);
-        setJob(temp.job);
-        setDate(temp.dayOfBirth.toDate("dd/MM/yyyy"));
-        setLocation(temp.location);
-        setImage1(temp.photos[0].photoURL);
-        setImage2(temp.photos[1].photoURL);
-        setImage3(temp.photos[2].photoURL);
-        setImage4(temp.photos[3].photoURL);
-        setInterests(
-          interests.map((interest) =>
-            temp.interests.includes(interest.name)
-              ? { ...interest, selected: true }
-              : interest
-          )
-        );
-        setIdeals(
-          ideals.map((ideal) =>
-            temp.ideals.includes(ideal.name)
-              ? { ...ideal, selected: true }
-              : ideal
-          )
-        );
+        if (temp) {
+          if (temp.displayName) setDisplayname(temp.displayName);
+          if (temp.email) setEmail(temp.email);
+          if (temp.phone) setPhone(temp.phone);
+          if (temp.gender) setGender(temp.gender);
+          if (temp.job) setJob(temp.job);
+          if (temp.dayOfBirth) setDate(temp.dayOfBirth.toDate("dd/MM/yyyy"));
+          if (temp.location) setLocation(temp.location);
+          if (temp.photos) {
+            if (temp.photos[0].photoURL) setImage1(temp.photos[0].photoURL);
+            if (temp.photos[1].photoURL) setImage2(temp.photos[1].photoURL);
+            if (temp.photos[2].photoURL) setImage3(temp.photos[2].photoURL);
+            if (temp.photos[3].photoURL) setImage4(temp.photos[3].photoURL);
+          }
+          if (temp.interests)
+            setInterests(
+              interests.map((interest) =>
+                temp.interests.includes(interest.name)
+                  ? { ...interest, selected: true }
+                  : interest
+              )
+            );
+          if (temp.ideals)
+            setIdeals(
+              ideals.map((ideal) =>
+                temp.ideals.includes(ideal.name)
+                  ? { ...ideal, selected: true }
+                  : ideal
+              )
+            );
+        }
       });
     return () => unsubcribe();
   }, []);
@@ -113,7 +119,7 @@ const ProfileScreen = () => {
   const [interests, setInterests] = useState([
     {
       id: 1,
-      selected: true,
+      selected: false,
       icon: "🎮",
       name: "Gaming",
     },
@@ -743,16 +749,16 @@ const ProfileScreen = () => {
         <TouchableOpacity
           style={[tailwind("w-11/12 p-3 mx-auto rounded-xl bg-red-400 my-5")]}
           onPress={() => {
-            if (image1 !== null) {
+            if (image1) {
               if (!image1.includes("http")) handleUploadImage(image1, 1);
             }
-            if (image2 !== null) {
+            if (image2) {
               if (!image2.includes("http")) handleUploadImage(image2, 2);
             }
-            if (image3 !== null) {
+            if (image3) {
               if (!image3.includes("http")) handleUploadImage(image3, 3);
             }
-            if (image4 !== null) {
+            if (image4) {
               if (!image4.includes("http")) handleUploadImage(image4, 4);
             }
             setStep3(false);

@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import ChatScreen from "./screens/ChatScreen";
 import LoginScreen from "./screens/LoginScreen";
+import EmailScreen from "./screens/EmailScreen";
 import SignupScreen from "./screens/SignupScreen";
 import MessageScreen from "./screens/MessageScreen";
 import useAuth from "./hooks/useAuth";
@@ -11,6 +12,7 @@ import ModalScreen from "./screens/ModalScreen";
 import MatchedScreen from "./screens/MatchedScreen";
 import PhoneScreen from "./screens/PhoneScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import IndividualScreen from "./screens/IndividualScreen";
 import SucceededScreen from "./screens/SucceededScreen";
 import ExploreScreen from "./screens/ExploreScreen";
 import LikeScreen from "./screens/LikeScreen";
@@ -75,23 +77,23 @@ const LogoHeader = () => {
         justifyContent: "space-between",
       }}
     >
-      {/* <TouchableOpacity
+      <TouchableOpacity
         style={{ overflow: "visible" }}
         onPress={() => navigation.navigate("Home")}
       >
         <Image
-          style={{ width: 214 }}
+          style={{ width: 214, height: 37 }}
           source={{
             uri: "https://drive.google.com/uc?export=view&id=10ckuZCn5Mt9t8VFRAlrKpT2eDH--GFkP",
           }}
         />
-      </TouchableOpacity> */}
-      <Image
+      </TouchableOpacity>
+      {/* <Image
         style={{ width: 214 }}
         source={{
           uri: "https://drive.google.com/uc?export=view&id=10ckuZCn5Mt9t8VFRAlrKpT2eDH--GFkP",
         }}
-      />
+      /> */}
       <MaterialCommunityIcons
         style={{ marginEnd: 30 }}
         name="bell"
@@ -164,6 +166,7 @@ const StackNavigator = () => {
           >
             <Stack.Screen name="Profile" component={ProfileScreen} />
             <Stack.Screen name="Message" component={MessageScreen} />
+            <Stack.Screen name="Individual" component={IndividualScreen} />
           </Stack.Group>
           <Stack.Group screenOptions={{ presentation: "modal" }}>
             <Stack.Screen name="Modal" component={ModalScreen} />
@@ -178,6 +181,7 @@ const StackNavigator = () => {
       ) : (
         <>
           <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Email" component={EmailScreen} />
           <Stack.Screen name="Signup" component={SignupScreen} />
           <Stack.Screen name="Phone" component={PhoneScreen} />
         </>

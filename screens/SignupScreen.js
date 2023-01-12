@@ -3,16 +3,22 @@ import {
   View,
   Text,
   StyleSheet,
-  TextInput,
   TouchableOpacity,
   ToastAndroid,
   Alert,
+  ScrollView,
+  ImageBackground,
+  Image,
+  ActivityIndicator,
 } from "react-native";
+import { TextInput } from "react-native-paper";
+import { MaterialIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { useTailwind } from "tailwind-rn";
 import { useNavigation } from "@react-navigation/native";
 import useAuth from "../hooks/useAuth";
 import Header from "../components/Header";
+import * as ImagePicker from "expo-image-picker";
 
 const SignupScreen = () => {
   const navigation = useNavigation();
@@ -21,8 +27,53 @@ const SignupScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repassword, setRepassword] = useState("");
-  const [displayName, setDisplayname] = useState("");
   const [avatar, setAvatar] = useState("");
+  const [loader, setLoader] = useState(false);
+
+  const pickAvatar = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: false,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      setAvatar(result.assets[0].uri);
+    }
+  };
+
+  const handleUploadImage = async () => {
+    const cloudName = "dtu8kyhxq";
+    const cloudURL = "https://api.cloudinary.com/v1_1/dtu8kyhxq/auto/upload";
+    const uploadPreset = "uw_test";
+
+    let image = {
+      uri: avatar,
+      type: `test/${avatar.split(".")[1]}`,
+      name: `test.${avatar.split(".")[1]}`,
+    };
+    const formData = new FormData();
+    if (image != undefined) {
+      formData.append("file", image);
+      formData.append("cloud_name", cloudName);
+      formData.append("upload_preset", uploadPreset);
+
+      await fetch(cloudURL, {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          if (email !== "" && password !== "" && data.url) {
+            signUp(email, password, data.url);
+          }
+        })
+        .catch((err) => Alert.alert("Sign up error: ", err.message));
+    }
+  };
 
   const onHandleSignup = () => {
     if (email === "") {
@@ -49,22 +100,6 @@ const SignupScreen = () => {
       );
       return;
     }
-    if (displayName === "") {
-      ToastAndroid.showWithGravity(
-        "You must have a display name! 😿",
-        ToastAndroid.SHORT,
-        ToastAndroid.BOTTOM
-      );
-      return;
-    }
-    if (avatar === "") {
-      ToastAndroid.showWithGravity(
-        "You must have an avatar! 😿",
-        ToastAndroid.SHORT,
-        ToastAndroid.BOTTOM
-      );
-      return;
-    }
     if (password !== repassword) {
       ToastAndroid.showWithGravity(
         "Your passwords didn't match! 😿",
@@ -73,136 +108,123 @@ const SignupScreen = () => {
       );
       return;
     }
-    if (email !== "" && password !== "") {
-      signUp(email, password, displayName, avatar).catch((err) =>
-        Alert.alert("Sign up error: ", err.message)
+    if (avatar === "") {
+      ToastAndroid.showWithGravity(
+        "You must choose an avatar! 😿",
+        ToastAndroid.SHORT,
+        ToastAndroid.BOTTOM
       );
+      return;
+    } else {
+      setLoader(true);
+      handleUploadImage().then(() => setLoader(false));
     }
   };
 
-  return (
-    <SafeAreaView>
-      <Header title="Sign Up" />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter email"
-        autoCapitalize="none"
-        keyboardType="email-address"
-        textContentType="emailAddress"
-        autoFocus={true}
-        value={email}
-        onChangeText={setEmail}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter password"
-        autoCapitalize="none"
-        autoCorrect={false}
-        secureTextEntry={true}
-        textContentType="password"
-        value={password}
-        onChangeText={setPassword}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter password again"
-        autoCapitalize="none"
-        autoCorrect={false}
-        secureTextEntry={true}
-        textContentType="password"
-        value={repassword}
-        onChangeText={setRepassword}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Your display name"
-        autoCapitalize="none"
-        value={displayName}
-        onChangeText={setDisplayname}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Avatar URL"
-        autoCapitalize="none"
-        value={avatar}
-        onChangeText={setAvatar}
-      />
-      <TouchableOpacity onPress={onHandleSignup} style={styles.button}>
-        <Text style={{ fontWeight: "bold", color: "#fff", fontSize: 18 }}>
-          {" "}
-          Sign Up
+  return loader ? (
+    <View style={tailwind("flex-1 justify-center items-center")}>
+      <ActivityIndicator size={55} />
+    </View>
+  ) : (
+    <SafeAreaView style={tailwind("flex-1")}>
+      <View>
+        <Text style={tailwind("text-4xl my-3 text-center leading-10")}>🥳</Text>
+        <Text style={tailwind("leading-5 px-5 justify-center")}>
+          You will need to fill in some information fields to create an{" "}
+          <Text style={tailwind("font-bold")}>MyDestiny</Text> account. Don't
+          worry, we will secure your information.
         </Text>
-      </TouchableOpacity>
-      <View
-        style={{
-          marginTop: 20,
-          flexDirection: "row",
-          alignItems: "center",
-          alignSelf: "center",
-        }}
-      >
-        <Text style={{ color: "gray", fontWeight: "600", fontSize: 14 }}>
-          Already have an account?{" "}
-        </Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-          <Text style={{ color: "#f57c00", fontWeight: "600", fontSize: 14 }}>
-            {" "}
-            Log In
-          </Text>
-        </TouchableOpacity>
       </View>
+      <TouchableOpacity
+        style={tailwind(
+          "bg-red-100 border-2 border-red-400 rounded-full h-36 w-36 mx-auto my-5"
+        )}
+        onPress={pickAvatar}
+      >
+        <ImageBackground
+          resizeMode="contain"
+          style={tailwind("flex-1 w-10 mx-auto ")}
+          source={{
+            uri: "https://i.imgur.com/Ht1QbaR.png",
+          }}
+        />
+        {avatar && (
+          <Image
+            style={tailwind("h-36 w-36 rounded-full")}
+            resizeMode="cover"
+            source={{
+              uri: avatar,
+            }}
+          />
+        )}
+      </TouchableOpacity>
+      <ScrollView style={tailwind("px-5")}>
+        <View>
+          <TextInput
+            style={tailwind(
+              "w-full h-12 bg-white mt-2 mb-2 rounded-lg border border-gray-300"
+            )}
+            placeholder="Your email"
+            autoCapitalize="none"
+            keyboardType="email-address"
+            textContentType="emailAddress"
+            left={<TextInput.Icon icon="email" size={20} />}
+            autoFocus={true}
+            value={email}
+            onChangeText={setEmail}
+          />
+          <TextInput
+            style={tailwind(
+              "w-full h-12 bg-white mt-2 mb-2 rounded-lg border border-gray-300"
+            )}
+            placeholder="Enter password"
+            autoCapitalize="none"
+            autoCorrect={false}
+            secureTextEntry={true}
+            textContentType="password"
+            left={<TextInput.Icon icon="eye" size={20} />}
+            value={password}
+            onChangeText={setPassword}
+          />
+          <TextInput
+            style={tailwind(
+              "w-full h-12 bg-white mt-2 mb-2 rounded-lg border border-gray-300"
+            )}
+            placeholder="Enter password again"
+            autoCapitalize="none"
+            autoCorrect={false}
+            secureTextEntry={true}
+            textContentType="password"
+            left={<TextInput.Icon icon="eye" size={20} />}
+            value={repassword}
+            onChangeText={setRepassword}
+          />
+          <TouchableOpacity
+            style={[tailwind("w-11/12 p-3 mx-auto rounded-xl bg-red-400 mt-5")]}
+            onPress={onHandleSignup}
+          >
+            <Text style={tailwind("text-center font-bold text-white text-xl")}>
+              Sign Up
+            </Text>
+          </TouchableOpacity>
+
+          <View style={tailwind("flex-row justify-center my-3 items-center")}>
+            <Text style={tailwind("text-gray-500 font-bold")}>
+              Already have an account?{" "}
+            </Text>
+            <TouchableOpacity onPress={() => navigation.navigate("Email")}>
+              <Text
+                style={tailwind("text-primary font-bold text-xl underline")}
+              >
+                {" "}
+                Log In
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
 export default SignupScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-  title: {
-    fontSize: 36,
-    fontWeight: "bold",
-    color: "orange",
-    alignSelf: "center",
-    paddingBottom: 24,
-  },
-  input: {
-    backgroundColor: "#F6F7FB",
-    height: 58,
-    marginBottom: 20,
-    fontSize: 16,
-    borderRadius: 10,
-    padding: 12,
-  },
-  backImage: {
-    width: "100%",
-    height: 340,
-    position: "absolute",
-    top: 0,
-    resizeMode: "cover",
-  },
-  whiteSheet: {
-    width: "100%",
-    height: "75%",
-    position: "absolute",
-    bottom: 0,
-    backgroundColor: "#fff",
-    borderTopLeftRadius: 60,
-  },
-  form: {
-    flex: 1,
-    justifyContent: "center",
-    marginHorizontal: 30,
-  },
-  button: {
-    backgroundColor: "#f57c00",
-    height: 58,
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 40,
-  },
-});
