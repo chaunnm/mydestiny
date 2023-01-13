@@ -158,7 +158,7 @@ export const AuthProvider = ({ children }) => {
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         ToastAndroid.showWithGravity(
-          "Welcome to Tinder, have a great day! 🎉",
+          "Welcome to MyDestiny, have a great day! 🎉",
           ToastAndroid.SHORT,
           ToastAndroid.BOTTOM
         );

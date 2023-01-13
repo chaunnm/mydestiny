@@ -20,6 +20,10 @@ import AccountScreen from "./screens/AccountScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import SettingsScreen from "./screens/SettingsScreen";
+import EditProfileScreen from "./screens/EditProfileScreen";
+import SafetyScreen from "./screens/SafetyScreen";
+// import { Appbar } from "react-native-paper";
 
 const Stack = createNativeStackNavigator();
 
@@ -104,6 +108,30 @@ const LogoHeader = () => {
   );
 };
 
+// const HomeTabBar = () => {
+//   const navigation = useNavigation();
+//   <Appbar.Header>
+//     <Appbar.Content title="Search Partners" onPress={() => navigation.navigate("Home")} />
+//     <Appbar.Content title="Make Friends" onPress={() => navigation.navigate("Account")} />
+//   </Appbar.Header>
+// };
+
+const AccountStack = () => {
+  const AccountStack = createNativeStackNavigator();
+  return (
+    <AccountStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <AccountStack.Screen name="AccountScreen" component={AccountScreen} />
+      <AccountStack.Screen name="Settings" component={SettingsScreen} />
+      <AccountStack.Screen name="Edit Profile" component={EditProfileScreen} />
+      <AccountStack.Screen name="Safety" component={SafetyScreen} />
+    </AccountStack.Navigator>
+  );
+};
+
 const BottomNavigator = () => {
   const Tab = createBottomTabNavigator();
   return (
@@ -134,11 +162,12 @@ const BottomNavigator = () => {
         tabBarInactiveTintColor: "#d9d9d9",
       })}
     >
+      {/* <Tab.Screen name="Home" component={HomeTabBar} /> */}
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Explore" component={ExploreScreen} />
       <Tab.Screen name="Like" component={LikeScreen} />
       <Tab.Screen name="Chat" component={ChatScreen} />
-      <Tab.Screen name="Account" component={AccountScreen} />
+      <Tab.Screen name="Account" component={AccountStack} />
     </Tab.Navigator>
   );
 };
@@ -153,9 +182,6 @@ const StackNavigator = () => {
             <Stack.Screen
               name="Nav"
               component={BottomNavigator}
-              screenOptions={{
-                headerShown: true,
-              }}
               options={{ headerTitle: (props) => <LogoHeader {...props} /> }}
             />
           </Stack.Group>
