@@ -108,7 +108,7 @@ const ModalScreen = () => {
         Welcome {currentUser.displayName}
       </Text>
 
-      <Text style={tailwind("text-center p-4 font-bold text-red-400 text-xl")}>
+      {/* <Text style={tailwind("text-center p-4 font-bold text-red-400 text-xl")}>
         Minh Châu ui này là UI gì đó chào mừng nha, ngựa bà thêm gif vô chỗ này
         hợp lý nè =)) mà đừng ngựa quá 30p 1 tiếng nha nhấn Edit mới navigate
         tới trang edit, MC muốn nút hay gì gì cũng được, edit chưa có xong nên
@@ -116,7 +116,7 @@ const ModalScreen = () => {
         hết làm lại cũng được, sáng mai dậy merge xong hú t 1 tiếng để làm tiếp
         nhen, đừng đánh lẻ merge mà khum nói nhen :(( Vì độc lập của Trái đất,
         để bảo vệ nền hoà bình nhân loại
-      </Text>
+      </Text> */}
 
       <TouchableOpacity
         style={[tailwind("w-64 p-3 rounded-xl bg-red-400 mt-10")]}

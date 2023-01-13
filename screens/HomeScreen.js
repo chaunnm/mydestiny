@@ -230,7 +230,6 @@ const HomeScreen = () => {
           <Ionicons name="chatbubbles-sharp" size={30} color="#FF5864" />
         </TouchableOpacity>
       </View>
-
       {/* Cards */}
       <View style={tailwind("flex-1 -mt-6")}>
         <Swiper
