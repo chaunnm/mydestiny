@@ -6,21 +6,39 @@ import {
   Animated,
   TouchableOpacity,
   Text,
-  StatusBar,
   Image,
   ScrollView,
 } from "react-native";
-import React, { useRef, useMemo, useState, useEffect } from "react";
+import React, {
+  useRef,
+  useMemo,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
 import firestore from "@react-native-firebase/firestore";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { useTailwind } from "tailwind-rn";
 import useAuth from "../hooks/useAuth";
 import Carousel from "react-native-snap-carousel";
-// import BottomSheet from "@gorhom/bottom-sheet";
+import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
 import Header from "../components/Header";
+import { TabView, SceneMap } from "react-native-tab-view";
 
 const dimensionsForScreen = Dimensions.get("screen");
+const FirstRoute = () => (
+  <View style={{ flex: 1, backgroundColor: "#ff4081" }} />
+);
+
+const SecondRoute = () => (
+  <View style={{ flex: 1, backgroundColor: "#673ab7" }} />
+);
+
+const renderScene = SceneMap({
+  first: FirstRoute,
+  second: SecondRoute,
+});
 
 const IndividualScreen = () => {
   const tailwind = useTailwind();
@@ -158,12 +176,31 @@ const IndividualScreen = () => {
       );
   }, [userSelected]);
 
-  //   const bottomSheetRef = useRef < BottomSheet > null;
-  //   const snapPoints = useMemo(() => ["25%", "50%"], []);
+  // hooks
+  const sheetRef = useRef(null);
 
-  //   const handleSheetChanges = useCallback((index) => {
-  //     console.log("handleSheetChanges", index);
-  //   }, []);
+  // variables
+  const data = useMemo(
+    () =>
+      Array(50)
+        .fill(0)
+        .map((_, index) => `index-${index}`),
+    []
+  );
+  const snapPoints = useMemo(() => ["25%", "55%"], []);
+
+  // callbacks
+  const handleSheetChange = useCallback((index) => {
+    // console.log("handleSheetChange", index);
+  }, []);
+
+  const handleSnapPress = useCallback((index) => {
+    sheetRef.current?.snapToIndex(index);
+  }, []);
+
+  const handleClosePress = useCallback(() => {
+    sheetRef.current?.close();
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -183,7 +220,74 @@ const IndividualScreen = () => {
         itemWidth={500}
       />
 
-      <View
+      <BottomSheet
+        ref={sheetRef}
+        snapPoints={snapPoints}
+        onChange={handleSheetChange}
+      >
+        <BottomSheetScrollView style={tailwind("px-5 mb-20")}>
+          <View style={tailwind("flex-row items-center")}>
+            <Text style={tailwind("text-3xl font-bold")}>
+              {userSelected.displayName}
+            </Text>
+            <Text style={tailwind("ml-3 text-3xl")}>
+              {Math.floor(
+                (new Date() - userSelected.dayOfBirth.toDate().getTime()) /
+                  3.15576e10
+              )}
+            </Text>
+          </View>
+          <View style={tailwind("justify-between flex-row")}>
+            <Text style={tailwind("text-xl")}>
+              💼 <Text style={tailwind("mt-2")}>{userSelected.job}</Text>
+            </Text>
+            <Text style={tailwind("text-xl")}>
+              🏠 <Text style={tailwind("mt-2")}>{userSelected.location}</Text>
+            </Text>
+          </View>
+
+          <Text style={tailwind("text-xl mt-2 text-gray-600")}>About</Text>
+          <Text style={tailwind("text-base")}>
+            He/She haven't updated about, but try swiping to have chance knowing
+            more about him/her 😍.
+          </Text>
+
+          <Text style={tailwind("text-xl mt-1.5 text-gray-600")}>
+            Interests
+          </Text>
+          <View style={tailwind("mt-2")}>
+            <View style={tailwind("flex-row flex-wrap")}>
+              {interests
+                .filter((interest) => interest.selected)
+                .map((interest, index) => {
+                  return (
+                    <TouchableOpacity
+                      key={index}
+                      style={[
+                        tailwind(
+                          "bg-red-400 rounded-full h-10 flex-row px-2 text-center items-center pt-0 mr-2 mb-3"
+                        ),
+                      ]}
+                    >
+                      <Text style={tailwind("text-xl font-bold")}>
+                        {interest.icon}
+                      </Text>
+                      <Text
+                        style={[
+                          tailwind("text-base font-bold pl-1 text-white"),
+                        ]}
+                      >
+                        {interest.name}
+                      </Text>
+                    </TouchableOpacity>
+                  );
+                })}
+            </View>
+          </View>
+        </BottomSheetScrollView>
+      </BottomSheet>
+
+      {/* <View
         style={[
           tailwind(
             "w-full h-64 absolute -bottom-48 bg-white rounded-t-3xl pt-5"
@@ -248,9 +352,9 @@ const IndividualScreen = () => {
             </View>
           </View>
         </ScrollView>
-      </View>
+      </View> */}
 
-      <TouchableOpacity
+      {/* <TouchableOpacity
         onPress={() => {
           setShow(!show);
         }}
@@ -266,41 +370,59 @@ const IndividualScreen = () => {
               : "https://i.imgur.com/BET6cj3.png",
           }}
         />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
       <View
         style={[
           tailwind(
-            "drop-shadow-2xl flex flex-row justify-evenly mb-3 absolute bottom-0 items-center left-15 px-8 py-4 rounded-full"
+            "flex flex-row w-full justify-evenly items-center px-8 py-5 "
           ),
           show ? { backgroundColor: "none" } : tailwind("bg-white"),
         ]}
       >
-        <TouchableOpacity
-          style={tailwind(
-            "items-center justify-center rounded-full w-14 h-14 bg-red-200"
-          )}
-          onPress={() => swipeRef.current.swipeLeft()}
+        <View
+          style={[
+            tailwind(
+              "flex flex-row bg-red-600 px-5 py-2 rounded-full bg-white"
+            ),
+            {
+              shadowColor: "#000",
+              shadowOffset: {
+                width: 0,
+                height: 2,
+              },
+              shadowOpacity: 0.25,
+              shadowRadius: 3.84,
+              elevation: 5,
+            },
+          ]}
         >
-          <Entypo name="cross" size={26} color="red" />
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={tailwind(
+              "items-center justify-center rounded-full w-12 h-12 bg-white border-rose-600 border"
+            )}
+            onPress={() => swipeRef.current.swipeLeft()}
+          >
+            <Entypo name="cross" size={26} color="red" />
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={tailwind(
-            "items-center justify-center rounded-full w-14 h-14 bg-blue-200 mx-5"
-          )}
-        >
-          <AntDesign name="star" size={26} color="blue" />
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={tailwind(
+              "items-center justify-center rounded-full w-12 h-12 mx-5 bg-white border-indigo-600 border"
+            )}
+          >
+            <AntDesign name="star" size={26} color="blue" />
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={tailwind(
-            "items-center justify-center rounded-full w-14 h-14 bg-green-200"
-          )}
-          onPress={() => swipeRef.current.swipeRight()}
-        >
-          <AntDesign name="heart" size={26} color="green" />
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={tailwind(
+              "items-center justify-center rounded-full w-12 h-12 bg-white border border-green-600"
+            )}
+            onPress={() => swipeRef.current.swipeRight()}
+          >
+            <AntDesign name="heart" size={26} color="green" />
+          </TouchableOpacity>
+        </View>
       </View>
 
       <TouchableOpacity
@@ -310,19 +432,6 @@ const IndividualScreen = () => {
         <Ionicons name="chevron-back-outline" size={34} color="#FF5864" />
       </TouchableOpacity>
     </SafeAreaView>
-
-    // <View style={styles.container}>
-    //   <BottomSheet
-    //     ref={bottomSheetRef}
-    //     index={1}
-    //     snapPoints={snapPoints}
-    //     // onChange={handleSheetChanges}
-    //   >
-    //     <View style={styles.contentContainer}>
-    //       <Text>Awesome 🎉</Text>
-    //     </View>
-    //   </BottomSheet>
-    // </View>
   );
 };
 
@@ -336,15 +445,3 @@ const styles = StyleSheet.create({
     position: "relative",
   },
 });
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     padding: 24,
-//     backgroundColor: "grey",
-//   },
-//   contentContainer: {
-//     flex: 1,
-//     alignItems: "center",
-//   },
-// });
