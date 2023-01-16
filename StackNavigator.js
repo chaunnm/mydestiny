@@ -27,38 +27,6 @@ import SafetyScreen from "./screens/SafetyScreen";
 
 const Stack = createNativeStackNavigator();
 
-// const StackNavigator = () => {
-//   const { currentUser } = useAuth();
-//   return (
-//     <Stack.Navigator
-//       screenOptions={{
-//         headerShown: false,
-//       }}
-//     >
-//       {currentUser ? (
-//         <>
-//           <Stack.Group>
-//             <Stack.Screen name="Home" component={HomeScreen} />
-//             <Stack.Screen name="Chat" component={ChatScreen} />
-//             <Stack.Screen name="Message" component={MessageScreen} />
-//           </Stack.Group>
-//           <Stack.Group screenOptions={{ presentation: "modal" }}>
-//             <Stack.Screen name="Modal" component={ModalScreen} />
-//           </Stack.Group>
-//           <Stack.Group screenOptions={{ presentation: "transparentModal" }}>
-//             <Stack.Screen name="Match" component={MatchedScreen} />
-//           </Stack.Group>
-//         </>
-//       ) : (
-//         <>
-//           <Stack.Screen name="Login" component={LoginScreen} />
-//           <Stack.Screen name="Signup" component={SignupScreen} />
-//         </>
-//       )}
-//     </Stack.Navigator>
-//   );
-// };
-
 // const HomeStackScreen = () => {
 //   const HomeStack = createNativeStackNavigator();
 //   return (
@@ -92,12 +60,6 @@ const LogoHeader = () => {
           }}
         />
       </TouchableOpacity>
-      {/* <Image
-        style={{ width: 214 }}
-        source={{
-          uri: "https://drive.google.com/uc?export=view&id=10ckuZCn5Mt9t8VFRAlrKpT2eDH--GFkP",
-        }}
-      /> */}
       <MaterialCommunityIcons
         style={{ marginEnd: 30 }}
         name="bell"
