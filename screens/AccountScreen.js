@@ -8,19 +8,18 @@ import {
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button, Avatar } from "react-native-paper";
-import useAuth from "../hooks/useAuth";
 import { useNavigation } from "@react-navigation/core";
 import {
   Ionicons,
   MaterialCommunityIcons,
   AntDesign,
 } from "@expo/vector-icons";
+import AvatarAccount from "../components/AvatarAccount";
 
 const AccountScreen = () => {
   const imageBackground = {
     uri: "https://drive.google.com/uc?export=view&id=1e-j17rDi3XQm0n3xc4-Byeaq1VkoARSW",
   };
-  const { currentUser } = useAuth();
   const navigation = useNavigation();
   const likesData = [
     {
@@ -59,18 +58,7 @@ const AccountScreen = () => {
         style={styles.image}
       >
         <View style={styles.accountContainer}>
-          <View style={styles.avatarContainer}>
-            <View style={styles.avatar}>
-              <Avatar.Image
-                style={styles.avatarImg}
-                size={130}
-                source={{ uri: currentUser.photoURL }}
-              />
-            </View>
-            <Text style={styles.avatarText}>
-              {currentUser.displayName}, {currentUser.age}
-            </Text>
-          </View>
+          <AvatarAccount/>
           <View style={styles.buttonsContainer}>
             <TouchableOpacity
               style={styles.button}
@@ -162,30 +150,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   // Account information
-  avatarContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  avatar: {
-    borderColor: "#ffb8c9",
-    borderWidth: 5,
-    justifyContent: "center",
-    alignItems: "center",
-    height: 150,
-    width: 150,
-    borderRadius: 100,
-  },
-  avatarImg: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  avatarText: {
-    color: "#3d3b73",
-    fontSize: 32,
-    lineHeight: 40,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
   buttonsContainer: {
     flexDirection: "row",
     justifyContent: "space-evenly",
