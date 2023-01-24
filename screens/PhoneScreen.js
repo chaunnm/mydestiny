@@ -177,7 +177,7 @@ const PhoneScreen = () => {
           <Text style={tailwind("text-center text-base")}>
             Enter OTP code we sent to{" "}
             <Text style={tailwind("font-bold")}>
-              {"0" + phoneNumber.slice(3, -2) + "xx"}
+              {"0" + phoneNumber.slice(0, -2) + "xx"}
             </Text>
           </Text>
           <View style={tailwind("justify-center items-center flex")}>

@@ -23,6 +23,7 @@ import { useNavigation } from "@react-navigation/native";
 import SettingsScreen from "./screens/SettingsScreen";
 import EditProfileScreen from "./screens/EditProfileScreen";
 import SafetyScreen from "./screens/SafetyScreen";
+import VibeScreen from "./screens/VibeScreen";
 // import { Appbar } from "react-native-paper";
 
 const Stack = createNativeStackNavigator();
@@ -155,6 +156,7 @@ const StackNavigator = () => {
             <Stack.Screen name="Profile" component={ProfileScreen} />
             <Stack.Screen name="Message" component={MessageScreen} />
             <Stack.Screen name="Individual" component={IndividualScreen} />
+            <Stack.Screen name="Vibe" component={VibeScreen} />
           </Stack.Group>
           <Stack.Group screenOptions={{ presentation: "modal" }}>
             <Stack.Screen name="Modal" component={ModalScreen} />

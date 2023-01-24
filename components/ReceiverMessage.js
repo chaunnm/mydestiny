@@ -6,21 +6,35 @@ const ReceiverMessage = ({ message }) => {
   const tailwind = useTailwind();
 
   return (
-    <View
-      style={[
-        tailwind(
-          "bg-red-400 rounded-lg rounded-tl-none px-5 py-3 mx-3 my-2 ml-14"
-        ),
-        {
-          alignSelf: "flex-start",
-        },
-      ]}
-    >
-      <Image
-        style={tailwind("h-12 w-12 rounded-full absolute top-0 -left-14")}
-        source={{ uri: message.photoURL }}
-      />
-      <Text style={tailwind("text-white")}>{message.message}</Text>
+    <View style={[tailwind("flex-row"), { alignSelf: "flex-start" }]}>
+      <View
+        style={[
+          tailwind(
+            "bg-chat rounded-xl rounded-tl-none px-4 py-2.5 mx-3 my-2 ml-14"
+          ),
+          {
+            alignSelf: "flex-start",
+            maxWidth: "85%",
+          },
+        ]}
+      >
+        <Image
+          style={tailwind("h-11 w-11 rounded-full absolute top-0 -left-14")}
+          source={{ uri: message.photoURL }}
+        />
+        {message.image === "" ? (
+          <Text style={tailwind("text-base")}>{message.message}</Text>
+        ) : (
+          <Image
+            resizeMode="contain"
+            source={{ uri: message.image }}
+            style={tailwind("w-40 h-40 rounded-xl")}
+          />
+        )}
+      </View>
+      <Text style={tailwind("self-center mr-1.5 text-lightText")}>
+        {message.timestamp?.toDate().toLocaleTimeString().slice(0, -3)}
+      </Text>
     </View>
   );
 };

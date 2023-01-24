@@ -13,6 +13,7 @@ module.exports = {
         others: "#3D3B73",
         lightText: "#616161",
         something: "#990024",
+        chat: "#E6E8EB",
       },
       inset: {
         "2/5": "40%",
@@ -23,7 +24,9 @@ module.exports = {
         62: "244px",
       },
       width: {
+        22: "88px",
         42: "164px",
+        43: "170px",
       },
     },
   },

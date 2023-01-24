@@ -14,6 +14,7 @@ import React, { useState, useEffect, useLayoutEffect } from "react";
 import useAuth from "../hooks/useAuth";
 import { useTailwind } from "tailwind-rn";
 import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 
 export default function LoginScreen() {
   const { onGoogleButtonPress, loading, signIn } = useAuth();
@@ -50,6 +51,7 @@ export default function LoginScreen() {
 
   return (
     <View style={tailwind("flex-1 relative")}>
+      <StatusBar hidden={true} />
       <ImageBackground
         resizeMode="cover"
         style={tailwind("flex-1")}
