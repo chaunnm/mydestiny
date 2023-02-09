@@ -15,6 +15,7 @@ import {
   AntDesign,
 } from "@expo/vector-icons";
 import AvatarAccount from "../components/AvatarAccount";
+import useAuth from "../hooks/useAuth";
 
 const AccountScreen = () => {
   const imageBackground = {
@@ -58,7 +59,7 @@ const AccountScreen = () => {
         style={styles.image}
       >
         <View style={styles.accountContainer}>
-          <AvatarAccount/>
+          <AvatarAccount />
           <View style={styles.buttonsContainer}>
             <TouchableOpacity
               style={styles.button}

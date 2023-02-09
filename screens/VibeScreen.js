@@ -134,31 +134,35 @@ const VibeScreen = () => {
   }, []);
 
   useEffect(() => {
+    firestore()
+      .collection("users")
+      .doc(currentUser.uid)
+      .collection("passes")
+      .onSnapshot({
+        next: (snapshot) => {
+          // console.log("Passes: ", snapshot.docs);
+          const newSnapshot = [...snapshot.docs];
+          setPasses(newSnapshot.map((doc) => doc.id));
+        },
+      });
+  }, [currentUser]);
+
+  useEffect(() => {
+    firestore()
+      .collection("users")
+      .doc(currentUser.uid)
+      .collection("swipes")
+      .onSnapshot({
+        next: (snapshot) => {
+          // console.log("Swipes: ", snapshot.docs);
+          const newSnapshot = [...snapshot.docs];
+          setSwipes(newSnapshot.map((doc) => doc.id));
+        },
+      });
+  }, [currentUser]);
+
+  useEffect(() => {
     const fetchCards = async () => {
-      firestore()
-        .collection("users")
-        .doc(currentUser.uid)
-        .collection("passes")
-        .onSnapshot({
-          next: (snapshot) => {
-            // console.log("Passes: ", snapshot.docs);
-            const newSnapshot = [...snapshot.docs];
-            setPasses(newSnapshot.map((doc) => doc.id));
-          },
-        });
-
-      firestore()
-        .collection("users")
-        .doc(currentUser.uid)
-        .collection("swipes")
-        .onSnapshot({
-          next: (snapshot) => {
-            // console.log("Swipes: ", snapshot.docs);
-            const newSnapshot = [...snapshot.docs];
-            setSwipes(newSnapshot.map((doc) => doc.id));
-          },
-        });
-
       const passedUserIds = passes.length > 0 ? passes : ["test"];
       const swipedUserIds = swipes.length > 0 ? swipes : ["test"];
       const temp = [...passedUserIds, ...swipedUserIds];
@@ -186,7 +190,7 @@ const VibeScreen = () => {
     };
 
     fetchCards();
-  }, []);
+  }, [passes, swipes]);
 
   return (
     <SafeAreaView style={styles.container}>

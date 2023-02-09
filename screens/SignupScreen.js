@@ -17,7 +17,6 @@ import React, { useState } from "react";
 import { useTailwind } from "tailwind-rn";
 import { useNavigation } from "@react-navigation/native";
 import useAuth from "../hooks/useAuth";
-import Header from "../components/Header";
 import * as ImagePicker from "expo-image-picker";
 
 const SignupScreen = () => {

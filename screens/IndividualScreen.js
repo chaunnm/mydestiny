@@ -23,7 +23,6 @@ import { useTailwind } from "tailwind-rn";
 import useAuth from "../hooks/useAuth";
 import Carousel from "react-native-snap-carousel";
 import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
-import Header from "../components/Header";
 import { TabView, SceneMap } from "react-native-tab-view";
 
 const dimensionsForScreen = Dimensions.get("screen");

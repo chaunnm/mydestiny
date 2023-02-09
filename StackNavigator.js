@@ -24,6 +24,7 @@ import SettingsScreen from "./screens/SettingsScreen";
 import EditProfileScreen from "./screens/EditProfileScreen";
 import SafetyScreen from "./screens/SafetyScreen";
 import VibeScreen from "./screens/VibeScreen";
+import AddPost from "./screens/AddPost";
 // import { Appbar } from "react-native-paper";
 
 const Stack = createNativeStackNavigator();
@@ -157,11 +158,17 @@ const StackNavigator = () => {
             <Stack.Screen name="Message" component={MessageScreen} />
             <Stack.Screen name="Individual" component={IndividualScreen} />
             <Stack.Screen name="Vibe" component={VibeScreen} />
+            <Stack.Screen name="Post" component={AddPost} />
           </Stack.Group>
           <Stack.Group screenOptions={{ presentation: "modal" }}>
             <Stack.Screen name="Modal" component={ModalScreen} />
           </Stack.Group>
-          <Stack.Group screenOptions={{ presentation: "transparentModal" }}>
+          <Stack.Group
+            screenOptions={{
+              presentation: "transparentModal",
+              headerShown: false,
+            }}
+          >
             <Stack.Screen name="Match" component={MatchedScreen} />
           </Stack.Group>
           <Stack.Group screenOptions={{ presentation: "transparentModal" }}>

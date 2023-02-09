@@ -118,7 +118,7 @@ const MatchList = () => {
     </View>
   ) : (
     <View style={tailwind("p-5")}>
-      <Text style={tailwind("text-center text-lg")}>
+      <Text style={tailwind("text-center text-base")}>
         No matches at the moment 🥲
       </Text>
     </View>

@@ -41,7 +41,7 @@ const ChatList = () => {
     />
   ) : (
     <View style={tailwind("p-5")}>
-      <Text style={tailwind("text-center text-lg")}>
+      <Text style={tailwind("text-center text-base")}>
         No messages at the moment 🥲
       </Text>
     </View>

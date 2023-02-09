@@ -13,7 +13,6 @@ import {
   Modal,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import Header from "../components/Header";
 import useAuth from "../hooks/useAuth";
 import { useTailwind } from "tailwind-rn";
 import { ThemeProvider, useNavigation } from "@react-navigation/native";
@@ -21,10 +20,12 @@ import firestore from "@react-native-firebase/firestore";
 import { RadioButton } from "react-native-paper";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import * as ImagePicker from "expo-image-picker";
+import Header from "../components/Header";
+import auth from "@react-native-firebase/auth";
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
-  const { currentUser } = useAuth();
+  const { currentUser, updateName } = useAuth();
   const tailwind = useTailwind();
 
   const [profile, setProfile] = useState();
@@ -139,7 +140,7 @@ const ProfileScreen = () => {
       id: 4,
       selected: false,
       icon: "🎵",
-      name: "Language",
+      name: "Music",
     },
     {
       id: 5,
@@ -412,6 +413,7 @@ const ProfileScreen = () => {
           .map((ideal) => ideal.name),
       })
       .then(() => {
+        updateName(displayName);
         ToastAndroid.showWithGravity(
           "Update Profile successfully! 🎉",
           ToastAndroid.SHORT,
@@ -433,7 +435,7 @@ const ProfileScreen = () => {
   if (step1) {
     return (
       <SafeAreaView style={tailwind("flex-1")}>
-        <Header title="Step 1" />
+        <Header title="Step 1" back />
         <ScrollView style={tailwind("px-5")}>
           <Text
             style={tailwind(
@@ -558,7 +560,7 @@ const ProfileScreen = () => {
   } else if (step2) {
     return (
       <SafeAreaView style={tailwind("flex-1")}>
-        <Header title="Step 2" />
+        <Header title="Step 2" back />
         <ScrollView
           automaticallyAdjustContentInsets={true}
           automaticallyAdjustKeyboardInsets={true}
@@ -632,7 +634,7 @@ const ProfileScreen = () => {
   } else if (step3) {
     return (
       <SafeAreaView style={tailwind("flex-1")}>
-        <Header title="Step 3" />
+        <Header title="Step 3" back />
         <ScrollView style={tailwind("px-5")}>
           <Text
             style={tailwind(
@@ -774,7 +776,7 @@ const ProfileScreen = () => {
   } else if (step4) {
     return (
       <SafeAreaView style={tailwind("flex-1")}>
-        <Header title="Step 4" />
+        <Header title="Step 4" back />
         <Text
           style={tailwind(
             "font-bold mb-1 text-2xl text-center text-purple-700"
@@ -854,7 +856,7 @@ const ProfileScreen = () => {
       </View>
     ) : (
       <SafeAreaView style={tailwind("flex-1")}>
-        <Header title="Step 5" />
+        <Header title="Step 5" back />
         <Text
           style={tailwind(
             "font-bold mb-1 text-2xl text-center text-purple-700"
