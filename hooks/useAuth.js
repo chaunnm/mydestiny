@@ -11,6 +11,8 @@ import {
   GoogleSigninButton,
 } from "@react-native-google-signin/google-signin";
 import auth from "@react-native-firebase/auth";
+import firestore from "@react-native-firebase/firestore";
+import messaging from "@react-native-firebase/messaging";
 
 const AuthContext = createContext({});
 
@@ -27,15 +29,31 @@ export const AuthProvider = ({ children }) => {
   });
 
   // Handle user state changes
-  function onAuthStateChanged(currentUser) {
-    setCurrentUser(currentUser);
-    // console.log("Current User: ", currentUser);
-    if (initializing) setInitializing(false);
-  }
-
   useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; // unsubscribe on unmount
+    const subscriber = auth().onAuthStateChanged((user) => {
+      if (user) {
+        user.reload().then(async () => {
+          setCurrentUser(user);
+          const deviceToken = await messaging().getToken();
+
+          firestore()
+            .collection("users")
+            .doc(user.uid)
+            .update({
+              displayName: user.displayName,
+              photoURL: user.photoURL,
+              deviceToken: deviceToken,
+            });
+        });
+      } else {
+        setCurrentUser(null);
+      }
+
+      if (initializing) setInitializing(false);
+    });
+
+    // Unsubscribe from the listener when the component is unmounted
+    return () => subscriber();
   }, []);
 
   const onGoogleButtonPress = async () => {
@@ -63,20 +81,48 @@ export const AuthProvider = ({ children }) => {
       });
   };
 
-  // const updateProfile = async (displayName, avatar) => {
-  //   // try {
-  //   //   auth().currentUser.updateProfile({
-  //   //     displayName: displayName,
-  //   //     photoURL: avatar,
-  //   //   });
-  //   // } catch (error) {
-  //   //   console.log("Error when updating profile: ", error);
-  //   // }
-  //   auth().currentUser.updateProfile({
-  //     displayName: displayName,
-  //     photoURL: avatar,
-  //   });
-  // };
+  const updateName = async (name) => {
+    if (!currentUser) return;
+
+    try {
+      await currentUser.updateProfile({ displayName: name });
+
+      auth()
+        .currentUser.reload()
+        .then(() => {
+          setCurrentUser(auth().currentUser);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const updateAvatar = async (avatar) => {
+    if (!currentUser) return;
+
+    try {
+      await currentUser.updateProfile({ photoURL: avatar });
+
+      firestore()
+        .collection("users")
+        .doc(currentUser.id)
+        .update({ photoURL: avatar });
+
+      auth()
+        .currentUser.reload()
+        .then(() => {
+          setCurrentUser(auth().currentUser);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const signUp = async (email, password, avatar) => {
     auth()
@@ -206,6 +252,8 @@ export const AuthProvider = ({ children }) => {
       signIn,
       signUp,
       signOut,
+      updateName,
+      updateAvatar,
     }),
     [currentUser, loading, error]
   );

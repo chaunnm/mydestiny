@@ -1,7 +1,6 @@
 import {
   View,
   Text,
-  Button,
   SafeAreaView,
   TouchableOpacity,
   Image,
@@ -24,8 +23,10 @@ const HomeScreen = () => {
   const tailwind = useTailwind();
   const navigation = useNavigation();
   const [profiles, setProfiles] = useState([]);
+  const [users, setUsers] = useState([]);
   const [passes, setPasses] = useState([]);
   const [swipes, setSwipes] = useState([]);
+  const [filterUsers, setFilterUsers] = useState([]);
   const [loader, setLoader] = useState(true);
   const swipeRef = useRef(null);
 
@@ -57,9 +58,9 @@ const HomeScreen = () => {
   };
 
   const swipeLeft = async (cardIndex) => {
-    if (!profiles[cardIndex]) return;
-    const userSwiped = profiles[cardIndex];
-    // console.log(`You swiped PASS on ${userSwiped.displayName}`);
+    if (!filterUsers[cardIndex]) return;
+    const userSwiped = filterUsers[cardIndex];
+    console.log(`You swiped PASS on ${userSwiped.displayName}`);
 
     firestore()
       .collection("users")
@@ -70,8 +71,9 @@ const HomeScreen = () => {
   };
 
   const swipeRight = async (cardIndex) => {
-    if (!profiles[cardIndex]) return;
-    const userSwiped = profiles[cardIndex];
+    if (!filterUsers[cardIndex]) return;
+    const userSwiped = filterUsers[cardIndex];
+    console.log(`You swiped RIGHT on ${userSwiped.displayName}`);
 
     const infor = await firestore()
       .collection("users")
@@ -111,6 +113,13 @@ const HomeScreen = () => {
                   [userSwiped.id]: userSwiped,
                 },
                 usersMatched: [currentUser.uid, userSwiped.id],
+                theme: {
+                  id: 1,
+                  background: "https://wallpaperaccess.com/full/1076238.jpg",
+                  senderColor: "#FD697F",
+                  receiverColor: "#E6E8EB",
+                  selected: true,
+                },
               });
 
             navigation.navigate("Match", {
@@ -134,8 +143,8 @@ const HomeScreen = () => {
   };
 
   const showInfor = async (cardIndex) => {
-    if (!profiles[cardIndex]) return;
-    const userSelected = profiles[cardIndex];
+    if (!filterUsers[cardIndex]) return;
+    const userSelected = filterUsers[cardIndex];
     navigation.navigate("Individual", {
       userSelected,
     });
@@ -154,61 +163,143 @@ const HomeScreen = () => {
       });
   }, []);
 
+  // useEffect(() => {
+  //   const subcribe = firestore()
+  //     .collection("users")
+  //     .doc(currentUser.uid)
+  //     .collection("passes")
+  //     .onSnapshot({
+  //       next: (snapshot) => {
+  //         const newSnapshot = [...snapshot.docs];
+  //         setPasses(newSnapshot.map((doc) => doc.id));
+  //       },
+  //     });
+  //   return () => subcribe();
+  // }, [currentUser]);
+
+  // useEffect(() => {
+  //   const subcribe = firestore()
+  //     .collection("users")
+  //     .doc(currentUser.uid)
+  //     .collection("swipes")
+  //     .onSnapshot({
+  //       next: (snapshot) => {
+  //         const newSnapshot = [...snapshot.docs];
+  //         setSwipes(newSnapshot.map((doc) => doc.id));
+  //       },
+  //     });
+  //   return () => subcribe();
+  // }, [currentUser]);
+
+  // useEffect(() => {
+  //   const fetchCards = async () => {
+  //     const passedUserIds = passes.length > 0 ? passes : ["test"];
+  //     const swipedUserIds = swipes.length > 0 ? swipes : ["test"];
+  //     const temp = [...passedUserIds, ...swipedUserIds];
+  //     temp.push(currentUser.uid);
+
+  //     firestore()
+  //       .collection("users")
+  //       .onSnapshot({
+  //         next: (snapshot) => {
+  //           setProfiles(
+  //             snapshot.docs
+  //               .filter((doc) => !temp.includes(doc.id))
+  //               .map((doc) => ({
+  //                 id: doc.id,
+  //                 ...doc.data(),
+  //               }))
+  //           );
+  //         },
+  //       });
+  //   };
+
+  //   fetchCards();
+  // }, [passes, swipes]);
+
+  // useEffect(() => {
+  //   const usersUnsubscribe = firestore()
+  //     .collection("users")
+  //     .onSnapshot((snapshot) => {
+  //       const users = [];
+  //       snapshot.forEach((doc) => {
+  //         users.push({ id: doc.id, ...doc.data() });
+  //       });
+  //       setUsers(users);
+  //     });
+
+  //   const passesUnsubscribe = firestore()
+  //     .collection("users")
+  //     .doc(currentUser.uid)
+  //     .collection("passes")
+  //     .onSnapshot((snapshot) => {
+  //       const passes = [];
+  //       snapshot.forEach((doc) => {
+  //         passes.push({ id: doc.id, ...doc.data() });
+  //       });
+  //       setPasses(passes);
+  //     });
+
+  //   const swipesUnsubscribe = firestore()
+  //     .collection("users")
+  //     .doc(currentUser.uid)
+  //     .collection("swipes")
+  //     .onSnapshot((snapshot) => {
+  //       const swipes = [];
+  //       snapshot.forEach((doc) => {
+  //         swipes.push({ id: doc.id, ...doc.data() });
+  //       });
+  //       setSwipes(swipes);
+  //     });
+
+  //   return () => {
+  //     usersUnsubscribe();
+  //     passesUnsubscribe();
+  //     swipesUnsubscribe();
+  //   };
+  // }, []);
+
   useEffect(() => {
-    const fetchCards = async () => {
-      firestore()
+    const fetchData = async () => {
+      const usersSnapshot = await firestore().collection("users").get();
+      const users = usersSnapshot.docs.map((doc) => doc.data());
+      setUsers(users);
+
+      const passesSnapshot = await firestore()
         .collection("users")
         .doc(currentUser.uid)
         .collection("passes")
-        .onSnapshot({
-          next: (snapshot) => {
-            // console.log("Passes: ", snapshot.docs);
-            const newSnapshot = [...snapshot.docs];
-            setPasses(newSnapshot.map((doc) => doc.id));
-          },
-        });
+        .get();
+      const passes = passesSnapshot.docs.map((doc) => doc.data());
+      setPasses(passes);
 
-      firestore()
+      const swipesSnapshot = await firestore()
         .collection("users")
         .doc(currentUser.uid)
         .collection("swipes")
-        .onSnapshot({
-          next: (snapshot) => {
-            // console.log("Swipes: ", snapshot.docs);
-            const newSnapshot = [...snapshot.docs];
-            setSwipes(newSnapshot.map((doc) => doc.id));
-          },
-        });
-
-      const passedUserIds = passes.length > 0 ? passes : ["test"];
-      const swipedUserIds = swipes.length > 0 ? swipes : ["test"];
-      const temp = [...passedUserIds, ...swipedUserIds];
-      temp.push(currentUser.uid);
-
-      // console.log("State swipes: ", swipes);
-
-      firestore()
-        .collection("users")
-        .onSnapshot({
-          next: (snapshot) => {
-            setProfiles(
-              snapshot.docs
-                .filter((doc) => !temp.includes(doc.id))
-                .map((doc) => ({
-                  id: doc.id,
-                  ...doc.data(),
-                }))
-            );
-          },
-        });
+        .get();
+      const swipes = swipesSnapshot.docs.map((doc) => doc.data());
+      setSwipes(swipes);
     };
-
-    fetchCards();
+    fetchData();
   }, []);
 
-  // console.log("Passes: ", passedUserIds);
-
-  // console.log("Profiles: ", profiles);
+  useEffect(() => {
+    if (users.length) {
+      let filtered = users;
+      if (passes.length) {
+        filtered = filtered.filter(
+          (user) => !passes.some((pass) => pass.userId === currentUser.uid)
+        );
+      }
+      if (swipes.length) {
+        filtered = filtered.filter(
+          (user) => !swipes.some((swipe) => swipe.userId === currentUser.uid)
+        );
+      }
+      setFilterUsers(filtered.filter((user) => user.id !== currentUser.uid));
+    }
+  }, [users, passes, swipes]);
 
   return loader ? (
     <View style={tailwind("flex-1 justify-center items-center")}>
@@ -243,8 +334,7 @@ const HomeScreen = () => {
         <Swiper
           ref={swipeRef}
           containerStyle={{ backgroundColor: "transparent" }}
-          cards={profiles}
-          // cards={DUMMY_DATA}
+          cards={filterUsers}
           stackSize={5}
           cardIndex={0}
           animateCardOpacity

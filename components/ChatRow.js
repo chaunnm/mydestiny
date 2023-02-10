@@ -11,9 +11,7 @@ const ChatRow = ({ matchDetails }) => {
   const navigation = useNavigation();
   const { currentUser } = useAuth();
   const [matchedUserInfo, setMatchedUserInfo] = useState(null);
-  const [lastMessage, setLastMessage] = useState("");
-
-  // console.log("Match detail: ", matchDetails);
+  const [lastMessage, setLastMessage] = useState("[Say Hi 👋]");
 
   useEffect(() => {
     setMatchedUserInfo(getMatchedUserInfo(matchDetails.users, currentUser.uid));
@@ -28,7 +26,23 @@ const ChatRow = ({ matchDetails }) => {
         .orderBy("timestamp", "desc")
         .onSnapshot({
           next: (snapshot) => {
-            setLastMessage(snapshot.docs[0]?.data()?.message);
+            if (snapshot.docs[0]?.data()?.media === "")
+              setLastMessage(snapshot.docs[0]?.data()?.message);
+            else if (snapshot.docs[0]?.data()?.media?.slice(36, 41) === "image")
+              setLastMessage("[Image]");
+            else if (snapshot.docs[0]?.data()?.media?.slice(36, 41) === "video")
+              setLastMessage("[Video]");
+            if (
+              snapshot.docs[0]?.data()?.message === "" &&
+              snapshot.docs[0]?.data()?.media === ""
+            )
+              setLastMessage("[Message unsent!]");
+            else if (
+              snapshot.docs[0]?.data()?.message === "" &&
+              snapshot.docs[0]?.data()?.media === "" &&
+              snapshot.docs[0]?.data()?.removedAt === ""
+            )
+              setLastMessage("[Say Hi!]");
           },
         }),
     [matchDetails, firestore]
@@ -38,7 +52,7 @@ const ChatRow = ({ matchDetails }) => {
     <TouchableOpacity
       style={[
         tailwind(
-          "flex-row items-center py-3 px-5 bg-white mx-3 my-1 rounded-lg"
+          "flex-row items-center py-4 px-4 bg-white mx-3 my-1 rounded-lg flex-1"
         ),
         style.cardShadow,
       ]}
@@ -49,15 +63,17 @@ const ChatRow = ({ matchDetails }) => {
       }
     >
       <Image
-        style={tailwind("rounded-full h-16 w-16 mr-4")}
+        style={tailwind("rounded-full h-12 w-12 mr-4")}
         source={{ uri: matchedUserInfo?.photoURL }}
       />
 
-      <View>
+      <View style={tailwind("flex-1")}>
         <Text style={tailwind("text-lg font-semibold")}>
           {matchedUserInfo?.displayName}
         </Text>
-        <Text>{lastMessage || "Say Hi!"}</Text>
+        <Text numberOfLines={1} ellipsizeMode="tail">
+          {lastMessage}
+        </Text>
       </View>
     </TouchableOpacity>
   );

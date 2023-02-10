@@ -23,22 +23,9 @@ import { useTailwind } from "tailwind-rn";
 import useAuth from "../hooks/useAuth";
 import Carousel from "react-native-snap-carousel";
 import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
-import Header from "../components/Header";
 import { TabView, SceneMap } from "react-native-tab-view";
 
 const dimensionsForScreen = Dimensions.get("screen");
-const FirstRoute = () => (
-  <View style={{ flex: 1, backgroundColor: "#ff4081" }} />
-);
-
-const SecondRoute = () => (
-  <View style={{ flex: 1, backgroundColor: "#673ab7" }} />
-);
-
-const renderScene = SceneMap({
-  first: FirstRoute,
-  second: SecondRoute,
-});
 
 const IndividualScreen = () => {
   const tailwind = useTailwind();
