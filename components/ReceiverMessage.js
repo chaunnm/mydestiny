@@ -1,12 +1,16 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity, Modal } from "react-native";
 import React, { useState, useEffect } from "react";
 import { useTailwind } from "tailwind-rn";
 import { Video } from "expo-av";
+import ImageViewer from "react-native-image-zoom-viewer";
 import firestore from "@react-native-firebase/firestore";
+import { AntDesign } from "@expo/vector-icons";
 
 const ReceiverMessage = ({ message, matchId }) => {
   const tailwind = useTailwind();
   const [color, setColor] = useState(null);
+  const [visible, setVisible] = useState(false);
+  const [image, setImage] = useState("");
 
   useEffect(() => {
     firestore()
@@ -43,11 +47,18 @@ const ReceiverMessage = ({ message, matchId }) => {
         {message.media === "" ? (
           <Text style={tailwind("text-base")}>{message.message}</Text>
         ) : message.media.slice(36, 41) === "image" ? (
-          <Image
-            resizeMode="contain"
-            source={{ uri: message.media }}
-            style={tailwind("w-44 h-48 rounded-xl")}
-          />
+          <TouchableOpacity
+            onPress={() => {
+              setImage(message.media);
+              setVisible(true);
+            }}
+          >
+            <Image
+              resizeMode="contain"
+              source={{ uri: message.media }}
+              style={tailwind("w-44 h-48 rounded-xl")}
+            />
+          </TouchableOpacity>
         ) : (
           <Video
             style={tailwind("w-44 h-48")}
@@ -63,6 +74,19 @@ const ReceiverMessage = ({ message, matchId }) => {
       <Text style={tailwind("self-center mr-1.5 text-lightText")}>
         {message.timestamp?.toDate().toLocaleTimeString().slice(0, -3)}
       </Text>
+      <Modal visible={visible} transparent={true} style={tailwind("relative")}>
+        <ImageViewer
+          imageUrls={[{ url: image }]}
+          enableSwipeDown
+          onSwipeDown={() => setVisible(false)}
+        />
+        <TouchableOpacity
+          style={tailwind("absolute right-1.5 top-1")}
+          onPress={() => setVisible(false)}
+        >
+          <AntDesign name="closecircleo" size={24} color="white" />
+        </TouchableOpacity>
+      </Modal>
     </View>
   );
 };

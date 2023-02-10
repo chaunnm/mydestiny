@@ -22,6 +22,13 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import * as ImagePicker from "expo-image-picker";
 import Header from "../components/Header";
 import auth from "@react-native-firebase/auth";
+import LocationSelect from "../components/LocationSelect";
+import {
+  apiGetPublicDistrict,
+  apiGetPublicProvinces,
+  apiGetPublicVillage,
+} from "../lib/locationApi";
+import * as Location from "expo-location";
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
@@ -71,6 +78,44 @@ const ProfileScreen = () => {
     return () => unsubcribe();
   }, []);
 
+  useEffect(() => {
+    const fetchPublicProviecs = async () => {
+      const response = await apiGetPublicProvinces();
+
+      if (response.status === 200) {
+        console.log(response.data.results);
+        setProvinces(response.data.results);
+      }
+    };
+    fetchPublicProviecs();
+  }, []);
+
+  useEffect(() => {
+    setDistrict(null);
+    setVillages(null);
+    const fetchPublicDistrict = async () => {
+      const response = await apiGetPublicDistrict(province.id);
+
+      if (response.status === 200) {
+        setDistricts(response.data?.results);
+      }
+    };
+    province && fetchPublicDistrict();
+  }, [province]);
+
+  useEffect(() => {
+    setVillage(null);
+    // setDistrict(null);
+    const fetchPublicDistrict = async () => {
+      const response = await apiGetPublicVillage(district.id);
+
+      if (response.status === 200) {
+        setVillages(response.data?.results);
+      }
+    };
+    province && fetchPublicDistrict();
+  }, [district]);
+
   const [loader, setLoader] = useState(false);
 
   const [step1, setStep1] = useState(true);
@@ -81,14 +126,21 @@ const ProfileScreen = () => {
 
   const [displayName, setDisplayname] = useState();
   const [email, setEmail] = useState();
-  const [phone, setPhone] = useState();
+  const [phone, setPhone] = useState(null);
   const [gender, setGender] = useState();
   const [date, setDate] = useState();
   const [job, setJob] = useState(currentUser.jobo);
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   const [modalVisible, setModalVisible] = useState(false);
-  const [location, setLocation] = useState();
+  const [location, setLocation] = useState(null);
+  const [geoPoint, setGeoPoint] = useState(null);
+  const [provinces, setProvinces] = useState([]);
+  const [province, setProvince] = useState();
+  const [district, setDistrict] = useState();
+  const [districts, setDistricts] = useState([]);
+  const [villages, setVillages] = useState([]);
+  const [village, setVillage] = useState();
 
   const [image1, setImage1] = useState();
   const [image2, setImage2] = useState();
@@ -284,7 +336,7 @@ const ProfileScreen = () => {
       temp[index]["empty"] = false;
       setImages(temp);
     } else {
-      console.log("There is an error with choosing photos");
+      console.error("There is an error with choosing photos");
     }
   };
 
@@ -429,6 +481,34 @@ const ProfileScreen = () => {
           ToastAndroid.SHORT,
           ToastAndroid.BOTTOM
         );
+      });
+  };
+
+  const reverseGeocode = async (latitude, longtitude) => {
+    const response = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longtitude}&zoom=18&addressdetails=1`
+    );
+    const data = await response.json();
+    return data;
+  };
+
+  const handleLocation = async () => {
+    let { status } = await Location.requestForegroundPermissionsAsync();
+    if (status !== "granted") {
+      setGeoPoint("Permission to access location was denied");
+      return;
+    }
+    let geo = await Location.getCurrentPositionAsync({});
+    setGeoPoint(geo);
+
+    firestore()
+      .collection("users")
+      .doc(currentUser.uid)
+      .update({
+        geoPoint: new firestore.GeoPoint(
+          geo.coords.latitude,
+          geo.coords.longitude
+        ),
       });
   };
 
@@ -593,6 +673,7 @@ const ProfileScreen = () => {
             will be used to show potential matches near you.
           </Text>
           <TouchableOpacity
+            onPress={handleLocation}
             style={[tailwind("w-full p-3 mx-auto rounded-xl bg-red-400 my-5")]}
           >
             <Text style={tailwind("text-center font-bold text-white text-xl")}>
@@ -611,6 +692,28 @@ const ProfileScreen = () => {
             value={location}
             onChangeText={setLocation}
           />
+
+          <Text style={tailwind("font-semibold px-4 text-lg ")}>Province</Text>
+          <LocationSelect
+            type="provinces"
+            setValue={() => setProvince()}
+            options={provinces}
+          />
+
+          <Text style={tailwind("font-semibold px-4 text-lg ")}>District</Text>
+          <LocationSelect
+            type="districts"
+            setValue={() => setDistrict()}
+            options={districts}
+          />
+
+          <Text style={tailwind("font-semibold px-4 text-lg ")}>Village</Text>
+          <LocationSelect
+            type="villages"
+            setValue={() => setVillage()}
+            options={villages}
+          />
+
           <Text style={tailwind("leading-5")}>
             If you don’t allow us to enable your location, make sure that your
             filled location is true. MyDestiny will help you make new

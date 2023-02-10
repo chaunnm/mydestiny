@@ -12,6 +12,7 @@ import {
 } from "@react-native-google-signin/google-signin";
 import auth from "@react-native-firebase/auth";
 import firestore from "@react-native-firebase/firestore";
+import messaging from "@react-native-firebase/messaging";
 
 const AuthContext = createContext({});
 
@@ -31,12 +32,18 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged((user) => {
       if (user) {
-        user.reload().then(() => {
+        user.reload().then(async () => {
           setCurrentUser(user);
+          const deviceToken = await messaging().getToken();
+
           firestore()
             .collection("users")
             .doc(user.uid)
-            .update({ displayName: user.displayName, photoURL: user.photoURL });
+            .update({
+              displayName: user.displayName,
+              photoURL: user.photoURL,
+              deviceToken: deviceToken,
+            });
         });
       } else {
         setCurrentUser(null);

@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
   },
   likesText: {
     textTransform: "capitalize",
-    fontSize: 28,
+    fontSize: 22,
     lineHeight: 30,
     color: "#3d3b73",
     fontWeight: "600",
@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   likesContent: {
-    fontSize: 18,
+    fontSize: 14,
     lineHeight: 20,
     color: "#09101d",
     textAlign: "center",

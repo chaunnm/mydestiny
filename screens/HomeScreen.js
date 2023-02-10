@@ -217,58 +217,89 @@ const HomeScreen = () => {
   //   fetchCards();
   // }, [passes, swipes]);
 
+  // useEffect(() => {
+  //   const usersUnsubscribe = firestore()
+  //     .collection("users")
+  //     .onSnapshot((snapshot) => {
+  //       const users = [];
+  //       snapshot.forEach((doc) => {
+  //         users.push({ id: doc.id, ...doc.data() });
+  //       });
+  //       setUsers(users);
+  //     });
+
+  //   const passesUnsubscribe = firestore()
+  //     .collection("users")
+  //     .doc(currentUser.uid)
+  //     .collection("passes")
+  //     .onSnapshot((snapshot) => {
+  //       const passes = [];
+  //       snapshot.forEach((doc) => {
+  //         passes.push({ id: doc.id, ...doc.data() });
+  //       });
+  //       setPasses(passes);
+  //     });
+
+  //   const swipesUnsubscribe = firestore()
+  //     .collection("users")
+  //     .doc(currentUser.uid)
+  //     .collection("swipes")
+  //     .onSnapshot((snapshot) => {
+  //       const swipes = [];
+  //       snapshot.forEach((doc) => {
+  //         swipes.push({ id: doc.id, ...doc.data() });
+  //       });
+  //       setSwipes(swipes);
+  //     });
+
+  //   return () => {
+  //     usersUnsubscribe();
+  //     passesUnsubscribe();
+  //     swipesUnsubscribe();
+  //   };
+  // }, []);
+
   useEffect(() => {
-    const usersUnsubscribe = firestore()
-      .collection("users")
-      .onSnapshot((snapshot) => {
-        const users = [];
-        snapshot.forEach((doc) => {
-          users.push({ id: doc.id, ...doc.data() });
-        });
-        setUsers(users);
-      });
+    const fetchData = async () => {
+      const usersSnapshot = await firestore().collection("users").get();
+      const users = usersSnapshot.docs.map((doc) => doc.data());
+      setUsers(users);
 
-    const passesUnsubscribe = firestore()
-      .collection("users")
-      .doc(currentUser.uid)
-      .collection("passes")
-      .onSnapshot((snapshot) => {
-        const passes = [];
-        snapshot.forEach((doc) => {
-          passes.push({ id: doc.id, ...doc.data() });
-        });
-        setPasses(passes);
-      });
+      const passesSnapshot = await firestore()
+        .collection("users")
+        .doc(currentUser.uid)
+        .collection("passes")
+        .get();
+      const passes = passesSnapshot.docs.map((doc) => doc.data());
+      setPasses(passes);
 
-    const swipesUnsubscribe = firestore()
-      .collection("users")
-      .doc(currentUser.uid)
-      .collection("swipes")
-      .onSnapshot((snapshot) => {
-        const swipes = [];
-        snapshot.forEach((doc) => {
-          swipes.push({ id: doc.id, ...doc.data() });
-        });
-        setSwipes(swipes);
-      });
-
-    return () => {
-      usersUnsubscribe();
-      passesUnsubscribe();
-      swipesUnsubscribe();
+      const swipesSnapshot = await firestore()
+        .collection("users")
+        .doc(currentUser.uid)
+        .collection("swipes")
+        .get();
+      const swipes = swipesSnapshot.docs.map((doc) => doc.data());
+      setSwipes(swipes);
     };
+    fetchData();
   }, []);
 
   useEffect(() => {
-    const filteredData = users.filter((user) => {
-      return (
-        // user.id !== currentUser.uid &&
-        !passes.find((pass) => pass.id === user.id) &&
-        !swipes.find((swipe) => swipe.id === user.id)
-      );
-    });
-    setFilterUsers(filteredData.filter((user) => user.id !== currentUser.uid));
-  }, [passes, swipes]);
+    if (users.length) {
+      let filtered = users;
+      if (passes.length) {
+        filtered = filtered.filter(
+          (user) => !passes.some((pass) => pass.userId === currentUser.uid)
+        );
+      }
+      if (swipes.length) {
+        filtered = filtered.filter(
+          (user) => !swipes.some((swipe) => swipe.userId === currentUser.uid)
+        );
+      }
+      setFilterUsers(filtered.filter((user) => user.id !== currentUser.uid));
+    }
+  }, [users, passes, swipes]);
 
   return loader ? (
     <View style={tailwind("flex-1 justify-center items-center")}>

@@ -151,7 +151,8 @@ const styles = StyleSheet.create({
   },
   avatarText: {
     color: "#3d3b73",
-    fontSize: 32,
+    margin: 5,
+    fontSize: 26,
     lineHeight: 40,
     fontWeight: "bold",
     textAlign: "center",
