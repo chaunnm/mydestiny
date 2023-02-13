@@ -30,91 +30,12 @@ import {
 } from "../lib/locationApi";
 import * as Location from "expo-location";
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ firstTime }) => {
   const navigation = useNavigation();
   const { currentUser, updateName } = useAuth();
   const tailwind = useTailwind();
 
   const [profile, setProfile] = useState();
-
-  useEffect(() => {
-    let unsubcribe = firestore()
-      .collection("users")
-      .doc(currentUser.uid)
-      .onSnapshot((snapshot) => {
-        const temp = snapshot.data();
-        if (temp) {
-          if (temp.displayName) setDisplayname(temp.displayName);
-          if (temp.email) setEmail(temp.email);
-          if (temp.phone) setPhone(temp.phone);
-          if (temp.gender) setGender(temp.gender);
-          if (temp.job) setJob(temp.job);
-          if (temp.dayOfBirth) setDate(temp.dayOfBirth.toDate("dd/MM/yyyy"));
-          if (temp.location) setLocation(temp.location);
-          if (temp.photos) {
-            if (temp.photos[0].photoURL) setImage1(temp.photos[0].photoURL);
-            if (temp.photos[1].photoURL) setImage2(temp.photos[1].photoURL);
-            if (temp.photos[2].photoURL) setImage3(temp.photos[2].photoURL);
-            if (temp.photos[3].photoURL) setImage4(temp.photos[3].photoURL);
-          }
-          if (temp.interests)
-            setInterests(
-              interests.map((interest) =>
-                temp.interests.includes(interest.name)
-                  ? { ...interest, selected: true }
-                  : interest
-              )
-            );
-          if (temp.ideals)
-            setIdeals(
-              ideals.map((ideal) =>
-                temp.ideals.includes(ideal.name)
-                  ? { ...ideal, selected: true }
-                  : ideal
-              )
-            );
-        }
-      });
-    return () => unsubcribe();
-  }, []);
-
-  useEffect(() => {
-    const fetchPublicProviecs = async () => {
-      const response = await apiGetPublicProvinces();
-
-      if (response.status === 200) {
-        console.log(response.data.results);
-        setProvinces(response.data.results);
-      }
-    };
-    fetchPublicProviecs();
-  }, []);
-
-  useEffect(() => {
-    setDistrict(null);
-    setVillages(null);
-    const fetchPublicDistrict = async () => {
-      const response = await apiGetPublicDistrict(province.id);
-
-      if (response.status === 200) {
-        setDistricts(response.data?.results);
-      }
-    };
-    province && fetchPublicDistrict();
-  }, [province]);
-
-  useEffect(() => {
-    setVillage(null);
-    // setDistrict(null);
-    const fetchPublicDistrict = async () => {
-      const response = await apiGetPublicVillage(district.id);
-
-      if (response.status === 200) {
-        setVillages(response.data?.results);
-      }
-    };
-    province && fetchPublicDistrict();
-  }, [district]);
 
   const [loader, setLoader] = useState(false);
 
@@ -129,11 +50,15 @@ const ProfileScreen = () => {
   const [phone, setPhone] = useState(null);
   const [gender, setGender] = useState();
   const [date, setDate] = useState();
-  const [job, setJob] = useState(currentUser.jobo);
+  const [job, setJob] = useState(currentUser.job);
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   const [modalVisible, setModalVisible] = useState(false);
-  const [location, setLocation] = useState(null);
+  const [location, setLocation] = useState({
+    province: "",
+    district: "",
+    ward: "",
+  });
   const [geoPoint, setGeoPoint] = useState(null);
   const [provinces, setProvinces] = useState([]);
   const [province, setProvince] = useState();
@@ -313,6 +238,108 @@ const ProfileScreen = () => {
     },
   ]);
 
+  // useEffect hooks call
+
+  useEffect(() => {
+    let unsubcribe = firestore()
+      .collection("users")
+      .doc(currentUser.uid)
+      .onSnapshot((snapshot) => {
+        const temp = snapshot.data();
+        if (temp) {
+          if (temp.displayName) setDisplayname(temp.displayName);
+          if (temp.email) setEmail(temp.email);
+          if (temp.phone) setPhone(temp.phone);
+          if (temp.gender) setGender(temp.gender);
+          if (temp.job) setJob(temp.job);
+          if (temp.dayOfBirth) setDate(temp.dayOfBirth.toDate("dd/MM/yyyy"));
+          if (temp.location) {
+            if (temp.location.city)
+              setLocation((preState) => {
+                return {
+                  ...preState,
+                  province: temp.location.city.name,
+                };
+              });
+            if (temp.location.district)
+              setLocation((preState) => {
+                return {
+                  ...preState,
+                  district: temp.location.district.name,
+                };
+              });
+            if (temp.location.ward)
+              setLocation((preState) => {
+                return {
+                  ...preState,
+                  village: temp.location.ward.name,
+                };
+              });
+          }
+          if (temp.photos) {
+            if (temp.photos[0].photoURL) setImage1(temp.photos[0].photoURL);
+            if (temp.photos[1].photoURL) setImage2(temp.photos[1].photoURL);
+            if (temp.photos[2].photoURL) setImage3(temp.photos[2].photoURL);
+            if (temp.photos[3].photoURL) setImage4(temp.photos[3].photoURL);
+          }
+          if (temp.interests)
+            setInterests(
+              interests.map((interest) =>
+                temp.interests.includes(interest.name)
+                  ? { ...interest, selected: true }
+                  : interest
+              )
+            );
+          if (temp.ideals)
+            setIdeals(
+              ideals.map((ideal) =>
+                temp.ideals.includes(ideal.name)
+                  ? { ...ideal, selected: true }
+                  : ideal
+              )
+            );
+        }
+      });
+    return () => unsubcribe();
+  }, []);
+
+  useEffect(() => {
+    const fetchPublicProviecs = async () => {
+      const response = await apiGetPublicProvinces();
+
+      if (response.status === 200) {
+        setProvinces(response.data.results);
+      }
+    };
+    fetchPublicProviecs();
+  }, []);
+
+  useEffect(() => {
+    setDistrict(null);
+    setVillages(null);
+    const fetchPublicDistrict = async () => {
+      const response = await apiGetPublicDistrict(province.id);
+
+      if (response.status === 200) {
+        console.log(response.data?.results);
+        setDistricts(response.data?.results);
+      }
+    };
+    province !== "" && fetchPublicDistrict();
+  }, [province]);
+
+  useEffect(() => {
+    setVillage("");
+    const fetchPublicVillage = async () => {
+      const response = await apiGetPublicVillage(district.id);
+
+      if (response.status === 200) {
+        setVillages(response.data?.results);
+      }
+    };
+    district !== "" && fetchPublicVillage();
+  }, [district]);
+
   // Functions are here
 
   const showDatePicker = () => {
@@ -454,7 +481,12 @@ const ProfileScreen = () => {
         phone: phone,
         gender: gender,
         job: job,
-        location: location,
+        newMember: false,
+        location: {
+          city: province,
+          district: district,
+          ward: village,
+        },
         photos: images,
         dayOfBirth: date,
         interests: interests
@@ -515,7 +547,11 @@ const ProfileScreen = () => {
   if (step1) {
     return (
       <SafeAreaView style={tailwind("flex-1")}>
-        <Header title="Step 1" back />
+        {!firstTime ? (
+          <Header title="Step 1" back />
+        ) : (
+          <Header title="Set up profile" />
+        )}
         <ScrollView style={tailwind("px-5")}>
           <Text
             style={tailwind(
@@ -640,7 +676,11 @@ const ProfileScreen = () => {
   } else if (step2) {
     return (
       <SafeAreaView style={tailwind("flex-1")}>
-        <Header title="Step 2" back />
+        {!firstTime ? (
+          <Header title="Step 2" back />
+        ) : (
+          <Header title="Set up profile" />
+        )}
         <ScrollView
           automaticallyAdjustContentInsets={true}
           automaticallyAdjustKeyboardInsets={true}
@@ -667,58 +707,104 @@ const ProfileScreen = () => {
             👋
           </Text>
 
-          <Text style={tailwind("leading-5")}>
+          <Text style={tailwind("leading-5 mb-2 text-justify")}>
+            Make sure that your filled location is true.{" "}
+            <Text style={tailwind("font-bold")}>MyDestiny</Text> will help you
+            make new relationship nearby.
+          </Text>
+
+          <Text style={tailwind("font-semibold px-4 text-lg ")}>Living In</Text>
+          <Text
+            style={tailwind(
+              "w-full mt-2 mb-2 py-2 rounded-full border border-gray-300 pl-4 text-base text-something"
+            )}
+          >
+            {location.province !== "" &&
+            location.district !== "" &&
+            location.village !== "" ? (
+              location.village?.replace(
+                /Phường |Xã |Thị trấn |undefined/gi,
+                function (matched) {
+                  return {
+                    "Phường ": "",
+                    "Xã ": "",
+                    "Thị trấn ": "",
+                    undefined: "",
+                  }[matched];
+                }
+              ) +
+              ", " +
+              location.district?.replace(
+                /Huyện |Quận |Thành phố |Thị xã /gi,
+                function (matched) {
+                  return {
+                    "Huyện ": "",
+                    "Quận ": "",
+                    "Thành phố ": "",
+                    "Thị xã ": "",
+                  }[matched];
+                }
+              ) +
+              ", " +
+              location.province?.replace(
+                /Tỉnh |Thành phố /gi,
+                function (matched) {
+                  return { "Tỉnh ": "", "Thành phố ": "" }[matched];
+                }
+              )
+            ) : (
+              <Text>Please select your place to display on profile</Text>
+            )}
+          </Text>
+
+          <Text style={tailwind("font-semibold px-4 text-lg ")}>
+            City/Province
+          </Text>
+          <LocationSelect
+            type="provinces"
+            setValue={(value) => {
+              setProvince(value);
+            }}
+            options={provinces}
+          />
+
+          <Text style={tailwind("font-semibold px-4 text-lg ")}>
+            District/State
+          </Text>
+          <LocationSelect
+            type="districts"
+            setValue={(value) => setDistrict(value)}
+            options={districts}
+          />
+
+          <Text style={tailwind("font-semibold px-4 text-lg ")}>
+            Ward/Village
+          </Text>
+          <LocationSelect
+            type="villages"
+            setValue={(value) => setVillage(value)}
+            options={villages}
+          />
+
+          <Text
+            style={tailwind("font-semibold text-center text-xl font-bold my-1")}
+          >
+            DISTANCE
+          </Text>
+
+          <Text style={tailwind("leading-5 text-justify")}>
             You'll need to enable your location in order to use{" "}
-            <Text style={tailwind("font-bold")}>MyDestiny</Text> . Your location
-            will be used to show potential matches near you.
+            <Text style={tailwind("font-bold")}>MyDestiny</Text> properly. You
+            will see the real distance to others.
           </Text>
           <TouchableOpacity
             onPress={handleLocation}
-            style={[tailwind("w-full p-3 mx-auto rounded-xl bg-red-400 my-5")]}
+            style={[tailwind("w-full p-3 mx-auto rounded-xl bg-red-400 my-3")]}
           >
             <Text style={tailwind("text-center font-bold text-white text-xl")}>
               Allow Location
             </Text>
           </TouchableOpacity>
-
-          <Text style={tailwind("font-semibold text-center text-lg")}>Or</Text>
-
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>Living In</Text>
-          <TextInput
-            style={tailwind(
-              "w-full h-11 mt-2 mb-2 rounded-full border border-gray-300 pl-4 text-lg"
-            )}
-            autoCapitalize="none"
-            value={location}
-            onChangeText={setLocation}
-          />
-
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>Province</Text>
-          <LocationSelect
-            type="provinces"
-            setValue={() => setProvince()}
-            options={provinces}
-          />
-
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>District</Text>
-          <LocationSelect
-            type="districts"
-            setValue={() => setDistrict()}
-            options={districts}
-          />
-
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>Village</Text>
-          <LocationSelect
-            type="villages"
-            setValue={() => setVillage()}
-            options={villages}
-          />
-
-          <Text style={tailwind("leading-5")}>
-            If you don’t allow us to enable your location, make sure that your
-            filled location is true. MyDestiny will help you make new
-            relationship nearby.
-          </Text>
         </ScrollView>
 
         <TouchableOpacity
@@ -737,7 +823,11 @@ const ProfileScreen = () => {
   } else if (step3) {
     return (
       <SafeAreaView style={tailwind("flex-1")}>
-        <Header title="Step 3" back />
+        {!firstTime ? (
+          <Header title="Step 3" back />
+        ) : (
+          <Header title="Set up profile" />
+        )}
         <ScrollView style={tailwind("px-5")}>
           <Text
             style={tailwind(
@@ -879,7 +969,11 @@ const ProfileScreen = () => {
   } else if (step4) {
     return (
       <SafeAreaView style={tailwind("flex-1")}>
-        <Header title="Step 4" back />
+        {!firstTime ? (
+          <Header title="Step 4" back />
+        ) : (
+          <Header title="Set up profile" />
+        )}
         <Text
           style={tailwind(
             "font-bold mb-1 text-2xl text-center text-purple-700"
@@ -959,7 +1053,11 @@ const ProfileScreen = () => {
       </View>
     ) : (
       <SafeAreaView style={tailwind("flex-1")}>
-        <Header title="Step 5" back />
+        {!firstTime ? (
+          <Header title="Step 5" back />
+        ) : (
+          <Header title="Set up profile" />
+        )}
         <Text
           style={tailwind(
             "font-bold mb-1 text-2xl text-center text-purple-700"

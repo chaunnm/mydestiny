@@ -9,6 +9,7 @@ import {
   Image,
   Dimensions,
   StatusBar,
+  ToastAndroid,
 } from "react-native";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import useAuth from "../hooks/useAuth";
@@ -225,6 +226,7 @@ const VibeScreen = () => {
       <View style={tailwind("flex-1 relative")}>
         <Swiper
           ref={swipeRef}
+          key={profiles.length}
           containerStyle={{
             backgroundColor: "transparent",
             // marginTop: "auto",
@@ -232,21 +234,17 @@ const VibeScreen = () => {
           }}
           cardStyle={{ top: 10, height: "98%" }}
           cards={profiles}
-          // cards={DUMMY_DATA}
           stackSize={5}
           cardIndex={0}
           animateCardOpacity
           verticalSwipe={false}
           onSwipedLeft={(cardIndex) => {
-            // console.log("Swipe PASS");
             swipeLeft(cardIndex);
           }}
           onSwipedRight={(cardIndex) => {
-            // console.log("Swipe MATCH");
             swipeRight(cardIndex);
           }}
           onTapCard={(cardIndex) => {
-            // console.log("Selected");
             showInfor(cardIndex);
           }}
           backgroundColor={"#4FD0E9"}
@@ -274,12 +272,30 @@ const VibeScreen = () => {
             card ? (
               <View
                 key={card.id}
-                style={tailwind("relative bg-slate-500 h-full rounded-xl")}
+                style={tailwind(
+                  "relative bg-slate-500 h-full rounded-xl overflow-hidden"
+                )}
               >
-                <Image
-                  style={tailwind("absolute top-0 h-full w-full rounded-xl")}
-                  source={{ uri: card.photos[0]?.photoURL }}
-                />
+                {card.photos[0]?.photoURL !== "" ? (
+                  <Image
+                    style={tailwind("absolute top-0 h-full w-full rounded-xl")}
+                    source={{ uri: card.photos[0]?.photoURL }}
+                  />
+                ) : card.gender === "male" ? (
+                  <Image
+                    style={tailwind("absolute top-0 h-full w-full rounded-xl")}
+                    source={{
+                      uri: "https://drive.google.com/uc?id=1LZ5AUJmG-Dc3eE5C5heHlnZoew5B07X1",
+                    }}
+                  />
+                ) : (
+                  <Image
+                    style={tailwind("absolute top-0 h-full w-full rounded-xl")}
+                    source={{
+                      uri: "https://drive.google.com/uc?id=1LZ5AUJmG-Dc3eE5C5heHlnZoew5B07X1",
+                    }}
+                  />
+                )}
                 <LinearGradient
                   style={tailwind(
                     "absolute left-0 right-0 bottom-0 h-1/2 rounded-xl"
@@ -300,7 +316,9 @@ const VibeScreen = () => {
                 >
                   <View>
                     <Text style={tailwind("text-3xl font-bold text-white")}>
-                      {card.displayName}
+                      {card.displayName.length < 14
+                        ? card.displayName
+                        : card.displayName.substring(0, 14) + "..."}
                     </Text>
                     <Text style={tailwind("text-2xl text-white font-bold")}>
                       {card.job}
@@ -342,26 +360,42 @@ const VibeScreen = () => {
           )}
         >
           <TouchableOpacity
-            style={tailwind(
-              "items-center justify-center rounded-full w-12 h-12 border-2 border-red-600 bg-slate-300"
-            )}
+            style={[
+              tailwind(
+                "items-center justify-center rounded-full w-12 h-12 border-2 border-red-600"
+              ),
+              { backgroundColor: "rgba(255,255,255,0.8)" },
+            ]}
             onPress={() => swipeRef.current.swipeLeft()}
           >
             <Entypo name="cross" size={28} color="red" />
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={tailwind(
-              "items-center justify-center rounded-full w-12 h-12 mx-5 border-indigo-600 border-2 bg-slate-300"
-            )}
+            onPress={() => {
+              ToastAndroid.showWithGravity(
+                "This feature is under development!",
+                ToastAndroid.SHORT,
+                ToastAndroid.BOTTOM
+              );
+            }}
+            style={[
+              tailwind(
+                "items-center justify-center rounded-full w-12 h-12 mx-5 border-indigo-600 border-2"
+              ),
+              { backgroundColor: "rgba(255,255,255,0.8)" },
+            ]}
           >
             <AntDesign name="star" size={26} color="blue" />
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={tailwind(
-              "items-center justify-center rounded-full w-12 h-12 border-2 border-green-600 bg-slate-300"
-            )}
+            style={[
+              tailwind(
+                "items-center justify-center rounded-full w-12 h-12 border-2 border-green-600"
+              ),
+              { backgroundColor: "rgba(255,255,255,0.8)" },
+            ]}
             onPress={() => swipeRef.current.swipeRight()}
           >
             <AntDesign name="heart" size={26} color="green" />

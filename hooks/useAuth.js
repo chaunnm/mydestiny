@@ -34,16 +34,19 @@ export const AuthProvider = ({ children }) => {
       if (user) {
         user.reload().then(async () => {
           setCurrentUser(user);
+          const userRef = firestore().collection("users").doc(user.uid);
+          const userDoc = await userRef.get();
           const deviceToken = await messaging().getToken();
 
-          firestore()
-            .collection("users")
-            .doc(user.uid)
-            .update({
+          if (!userDoc.exists) {
+            userRef.set({ newMember: true, deviceToken: deviceToken });
+          } else {
+            firestore().collection("users").doc(user.uid).update({
               displayName: user.displayName,
               photoURL: user.photoURL,
               deviceToken: deviceToken,
             });
+          }
         });
       } else {
         setCurrentUser(null);
@@ -75,6 +78,7 @@ export const AuthProvider = ({ children }) => {
       })
       .catch((error) => {
         setError(error);
+        console.error(error);
       })
       .finally(() => {
         setLoading(false);
@@ -204,7 +208,7 @@ export const AuthProvider = ({ children }) => {
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         ToastAndroid.showWithGravity(
-          "Welcome to MyDestiny, have a great day! 🎉",
+          "Welcome to My Destiny! 🎉",
           ToastAndroid.SHORT,
           ToastAndroid.BOTTOM
         );
@@ -232,8 +236,6 @@ export const AuthProvider = ({ children }) => {
       });
   };
 
-  // console.log("Current ben useAuth: ", currentUser);
-
   const signOut = async () => {
     try {
       await auth().signOut();
@@ -242,6 +244,48 @@ export const AuthProvider = ({ children }) => {
       console.error(error);
     }
   };
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const usersSnapshot = await firestore().collection("users").get();
+  //     const users = usersSnapshot.docs.map((doc) => doc.data());
+  //     setUsers(users);
+
+  //     const passesSnapshot = await firestore()
+  //       .collection("users")
+  //       .doc(currentUser.uid)
+  //       .collection("passes")
+  //       .get();
+  //     const passes = passesSnapshot.docs.map((doc) => doc.data());
+  //     setPasses(passes);
+
+  //     const swipesSnapshot = await firestore()
+  //       .collection("users")
+  //       .doc(currentUser.uid)
+  //       .collection("swipes")
+  //       .get();
+  //     const swipes = swipesSnapshot.docs.map((doc) => doc.data());
+  //     setSwipes(swipes);
+  //   };
+  //   fetchData();
+  // }, [currentUser]);
+
+  // useEffect(() => {
+  //   if (users.length) {
+  //     let filtered = users;
+  //     if (passes.length) {
+  //       filtered = filtered.filter(
+  //         (user) => !passes.some((pass) => pass.userId === currentUser.uid)
+  //       );
+  //     }
+  //     if (swipes.length) {
+  //       filtered = filtered.filter(
+  //         (user) => !swipes.some((swipe) => swipe.userId === currentUser.uid)
+  //       );
+  //     }
+  //     setCardUsers(filtered.filter((user) => user.id !== currentUser.uid));
+  //   }
+  // }, [currentUser, users, passes, swipes]);
 
   const memoedValue = useMemo(
     () => ({

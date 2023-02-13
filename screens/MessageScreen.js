@@ -16,6 +16,7 @@ import {
   ActivityIndicator,
   DrawerLayoutAndroid,
 } from "react-native";
+import axios from "axios";
 import { List, MD3Colors } from "react-native-paper";
 import React, {
   useCallback,
@@ -47,12 +48,15 @@ import {
   BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
 import moment from "moment";
+import messaging from "@react-native-firebase/messaging";
+import appIcon from "../assets/images/app-icon.png";
 
 const screenHeight = Dimensions.get("screen").height - 600;
 
 const MessageScreen = () => {
   const { currentUser } = useAuth();
   const { params } = useRoute();
+  const { matchDetails } = params;
   const tailwind = useTailwind();
 
   const [input, setInput] = useState("");
@@ -229,7 +233,7 @@ const MessageScreen = () => {
           "w-24 h-24 rounded-full self-center mt-3 mb-4 border-2 border-red-600"
         )}
         source={{
-          uri: "https://khoinguonsangtao.vn/wp-content/uploads/2022/07/avatar-gau-cute.jpg",
+          uri: getMatchedUserInfo(matchDetails.users, currentUser.uid).photoURL,
         }}
       />
       <Text style={tailwind("text-xl text-center font-semibold ")}>
@@ -525,8 +529,6 @@ const MessageScreen = () => {
     </ScrollView>
   );
 
-  const { matchDetails } = params;
-
   const groupMessageByTime = (messages) => {
     return messages.reduce((acc, message) => {
       const timestamp = moment(message.timestamp?.toDate()).format(
@@ -693,6 +695,34 @@ const MessageScreen = () => {
     }
   };
 
+  const sendPushNotification = async (deviceToken, title, body) => {
+    // Create the notification payload
+    const notification = {
+      to: deviceToken,
+      notification: {
+        title: title,
+        body: body,
+        // icon: appIcon,
+        priority: "high",
+        displayType: "inAppAlert",
+      },
+    };
+
+    // Send the notification using FCM
+    const response = await axios.post(
+      "https://fcm.googleapis.com/fcm/send",
+      notification,
+      {
+        headers: {
+          Authorization: `key=AAAA7oLlb34:APA91bFTLJ3d578AWpdxzQtoDXfTmU5-eHF8qMrrzL80nDk4Y_FqC-JkZ6qDk4yQfD9eUW-zfSdpMFCwLZmGgg41NRtqCqUJd8RBLYOfAOq4hAmAwtpGt_BDslv8Il82Ra7MMkdPi-23`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    console.log(response.data);
+  };
+
   const sendMessage = () => {
     firestore()
       .collection("matches")
@@ -706,6 +736,17 @@ const MessageScreen = () => {
         photoURL: matchDetails.users[currentUser.uid].photoURL,
         message: input,
         media: "",
+      })
+      .then(() => {
+        console.log(
+          getMatchedUserInfo(matchDetails.users, currentUser.uid).deviceToken
+        );
+        sendPushNotification(
+          getMatchedUserInfo(matchDetails.users, currentUser.uid).deviceToken,
+          currentUser.displayName,
+          input
+        );
+        console.log("Sent notification!");
       });
     setInput("");
   };

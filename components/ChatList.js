@@ -1,4 +1,4 @@
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useTailwind } from "tailwind-rn";
 import { useNavigation } from "@react-navigation/native";
@@ -41,8 +41,14 @@ const ChatList = () => {
     />
   ) : (
     <View style={tailwind("p-5")}>
+      <Image
+        style={tailwind("w-52 h-52 self-center")}
+        source={{
+          uri: "https://drive.google.com/uc?id=1RuT7AHy40dLoSGk6AQUlCuFDnJTSDqi_",
+        }}
+      />
       <Text style={tailwind("text-center text-base")}>
-        No messages at the moment 🥲
+        No messages at the moment 📰
       </Text>
     </View>
   );

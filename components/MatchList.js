@@ -111,7 +111,7 @@ const MatchList = () => {
         horizontal
         //   showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
-        data={matches}
+        data={matches.slice(0, 3)}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <MatchCell matchDetails={item}></MatchCell>}
       />

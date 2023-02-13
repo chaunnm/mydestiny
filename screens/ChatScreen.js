@@ -31,7 +31,7 @@ const ChatScreen = () => {
     [currentUser]
   );
   return (
-    <SafeAreaView style={tailwind("flex-1")}>
+    <SafeAreaView style={tailwind("flex-1 bg-white")}>
       <View style={tailwind("flex-row justify-between mx-3 my-2")}>
         <Text style={tailwind("text-something font-bold text-base")}>
           New Matches

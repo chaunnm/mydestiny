@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
@@ -25,7 +25,9 @@ import EditProfileScreen from "./screens/EditProfileScreen";
 import SafetyScreen from "./screens/SafetyScreen";
 import VibeScreen from "./screens/VibeScreen";
 import AddPost from "./screens/AddPost";
-// import { Appbar } from "react-native-paper";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import PolicyScreen from "./screens/PolicyScreen";
+import firestore from "@react-native-firebase/firestore";
 
 const Stack = createNativeStackNavigator();
 
@@ -137,10 +139,26 @@ const BottomNavigator = () => {
 };
 
 const StackNavigator = () => {
+  const navigation = useNavigation();
   const { currentUser } = useAuth();
+  const [firstProfile, setFirstProfile] = useState(false);
+
+  useEffect(() => {
+    if (currentUser) {
+      firestore()
+        .collection("users")
+        .doc(currentUser.uid)
+        .onSnapshot(async (snapShot) => {
+          snapShot.data().newMember
+            ? setFirstProfile(true)
+            : setFirstProfile(false);
+        });
+    }
+  }, [currentUser]);
+
   return (
     <Stack.Navigator>
-      {currentUser ? (
+      {currentUser && !firstProfile ? (
         <>
           <Stack.Group>
             <Stack.Screen
@@ -175,8 +193,20 @@ const StackNavigator = () => {
             <Stack.Screen name="Success" component={SucceededScreen} />
           </Stack.Group>
         </>
+      ) : currentUser && firstProfile ? (
+        <Stack.Group
+          screenOptions={{
+            presentation: "transparentModal",
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen name="Profile">
+            {() => <ProfileScreen firstTime />}
+          </Stack.Screen>
+        </Stack.Group>
       ) : (
         <>
+          <Stack.Screen name="Policy" component={PolicyScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Email" component={EmailScreen} />
           <Stack.Screen name="Signup" component={SignupScreen} />

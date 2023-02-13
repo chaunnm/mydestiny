@@ -1,10 +1,15 @@
 import { View, Text } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 import { useTailwind } from "tailwind-rn";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const LocationSelect = ({ type, setValue, options }) => {
   const tailwind = useTailwind();
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    setValue(name);
+  }, [name]);
 
   let provinces = [];
   let district = [];
@@ -31,6 +36,7 @@ const LocationSelect = ({ type, setValue, options }) => {
       });
     });
   }
+
   return (
     <View>
       {type == "provinces" ? (
@@ -40,7 +46,7 @@ const LocationSelect = ({ type, setValue, options }) => {
               "w-full h-11 mt-2 mb-2 rounded-full border border-gray-300 pl-4 text-lg"
             )}
             onValueChange={(value) => {
-              setValue(value);
+              setName(value);
             }}
             items={provinces}
           />
@@ -52,7 +58,7 @@ const LocationSelect = ({ type, setValue, options }) => {
               "w-full h-11 mt-2 mb-2 rounded-full border border-gray-300 pl-4 text-lg"
             )}
             onValueChange={(value) => {
-              setValue(value);
+              setName(value);
             }}
             items={district}
           />
@@ -64,7 +70,7 @@ const LocationSelect = ({ type, setValue, options }) => {
               "w-full h-11 mt-2 mb-2 rounded-full border border-gray-300 pl-4 text-lg"
             )}
             onValueChange={(value) => {
-              setValue(value);
+              setName(value);
             }}
             items={village}
           />
