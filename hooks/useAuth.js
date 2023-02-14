@@ -89,8 +89,8 @@ export const AuthProvider = ({ children }) => {
     if (!currentUser) return;
 
     try {
-      await currentUser.updateProfile({ displayName: name });
-
+      await auth().currentUser.updateProfile({ displayName: name });
+      setCurrentUser((prev) => ({ ...prev, displayName: name }));
       auth()
         .currentUser.reload()
         .then(() => {

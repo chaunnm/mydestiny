@@ -85,7 +85,7 @@ const PolicyScreen = ({ agree }) => {
       }
     } else {
       ToastAndroid.showWithGravity(
-        "You need to agree to our Policy!",
+        "You need to accept our Policy! ✍️",
         ToastAndroid.SHORT,
         ToastAndroid.BOTTOM
       );
@@ -418,7 +418,7 @@ const PolicyScreen = ({ agree }) => {
                     { fontSize: 14.5 },
                   ]}
                 >
-                  I have read and agreed with Terms & Conditions
+                  I have read and agreed to Terms & Conditions
                 </Text>
                 {/* <Checkbox.Item
                   position="leading"

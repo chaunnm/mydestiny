@@ -36,7 +36,7 @@ const ChatScreen = () => {
         <Text style={tailwind("text-something font-bold text-base")}>
           New Matches
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("AllMatch")}>
           <Text style={tailwind("text-something font-bold self-center")}>
             See all ({matches.length})
           </Text>

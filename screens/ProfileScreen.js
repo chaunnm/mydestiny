@@ -21,7 +21,6 @@ import { RadioButton } from "react-native-paper";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import * as ImagePicker from "expo-image-picker";
 import Header from "../components/Header";
-import auth from "@react-native-firebase/auth";
 import LocationSelect from "../components/LocationSelect";
 import {
   apiGetPublicDistrict,
@@ -45,12 +44,12 @@ const ProfileScreen = ({ firstTime }) => {
   const [step4, setStep4] = useState(false);
   const [step5, setStep5] = useState(false);
 
-  const [displayName, setDisplayname] = useState();
-  const [email, setEmail] = useState();
+  const [displayName, setDisplayname] = useState(null);
+  const [email, setEmail] = useState(null);
   const [phone, setPhone] = useState(null);
-  const [gender, setGender] = useState();
-  const [date, setDate] = useState();
-  const [job, setJob] = useState(currentUser.job);
+  const [gender, setGender] = useState(null);
+  const [date, setDate] = useState(null);
+  const [job, setJob] = useState(null);
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   const [modalVisible, setModalVisible] = useState(false);
@@ -61,16 +60,16 @@ const ProfileScreen = ({ firstTime }) => {
   });
   const [geoPoint, setGeoPoint] = useState(null);
   const [provinces, setProvinces] = useState([]);
-  const [province, setProvince] = useState();
-  const [district, setDistrict] = useState();
+  const [province, setProvince] = useState("");
+  const [district, setDistrict] = useState("");
   const [districts, setDistricts] = useState([]);
   const [villages, setVillages] = useState([]);
-  const [village, setVillage] = useState();
+  const [village, setVillage] = useState("");
 
-  const [image1, setImage1] = useState();
-  const [image2, setImage2] = useState();
-  const [image3, setImage3] = useState();
-  const [image4, setImage4] = useState();
+  const [image1, setImage1] = useState(null);
+  const [image2, setImage2] = useState(null);
+  const [image3, setImage3] = useState(null);
+  const [image4, setImage4] = useState(null);
   const [images, setImages] = useState([
     {
       id: 1,
@@ -251,8 +250,10 @@ const ProfileScreen = ({ firstTime }) => {
           if (temp.email) setEmail(temp.email);
           if (temp.phone) setPhone(temp.phone);
           if (temp.gender) setGender(temp.gender);
+          else setGender("male");
           if (temp.job) setJob(temp.job);
           if (temp.dayOfBirth) setDate(temp.dayOfBirth.toDate("dd/MM/yyyy"));
+          if (temp.job) setJob(temp.job);
           if (temp.location) {
             if (temp.location.city)
               setLocation((preState) => {
@@ -321,11 +322,11 @@ const ProfileScreen = ({ firstTime }) => {
       const response = await apiGetPublicDistrict(province.id);
 
       if (response.status === 200) {
-        console.log(response.data?.results);
+        // console.log(response.data?.results);
         setDistricts(response.data?.results);
       }
     };
-    province !== "" && fetchPublicDistrict();
+    province && fetchPublicDistrict();
   }, [province]);
 
   useEffect(() => {
@@ -337,7 +338,7 @@ const ProfileScreen = ({ firstTime }) => {
         setVillages(response.data?.results);
       }
     };
-    district !== "" && fetchPublicVillage();
+    district && fetchPublicVillage();
   }, [district]);
 
   // Functions are here
@@ -470,6 +471,118 @@ const ProfileScreen = ({ firstTime }) => {
     }
   };
 
+  const isValidEmail = (email) => {
+    const re =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const handleStep1 = () => {
+    if (!displayName) {
+      ToastAndroid.showWithGravity(
+        "Please fill in your display name!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    } else if (displayName.length > 14) {
+      ToastAndroid.showWithGravity(
+        "Display name shouln't include ≥ 14 keys!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    }
+    if (!email) {
+      ToastAndroid.showWithGravity(
+        "Please fill in your email!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    } else if (!isValidEmail(email)) {
+      ToastAndroid.showWithGravity(
+        "Your email format is incorrect!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    }
+    if (!gender) {
+      ToastAndroid.showWithGravity(
+        "Please choose your gender!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    }
+    if (!date) {
+      ToastAndroid.showWithGravity(
+        "Please select your age!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    } else if (Math.floor((new Date() - date.getTime()) / 3.15576e10) < 18) {
+      ToastAndroid.showWithGravity(
+        "You must be at least 18 yrs old!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    }
+    if (!job) {
+      ToastAndroid.showWithGravity(
+        "Please fill in your job!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    }
+    setStep1(false);
+    setStep2(true);
+  };
+
+  const handleStep3 = () => {
+    if (!image1 && !image2 && !image3 && !image4) {
+      ToastAndroid.showWithGravity(
+        "You have to choose at least 1 image!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    }
+    if (image1) {
+      if (!image1.includes("http")) handleUploadImage(image1, 1);
+    }
+    if (image2) {
+      if (!image2.includes("http")) handleUploadImage(image2, 2);
+    }
+    if (image3) {
+      if (!image3.includes("http")) handleUploadImage(image3, 3);
+    }
+    if (image4) {
+      if (!image4.includes("http")) handleUploadImage(image4, 4);
+    }
+
+    setStep3(false);
+    setStep4(true);
+  };
+
+  const handleStep5 = () => {
+    if (ideals.filter((item) => item.selected).length > 0) {
+      setLoader(true);
+      updateProfile();
+    } else {
+      ToastAndroid.showWithGravity(
+        "Please choose your ideal type!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    }
+  };
+
   const updateProfile = () => {
     firestore()
       .collection("users")
@@ -478,7 +591,7 @@ const ProfileScreen = ({ firstTime }) => {
         id: currentUser.uid,
         displayName: displayName,
         email: email,
-        phone: phone,
+        phone: phone ? phone : "",
         gender: gender,
         job: job,
         newMember: false,
@@ -662,10 +775,7 @@ const ProfileScreen = ({ firstTime }) => {
 
         <TouchableOpacity
           style={[tailwind("w-11/12 p-3 mx-auto rounded-xl bg-red-400 my-5")]}
-          onPress={() => {
-            setStep1(false);
-            setStep2(true);
-          }}
+          onPress={handleStep1}
         >
           <Text style={tailwind("text-center font-bold text-white text-xl")}>
             Continue
@@ -697,7 +807,7 @@ const ProfileScreen = ({ firstTime }) => {
               "font-bold mb-1 text-2xl text-center text-purple-700"
             )}
           >
-            Nice to meet you, Adam Smith. Meet people nearly
+            Nice to meet you, {displayName}. Meet people nearly
           </Text>
           <Text
             style={tailwind(
@@ -794,7 +904,7 @@ const ProfileScreen = ({ firstTime }) => {
 
           <Text style={tailwind("leading-5 text-justify")}>
             You'll need to enable your location in order to use{" "}
-            <Text style={tailwind("font-bold")}>MyDestiny</Text> properly. You
+            <Text style={tailwind("font-bold")}>My Destiny</Text> properly. You
             will see the real distance to others.
           </Text>
           <TouchableOpacity
@@ -943,22 +1053,7 @@ const ProfileScreen = ({ firstTime }) => {
 
         <TouchableOpacity
           style={[tailwind("w-11/12 p-3 mx-auto rounded-xl bg-red-400 my-5")]}
-          onPress={() => {
-            if (image1) {
-              if (!image1.includes("http")) handleUploadImage(image1, 1);
-            }
-            if (image2) {
-              if (!image2.includes("http")) handleUploadImage(image2, 2);
-            }
-            if (image3) {
-              if (!image3.includes("http")) handleUploadImage(image3, 3);
-            }
-            if (image4) {
-              if (!image4.includes("http")) handleUploadImage(image4, 4);
-            }
-            setStep3(false);
-            setStep4(true);
-          }}
+          onPress={handleStep3}
         >
           <Text style={tailwind("text-center font-bold text-white text-xl")}>
             Continue
@@ -1075,7 +1170,7 @@ const ProfileScreen = ({ firstTime }) => {
 
         <Text style={tailwind("leading-5 pb-3 px-5 text-base mb-3")}>
           What are you hoping to find on the{" "}
-          <Text style={tailwind("font-bold text-base")}>MyDestiny</Text> dating
+          <Text style={tailwind("font-bold text-base")}>My Destiny</Text> dating
           app?
         </Text>
         <ScrollView style={tailwind("px-5")}>
@@ -1120,10 +1215,7 @@ const ProfileScreen = ({ firstTime }) => {
 
         <TouchableOpacity
           style={[tailwind("w-11/12 p-3 mx-auto rounded-xl bg-red-400 my-5")]}
-          onPress={() => {
-            setLoader(true);
-            updateProfile();
-          }}
+          onPress={handleStep5}
         >
           <Text style={tailwind("text-center font-bold text-white text-xl")}>
             Finish Up

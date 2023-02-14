@@ -179,7 +179,7 @@ const VibeScreen = () => {
               snapshot.docs
                 .filter(
                   (doc) =>
-                    !temp.includes(doc.id) && doc.data().ideals.includes(filter)
+                    !temp.includes(doc.id) && doc.data.ideals?.includes(filter)
                 )
                 .map((doc) => ({
                   id: doc.id,

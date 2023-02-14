@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Image, TouchableOpacity } from "react-native";
+import { View, Image, TouchableOpacity, ToastAndroid } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import ChatScreen from "./screens/ChatScreen";
@@ -28,6 +28,7 @@ import AddPost from "./screens/AddPost";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import PolicyScreen from "./screens/PolicyScreen";
 import firestore from "@react-native-firebase/firestore";
+import AllMatchScreen from "./screens/AllMatchScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -64,12 +65,22 @@ const LogoHeader = () => {
           }}
         />
       </TouchableOpacity>
-      <MaterialCommunityIcons
-        style={{ marginEnd: 30 }}
-        name="bell"
-        size={28}
-        color="#3d3b73"
-      />
+      <TouchableOpacity
+        onPress={() =>
+          ToastAndroid.showWithGravity(
+            "This feature is under development",
+            ToastAndroid.SHORT,
+            ToastAndroid.BOTTOM
+          )
+        }
+      >
+        <MaterialCommunityIcons
+          style={{ marginEnd: 30 }}
+          name="bell"
+          size={28}
+          color="#3d3b73"
+        />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -95,6 +106,20 @@ const AccountStack = () => {
       <AccountStack.Screen name="Edit Profile" component={EditProfileScreen} />
       <AccountStack.Screen name="Safety" component={SafetyScreen} />
     </AccountStack.Navigator>
+  );
+};
+
+const ChatStack = () => {
+  const ChatStack = createNativeStackNavigator();
+  return (
+    <ChatStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <ChatStack.Screen name="ChatScreen" component={ChatScreen} />
+      <ChatStack.Screen name="AllMatch" component={AllMatchScreen} />
+    </ChatStack.Navigator>
   );
 };
 
@@ -132,7 +157,7 @@ const BottomNavigator = () => {
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Explore" component={ExploreScreen} />
       <Tab.Screen name="Like" component={LikeScreen} />
-      <Tab.Screen name="Chat" component={ChatScreen} />
+      <Tab.Screen name="Chat" component={ChatStack} />
       <Tab.Screen name="Account" component={AccountStack} />
     </Tab.Navigator>
   );
@@ -158,7 +183,18 @@ const StackNavigator = () => {
 
   return (
     <Stack.Navigator>
-      {currentUser && !firstProfile ? (
+      {currentUser && firstProfile ? (
+        <Stack.Group
+          screenOptions={{
+            presentation: "transparentModal",
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen name="Profile">
+            {() => <ProfileScreen firstTime />}
+          </Stack.Screen>
+        </Stack.Group>
+      ) : currentUser && !firstProfile ? (
         <>
           <Stack.Group>
             <Stack.Screen
@@ -189,21 +225,15 @@ const StackNavigator = () => {
           >
             <Stack.Screen name="Match" component={MatchedScreen} />
           </Stack.Group>
-          <Stack.Group screenOptions={{ presentation: "transparentModal" }}>
+          <Stack.Group
+            screenOptions={{
+              presentation: "transparentModal",
+              headerShown: false,
+            }}
+          >
             <Stack.Screen name="Success" component={SucceededScreen} />
           </Stack.Group>
         </>
-      ) : currentUser && firstProfile ? (
-        <Stack.Group
-          screenOptions={{
-            presentation: "transparentModal",
-            headerShown: false,
-          }}
-        >
-          <Stack.Screen name="Profile">
-            {() => <ProfileScreen firstTime />}
-          </Stack.Screen>
-        </Stack.Group>
       ) : (
         <>
           <Stack.Screen name="Policy" component={PolicyScreen} />
