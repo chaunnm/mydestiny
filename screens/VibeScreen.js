@@ -169,23 +169,37 @@ const VibeScreen = () => {
       const temp = [...passedUserIds, ...swipedUserIds];
       temp.push(currentUser.uid);
 
-      // console.log("State swipes: ", swipes);
+      // console.log(temp);
 
       firestore()
         .collection("users")
         .onSnapshot({
           next: (snapshot) => {
-            setProfiles(
+            if (
               snapshot.docs
                 .filter(
                   (doc) =>
-                    !temp.includes(doc.id) && doc.data.ideals?.includes(filter)
+                    !temp.includes(doc.id) &&
+                    doc.data().ideals?.includes(filter)
                 )
                 .map((doc) => ({
                   id: doc.id,
                   ...doc.data(),
-                }))
-            );
+                })) !== undefined
+            ) {
+              setProfiles(
+                snapshot.docs
+                  .filter(
+                    (doc) =>
+                      !temp.includes(doc.id) &&
+                      doc.data().ideals?.includes(filter)
+                  )
+                  .map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                  }))
+              );
+            }
           },
         });
     };

@@ -344,10 +344,10 @@ const HomeScreen = () => {
           animateCardOpacity
           verticalSwipe={false}
           key={profiles.length}
-          onSwiped={(index) => {
-            console.log(index);
-            // swipeRef.current.swipeBack();
-          }}
+          // onSwiped={(index) => {
+          // console.log(index);
+          // swipeRef.current.swipeBack();
+          // }}
           onSwipedLeft={(cardIndex) => {
             // console.log("Swipe PASS");
             swipeLeft(cardIndex);
