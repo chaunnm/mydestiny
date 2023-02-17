@@ -38,7 +38,19 @@ const ChatHeader = ({
 
   return (
     <ImageBackground
-      style={tailwind("p-2 flex-row items-center justify-between")}
+      style={[
+        tailwind("p-1 flex-row items-center justify-between"),
+        {
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.2,
+          shadowRadius: 1.41,
+          elevation: 5,
+        },
+      ]}
       source={{
         uri: background,
       }}

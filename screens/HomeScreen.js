@@ -19,7 +19,7 @@ import Swiper from "react-native-deck-swiper";
 import generateId from "../lib/generateId";
 
 const HomeScreen = () => {
-  const { signOut, currentUser } = useAuth();
+  const { signOut, currentUser, cardUser } = useAuth();
   const tailwind = useTailwind();
   const navigation = useNavigation();
   const [profiles, setProfiles] = useState([]);
@@ -28,12 +28,15 @@ const HomeScreen = () => {
   const [swipes, setSwipes] = useState([]);
   const [filterUsers, setFilterUsers] = useState([]);
   const [loader, setLoader] = useState(true);
+  // const [cardIndex, setCardIndex] = useState(0);
+  const { defaultIndex } = 0;
+
   const swipeRef = useRef(null);
 
   useEffect(() => {
     setTimeout(() => {
       setLoader(false);
-    }, 3000);
+    }, 1000);
   }, []);
 
   const confirmLogout = () => {
@@ -58,8 +61,8 @@ const HomeScreen = () => {
   };
 
   const swipeLeft = async (cardIndex) => {
-    if (!filterUsers[cardIndex]) return;
-    const userSwiped = filterUsers[cardIndex];
+    if (!profiles[cardIndex]) return;
+    const userSwiped = profiles[cardIndex];
     console.log(`You swiped PASS on ${userSwiped.displayName}`);
 
     firestore()
@@ -71,8 +74,8 @@ const HomeScreen = () => {
   };
 
   const swipeRight = async (cardIndex) => {
-    if (!filterUsers[cardIndex]) return;
-    const userSwiped = filterUsers[cardIndex];
+    if (!profiles[cardIndex]) return;
+    const userSwiped = profiles[cardIndex];
     console.log(`You swiped RIGHT on ${userSwiped.displayName}`);
 
     const infor = await firestore()
@@ -143,8 +146,8 @@ const HomeScreen = () => {
   };
 
   const showInfor = async (cardIndex) => {
-    if (!filterUsers[cardIndex]) return;
-    const userSelected = filterUsers[cardIndex];
+    if (!profiles[cardIndex]) return;
+    const userSelected = profiles[cardIndex];
     navigation.navigate("Individual", {
       userSelected,
     });
@@ -157,65 +160,66 @@ const HomeScreen = () => {
       .onSnapshot({
         next: (documentSnapshot) => {
           if (!documentSnapshot.exists) {
-            navigation.navigate("Modal");
+            navigation.navigate("Profile");
           }
         },
       });
   }, []);
 
-  // useEffect(() => {
-  //   const subcribe = firestore()
-  //     .collection("users")
-  //     .doc(currentUser.uid)
-  //     .collection("passes")
-  //     .onSnapshot({
-  //       next: (snapshot) => {
-  //         const newSnapshot = [...snapshot.docs];
-  //         setPasses(newSnapshot.map((doc) => doc.id));
-  //       },
-  //     });
-  //   return () => subcribe();
-  // }, [currentUser]);
+  useEffect(() => {
+    const subcribe = firestore()
+      .collection("users")
+      .doc(currentUser.uid)
+      .collection("passes")
+      .onSnapshot({
+        next: (snapshot) => {
+          const newSnapshot = [...snapshot.docs];
+          setPasses(newSnapshot.map((doc) => doc.id));
+        },
+      });
+    return () => subcribe();
+  }, [currentUser]);
 
-  // useEffect(() => {
-  //   const subcribe = firestore()
-  //     .collection("users")
-  //     .doc(currentUser.uid)
-  //     .collection("swipes")
-  //     .onSnapshot({
-  //       next: (snapshot) => {
-  //         const newSnapshot = [...snapshot.docs];
-  //         setSwipes(newSnapshot.map((doc) => doc.id));
-  //       },
-  //     });
-  //   return () => subcribe();
-  // }, [currentUser]);
+  useEffect(() => {
+    const subcribe = firestore()
+      .collection("users")
+      .doc(currentUser.uid)
+      .collection("swipes")
+      .onSnapshot({
+        next: (snapshot) => {
+          const newSnapshot = [...snapshot.docs];
+          setSwipes(newSnapshot.map((doc) => doc.id));
+        },
+      });
+    return () => subcribe();
+  }, [currentUser]);
 
-  // useEffect(() => {
-  //   const fetchCards = async () => {
-  //     const passedUserIds = passes.length > 0 ? passes : ["test"];
-  //     const swipedUserIds = swipes.length > 0 ? swipes : ["test"];
-  //     const temp = [...passedUserIds, ...swipedUserIds];
-  //     temp.push(currentUser.uid);
+  useEffect(() => {
+    const fetchCards = async () => {
+      const passedUserIds = passes.length > 0 ? passes : ["test"];
+      const swipedUserIds = swipes.length > 0 ? swipes : ["test"];
+      const temp = [...passedUserIds, ...swipedUserIds];
+      temp.push(currentUser.uid);
 
-  //     firestore()
-  //       .collection("users")
-  //       .onSnapshot({
-  //         next: (snapshot) => {
-  //           setProfiles(
-  //             snapshot.docs
-  //               .filter((doc) => !temp.includes(doc.id))
-  //               .map((doc) => ({
-  //                 id: doc.id,
-  //                 ...doc.data(),
-  //               }))
-  //           );
-  //         },
-  //       });
-  //   };
+      firestore()
+        .collection("users")
+        .onSnapshot({
+          next: (snapshot) => {
+            setProfiles(
+              snapshot.docs
+                .filter((doc) => !temp.includes(doc.id))
+                .map((doc) => ({
+                  id: doc.id,
+                  ...doc.data(),
+                }))
+            );
+            // setCardIndex(0);
+          },
+        });
+    };
 
-  //   fetchCards();
-  // }, [passes, swipes]);
+    fetchCards();
+  }, [passes, swipes]);
 
   // useEffect(() => {
   //   const usersUnsubscribe = firestore()
@@ -259,47 +263,47 @@ const HomeScreen = () => {
   //   };
   // }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const usersSnapshot = await firestore().collection("users").get();
-      const users = usersSnapshot.docs.map((doc) => doc.data());
-      setUsers(users);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const usersSnapshot = await firestore().collection("users").get();
+  //     const users = usersSnapshot.docs.map((doc) => doc.data());
+  //     setUsers(users);
 
-      const passesSnapshot = await firestore()
-        .collection("users")
-        .doc(currentUser.uid)
-        .collection("passes")
-        .get();
-      const passes = passesSnapshot.docs.map((doc) => doc.data());
-      setPasses(passes);
+  //     const passesSnapshot = await firestore()
+  //       .collection("users")
+  //       .doc(currentUser.uid)
+  //       .collection("passes")
+  //       .get();
+  //     const passes = passesSnapshot.docs.map((doc) => doc.data());
+  //     setPasses(passes);
 
-      const swipesSnapshot = await firestore()
-        .collection("users")
-        .doc(currentUser.uid)
-        .collection("swipes")
-        .get();
-      const swipes = swipesSnapshot.docs.map((doc) => doc.data());
-      setSwipes(swipes);
-    };
-    fetchData();
-  }, []);
+  //     const swipesSnapshot = await firestore()
+  //       .collection("users")
+  //       .doc(currentUser.uid)
+  //       .collection("swipes")
+  //       .get();
+  //     const swipes = swipesSnapshot.docs.map((doc) => doc.data());
+  //     setSwipes(swipes);
+  //   };
+  //   fetchData();
+  // }, []);
 
-  useEffect(() => {
-    if (users.length) {
-      let filtered = users;
-      if (passes.length) {
-        filtered = filtered.filter(
-          (user) => !passes.some((pass) => pass.userId === currentUser.uid)
-        );
-      }
-      if (swipes.length) {
-        filtered = filtered.filter(
-          (user) => !swipes.some((swipe) => swipe.userId === currentUser.uid)
-        );
-      }
-      setFilterUsers(filtered.filter((user) => user.id !== currentUser.uid));
-    }
-  }, [users, passes, swipes]);
+  // useEffect(() => {
+  //   if (users.length) {
+  //     let filtered = users;
+  //     if (passes.length) {
+  //       filtered = filtered.filter(
+  //         (user) => !passes.some((pass) => pass.userId === currentUser.uid)
+  //       );
+  //     }
+  //     if (swipes.length) {
+  //       filtered = filtered.filter(
+  //         (user) => !swipes.some((swipe) => swipe.userId === currentUser.uid)
+  //       );
+  //     }
+  //     setFilterUsers(filtered.filter((user) => user.id !== currentUser.uid));
+  //   }
+  // }, [users, passes, swipes]);
 
   return loader ? (
     <View style={tailwind("flex-1 justify-center items-center")}>
@@ -334,11 +338,16 @@ const HomeScreen = () => {
         <Swiper
           ref={swipeRef}
           containerStyle={{ backgroundColor: "transparent" }}
-          cards={filterUsers}
-          stackSize={5}
-          cardIndex={0}
+          cards={profiles}
+          stackSize={2}
+          cardIndex={defaultIndex}
           animateCardOpacity
           verticalSwipe={false}
+          key={profiles.length}
+          // onSwiped={(index) => {
+          // console.log(index);
+          // swipeRef.current.swipeBack();
+          // }}
           onSwipedLeft={(cardIndex) => {
             // console.log("Swipe PASS");
             swipeLeft(cardIndex);
@@ -376,12 +385,30 @@ const HomeScreen = () => {
             card ? (
               <View
                 key={card.id}
-                style={tailwind("relative bg-slate-500 h-3/4 rounded-xl")}
+                style={tailwind(
+                  "relative bg-slate-500 h-3/4 rounded-xl overflow-hidden"
+                )}
               >
-                <Image
-                  style={tailwind("absolute top-0 h-full w-full rounded-xl")}
-                  source={{ uri: card.photos[0]?.photoURL }}
-                />
+                {card.photos[0].photoURL !== "" ? (
+                  <Image
+                    style={tailwind("absolute top-0 h-full w-full rounded-xl")}
+                    source={{ uri: card.photos[0]?.photoURL }}
+                  />
+                ) : card.gender === "male" ? (
+                  <Image
+                    style={tailwind("absolute top-0 h-full w-full rounded-xl")}
+                    source={{
+                      uri: "https://drive.google.com/uc?id=1LZ5AUJmG-Dc3eE5C5heHlnZoew5B07X1",
+                    }}
+                  />
+                ) : (
+                  <Image
+                    style={tailwind("absolute top-0 h-full w-full rounded-xl")}
+                    source={{
+                      uri: "https://drive.google.com/uc?id=1LZ5AUJmG-Dc3eE5C5heHlnZoew5B07X1",
+                    }}
+                  />
+                )}
                 <View
                   style={[
                     tailwind(

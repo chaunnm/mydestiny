@@ -45,11 +45,11 @@ const ExploreScreen = () => {
           <Text style={tailwind("mt-2 font-bold text-others text-2xl")}>
             Welcome to explore
           </Text>
-          <Text style={tailwind("text-base mb-1")}>My vibe is...</Text>
+          <Text style={tailwind("text-base")}>My vibe is...</Text>
 
           <View
             style={tailwind(
-              "flex-row w-full justify-between content-between h-62 mt-5"
+              "flex-row w-full justify-between content-between h-62 mt-3"
             )}
           >
             <TouchableOpacity

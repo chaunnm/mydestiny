@@ -130,13 +130,13 @@ const SignupScreen = () => {
         <Text style={tailwind("text-4xl my-3 text-center leading-10")}>🥳</Text>
         <Text style={tailwind("leading-5 px-5 justify-center")}>
           You will need to fill in some information fields to create an{" "}
-          <Text style={tailwind("font-bold")}>MyDestiny</Text> account. Don't
+          <Text style={tailwind("font-bold")}>My Destiny</Text> account. Don't
           worry, we will secure your information.
         </Text>
       </View>
       <TouchableOpacity
         style={tailwind(
-          "bg-red-100 border-2 border-red-400 rounded-full h-36 w-36 mx-auto my-5"
+          "bg-red-100 border-2 border-red-400 rounded-full h-36 w-36 mx-auto my-5 overflow-hidden"
         )}
         onPress={pickAvatar}
       >

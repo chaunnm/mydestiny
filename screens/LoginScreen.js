@@ -1,6 +1,6 @@
 import {
   Text,
-  TextInput,
+  SafeAreaView,
   View,
   ImageBackground,
   ToastAndroid,
@@ -17,7 +17,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 
 export default function LoginScreen() {
-  const { onGoogleButtonPress, loading, signIn } = useAuth();
+  const { onGoogleButtonPress, loading, signIn, currentUser } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
@@ -25,13 +25,13 @@ export default function LoginScreen() {
 
   const logIn = () => {
     onGoogleButtonPress()
-      .then(() =>
+      .then(() => {
         ToastAndroid.showWithGravity(
-          "Welcome to Tinder, have a great day! 🎉",
+          "Welcome to My Destiny! 🎉",
           ToastAndroid.SHORT,
           ToastAndroid.BOTTOM
-        )
-      )
+        );
+      })
       .catch((error) => {
         ToastAndroid.showWithGravity(
           error.message,
@@ -50,8 +50,8 @@ export default function LoginScreen() {
   // console.log("User ben Login: ", user);
 
   return (
-    <View style={tailwind("flex-1 relative")}>
-      <StatusBar hidden={true} />
+    <SafeAreaView style={tailwind("flex-1 relative")}>
+      <StatusBar hidden={true} translucent={true} />
       <ImageBackground
         resizeMode="cover"
         style={tailwind("flex-1")}
@@ -139,7 +139,7 @@ export default function LoginScreen() {
           </View>
         </View>
       </ImageBackground>
-    </View>
+    </SafeAreaView>
   );
 }
 

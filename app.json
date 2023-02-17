@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "datingApp-demo2",
+    "name": "My Destiny",
     "slug": "datingApp-demo2",
     "plugins": [
       "@react-native-google-signin/google-signin",

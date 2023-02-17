@@ -33,7 +33,14 @@ const SucceededScreen = () => {
         <TouchableOpacity
           style={tailwind("bg-primary m-5 px-10 py-4 w-full rounded-full")}
           onPress={() => {
-            navigation.navigate("Home");
+            navigation.reset({
+              index: 0,
+              routes: [
+                {
+                  name: "Nav",
+                },
+              ],
+            });
           }}
         >
           <Text style={tailwind("text-white font-bold text-center text-xl")}>

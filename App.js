@@ -54,7 +54,7 @@ export default function App() {
     });
 
     const unsubcribe = messaging().onMessage(async (remoteMessage) => {
-      Alert.alert("A new FCM message arrived!", JSON.stringify(remoteMessage));
+      console.log("Message handled in the background!", remoteMessage);
     });
     return unsubcribe;
   }, []);

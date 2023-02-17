@@ -77,7 +77,7 @@ const PhoneScreen = () => {
             }}
             style={tailwind("p-3 m-1 ml-2 h-0.5 w-8 rounded")}
           />
-          <Text style={tailwind("text-lg")}>+84</Text>
+          <Text style={tailwind("text-base")}>+84</Text>
           <Entypo
             name="chevron-small-down"
             size={20}

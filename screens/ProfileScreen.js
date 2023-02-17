@@ -21,7 +21,6 @@ import { RadioButton } from "react-native-paper";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import * as ImagePicker from "expo-image-picker";
 import Header from "../components/Header";
-import auth from "@react-native-firebase/auth";
 import LocationSelect from "../components/LocationSelect";
 import {
   apiGetPublicDistrict,
@@ -30,91 +29,12 @@ import {
 } from "../lib/locationApi";
 import * as Location from "expo-location";
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ firstTime }) => {
   const navigation = useNavigation();
   const { currentUser, updateName } = useAuth();
   const tailwind = useTailwind();
 
   const [profile, setProfile] = useState();
-
-  useEffect(() => {
-    let unsubcribe = firestore()
-      .collection("users")
-      .doc(currentUser.uid)
-      .onSnapshot((snapshot) => {
-        const temp = snapshot.data();
-        if (temp) {
-          if (temp.displayName) setDisplayname(temp.displayName);
-          if (temp.email) setEmail(temp.email);
-          if (temp.phone) setPhone(temp.phone);
-          if (temp.gender) setGender(temp.gender);
-          if (temp.job) setJob(temp.job);
-          if (temp.dayOfBirth) setDate(temp.dayOfBirth.toDate("dd/MM/yyyy"));
-          if (temp.location) setLocation(temp.location);
-          if (temp.photos) {
-            if (temp.photos[0].photoURL) setImage1(temp.photos[0].photoURL);
-            if (temp.photos[1].photoURL) setImage2(temp.photos[1].photoURL);
-            if (temp.photos[2].photoURL) setImage3(temp.photos[2].photoURL);
-            if (temp.photos[3].photoURL) setImage4(temp.photos[3].photoURL);
-          }
-          if (temp.interests)
-            setInterests(
-              interests.map((interest) =>
-                temp.interests.includes(interest.name)
-                  ? { ...interest, selected: true }
-                  : interest
-              )
-            );
-          if (temp.ideals)
-            setIdeals(
-              ideals.map((ideal) =>
-                temp.ideals.includes(ideal.name)
-                  ? { ...ideal, selected: true }
-                  : ideal
-              )
-            );
-        }
-      });
-    return () => unsubcribe();
-  }, []);
-
-  useEffect(() => {
-    const fetchPublicProviecs = async () => {
-      const response = await apiGetPublicProvinces();
-
-      if (response.status === 200) {
-        console.log(response.data.results);
-        setProvinces(response.data.results);
-      }
-    };
-    fetchPublicProviecs();
-  }, []);
-
-  useEffect(() => {
-    setDistrict(null);
-    setVillages(null);
-    const fetchPublicDistrict = async () => {
-      const response = await apiGetPublicDistrict(province.id);
-
-      if (response.status === 200) {
-        setDistricts(response.data?.results);
-      }
-    };
-    province && fetchPublicDistrict();
-  }, [province]);
-
-  useEffect(() => {
-    setVillage(null);
-    // setDistrict(null);
-    const fetchPublicDistrict = async () => {
-      const response = await apiGetPublicVillage(district.id);
-
-      if (response.status === 200) {
-        setVillages(response.data?.results);
-      }
-    };
-    province && fetchPublicDistrict();
-  }, [district]);
 
   const [loader, setLoader] = useState(false);
 
@@ -124,28 +44,32 @@ const ProfileScreen = () => {
   const [step4, setStep4] = useState(false);
   const [step5, setStep5] = useState(false);
 
-  const [displayName, setDisplayname] = useState();
-  const [email, setEmail] = useState();
+  const [displayName, setDisplayname] = useState(null);
+  const [email, setEmail] = useState(null);
   const [phone, setPhone] = useState(null);
-  const [gender, setGender] = useState();
-  const [date, setDate] = useState();
-  const [job, setJob] = useState(currentUser.jobo);
+  const [gender, setGender] = useState(null);
+  const [date, setDate] = useState(null);
+  const [job, setJob] = useState(null);
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   const [modalVisible, setModalVisible] = useState(false);
-  const [location, setLocation] = useState(null);
+  const [location, setLocation] = useState({
+    province: "",
+    district: "",
+    ward: "",
+  });
   const [geoPoint, setGeoPoint] = useState(null);
   const [provinces, setProvinces] = useState([]);
-  const [province, setProvince] = useState();
-  const [district, setDistrict] = useState();
+  const [province, setProvince] = useState("");
+  const [district, setDistrict] = useState("");
   const [districts, setDistricts] = useState([]);
   const [villages, setVillages] = useState([]);
-  const [village, setVillage] = useState();
+  const [village, setVillage] = useState("");
 
-  const [image1, setImage1] = useState();
-  const [image2, setImage2] = useState();
-  const [image3, setImage3] = useState();
-  const [image4, setImage4] = useState();
+  const [image1, setImage1] = useState(null);
+  const [image2, setImage2] = useState(null);
+  const [image3, setImage3] = useState(null);
+  const [image4, setImage4] = useState(null);
   const [images, setImages] = useState([
     {
       id: 1,
@@ -313,6 +237,110 @@ const ProfileScreen = () => {
     },
   ]);
 
+  // useEffect hooks call
+
+  useEffect(() => {
+    let unsubcribe = firestore()
+      .collection("users")
+      .doc(currentUser.uid)
+      .onSnapshot((snapshot) => {
+        const temp = snapshot.data();
+        if (temp) {
+          if (temp.displayName) setDisplayname(temp.displayName);
+          if (temp.email) setEmail(temp.email);
+          if (temp.phone) setPhone(temp.phone);
+          if (temp.gender) setGender(temp.gender);
+          else setGender("male");
+          if (temp.job) setJob(temp.job);
+          if (temp.dayOfBirth) setDate(temp.dayOfBirth.toDate("dd/MM/yyyy"));
+          if (temp.job) setJob(temp.job);
+          if (temp.location) {
+            if (temp.location.city)
+              setLocation((preState) => {
+                return {
+                  ...preState,
+                  province: temp.location.city.name,
+                };
+              });
+            if (temp.location.district)
+              setLocation((preState) => {
+                return {
+                  ...preState,
+                  district: temp.location.district.name,
+                };
+              });
+            if (temp.location.ward)
+              setLocation((preState) => {
+                return {
+                  ...preState,
+                  village: temp.location.ward.name,
+                };
+              });
+          }
+          if (temp.photos) {
+            if (temp.photos[0].photoURL) setImage1(temp.photos[0].photoURL);
+            if (temp.photos[1].photoURL) setImage2(temp.photos[1].photoURL);
+            if (temp.photos[2].photoURL) setImage3(temp.photos[2].photoURL);
+            if (temp.photos[3].photoURL) setImage4(temp.photos[3].photoURL);
+          }
+          if (temp.interests)
+            setInterests(
+              interests.map((interest) =>
+                temp.interests.includes(interest.name)
+                  ? { ...interest, selected: true }
+                  : interest
+              )
+            );
+          if (temp.ideals)
+            setIdeals(
+              ideals.map((ideal) =>
+                temp.ideals.includes(ideal.name)
+                  ? { ...ideal, selected: true }
+                  : ideal
+              )
+            );
+        }
+      });
+    return () => unsubcribe();
+  }, []);
+
+  useEffect(() => {
+    const fetchPublicProviecs = async () => {
+      const response = await apiGetPublicProvinces();
+
+      if (response.status === 200) {
+        setProvinces(response.data.results);
+      }
+    };
+    fetchPublicProviecs();
+  }, []);
+
+  useEffect(() => {
+    setDistrict(null);
+    setVillages(null);
+    const fetchPublicDistrict = async () => {
+      const response = await apiGetPublicDistrict(province.id);
+
+      if (response.status === 200) {
+        // console.log(response.data?.results);
+        setDistricts(response.data?.results);
+      }
+    };
+    province && fetchPublicDistrict();
+  }, [province]);
+
+  useEffect(() => {
+    setVillage("");
+    const fetchPublicVillage = async () => {
+      const response = await apiGetPublicVillage(district.id);
+
+      if (response.status === 200) {
+        setVillages(response.data?.results);
+      }
+    };
+    district && fetchPublicVillage();
+  }, [district]);
+
   // Functions are here
 
   const showDatePicker = () => {
@@ -443,6 +471,118 @@ const ProfileScreen = () => {
     }
   };
 
+  const isValidEmail = (email) => {
+    const re =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const handleStep1 = () => {
+    if (!displayName) {
+      ToastAndroid.showWithGravity(
+        "Please fill in your display name!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    } else if (displayName.length > 14) {
+      ToastAndroid.showWithGravity(
+        "Display name shouln't include ≥ 14 keys!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    }
+    if (!email) {
+      ToastAndroid.showWithGravity(
+        "Please fill in your email!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    } else if (!isValidEmail(email)) {
+      ToastAndroid.showWithGravity(
+        "Your email format is incorrect!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    }
+    if (!gender) {
+      ToastAndroid.showWithGravity(
+        "Please choose your gender!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    }
+    if (!date) {
+      ToastAndroid.showWithGravity(
+        "Please select your age!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    } else if (Math.floor((new Date() - date.getTime()) / 3.15576e10) < 18) {
+      ToastAndroid.showWithGravity(
+        "You must be at least 18 yrs old!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    }
+    if (!job) {
+      ToastAndroid.showWithGravity(
+        "Please fill in your job!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    }
+    setStep1(false);
+    setStep2(true);
+  };
+
+  const handleStep3 = () => {
+    if (!image1 && !image2 && !image3 && !image4) {
+      ToastAndroid.showWithGravity(
+        "You have to choose at least 1 image!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    }
+    if (image1) {
+      if (!image1.includes("http")) handleUploadImage(image1, 1);
+    }
+    if (image2) {
+      if (!image2.includes("http")) handleUploadImage(image2, 2);
+    }
+    if (image3) {
+      if (!image3.includes("http")) handleUploadImage(image3, 3);
+    }
+    if (image4) {
+      if (!image4.includes("http")) handleUploadImage(image4, 4);
+    }
+
+    setStep3(false);
+    setStep4(true);
+  };
+
+  const handleStep5 = () => {
+    if (ideals.filter((item) => item.selected).length > 0) {
+      setLoader(true);
+      updateProfile();
+    } else {
+      ToastAndroid.showWithGravity(
+        "Please choose your ideal type!",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+      return;
+    }
+  };
+
   const updateProfile = () => {
     firestore()
       .collection("users")
@@ -451,10 +591,15 @@ const ProfileScreen = () => {
         id: currentUser.uid,
         displayName: displayName,
         email: email,
-        phone: phone,
+        phone: phone ? phone : "",
         gender: gender,
         job: job,
-        location: location,
+        newMember: false,
+        location: {
+          city: province,
+          district: district,
+          ward: village,
+        },
         photos: images,
         dayOfBirth: date,
         interests: interests
@@ -515,7 +660,11 @@ const ProfileScreen = () => {
   if (step1) {
     return (
       <SafeAreaView style={tailwind("flex-1")}>
-        <Header title="Step 1" back />
+        {!firstTime ? (
+          <Header title="Step 1" back />
+        ) : (
+          <Header title="Set up profile" />
+        )}
         <ScrollView style={tailwind("px-5")}>
           <Text
             style={tailwind(
@@ -626,10 +775,7 @@ const ProfileScreen = () => {
 
         <TouchableOpacity
           style={[tailwind("w-11/12 p-3 mx-auto rounded-xl bg-red-400 my-5")]}
-          onPress={() => {
-            setStep1(false);
-            setStep2(true);
-          }}
+          onPress={handleStep1}
         >
           <Text style={tailwind("text-center font-bold text-white text-xl")}>
             Continue
@@ -640,7 +786,11 @@ const ProfileScreen = () => {
   } else if (step2) {
     return (
       <SafeAreaView style={tailwind("flex-1")}>
-        <Header title="Step 2" back />
+        {!firstTime ? (
+          <Header title="Step 2" back />
+        ) : (
+          <Header title="Set up profile" />
+        )}
         <ScrollView
           automaticallyAdjustContentInsets={true}
           automaticallyAdjustKeyboardInsets={true}
@@ -657,7 +807,7 @@ const ProfileScreen = () => {
               "font-bold mb-1 text-2xl text-center text-purple-700"
             )}
           >
-            Nice to meet you, Adam Smith. Meet people nearly
+            Nice to meet you, {displayName}. Meet people nearly
           </Text>
           <Text
             style={tailwind(
@@ -667,58 +817,104 @@ const ProfileScreen = () => {
             👋
           </Text>
 
-          <Text style={tailwind("leading-5")}>
+          <Text style={tailwind("leading-5 mb-2 text-justify")}>
+            Make sure that your filled location is true.{" "}
+            <Text style={tailwind("font-bold")}>MyDestiny</Text> will help you
+            make new relationship nearby.
+          </Text>
+
+          <Text style={tailwind("font-semibold px-4 text-lg ")}>Living In</Text>
+          <Text
+            style={tailwind(
+              "w-full mt-2 mb-2 py-2 rounded-full border border-gray-300 pl-4 text-base text-something"
+            )}
+          >
+            {location.province !== "" &&
+            location.district !== "" &&
+            location.village !== "" ? (
+              location.village?.replace(
+                /Phường |Xã |Thị trấn |undefined/gi,
+                function (matched) {
+                  return {
+                    "Phường ": "",
+                    "Xã ": "",
+                    "Thị trấn ": "",
+                    undefined: "",
+                  }[matched];
+                }
+              ) +
+              ", " +
+              location.district?.replace(
+                /Huyện |Quận |Thành phố |Thị xã /gi,
+                function (matched) {
+                  return {
+                    "Huyện ": "",
+                    "Quận ": "",
+                    "Thành phố ": "",
+                    "Thị xã ": "",
+                  }[matched];
+                }
+              ) +
+              ", " +
+              location.province?.replace(
+                /Tỉnh |Thành phố /gi,
+                function (matched) {
+                  return { "Tỉnh ": "", "Thành phố ": "" }[matched];
+                }
+              )
+            ) : (
+              <Text>Please select your place to display on profile</Text>
+            )}
+          </Text>
+
+          <Text style={tailwind("font-semibold px-4 text-lg ")}>
+            City/Province
+          </Text>
+          <LocationSelect
+            type="provinces"
+            setValue={(value) => {
+              setProvince(value);
+            }}
+            options={provinces}
+          />
+
+          <Text style={tailwind("font-semibold px-4 text-lg ")}>
+            District/State
+          </Text>
+          <LocationSelect
+            type="districts"
+            setValue={(value) => setDistrict(value)}
+            options={districts}
+          />
+
+          <Text style={tailwind("font-semibold px-4 text-lg ")}>
+            Ward/Village
+          </Text>
+          <LocationSelect
+            type="villages"
+            setValue={(value) => setVillage(value)}
+            options={villages}
+          />
+
+          <Text
+            style={tailwind("font-semibold text-center text-xl font-bold my-1")}
+          >
+            DISTANCE
+          </Text>
+
+          <Text style={tailwind("leading-5 text-justify")}>
             You'll need to enable your location in order to use{" "}
-            <Text style={tailwind("font-bold")}>MyDestiny</Text> . Your location
-            will be used to show potential matches near you.
+            <Text style={tailwind("font-bold")}>My Destiny</Text> properly. You
+            will see the real distance to others.
           </Text>
           <TouchableOpacity
             onPress={handleLocation}
-            style={[tailwind("w-full p-3 mx-auto rounded-xl bg-red-400 my-5")]}
+            style={[tailwind("w-full p-3 mx-auto rounded-xl bg-red-400 my-3")]}
           >
             <Text style={tailwind("text-center font-bold text-white text-xl")}>
               Allow Location
             </Text>
           </TouchableOpacity>
-
-          <Text style={tailwind("font-semibold text-center text-lg")}>Or</Text>
-
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>Living In</Text>
-          <TextInput
-            style={tailwind(
-              "w-full h-11 mt-2 mb-2 rounded-full border border-gray-300 pl-4 text-lg"
-            )}
-            autoCapitalize="none"
-            value={location}
-            onChangeText={setLocation}
-          />
-
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>Province</Text>
-          <LocationSelect
-            type="provinces"
-            setValue={() => setProvince()}
-            options={provinces}
-          />
-
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>District</Text>
-          <LocationSelect
-            type="districts"
-            setValue={() => setDistrict()}
-            options={districts}
-          />
-
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>Village</Text>
-          <LocationSelect
-            type="villages"
-            setValue={() => setVillage()}
-            options={villages}
-          />
-
-          <Text style={tailwind("leading-5")}>
-            If you don’t allow us to enable your location, make sure that your
-            filled location is true. MyDestiny will help you make new
-            relationship nearby.
-          </Text>
         </ScrollView>
 
         <TouchableOpacity
@@ -737,7 +933,11 @@ const ProfileScreen = () => {
   } else if (step3) {
     return (
       <SafeAreaView style={tailwind("flex-1")}>
-        <Header title="Step 3" back />
+        {!firstTime ? (
+          <Header title="Step 3" back />
+        ) : (
+          <Header title="Set up profile" />
+        )}
         <ScrollView style={tailwind("px-5")}>
           <Text
             style={tailwind(
@@ -853,22 +1053,7 @@ const ProfileScreen = () => {
 
         <TouchableOpacity
           style={[tailwind("w-11/12 p-3 mx-auto rounded-xl bg-red-400 my-5")]}
-          onPress={() => {
-            if (image1) {
-              if (!image1.includes("http")) handleUploadImage(image1, 1);
-            }
-            if (image2) {
-              if (!image2.includes("http")) handleUploadImage(image2, 2);
-            }
-            if (image3) {
-              if (!image3.includes("http")) handleUploadImage(image3, 3);
-            }
-            if (image4) {
-              if (!image4.includes("http")) handleUploadImage(image4, 4);
-            }
-            setStep3(false);
-            setStep4(true);
-          }}
+          onPress={handleStep3}
         >
           <Text style={tailwind("text-center font-bold text-white text-xl")}>
             Continue
@@ -879,7 +1064,11 @@ const ProfileScreen = () => {
   } else if (step4) {
     return (
       <SafeAreaView style={tailwind("flex-1")}>
-        <Header title="Step 4" back />
+        {!firstTime ? (
+          <Header title="Step 4" back />
+        ) : (
+          <Header title="Set up profile" />
+        )}
         <Text
           style={tailwind(
             "font-bold mb-1 text-2xl text-center text-purple-700"
@@ -959,7 +1148,11 @@ const ProfileScreen = () => {
       </View>
     ) : (
       <SafeAreaView style={tailwind("flex-1")}>
-        <Header title="Step 5" back />
+        {!firstTime ? (
+          <Header title="Step 5" back />
+        ) : (
+          <Header title="Set up profile" />
+        )}
         <Text
           style={tailwind(
             "font-bold mb-1 text-2xl text-center text-purple-700"
@@ -977,7 +1170,7 @@ const ProfileScreen = () => {
 
         <Text style={tailwind("leading-5 pb-3 px-5 text-base mb-3")}>
           What are you hoping to find on the{" "}
-          <Text style={tailwind("font-bold text-base")}>MyDestiny</Text> dating
+          <Text style={tailwind("font-bold text-base")}>My Destiny</Text> dating
           app?
         </Text>
         <ScrollView style={tailwind("px-5")}>
@@ -1022,10 +1215,7 @@ const ProfileScreen = () => {
 
         <TouchableOpacity
           style={[tailwind("w-11/12 p-3 mx-auto rounded-xl bg-red-400 my-5")]}
-          onPress={() => {
-            setLoader(true);
-            updateProfile();
-          }}
+          onPress={handleStep5}
         >
           <Text style={tailwind("text-center font-bold text-white text-xl")}>
             Finish Up
