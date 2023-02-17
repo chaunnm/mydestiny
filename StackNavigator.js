@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Image, TouchableOpacity, ToastAndroid } from "react-native";
+import { View, Image, TouchableOpacity, ToastAndroid, StyleSheet } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import ChatScreen from "./screens/ChatScreen";
@@ -18,7 +18,7 @@ import ExploreScreen from "./screens/ExploreScreen";
 import LikeScreen from "./screens/LikeScreen";
 import AccountScreen from "./screens/AccountScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import SettingsScreen from "./screens/SettingsScreen";
 import EditProfileScreen from "./screens/EditProfileScreen";
@@ -29,6 +29,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import PolicyScreen from "./screens/PolicyScreen";
 import firestore from "@react-native-firebase/firestore";
 import AllMatchScreen from "./screens/AllMatchScreen";
+import NotificationScreen from "./screens/NotificationScreen";
+import InviteFriendsScreen from "./screens/InviteFriendsScreen";
+// import { Appbar } from "react-native-paper";
 
 const Stack = createNativeStackNavigator();
 
@@ -51,11 +54,12 @@ const LogoHeader = () => {
         flex: 1,
         height: 37,
         flexDirection: "row",
-        justifyContent: "space-between",
+        alignItems: "center",
+        marginHorizontal: 4,
       }}
     >
       <TouchableOpacity
-        style={{ overflow: "visible" }}
+        style={{  width: 350 }}
         onPress={() => navigation.navigate("Home")}
       >
         <Image
@@ -95,16 +99,93 @@ const LogoHeader = () => {
 
 const AccountStack = () => {
   const AccountStack = createNativeStackNavigator();
+  const navigation = useNavigation();
   return (
-    <AccountStack.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <AccountStack.Screen name="AccountScreen" component={AccountScreen} />
-      <AccountStack.Screen name="Settings" component={SettingsScreen} />
+    <AccountStack.Navigator>
+      <AccountStack.Screen
+        name="AccountScreen"
+        component={AccountScreen}
+        options={{
+          headerTitle: (props) => <LogoHeader {...props} />,
+        }}
+      />
+      <AccountStack.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{
+          headerTitleStyle: {
+            color: "#3D3B73",
+            fontWeight: "bold",
+            fontSize: 24,
+          },
+          headerLeft: () => (
+            <TouchableOpacity
+              style={styles.headerArrowBack}
+              onPress={() => navigation.navigate("AccountScreen")}
+            >
+              <Ionicons name="arrow-back" size={34} color="#FF85A2" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
       <AccountStack.Screen name="Edit Profile" component={EditProfileScreen} />
-      <AccountStack.Screen name="Safety" component={SafetyScreen} />
+      <AccountStack.Screen
+        name="Safety"
+        component={SafetyScreen}
+        options={{
+          headerTitleStyle: {
+            color: "#3D3B73",
+            fontWeight: "bold",
+            fontSize: 24,
+          },
+          headerLeft: () => (
+            <TouchableOpacity
+              style={styles.headerArrowBack}
+              onPress={() => navigation.navigate("AccountScreen")}
+            >
+              <Ionicons name="arrow-back" size={34} color="#FF85A2" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <AccountStack.Screen
+        name="Notification"
+        component={NotificationScreen}
+        options={{
+          headerTitleStyle: {
+            color: "#3D3B73",
+            fontWeight: "bold",
+            fontSize: 24,
+          },
+          headerLeft: () => (
+            <TouchableOpacity
+              style={styles.headerArrowBack}
+              onPress={() => navigation.navigate("Settings")}
+            >
+              <Ionicons name="arrow-back" size={34} color="#FF85A2" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <AccountStack.Screen
+        name="Invite Friends"
+        component={InviteFriendsScreen}
+        options={{
+          headerTitleStyle: {
+            color: "#3D3B73",
+            fontWeight: "bold",
+            fontSize: 24,
+          },
+          headerLeft: () => (
+            <TouchableOpacity
+              style={styles.headerArrowBack}
+              onPress={() => navigation.navigate("Settings")}
+            >
+              <Ionicons name="arrow-back" size={34} color="#FF85A2" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
     </AccountStack.Navigator>
   );
 };
@@ -128,7 +209,6 @@ const BottomNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        headerShown: false,
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
@@ -154,14 +234,37 @@ const BottomNavigator = () => {
       })}
     >
       {/* <Tab.Screen name="Home" component={HomeTabBar} /> */}
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Explore" component={ExploreScreen} />
-      <Tab.Screen name="Like" component={LikeScreen} />
-      <Tab.Screen name="Chat" component={ChatStack} />
-      <Tab.Screen name="Account" component={AccountStack} />
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerTitle: (props) => <LogoHeader {...props} /> }}
+      />
+      <Tab.Screen
+        name="Explore"
+        component={ExploreScreen}
+        options={{ headerTitle: (props) => <LogoHeader {...props} /> }}
+      />
+      <Tab.Screen
+        name="Like"
+        component={LikeScreen}
+        options={{ headerTitle: (props) => <LogoHeader {...props} /> }}
+      />
+      <Tab.Screen
+        name="Chat"
+        component={ChatScreen}
+        options={{ headerTitle: (props) => <LogoHeader {...props} /> }}
+      />
+      <Tab.Screen
+        name="Account"
+        component={AccountStack}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Tab.Navigator>
   );
 };
+// options={{ headerTitle: (props) => <LogoHeader {...props} /> }}
 
 const StackNavigator = () => {
   const navigation = useNavigation();
@@ -200,7 +303,9 @@ const StackNavigator = () => {
             <Stack.Screen
               name="Nav"
               component={BottomNavigator}
-              options={{ headerTitle: (props) => <LogoHeader {...props} /> }}
+              options={{
+                headerShown: false,
+              }}
             />
           </Stack.Group>
           <Stack.Group
@@ -246,5 +351,14 @@ const StackNavigator = () => {
     </Stack.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  headerArrowBack: {
+    width: 27,
+    height: 34,
+    alignItems: "center",
+    marginRight: 20,
+  },
+});
 
 export default StackNavigator;

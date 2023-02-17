@@ -15,7 +15,6 @@ import {
   AntDesign,
 } from "@expo/vector-icons";
 import AvatarAccount from "../components/AvatarAccount";
-import useAuth from "../hooks/useAuth";
 
 const AccountScreen = () => {
   const imageBackground = {
@@ -76,7 +75,7 @@ const AccountScreen = () => {
               <Text style={styles.buttonText}>Settings</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={[styles.button, { marginTop: 40 }]}
+              style={[styles.button, { marginTop: 60 }]}
               onPress={() => navigation.navigate("Edit Profile")}
             >
               <View style={styles.buttonFill}>
@@ -211,7 +210,7 @@ const styles = StyleSheet.create({
   },
   likesText: {
     textTransform: "capitalize",
-    fontSize: 22,
+    fontSize: 25,
     lineHeight: 30,
     color: "#3d3b73",
     fontWeight: "600",
@@ -219,16 +218,18 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   likesContent: {
-    fontSize: 14,
+    fontSize: 16,
     lineHeight: 20,
     color: "#09101d",
     textAlign: "center",
-    paddingTop: 8,
+    paddingTop: 12,
+    width: 350,
+    alignSelf: "center",
   },
   buttonLikes: {
     width: 260,
     alignSelf: "center",
-    marginTop: 10,
+    marginTop: 16,
   },
   buttonLikesContent: {
     fontSize: 20,
