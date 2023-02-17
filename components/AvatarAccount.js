@@ -112,7 +112,8 @@ const AvatarAccount = () => {
         />
       </TouchableOpacity>
       <Text style={styles.avatarText}>
-        {currentUser.displayName}, {currentUser.age}
+        {currentUser.displayName},
+        {/* {Math.floor((new Date() - currentUser.dayOfBirth.toDate().getTime()) / 3.15576e10)} */}
       </Text>
       <Modal visible={visible} transparent={true} style={tailwind("relative")}>
         <ImageViewer
@@ -135,6 +136,7 @@ const styles = StyleSheet.create({
   avatarContainer: {
     justifyContent: "center",
     alignItems: "center",
+    marginTop: 10,
   },
   avatar: {
     borderColor: "#ffb8c9",
