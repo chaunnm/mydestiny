@@ -312,7 +312,7 @@ const HomeScreen = () => {
   ) : (
     <SafeAreaView style={tailwind("flex-1")}>
       {/* Header */}
-      <View
+      {/* <View
         style={tailwind("flex-row px-3 items-center justify-between relative")}
       >
         <TouchableOpacity onPress={confirmLogout}>
@@ -332,9 +332,9 @@ const HomeScreen = () => {
         <TouchableOpacity onPress={() => navigation.navigate("Chat")}>
           <Ionicons name="chatbubbles-sharp" size={30} color="#FF5864" />
         </TouchableOpacity>
-      </View>
+      </View> */}
       {/* Cards */}
-      <View style={tailwind("flex-1 -mt-6")}>
+      <View style={tailwind("flex-1 mt-0")}>
         <Swiper
           ref={swipeRef}
           containerStyle={{ backgroundColor: "transparent" }}
