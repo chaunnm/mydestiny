@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import {
   View,
   Image,
+  Text,
   TouchableOpacity,
   ToastAndroid,
   StyleSheet,
   Dimensions,
   Animated,
+  Pressable,
 } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
@@ -41,12 +43,107 @@ import InviteFriendsScreen from "./screens/InviteFriendsScreen";
 import PostScreen from "./screens/PostScreen";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { useTailwind } from "tailwind-rn";
+import StoryList from "./components/StoryList";
+import TopPickScreen from "./screens/TopPickScreen";
 
 const HomeTopBar = ({ state, descriptors, navigation, position }) => {
   const tailwind = useTailwind();
 
   return (
-    <View style={{ flexDirection: "row", margin: 10 }}>
+    <View>
+      <View style={tailwind("flex-row rounded-full mx-2 overflow-hidden")}>
+        {state.routes.map((route, index) => {
+          const { options } = descriptors[route.key];
+          const label =
+            options.tabBarLabel !== undefined
+              ? options.tabBarLabel
+              : options.title !== undefined
+              ? options.title
+              : route.name;
+
+          const isFocused = state.index === index;
+
+          const onPress = () => {
+            const event = navigation.emit({
+              type: "tabPress",
+              target: route.key,
+              canPreventDefault: true,
+            });
+
+            if (!isFocused && !event.defaultPrevented) {
+              // The `merge: true` option makes sure that the params inside the tab screen are preserved
+              navigation.navigate({ name: route.name, merge: true });
+            }
+          };
+
+          const onLongPress = () => {
+            navigation.emit({
+              type: "tabLongPress",
+              target: route.key,
+            });
+          };
+
+          const inputRange = state.routes.map((_, i) => i);
+          const opacity = position.interpolate({
+            inputRange,
+            outputRange: inputRange.map((i) => (i === index ? 1 : 0)),
+          });
+
+          return (
+            <Pressable
+              key={index}
+              accessibilityRole="button"
+              accessibilityState={isFocused ? { selected: true } : {}}
+              accessibilityLabel={options.tabBarAccessibilityLabel}
+              testID={options.tabBarTestID}
+              onPress={onPress}
+              onLongPress={onLongPress}
+              style={[tailwind("p-2"), styles.homeTopBar]}
+            >
+              <Animated.Text
+                style={[
+                  tailwind(
+                    isFocused
+                      ? "text-base font-semibold bg-white text-center rounded-full p-2"
+                      : "text-base text-center rounded-full p-2"
+                  ),
+                  styles.textHome,
+                ]}
+              >
+                {label}
+              </Animated.Text>
+            </Pressable>
+          );
+        })}
+      </View>
+      {state.index === 1 ? <StoryList /> : null}
+    </View>
+  );
+};
+
+const HomeStackScreen = () => {
+  const HomeStack = createMaterialTopTabNavigator();
+  const tailwind = useTailwind();
+  return (
+    <HomeStack.Navigator
+      style={tailwind("bg-white")}
+      tabBar={(props) => <HomeTopBar {...props} />}
+    >
+      <HomeStack.Screen name="Search Partners" component={HomeScreen} />
+      <HomeStack.Screen name="Make Friends" component={PostScreen} />
+    </HomeStack.Navigator>
+  );
+};
+
+const LikeTopBar = ({ state, descriptors, navigation, position }) => {
+  const tailwind = useTailwind();
+
+  return (
+    <View
+      style={tailwind(
+        "flex-row overflow-hidden border border-x-0 border-gray-300"
+      )}
+    >
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -85,7 +182,8 @@ const HomeTopBar = ({ state, descriptors, navigation, position }) => {
         });
 
         return (
-          <TouchableOpacity
+          <Pressable
+            key={index}
             accessibilityRole="button"
             accessibilityState={isFocused ? { selected: true } : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
@@ -93,37 +191,44 @@ const HomeTopBar = ({ state, descriptors, navigation, position }) => {
             onPress={onPress}
             onLongPress={onLongPress}
             style={[
-              // tailwind("flex-1 w-full p-4 bg-origin-border rounded-full"),
               tailwind(
-                index === 0 ? "p-4 bg-origin-border rounded-l-full" : ""
+                state.index === 0
+                  ? "border-r border-gray-300 p-2"
+                  : "border-l border-gray-300 p-2"
               ),
-              styles.homeTopBar,
+              { width: "50%" },
             ]}
           >
             <Animated.Text
               style={[
                 tailwind(
-                  "text-base bg-white text-center rounded-full bg-origin-border p-2"
+                  isFocused
+                    ? "text-lg text-others font-semibold bg-white text-center rounded-full p-2"
+                    : "text-lg text-center rounded-full p-2"
                 ),
                 styles.textHome,
               ]}
             >
               {label}
             </Animated.Text>
-          </TouchableOpacity>
+          </Pressable>
         );
       })}
     </View>
   );
 };
 
-const HomeStackScreen = () => {
-  const HomeStack = createMaterialTopTabNavigator();
+const LikeStackScreen = () => {
+  const LikeStack = createMaterialTopTabNavigator();
+  const tailwind = useTailwind();
   return (
-    <HomeStack.Navigator tabBar={(props) => <HomeTopBar {...props} />}>
-      <HomeStack.Screen name="Search Partners" component={HomeScreen} />
-      <HomeStack.Screen name="Make Friends" component={PostScreen} />
-    </HomeStack.Navigator>
+    <LikeStack.Navigator
+      style={tailwind("bg-white")}
+      tabBar={(props) => <LikeTopBar {...props} />}
+    >
+      <LikeStack.Screen name="Likes" component={LikeScreen} />
+      <LikeStack.Screen name="Top Picks" component={TopPickScreen} />
+    </LikeStack.Navigator>
   );
 };
 
@@ -323,7 +428,7 @@ const BottomNavigator = () => {
       />
       <Tab.Screen
         name="Like"
-        component={LikeScreen}
+        component={LikeStackScreen}
         options={{ headerTitle: (props) => <LogoHeader {...props} /> }}
       />
       <Tab.Screen
@@ -433,6 +538,7 @@ const StackNavigator = () => {
 const styles = StyleSheet.create({
   homeTopBar: {
     backgroundColor: "#FFD1DC",
+    width: "50%",
   },
   textHome: {},
   headerArrowBack: {

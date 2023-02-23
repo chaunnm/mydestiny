@@ -17,6 +17,7 @@ import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import Swiper from "react-native-deck-swiper";
 import generateId from "../lib/generateId";
+import { LinearGradient } from "expo-linear-gradient";
 
 const HomeScreen = () => {
   const { signOut, currentUser, cardUser } = useAuth();
@@ -334,8 +335,9 @@ const HomeScreen = () => {
         </TouchableOpacity>
       </View> */}
       {/* Cards */}
-      <View style={tailwind("flex-1 mt-0")}>
+      <View style={tailwind("flex-1 mt-0 bg-white")}>
         <Swiper
+          cardStyle={{ top: 8, left: 8, height: "108%", width: "96%" }}
           ref={swipeRef}
           containerStyle={{ backgroundColor: "transparent" }}
           cards={profiles}
@@ -385,9 +387,12 @@ const HomeScreen = () => {
             card ? (
               <View
                 key={card.id}
-                style={tailwind(
-                  "relative bg-slate-500 h-3/4 rounded-xl overflow-hidden"
-                )}
+                style={[
+                  tailwind(
+                    "top-0 left-0 relative bg-slate-500 h-full rounded-xl overflow-hidden"
+                  ),
+                  styles.cardShadow,
+                ]}
               >
                 {card.photos[0].photoURL !== "" ? (
                   <Image
@@ -409,33 +414,57 @@ const HomeScreen = () => {
                     }}
                   />
                 )}
-                <View
-                  style={[
-                    tailwind(
-                      "absolute bottom-0 bg-white w-full h-20 flex-row items-center justify-between px-6 py-2 rounded-b-xl"
-                    ),
-                    styles.cardShadow,
+                <LinearGradient
+                  style={tailwind(
+                    "absolute left-0 right-0 bottom-0 h-1/2 rounded-xl"
+                  )}
+                  colors={[
+                    "rgba(61,59,115,0)",
+                    "rgba(61,59,115,0.7)",
+                    "rgba(61,59,115,0.9)",
+                    "rgba(61,59,115,1)",
                   ]}
+                />
+                <View
+                  style={tailwind(
+                    "absolute bottom-12 w-full h-24 flex-row items-center justify-between px-6 py-2 rounded-b-xl"
+                  )}
                 >
                   <View>
-                    <Text style={tailwind("text-xl font-bold")}>
+                    <Text style={tailwind("text-3xl text-white font-bold")}>
                       {card.displayName}
                     </Text>
-                    <Text>{card.job}</Text>
+                    <Text style={tailwind("text-white text-lg")}>
+                      {card.job}
+                    </Text>
                   </View>
-                  <Text style={tailwind("text-2xl font-bold")}>
-                    {Math.floor(
-                      (new Date() - card.dayOfBirth.toDate().getTime()) /
-                        3.15576e10
-                    )}
-                  </Text>
+
+                  <View
+                    style={tailwind("flex-row justify-center items-center")}
+                  >
+                    <Text
+                      style={tailwind(
+                        "text-4xl text-white font-light text-center"
+                      )}
+                    >
+                      {Math.floor(
+                        (new Date() - card.dayOfBirth.toDate().getTime()) /
+                          3.15576e10
+                      )}{" "}
+                    </Text>
+                    <Text style={tailwind("text-lg text-white mt-2")}>ys</Text>
+                    <Image
+                      style={tailwind("w-10 h-10")}
+                      source={{ uri: "https://i.imgur.com/Kj0SveG.png" }}
+                    />
+                  </View>
                 </View>
               </View>
             ) : (
               <View
                 style={[
                   tailwind(
-                    "relative bg-white h-3/4 rounded-xl justify-center items-center"
+                    "relative bg-white h-full rounded-xl justify-center items-center"
                   ),
                   styles.cardShadow,
                 ]}
@@ -458,20 +487,35 @@ const HomeScreen = () => {
       <View style={tailwind("flex flex-row justify-evenly mb-3")}>
         <TouchableOpacity
           style={tailwind(
-            "items-center justify-center rounded-full w-16 h-16 bg-red-200"
+            "items-center justify-center rounded-full w-12 h-12 border border-red-400"
           )}
           onPress={() => swipeRef.current.swipeLeft()}
         >
-          <Entypo name="cross" size={26} color="red" />
+          <Entypo name="cross" size={26} color="#DA251D" />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            ToastAndroid.showWithGravity(
+              "This feature is under development!",
+              ToastAndroid.SHORT,
+              ToastAndroid.BOTTOM
+            );
+          }}
+          style={tailwind(
+            "items-center justify-center rounded-full w-12 h-12 border border-blue-400"
+          )}
+        >
+          <AntDesign name="star" size={26} color="#1DA1F2" />
         </TouchableOpacity>
 
         <TouchableOpacity
           style={tailwind(
-            "items-center justify-center rounded-full w-16 h-16 bg-green-200"
+            "items-center justify-center rounded-full w-12 h-12 border border-green-400"
           )}
           onPress={() => swipeRef.current.swipeRight()}
         >
-          <AntDesign name="heart" size={26} color="green" />
+          <AntDesign name="heart" size={26} color="#70D7A6" />
         </TouchableOpacity>
       </View>
     </SafeAreaView>

@@ -35,6 +35,7 @@ const ExploreScreen = () => {
                     "flex-row justify-between items-center py-2.5 px-5 rounded-full bg-white"
                   ),
                 ]}
+                onPress={() => navigation.navigate("Search Partners")}
               >
                 <Text style={tailwind("text-center text-primary text-base")}>
                   Search Partners

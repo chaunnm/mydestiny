@@ -1,8 +1,15 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  SafeAreaView,
+  Text,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Button, Avatar, Card } from "react-native-paper";
 import { useTailwind } from "tailwind-rn";
+import { LinearGradient } from "expo-linear-gradient";
 
 const LikeScreen = () => {
   const tailwind = useTailwind();
@@ -12,98 +19,118 @@ const LikeScreen = () => {
       avatar:
         "https://drive.google.com/uc?export=view&id=1ItH8BbdZtd3HNu7ap5py-R74lhQZ6S8w",
       name: "Kiri Sully",
-      phone: "+62-818-5551-71",
-      isInvited: false,
+      age: 25,
+      job: "Actor",
     },
     {
       id: 2,
       avatar:
         "https://drive.google.com/uc?export=view&id=1C573MrLyUxk3lZbxk8wJn42440IJ87pV",
       name: "Jack Dawson",
-      phone: "+62-819-5558-60",
-      isInvited: false,
+      age: 34,
+      job: "KOL",
     },
     {
       id: 3,
       avatar:
         "https://drive.google.com/uc?export=view&id=1HAnESDzSqNdzx2Qk9dUECYrwEMP9OZbv",
-      name: "Rosé Blackpink",
-      phone: "+62-878-5551-31",
-      isInvited: true,
+      name: "Rosé",
+      age: 22,
+      job: "Singer",
     },
     {
       id: 4,
       avatar:
         "https://drive.google.com/uc?export=view&id=1LUCL0DjK81kJeWcek3vekxk-mpybVTo5",
       name: "Taylor Swift",
-      phone: "+62-838-5564-60",
-      isInvited: false,
+      age: 30,
+      job: "Saler",
     },
     {
       id: 5,
       avatar:
         "https://drive.google.com/uc?export=view&id=1dOICbfS4e-aZv-sQLjYQpkbZ63nC7LP0",
-      name: "Jennie Blackpink",
-      phone: "+62-838-5552-72",
-      isInvited: true,
+      name: "Jennie",
+      age: 40,
+      job: "Dancer",
     },
     {
       id: 6,
       avatar:
         "https://drive.google.com/uc?export=view&id=1asON0sw5LOoeJfLMmQ5ONdrJbFo8vEkh",
       name: "Mark Zuckerberg",
-      phone: "+62-857-5568-60",
-      isInvited: true,
+      age: 48,
+      job: "The rich",
     },
     {
       id: 7,
       avatar:
         "https://drive.google.com/uc?export=view&id=1azkSC6SbwGaHRI4MOJqfChgZFOQI0hg1",
       name: "Charlie Puth",
-      phone: "+62-834-5557-92",
-      isInvited: false,
+      age: 30,
+      job: "Producer",
     },
     {
       id: 8,
       avatar:
         "https://drive.google.com/uc?export=view&id=1XqYWb-7vnhH7v0PXZQ9XRqLepGjVlL5N",
       name: "Rihanna",
-      phone: "+62-838-5554-60",
-      isInvited: true,
+      age: 32,
+      job: "Businesswoman",
     },
   ];
   return (
-    <SafeAreaView style={tailwind("flex-1 justify-center items-center")}>
-      <ScrollView>
-        {friendsList.map((friend) => {
-          return (
-            <Card style={styles.cardContainer}>
-              <View key={friend.id} style={styles.cardFriend}>
-                <Avatar.Image
-                  style={styles.avatar}
-                  size={80}
-                  source={{
-                    uri: friend.avatar,
-                  }}
-                />
-                <View style={styles.text}>
-                  <Text style={styles.name}>{friend.name}</Text>
-                  <Text style={styles.phone}>{friend.phone}</Text>
-                </View>
-                {friend.isInvited ? (
-                  <Button mode="contained" buttonColor="#FF85A2">
-                    Invited
-                  </Button>
-                ) : (
-                  <Button mode="outlined" textColor="#FF85A2">
-                    Invite
-                  </Button>
-                )}
-              </View>
-            </Card>
-          );
-        })}
-      </ScrollView>
+    <SafeAreaView
+      style={tailwind("flex-1 relative justify-center items-center")}
+    >
+      <Text style={tailwind("text-base text-lightText text-center my-3 px-3")}>
+        Upgrade to My Destiny Gold to see people who already like you.
+      </Text>
+      <FlatList
+        inverted={-1}
+        numColumns={2}
+        data={friendsList}
+        keyExtractor={(item) => item.id}
+        scrollEnabled={false}
+        // contentContainerStyle={tailwind("h-full mx-auto")}
+        renderItem={({ item }) => (
+          <View
+            style={tailwind(
+              "relative h-62 w-43 rounded-xl overflow-hidden mx-3 my-4"
+            )}
+          >
+            <ImageBackground
+              resizeMode="cover"
+              style={tailwind("flex-1 h-full w-full mx-auto relative")}
+              source={{
+                uri: item.avatar,
+              }}
+            >
+              <LinearGradient
+                style={tailwind("absolute left-0 right-0 bottom-0 h-full")}
+                colors={["rgba(0,0,0,0.7)", "rgba(0,0,0,0.8)"]}
+              />
+            </ImageBackground>
+          </View>
+        )}
+      />
+      <View style={tailwind("absolute bottom-4 left-0 right-0 items-center")}>
+        <TouchableOpacity style={tailwind("relative rounded-xl")}>
+          <LinearGradient
+            style={tailwind(
+              "absolute left-0 right-0 bottom-0 h-full rounded-xl"
+            )}
+            colors={["#FBBC05", "#F59124"]}
+          />
+          <Text
+            style={tailwind(
+              "text-center text-white text-lg font-semibold px-8 py-2"
+            )}
+          >
+            SEE WHO LIKES YOU
+          </Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
