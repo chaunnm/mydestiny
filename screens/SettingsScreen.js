@@ -71,7 +71,7 @@ const SettingsScreen = () => {
           <Text style={styles.buttonText}>Settings</Text>
           <Entypo name="chevron-right" size={30} color="#FF9EB5" />
         </TouchableOpacity>
-        <Divider style={styles.divider} />
+        <Divider />
         <View style={styles.button}>
           <LinearGradient
             colors={["rgba(255,184,201,0.45)", "#FF85A2"]}
@@ -93,7 +93,7 @@ const SettingsScreen = () => {
             value={isEnabled}
           />
         </View>
-        <Divider style={styles.divider} />
+        <Divider />
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate("Invite Friends")}
@@ -113,7 +113,6 @@ const SettingsScreen = () => {
           <Entypo name="chevron-right" size={30} color="#FF9EB5" />
         </TouchableOpacity>
         <Divider />
-        <Divider style={{ marginVertical: 10 }} />
         <TouchableOpacity style={styles.button} onPress={confirmLogout}>
           <LinearGradient
             colors={["rgba(255,184,201,0.45)", "#FF85A2"]}
@@ -128,7 +127,7 @@ const SettingsScreen = () => {
           </LinearGradient>
           <Text style={styles.buttonText}>Sign Out</Text>
         </TouchableOpacity>
-        <Divider style={styles.divider} />
+        <Divider />
       </View>
       <View style={styles.version}>
         <Image
@@ -152,13 +151,11 @@ const styles = StyleSheet.create({
   settingContainer: {
     marginTop: 20,
   },
-  divider: {
-    marginVertical: 10,
-  },
   button: {
     flexDirection: "row",
     alignItems: "center",
     width: "100%",
+    marginVertical: 10,
   },
   buttonFill: {
     height: 50,

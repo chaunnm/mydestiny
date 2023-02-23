@@ -75,8 +75,8 @@ const InviteFriendsScreen = () => {
       <ScrollView>
         {friendsList.map((friend) => {
           return (
-            <Card style={styles.cardContainer}>
-              <View key={friend.id} style={styles.cardFriend}>
+            <Card style={styles.cardContainer} key={friend.id}>
+              <View style={styles.cardFriend}>
                 <Avatar.Image
                   style={styles.avatar}
                   size={80}
@@ -93,10 +93,7 @@ const InviteFriendsScreen = () => {
                     Invited
                   </Button>
                 ) : (
-                  <Button
-                    mode="outlined"
-                    textColor="#FF85A2"
-                  >
+                  <Button mode="outlined" textColor="#FF85A2">
                     Invite
                   </Button>
                 )}

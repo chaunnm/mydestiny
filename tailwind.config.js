@@ -14,6 +14,7 @@ module.exports = {
         lightText: "#616161",
         something: "#990024",
         chat: "#E6E8EB",
+        region3: "#FFD1DC",
       },
       inset: {
         "2/5": "40%",
@@ -21,9 +22,11 @@ module.exports = {
         90: "22rem",
       },
       height: {
+        15: "3.8rem",
         62: "244px",
       },
       width: {
+        15: "3.8rem",
         22: "88px",
         42: "164px",
         43: "170px",

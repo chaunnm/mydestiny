@@ -6,7 +6,7 @@ import {
   ToastAndroid,
   Modal,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Avatar } from "react-native-paper";
 import useAuth from "../hooks/useAuth";
 import { useActionSheet } from "@expo/react-native-action-sheet";
@@ -14,12 +14,14 @@ import * as ImagePicker from "expo-image-picker";
 import ImageViewer from "react-native-image-zoom-viewer";
 import { AntDesign } from "@expo/vector-icons";
 import { useTailwind } from "tailwind-rn";
+import firestore from "@react-native-firebase/firestore";
 
 const AvatarAccount = () => {
   const tailwind = useTailwind();
   const { currentUser, updateAvatar } = useAuth();
   const [image, setImage] = useState(currentUser.photoURL);
   const [visible, setVisible] = useState(false);
+  const [profileInfor, setProfileInfor] = useState();
 
   const { showActionSheetWithOptions } = useActionSheet();
 
@@ -102,6 +104,18 @@ const AvatarAccount = () => {
     );
   };
 
+  useEffect(() => {
+    const subcribe = firestore()
+      .collection("users")
+      .doc(currentUser.uid)
+      .onSnapshot({
+        next: (snapshot) => {
+          setProfileInfor(snapshot.data());
+        },
+      });
+    return () => subcribe();
+  }, [currentUser]);
+
   return (
     <View style={styles.avatarContainer}>
       <TouchableOpacity onPress={handleAvatar} style={styles.avatar}>
@@ -112,8 +126,13 @@ const AvatarAccount = () => {
         />
       </TouchableOpacity>
       <Text style={styles.avatarText}>
-        {currentUser.displayName},
-        {/* {Math.floor((new Date() - currentUser.dayOfBirth.toDate().getTime()) / 3.15576e10)} */}
+        {currentUser.displayName},{" "}
+        {profileInfor
+          ? Math.floor(
+              (new Date() - profileInfor.dayOfBirth.toDate().getTime()) /
+                3.15576e10
+            )
+          : null}
       </Text>
       <Modal visible={visible} transparent={true} style={tailwind("relative")}>
         <ImageViewer

@@ -17,7 +17,7 @@ const NotificationScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.notificationContainer}>
-        <Divider style={styles.divider} />
+        <Divider />
         <View style={styles.button}>
           <LinearGradient
             colors={["rgba(255,184,201,0.45)", "#FF85A2"]}
@@ -39,7 +39,7 @@ const NotificationScreen = () => {
             value={isEnabled1}
           />
         </View>
-        <Divider style={styles.divider} />
+        <Divider />
         <View style={styles.button}>
           <LinearGradient
             colors={["rgba(255,184,201,0.45)", "#FF85A2"]}
@@ -61,7 +61,7 @@ const NotificationScreen = () => {
             value={isEnabled2}
           />
         </View>
-        <Divider style={styles.divider} />
+        <Divider />
         <View style={styles.button}>
           <LinearGradient
             colors={["rgba(255,184,201,0.45)", "#FF85A2"]}
@@ -83,7 +83,7 @@ const NotificationScreen = () => {
             value={isEnabled3}
           />
         </View>
-        <Divider style={styles.divider} />
+        <Divider />
         <View style={styles.button}>
           <LinearGradient
             colors={["rgba(255,184,201,0.45)", "#FF85A2"]}
@@ -105,7 +105,7 @@ const NotificationScreen = () => {
             value={isEnabled4}
           />
         </View>
-        <Divider style={styles.divider} />
+        <Divider />
       </View>
     </SafeAreaView>
   );
@@ -117,13 +117,11 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
   },
-  divider: {
-    marginVertical: 10,
-  },
   button: {
     flexDirection: "row",
     alignItems: "center",
     width: "100%",
+    paddingVertical: 10,
   },
   buttonFill: {
     height: 50,
