@@ -13,7 +13,7 @@ const ExploreScreen = () => {
   return (
     <SafeAreaView style={tailwind("flex-1")}>
       <ScrollView style={tailwind("flex-1")}>
-        <View style={tailwind("mx-5 rounded-xl overflow-hidden mt-1 relative")}>
+        <View style={tailwind("mx-3 rounded-xl overflow-hidden mt-1 relative")}>
           <ImageBackground
             style={tailwind("h-52 flex-1")}
             source={{ uri: "https://i.imgur.com/uBkqstD.png" }}
@@ -23,7 +23,10 @@ const ExploreScreen = () => {
               colors={["rgba(0,0,0,0.5)", "rgba(255,255,255,0.3)"]}
             />
             <Text
-              style={tailwind("font-bold text-lg text-white leading-7 p-3")}
+              style={[
+                tailwind("text-lg text-white leading-7 p-3"),
+                { fontFamily: "NunitoBold" },
+              ]}
             >
               Meet your soulmate 🤞. {"\n"}
               Interact with people with the same interest like you.
@@ -37,16 +40,28 @@ const ExploreScreen = () => {
                 ]}
                 onPress={() => navigation.navigate("Search Partners")}
               >
-                <Text style={tailwind("text-center text-primary text-base")}>
+                <Text
+                  style={[
+                    tailwind("text-center text-primary text-base"),
+                    { fontFamily: "Nunito" },
+                  ]}
+                >
                   Search Partners
                 </Text>
               </TouchableOpacity>
             </View>
           </ImageBackground>
-          <Text style={tailwind("mt-2 font-bold text-others text-2xl")}>
+          <Text
+            style={[
+              tailwind("mt-2 text-others text-2xl"),
+              { fontFamily: "NunitoBold" },
+            ]}
+          >
             Welcome to explore
           </Text>
-          <Text style={tailwind("text-base")}>My vibe is...</Text>
+          <Text style={[tailwind("text-base"), { fontFamily: "Nunito" }]}>
+            My vibe is...
+          </Text>
 
           <View
             style={tailwind(
@@ -72,16 +87,29 @@ const ExploreScreen = () => {
                   colors={["rgba(0,0,0,0.5)", "rgba(0,0,0,0.5)"]}
                 />
                 <Text
-                  style={tailwind("text-white font-bold text-3xl p-3 top-1/3")}
+                  style={[
+                    tailwind("text-white text-3xl p-3 top-1/3"),
+                    { fontFamily: "NunitoBold" },
+                  ]}
                 >
                   Looking for love
                 </Text>
                 <View style={tailwind("absolute bottom-0 mb-1 p-3")}>
-                  <Text style={tailwind("text-white font-bold ")}>
+                  <Text
+                    style={[
+                      tailwind("text-white"),
+                      { fontFamily: "NunitoBold" },
+                    ]}
+                  >
                     Sweep me off my feet
                   </Text>
                   <TouchableOpacity>
-                    <Text style={tailwind("text-slate-400 font-bold")}>
+                    <Text
+                      style={[
+                        tailwind("text-slate-400"),
+                        { fontFamily: "NunitoBold" },
+                      ]}
+                    >
                       Discover
                     </Text>
                   </TouchableOpacity>
@@ -108,16 +136,29 @@ const ExploreScreen = () => {
                   colors={["rgba(0,0,0,0.5)", "rgba(0,0,0,0.5)"]}
                 />
                 <Text
-                  style={tailwind("text-white font-bold text-3xl p-3 top-1/3")}
+                  style={[
+                    tailwind("text-white text-3xl p-3 top-1/3"),
+                    { fontFamily: "NunitoBold" },
+                  ]}
                 >
                   Free tonight
                 </Text>
                 <View style={tailwind("absolute bottom-0 mb-1 p-3")}>
-                  <Text style={tailwind("text-white font-bold ")}>
+                  <Text
+                    style={[
+                      tailwind("text-white"),
+                      { fontFamily: "NunitoBold" },
+                    ]}
+                  >
                     Down for something spontaneous
                   </Text>
                   <TouchableOpacity>
-                    <Text style={tailwind("text-slate-400 font-bold")}>
+                    <Text
+                      style={[
+                        tailwind("text-slate-400"),
+                        { fontFamily: "NunitoBold" },
+                      ]}
+                    >
                       Discover
                     </Text>
                   </TouchableOpacity>
@@ -146,16 +187,29 @@ const ExploreScreen = () => {
                   colors={["rgba(0,0,0,0.5)", "rgba(0,0,0,0.5)"]}
                 />
                 <Text
-                  style={tailwind("text-white font-bold text-3xl p-3 top-1/3")}
+                  style={[
+                    tailwind("text-white text-3xl p-3 top-1/3"),
+                    { fontFamily: "NunitoBold" },
+                  ]}
                 >
                   Let's be friends
                 </Text>
                 <View style={tailwind("absolute bottom-0 mb-1 p-3")}>
-                  <Text style={tailwind("text-white font-bold ")}>
+                  <Text
+                    style={[
+                      tailwind("text-white"),
+                      { fontFamily: "NunitoBold" },
+                    ]}
+                  >
                     Maybe even besties
                   </Text>
                   <TouchableOpacity>
-                    <Text style={tailwind("text-slate-400 font-bold")}>
+                    <Text
+                      style={[
+                        tailwind("text-slate-400"),
+                        { fontFamily: "NunitoBold" },
+                      ]}
+                    >
                       Discover
                     </Text>
                   </TouchableOpacity>
@@ -182,16 +236,29 @@ const ExploreScreen = () => {
                   colors={["rgba(0,0,0,0.5)", "rgba(0,0,0,0.5)"]}
                 />
                 <Text
-                  style={tailwind("text-white font-bold text-3xl p-3 top-1/3")}
+                  style={[
+                    tailwind("text-white text-3xl p-3 top-1/3"),
+                    { fontFamily: "NunitoBold" },
+                  ]}
                 >
                   Business
                 </Text>
                 <View style={tailwind("absolute bottom-0 mb-1 p-3")}>
-                  <Text style={tailwind("text-white font-bold ")}>
+                  <Text
+                    style={[
+                      tailwind("text-white"),
+                      { fontFamily: "NunitoBold" },
+                    ]}
+                  >
                     Take me to your favourite café
                   </Text>
                   <TouchableOpacity>
-                    <Text style={tailwind("text-slate-400 font-bold")}>
+                    <Text
+                      style={[
+                        tailwind("text-slate-400"),
+                        { fontFamily: "NunitoBold" },
+                      ]}
+                    >
                       Discover
                     </Text>
                   </TouchableOpacity>

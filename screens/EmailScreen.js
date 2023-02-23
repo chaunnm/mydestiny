@@ -57,9 +57,12 @@ const EmailScreen = () => {
         />
         <ScrollView style={tailwind("px-5")}>
           <TextInput
-            style={tailwind(
-              "w-full h-12 bg-white mt-2 mb-2 rounded-lg border border-gray-300"
-            )}
+            style={[
+              tailwind(
+                "w-full h-12 bg-white mt-2 mb-2 rounded-lg border border-gray-300"
+              ),
+              { fontFamily: "Nunito" },
+            ]}
             placeholder="Your email"
             autoCapitalize="none"
             keyboardType="email-address"
@@ -70,9 +73,12 @@ const EmailScreen = () => {
             onChangeText={setEmail}
           />
           <TextInput
-            style={tailwind(
-              "w-full h-12 bg-white mt-2 mb-2 rounded-lg border border-gray-300"
-            )}
+            style={[
+              tailwind(
+                "w-full h-12 bg-white mt-2 mb-2 rounded-lg border border-gray-300"
+              ),
+              { fontFamily: "NunitoBold" },
+            ]}
             placeholder="Enter password"
             autoCapitalize="none"
             autoCorrect={false}
@@ -84,9 +90,10 @@ const EmailScreen = () => {
           />
           <TouchableOpacity style={tailwind("my-3")}>
             <Text
-              style={tailwind(
-                "text-primary text-center font-bold underline text-lg"
-              )}
+              style={[
+                tailwind("text-primary text-center underline text-lg"),
+                { fontFamily: "NunitoBold" },
+              ]}
             >
               Forgot the password?
             </Text>
@@ -95,17 +102,27 @@ const EmailScreen = () => {
             style={[tailwind("w-full p-3 mx-auto rounded-xl bg-red-400 mt-3")]}
             onPress={onHandleLogin}
           >
-            <Text style={tailwind("text-center font-bold text-white text-xl")}>
+            <Text
+              style={[
+                tailwind("text-center text-white text-xl"),
+                { fontFamily: "NunitoBold" },
+              ]}
+            >
               Sign In
             </Text>
           </TouchableOpacity>
           <View style={tailwind("flex-row justify-center my-3 items-center")}>
-            <Text style={tailwind("text-gray-500 font-bold")}>
+            <Text
+              style={[tailwind("text-gray-500"), { fontFamily: "NunitoBold" }]}
+            >
               Dont't have an account yet?{" "}
             </Text>
-            <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+            <TouchableOpacity onPress={() => navigation.navigate("Sign Up")}>
               <Text
-                style={tailwind("text-primary font-bold text-xl underline")}
+                style={[
+                  tailwind("text-primary text-xl underline"),
+                  { fontFamily: "NunitoBold" },
+                ]}
               >
                 {" "}
                 Sign Up

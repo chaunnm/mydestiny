@@ -64,7 +64,7 @@ const MatchList = () => {
     //   ))}
     // </ScrollView>
     <View style={tailwind("flex-auto flex-row")}>
-      <TouchableOpacity style={tailwind("ml-3 w-22 h-56 py-1 mr-1")}>
+      <TouchableOpacity style={tailwind("relative ml-3 w-22 h-56 py-1 mr-1")}>
         <LinearGradient
           colors={["rgba(251,188,5,1)", "rgba(245,145,36,1)"]}
           style={tailwind(
@@ -93,14 +93,23 @@ const MatchList = () => {
             colors={["rgba(251,188,5,1)", "rgba(245,145,36,1)"]}
             style={tailwind("rounded-full absolute w-8 h-8 justify-center")}
           >
-            <Text style={tailwind("text-white font-bold text-lg text-center")}>
+            <Text
+              style={[
+                tailwind("text-white text-lg text-center"),
+                { fontFamily: "NunitoBold" },
+              ]}
+            >
               12
             </Text>
           </LinearGradient>
+          <Image
+            style={tailwind("w-9 h-8 absolute -bottom-3")}
+            source={{ uri: "https://i.imgur.com/u2nVvtN.png" }}
+          />
         </LinearGradient>
 
         <Text
-          style={tailwind("text-center pt-1")}
+          style={[tailwind("text-center pt-1"), { fontFamily: "Nunito" }]}
           numberOfLines={2}
           ellipsizeMode="tail"
         >
@@ -118,7 +127,9 @@ const MatchList = () => {
     </View>
   ) : (
     <View style={tailwind("p-5")}>
-      <Text style={tailwind("text-center text-base")}>
+      <Text
+        style={[tailwind("text-center text-base"), { fontFamily: "Nunito" }]}
+      >
         No matches at the moment 🥲
       </Text>
     </View>

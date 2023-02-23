@@ -387,12 +387,12 @@ const IndividualScreen = () => {
       >
         <BottomSheetScrollView style={tailwind("px-5 mb-24")}>
           <View style={tailwind("flex-row justify-between")}>
-            <Text style={tailwind("text-3xl font-bold")}>
+            <Text style={[tailwind("text-3xl"), { fontFamily: "NunitoBold" }]}>
               {userSelected.displayName.length < 14
                 ? userSelected.displayName
                 : userSelected.displayName.substring(0, 14) + "..."}
             </Text>
-            <Text style={tailwind("ml-3 text-3xl")}>
+            <Text style={[tailwind("ml-3 text-3xl"), { fontFamily: "Nunito" }]}>
               {Math.floor(
                 (new Date() - userSelected.dayOfBirth.toDate().getTime()) /
                   3.15576e10
@@ -403,7 +403,12 @@ const IndividualScreen = () => {
           userSelected?.geoPoint &&
           currentUserInfor?.geoPoint !== null &&
           userSelected?.geoPoint !== null ? (
-            <Text style={tailwind("text-base self-end text-lightText")}>
+            <Text
+              style={[
+                tailwind("text-base self-end text-lightText"),
+                { fontFamily: "Nunito" },
+              ]}
+            >
               🛣️
               {getDistance(
                 userSelected.geoPoint.latitude,
@@ -414,18 +419,21 @@ const IndividualScreen = () => {
             </Text>
           ) : (
             <Text
-              style={tailwind("text-base self-end text-lightText -mt-1 py-1")}
+              style={[
+                tailwind("text-base self-end text-lightText -mt-1 py-1"),
+                { fontFamily: "Nunito" },
+              ]}
             >
               🛣️ No information
             </Text>
           )}
           <View style={tailwind("justify-between flex-row")}>
-            <Text style={tailwind("text-xl")}>
+            <Text style={tailwind("text-xl font-nunito")}>
               💼 <Text style={tailwind("mt-2")}>{userSelected.job}</Text>
             </Text>
-            <Text style={tailwind("text-xl")}>
+            <Text style={tailwind("text-xl font-nunito")}>
               🏠{" "}
-              <Text style={tailwind("mt-2")}>
+              <Text style={tailwind("mt-2 font-nunito")}>
                 {userSelected.location
                   ? userSelected.location?.city?.name?.replace(
                       /Tỉnh |Thành phố /gi,
@@ -438,13 +446,15 @@ const IndividualScreen = () => {
             </Text>
           </View>
 
-          <Text style={tailwind("text-xl mt-2 text-gray-600")}>About</Text>
-          <Text style={tailwind("text-base")}>
+          <Text style={tailwind("text-xl mt-2 text-gray-600 font-nunito")}>
+            About
+          </Text>
+          <Text style={tailwind("text-base font-nunito")}>
             He/She haven't updated about, but try swiping to have chance knowing
             more about him/her 😍.
           </Text>
 
-          <Text style={tailwind("text-xl mt-1.5 text-gray-600")}>
+          <Text style={tailwind("text-xl mt-1.5 text-gray-600 font-nunito")}>
             Interests
           </Text>
           <View style={tailwind("mt-2")}>
@@ -461,12 +471,18 @@ const IndividualScreen = () => {
                         ),
                       ]}
                     >
-                      <Text style={tailwind("text-xl font-bold")}>
+                      <Text
+                        style={[
+                          tailwind("text-xl"),
+                          { fontFamily: "NunitoBold" },
+                        ]}
+                      >
                         {interest.icon}
                       </Text>
                       <Text
                         style={[
-                          tailwind("text-base font-bold pl-1 text-white"),
+                          tailwind("text-base pl-1 text-white"),
+                          { fontFamily: "NunitoBold" },
                         ]}
                       >
                         {interest.name}

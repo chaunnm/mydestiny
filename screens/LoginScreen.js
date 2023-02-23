@@ -58,19 +58,28 @@ export default function LoginScreen() {
         source={{ uri: "https://i.imgur.com/OcN0LpS.png" }}
       >
         <Text
-          style={tailwind(
-            "font-semibold mx-auto mt-10 px-5 text-center text-white top-2/5 leading-5"
-          )}
+          style={[
+            tailwind(
+              "mx-auto mt-10 px-5 text-center text-white top-2/5 leading-5"
+            ),
+            { fontFamily: "NunitoSemiBold" },
+          ]}
         >
-          By clicking <Text style={tailwind("font-bold")}>Sign In</Text>, you
-          agree with our <Text style={tailwind("font-bold")}>Terms</Text>. Learn
-          how we process your data in our{" "}
-          <Text style={tailwind("font-bold underline")}>Privacy Policy</Text>{" "}
+          By clicking <Text style={{ fontFamily: "NunitoBold" }}>Sign In</Text>,
+          you agree with our{" "}
+          <Text style={{ fontFamily: "NunitoBold" }}>Terms</Text>. Learn how we
+          process your data in our{" "}
+          <Text style={[tailwind("underline"), { fontFamily: "NunitoBold" }]}>
+            Privacy Policy
+          </Text>{" "}
           and{" "}
-          <Text style={tailwind("font-bold underline")}>Cookies Policy</Text>.
+          <Text style={[tailwind("underline"), { fontFamily: "NunitoBold" }]}>
+            Cookies Policy
+          </Text>
+          .
         </Text>
 
-        <View style={tailwind("bottom-0 absolute mx-3 mr-2")}>
+        <View style={tailwind("bottom-0 absolute left-0 right-0 items-center")}>
           <TouchableOpacity
             style={[
               tailwind(
@@ -86,7 +95,10 @@ export default function LoginScreen() {
               }}
             />
             <Text
-              style={tailwind("text-center font-bold text-gray-600 text-lg")}
+              style={[
+                tailwind("text-center text-gray-600 text-lg"),
+                { fontFamily: "NunitoBold" },
+              ]}
             >
               SIGN IN WITH GOOGLE
             </Text>
@@ -102,7 +114,10 @@ export default function LoginScreen() {
           >
             <MaterialIcons name="email" size={22} color="black" />
             <Text
-              style={tailwind("text-center font-bold text-gray-600 text-lg")}
+              style={[
+                tailwind("text-center text-gray-600 text-lg"),
+                { fontFamily: "NunitoBold" },
+              ]}
             >
               SIGN IN WITH EMAIL
             </Text>
@@ -118,19 +133,27 @@ export default function LoginScreen() {
           >
             <MaterialIcons name="phone" size={22} color="black" />
             <Text
-              style={tailwind("text-center font-bold text-gray-600 text-lg")}
+              style={[
+                tailwind("text-center text-gray-600 text-lg"),
+                { fontFamily: "NunitoBold" },
+              ]}
             >
               SIGN IN WITH PHONE NUMBER
             </Text>
           </TouchableOpacity>
 
           <View style={tailwind("flex-row justify-center my-3 items-center")}>
-            <Text style={tailwind("text-gray-500 font-bold")}>
+            <Text
+              style={[tailwind("text-gray-500"), { fontFamily: "NunitoBold" }]}
+            >
               Don't have an account yet?{" "}
             </Text>
-            <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+            <TouchableOpacity onPress={() => navigation.navigate("Sign Up")}>
               <Text
-                style={tailwind("text-primary font-bold text-xl underline")}
+                style={[
+                  tailwind("text-primary text-xl underline"),
+                  { fontFamily: "NunitoBold" },
+                ]}
               >
                 {" "}
                 Sign Up

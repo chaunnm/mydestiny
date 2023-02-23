@@ -1,12 +1,17 @@
 module.exports = {
-  content: ["App.js", "./screens//*.{html,js}", "./components//*.{html,js}"],
+  content: [
+    "App.js",
+    "StackNavigator.js",
+    "./screens//*.{html,js}",
+    "./components//*.{html,js}",
+  ],
   theme: {
     extend: {
       fontFamily: {
-        nunito: ["NunitoSans-Regular"],
-        nunitoBold: ["NunitoSans-Bold"],
-        nunitoSemiBold: ["NunitoSans-SemiBold"],
-        nunitoExtraBold: ["NunitoSans-ExtraBold"],
+        nunito: ["Nunito"],
+        nunitoBold: ["NunitoBold"],
+        nunitoSemiBold: ["NunitoSemiBold"],
+        nunitoExtraBold: ["NunitoExtraBold"],
       },
       colors: {
         primary: "#FF85A2",

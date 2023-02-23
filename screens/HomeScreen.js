@@ -431,10 +431,20 @@ const HomeScreen = () => {
                   )}
                 >
                   <View>
-                    <Text style={tailwind("text-3xl text-white font-bold")}>
+                    <Text
+                      style={[
+                        tailwind("text-3xl text-white"),
+                        { fontFamily: "NunitoBold" },
+                      ]}
+                    >
                       {card.displayName}
                     </Text>
-                    <Text style={tailwind("text-white text-lg")}>
+                    <Text
+                      style={[
+                        tailwind("text-white text-lg"),
+                        { fontFamily: "Nunito" },
+                      ]}
+                    >
                       {card.job}
                     </Text>
                   </View>

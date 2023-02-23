@@ -22,7 +22,12 @@ const MatchedScreen = () => {
         />
       </View>
 
-      <Text style={tailwind("text-white text-center mt-5")}>
+      <Text
+        style={[
+          tailwind("text-white text-center mt-5"),
+          { fontFamily: "NunitoSemiBold" },
+        ]}
+      >
         You and {userSwiped.displayName} have liked each other.
       </Text>
 
@@ -47,7 +52,9 @@ const MatchedScreen = () => {
           navigation.navigate("Chat");
         }}
       >
-        <Text style={tailwind("text-center text-lg")}>
+        <Text
+          style={[tailwind("text-center text-lg"), { fontFamily: "Nunito" }]}
+        >
           Say hi to {userSwiped.displayName} 👋
         </Text>
       </TouchableOpacity>

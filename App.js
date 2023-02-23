@@ -8,8 +8,22 @@ import { Alert, LogBox } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { ActionSheetProvider } from "@expo/react-native-action-sheet";
 import messaging from "@react-native-firebase/messaging";
+import { useFonts } from "expo-font";
 
 export default function App() {
+  const [loaded] = useFonts({
+    Nunito: require("./assets/fonts/NunitoSans-Regular.ttf"),
+    NunitoBold: require("./assets/fonts/NunitoSans-Bold.ttf"),
+    NunitoSemiBold: require("./assets/fonts/NunitoSans-SemiBold.ttf"),
+    NunitoExtraBold: require("./assets/fonts/NunitoSans-ExtraBold.ttf"),
+  });
+
+  useEffect(() => {
+    if (!loaded) {
+      return;
+    }
+  }, [loaded]);
+
   LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
   LogBox.ignoreAllLogs(); //Ignore all log notifications
 

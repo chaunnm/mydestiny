@@ -39,9 +39,11 @@ const EditProfileScreen = () => {
   return (
     <View>
       {currentUser ? (
-        <Text>Welcome, {currentUser.displayName}</Text>
+        <Text style={{ fontFamily: "Nunito" }}>
+          Welcome, {currentUser.displayName}
+        </Text>
       ) : (
-        <Text>Please log in</Text>
+        <Text style={{ fontFamily: "Nunito" }}>Please log in</Text>
       )}
       <Button
         title="Update Display Name"

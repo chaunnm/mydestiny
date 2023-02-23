@@ -171,11 +171,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   avatarText: {
+    fontFamily: "NunitoExtraBold",
     color: "#3d3b73",
     margin: 5,
     fontSize: 26,
     lineHeight: 40,
-    fontWeight: "bold",
     textAlign: "center",
   },
 });

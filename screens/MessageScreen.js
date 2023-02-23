@@ -48,8 +48,6 @@ import {
   BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
 import moment from "moment";
-import messaging from "@react-native-firebase/messaging";
-import appIcon from "../assets/images/app-icon.png";
 
 const screenHeight = Dimensions.get("screen").height - 600;
 
@@ -236,10 +234,17 @@ const MessageScreen = () => {
           uri: getMatchedUserInfo(matchDetails.users, currentUser.uid).photoURL,
         }}
       />
-      <Text style={tailwind("text-xl text-center font-semibold ")}>
+      <Text
+        style={[
+          tailwind("text-xl text-center "),
+          { fontFamily: "NunitoSemiBold" },
+        ]}
+      >
         {getMatchedUserInfo(matchDetails.users, currentUser.uid).displayName}
       </Text>
-      <Text style={tailwind("text-center")}>Last online</Text>
+      <Text style={[tailwind("text-center"), { fontFamily: "Nunito" }]}>
+        Last online
+      </Text>
       <View style={tailwind("flex-row justify-center items-center my-1.5")}>
         <TouchableOpacity>
           {getMatchedUserInfo(matchDetails.users, currentUser.uid).gender ===
@@ -851,6 +856,7 @@ const MessageScreen = () => {
                             "text-center my-2 mx-auto py-1 px-2 w-28 rounded-xl"
                           ),
                           {
+                            fontFamily: "Nunito",
                             backgroundColor: "rgba(0,0,0,0.1)",
                             color: "#282828",
                           },
@@ -935,7 +941,11 @@ const MessageScreen = () => {
                     tailwind(
                       "h-10 text-lg rounded-md border border-gray-400 px-2 pr-14"
                     ),
-                    { flex: 1, backgroundColor: "rgba(255,255,255,0.85)" },
+                    {
+                      fontFamily: "Nunito",
+                      flex: 1,
+                      backgroundColor: "rgba(255,255,255,0.85)",
+                    },
                   ]}
                   multiline
                   rows={4}
@@ -975,7 +985,12 @@ const MessageScreen = () => {
           snapPoints={snapPoints}
           onChange={handleSheetChanges}
         >
-          <Text style={tailwind("text-center text-lg font-bold")}>
+          <Text
+            style={[
+              tailwind("text-center text-lg"),
+              { fontFamily: "NunitoBold" },
+            ]}
+          >
             Change background and theme chat 🎨
           </Text>
           <BottomSheetScrollView style={tailwind("px-3 flex-1")}>

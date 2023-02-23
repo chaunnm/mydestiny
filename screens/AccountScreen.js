@@ -179,6 +179,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   buttonText: {
+    fontFamily: "Nunito",
     color: "#616161",
     fontSize: 16,
     lineHeight: 30,
@@ -209,6 +210,7 @@ const styles = StyleSheet.create({
     opacity: 0.2,
   },
   likesText: {
+    fontFamily: "NunitoSemiBold",
     textTransform: "capitalize",
     fontSize: 25,
     lineHeight: 30,
@@ -218,6 +220,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   likesContent: {
+    fontFamily: "Nunito",
     fontSize: 16,
     lineHeight: 20,
     color: "#09101d",
@@ -232,6 +235,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   buttonLikesContent: {
+    fontFamily: "NunitoBold",
     fontSize: 20,
     fontWeight: "700",
     textTransform: "uppercase",

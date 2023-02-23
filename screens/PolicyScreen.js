@@ -142,35 +142,42 @@ const PolicyScreen = ({ agree }) => {
               source={{ uri: "https://i.imgur.com/uzELqEg.png" }}
             />
             <Text
-              style={tailwind(
-                "font-bold text-2xl text-center mb-2 text-others -mt-2"
-              )}
+              style={[
+                tailwind(
+                  "font-bold text-2xl text-center mb-2 text-others -mt-2"
+                ),
+                { fontFamily: "NunitoBold" },
+              ]}
             >
               Terms & Conditions
             </Text>
             <ScrollView style={tailwind("mx-2 mb-3 px-1 py-1")}>
-              <Text style={tailwind("leading-5")}>
-                <Text style={tailwind("font-semibold")}>1. Introduction</Text>:
-                This agreement outlines the terms and conditions under which you
-                may use the dating app.
+              <Text style={[tailwind("leading-5"), { fontFamily: "Nunito" }]}>
+                <Text style={{ fontFamily: "NunitoSemiBold" }}>
+                  1. Introduction
+                </Text>
+                : This agreement outlines the terms and conditions under which
+                you may use the dating app.
               </Text>
-              <Text style={tailwind("leading-5")}>
-                <Text style={tailwind("font-semibold")}>
+              <Text style={[tailwind("leading-5"), { fontFamily: "Nunito" }]}>
+                <Text style={{ fontFamily: "NunitoSemiBold" }}>
                   2. User Eligibility
                 </Text>
                 : The dating app is intended for use by individuals who are 18
                 years of age or older. By using the app, you represent and
                 warrant that you are at least 18 years old.
               </Text>
-              <Text style={tailwind("leading-5")}>
-                <Text style={tailwind("font-semibold")}>3. User Content</Text>:
-                You are solely responsible for the content that you post on the
-                dating app, including but not limited to photos, videos, and
+              <Text style={[tailwind("leading-5"), { fontFamily: "Nunito" }]}>
+                <Text style={{ fontFamily: "NunitoSemiBold" }}>
+                  3. User Content
+                </Text>
+                : You are solely responsible for the content that you post on
+                the dating app, including but not limited to photos, videos, and
                 text. You agree not to post any content that is offensive,
                 illegal, or otherwise violates the terms of this agreement.
               </Text>
-              <Text style={tailwind("leading-5")}>
-                <Text style={tailwind("font-semibold")}>
+              <Text style={[tailwind("leading-5"), { fontFamily: "Nunito" }]}>
+                <Text style={{ fontFamily: "NunitoSemiBold" }}>
                   4. Proprietary Rights
                 </Text>
                 : The dating app and all content and software associated with it
@@ -178,8 +185,8 @@ const PolicyScreen = ({ agree }) => {
                 distribute, or otherwise use the app or any content without the
                 express permission of the company.
               </Text>
-              <Text style={tailwind("leading-5")}>
-                <Text style={tailwind("font-semibold")}>
+              <Text style={[tailwind("leading-5"), { fontFamily: "Nunito" }]}>
+                <Text style={{ fontFamily: "NunitoSemiBold" }}>
                   5. Limitation of Liability
                 </Text>
                 : The company will not be liable for any damages arising out of
@@ -187,35 +194,41 @@ const PolicyScreen = ({ agree }) => {
                 but is not limited to damages for loss of profits, goodwill,
                 use, data, or other intangible losses.
               </Text>
-              <Text style={tailwind("leading-5")}>
-                <Text style={tailwind("font-semibold")}>
+              <Text style={[tailwind("leading-5"), { fontFamily: "Nunito" }]}>
+                <Text style={{ fontFamily: "NunitoSemiBold" }}>
                   6. Indemnification
                 </Text>
                 : You agree to indemnify and hold the company harmless from any
                 claims, liabilities, damages, and expenses arising out of or in
                 connection with your use of the dating app.
               </Text>
-              <Text style={tailwind("leading-5")}>
-                <Text style={tailwind("font-semibold")}>7. Termination</Text>:
-                The company may terminate this agreement at any time and for any
-                reason. Upon termination, you will no longer be able to access
-                the dating app.
+              <Text style={[tailwind("leading-5"), { fontFamily: "Nunito" }]}>
+                <Text style={{ fontFamily: "NunitoSemiBold" }}>
+                  7. Termination
+                </Text>
+                : The company may terminate this agreement at any time and for
+                any reason. Upon termination, you will no longer be able to
+                access the dating app.
               </Text>
-              <Text style={tailwind("leading-5")}>
-                <Text style={tailwind("font-semibold")}>
+              <Text style={[tailwind("leading-5"), { fontFamily: "Nunito" }]}>
+                <Text style={{ fontFamily: "NunitoSemiBold" }}>
                   8. Dispute Resolution
                 </Text>
                 : Any disputes arising out of or in connection with this
                 agreement will be resolved through binding arbitration.
               </Text>
-              <Text style={tailwind("leading-5")}>
-                <Text style={tailwind("font-semibold")}>9. Governing Law</Text>:
-                This agreement will be governed by and construed in accordance
+              <Text style={[tailwind("leading-5"), { fontFamily: "Nunito" }]}>
+                <Text style={{ fontFamily: "NunitoSemiBold" }}>
+                  9. Governing Law
+                </Text>
+                : This agreement will be governed by and construed in accordance
                 with the laws of the jurisdiction in which the company is
                 headquartered.
               </Text>
-              <Text style={tailwind("leading-5 mb-1.5")}>
-                <Text style={tailwind("font-semibold")}>
+              <Text
+                style={[tailwind("leading-5 mb-1.5"), { fontFamily: "Nunito" }]}
+              >
+                <Text style={{ fontFamily: "NunitoSemiBold" }}>
                   {" "}
                   10. Entire Agreement
                 </Text>
@@ -262,12 +275,23 @@ const PolicyScreen = ({ agree }) => {
         ) : (
           <View style={tailwind("relative h-96")}>
             <Text
-              style={tailwind("font-bold text-3xl w-9/12 leading-10 pt-4 pl-4")}
+              style={[
+                tailwind("text-3xl w-9/12 leading-10 pt-4 pl-4"),
+                { fontFamily: "NunitoBold" },
+              ]}
             >
               TO JOIN AS{"\n"}
-              <Text style={tailwind("text-primary")}>MY DESTINY</Text> MEMBER
-              YOU MUST BE AT LEAST{"\n"}
-              <Text style={tailwind("text-something")}>18 YEARS OLD!</Text>
+              <Text
+                style={[tailwind("text-primary"), { fontFamily: "Nunito" }]}
+              >
+                MY DESTINY
+              </Text>{" "}
+              MEMBER YOU MUST BE AT LEAST{"\n"}
+              <Text
+                style={[tailwind("text-something"), { fontFamily: "Nunito" }]}
+              >
+                18 YEARS OLD!
+              </Text>
             </Text>
             <Image
               style={tailwind("w-52 h-52 absolute bottom-0 right-4")}
@@ -285,25 +309,55 @@ const PolicyScreen = ({ agree }) => {
         <BottomSheetScrollView style={tailwind("px-5")}>
           <View style={tailwind("flex items-center")}>
             {activeSlide == 0 && !policy ? (
-              <Text style={tailwind("text-center font-semibold text-3xl mt-2")}>
+              <Text
+                style={[
+                  tailwind("text-center text-3xl mt-2"),
+                  { fontFamily: "NunitoSemiBold" },
+                ]}
+              >
                 Find people who{" "}
-                <Text style={tailwind("font-semibold text-3xl text-primary")}>
+                <Text
+                  style={[
+                    tailwind("text-3xl text-primary"),
+                    { fontFamily: "NunitoSemiBold" },
+                  ]}
+                >
                   match
                 </Text>{" "}
                 with you
               </Text>
             ) : activeSlide == 1 && !policy ? (
-              <Text style={tailwind("text-center font-semibold text-3xl mt-2")}>
+              <Text
+                style={[
+                  tailwind("text-center text-3xl mt-2"),
+                  { fontFamily: "NunitoSemiBold" },
+                ]}
+              >
                 Easily{" "}
-                <Text style={tailwind("font-semibold text-3xl text-primary")}>
+                <Text
+                  style={[
+                    tailwind("text-3xl text-primary"),
+                    { fontFamily: "NunitoSemiBold" },
+                  ]}
+                >
                   message & call
                 </Text>{" "}
                 the people you like{" "}
               </Text>
             ) : activeSlide == 2 && !policy ? (
-              <Text style={tailwind("text-center font-semibold text-3xl mt-2")}>
+              <Text
+                style={[
+                  tailwind("text-center text-3xl mt-2"),
+                  { fontFamily: "NunitoSemiBold" },
+                ]}
+              >
                 Don’t wait anymore, find out your{" "}
-                <Text style={tailwind("font-semibold text-3xl text-primary")}>
+                <Text
+                  style={[
+                    tailwind("text-3xl text-primary"),
+                    { fontFamily: "NunitoSemiBold" },
+                  ]}
+                >
                   soul mate
                 </Text>{" "}
                 now
@@ -311,27 +365,45 @@ const PolicyScreen = ({ agree }) => {
             ) : (
               <View style={tailwind("relative")}>
                 <Text style={tailwind("text-justify text-base mb-1.5")}>
-                  <Text style={tailwind("font-bold")}>My Destiny</Text> may
-                  contain
-                  <Text style={tailwind("font-semibold")}>
+                  <Text style={{ fontFamily: "NunitoBold" }}>My Destiny</Text>{" "}
+                  may contain
+                  <Text style={{ fontFamily: "NunitoSemiBold" }}>
                     {" "}
                     mature content{" "}
                   </Text>
                   and is only available to{" "}
-                  <Text style={tailwind("font-semibold")}>adults</Text>. If you
-                  are{" "}
-                  <Text style={tailwind("font-semibold text-something")}>
+                  <Text style={{ fontFamily: "NunitoSemiBold" }}>adults</Text>.
+                  If you are{" "}
+                  <Text
+                    style={[
+                      tailwind("text-something"),
+                      { fontFamily: "NunitoSemiBold" },
+                    ]}
+                  >
                     under the age of 18
                   </Text>
                   , it is illegal to view such material in your jurisdiction and
                   the attempt to use My Destiny will offend you,{" "}
-                  <Text style={tailwind("font-bold text-something")}>
+                  <Text
+                    style={[
+                      tailwind("text-something"),
+                      { fontFamily: "NunitoBold" },
+                    ]}
+                  >
                     PLEASE DO NOT CONTINUE
                   </Text>
                   .
                 </Text>
-                <Text style={tailwind("text-justify text-base")}>
-                  If <Text style={tailwind("font-semibold")}>you are ≥ 18</Text>{" "}
+                <Text
+                  style={[
+                    tailwind("text-justify text-base"),
+                    { fontFamily: "Nunito" },
+                  ]}
+                >
+                  If{" "}
+                  <Text style={{ fontFamily: "NunitoSemiBold" }}>
+                    you are ≥ 18
+                  </Text>{" "}
                   you will have permission to register as My Destiny member to
                   use the application, however to use this app you must{" "}
                   <Text style={tailwind("text-something")}>read and agree</Text>{" "}
@@ -342,9 +414,10 @@ const PolicyScreen = ({ agree }) => {
                   onPress={() => setModalVisible(true)}
                 >
                   <Text
-                    style={tailwind(
-                      "font-bold underline text-others text-base"
-                    )}
+                    style={[
+                      tailwind("underline text-others text-base"),
+                      { fontFamily: "NunitoBold" },
+                    ]}
                   >
                     Terms & Conditions
                   </Text>
@@ -415,7 +488,7 @@ const PolicyScreen = ({ agree }) => {
                 <Text
                   style={[
                     tailwind("self-center text-sm italic"),
-                    { fontSize: 14.5 },
+                    { fontFamily: "Nunito", fontSize: 14.5 },
                   ]}
                 >
                   I have read and agreed to Terms & Conditions
@@ -438,9 +511,10 @@ const PolicyScreen = ({ agree }) => {
                 onPress={() => setPolicy(true)}
               >
                 <Text
-                  style={tailwind(
-                    "text-primary text-center text-lg font-semibold"
-                  )}
+                  style={[
+                    tailwind("text-primary text-center text-lg"),
+                    { fontFamily: "NunitoSemiBold" },
+                  ]}
                 >
                   Skip
                 </Text>
@@ -453,9 +527,10 @@ const PolicyScreen = ({ agree }) => {
                 onPress={handleBackButton}
               >
                 <Text
-                  style={tailwind(
-                    "text-primary text-center text-lg font-semibold"
-                  )}
+                  style={[
+                    tailwind("text-primary text-center text-lg"),
+                    { fontFamily: "NunitoSemiBold" },
+                  ]}
                 >
                   No, I'm under 18 yrs old.
                 </Text>
@@ -468,9 +543,10 @@ const PolicyScreen = ({ agree }) => {
                 onPress={() => handleSnapPress()}
               >
                 <Text
-                  style={tailwind(
-                    "text-white text-center text-lg font-semibold"
-                  )}
+                  style={[
+                    tailwind("text-white text-center text-lg"),
+                    { fontFamily: "NunitoSemiBold" },
+                  ]}
                 >
                   Next
                 </Text>
@@ -481,9 +557,10 @@ const PolicyScreen = ({ agree }) => {
                 onPress={() => setPolicy(true)}
               >
                 <Text
-                  style={tailwind(
-                    "text-white text-center text-lg font-semibold"
-                  )}
+                  style={[
+                    tailwind("text-white text-center text-lg"),
+                    { fontFamily: "NunitoSemiBold" },
+                  ]}
                 >
                   Continue
                 </Text>
@@ -494,9 +571,10 @@ const PolicyScreen = ({ agree }) => {
                 onPress={handleButtonClick}
               >
                 <Text
-                  style={tailwind(
-                    "text-white text-center text-lg font-semibold"
-                  )}
+                  style={[
+                    tailwind("text-white text-center text-lg"),
+                    { fontFamily: "NunitoSemiBold" },
+                  ]}
                 >
                   Yes, I'm over 18 yrs old.
                 </Text>

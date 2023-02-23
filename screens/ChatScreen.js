@@ -33,17 +33,32 @@ const ChatScreen = () => {
   return (
     <SafeAreaView style={tailwind("flex-1 bg-white")}>
       <View style={tailwind("flex-row justify-between mx-3 my-2")}>
-        <Text style={tailwind("text-something font-bold text-base")}>
+        <Text
+          style={[
+            tailwind("text-something text-base"),
+            { fontFamily: "NunitoBold" },
+          ]}
+        >
           New Matches
         </Text>
         <TouchableOpacity onPress={() => navigation.navigate("AllMatch")}>
-          <Text style={tailwind("text-something font-bold self-center")}>
+          <Text
+            style={[
+              tailwind("text-something self-center"),
+              { fontFamily: "NunitoBold" },
+            ]}
+          >
             See all ({matches.length})
           </Text>
         </TouchableOpacity>
       </View>
       <MatchList />
-      <Text style={tailwind("text-something text-base font-bold mx-3 mb-2")}>
+      <Text
+        style={[
+          tailwind("text-something text-base mx-3 mb-2"),
+          { fontFamily: "NunitoBold" },
+        ]}
+      >
         Messages
       </Text>
       <ChatList />

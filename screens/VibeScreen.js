@@ -227,9 +227,12 @@ const VibeScreen = () => {
         </TouchableOpacity>
         <TouchableHighlight style={tailwind("bg-white rounded-lg h-10 m-auto")}>
           <Text
-            style={tailwind(
-              "items-center text-center text-others font-bold text-lg px-4 my-auto"
-            )}
+            style={[
+              tailwind(
+                "items-center text-center text-others text-lg px-4 my-auto"
+              ),
+              { fontFamily: "NunitoBold" },
+            ]}
           >
             {vibeSelected}
           </Text>
@@ -329,16 +332,31 @@ const VibeScreen = () => {
                   ]}
                 >
                   <View>
-                    <Text style={tailwind("text-3xl font-bold text-white")}>
+                    <Text
+                      style={[
+                        tailwind("text-3xl text-white"),
+                        { fontFamily: "NunitoBold" },
+                      ]}
+                    >
                       {card.displayName.length < 14
                         ? card.displayName
                         : card.displayName.substring(0, 14) + "..."}
                     </Text>
-                    <Text style={tailwind("text-2xl text-white font-bold")}>
+                    <Text
+                      style={[
+                        tailwind("text-2xl text-white"),
+                        { fontFamily: "Nunito" },
+                      ]}
+                    >
                       {card.job}
                     </Text>
                   </View>
-                  <Text style={tailwind("text-3xl font-bold text-white")}>
+                  <Text
+                    style={[
+                      tailwind("text-3xl text-white"),
+                      { fontFamily: "Nunito" },
+                    ]}
+                  >
                     {Math.floor(
                       (new Date() - card.dayOfBirth.toDate().getTime()) /
                         3.15576e10
@@ -355,7 +373,9 @@ const VibeScreen = () => {
                   styles.cardShadow,
                 ]}
               >
-                <Text style={tailwind("font-bold pb-5")}>No more profiles</Text>
+                <Text style={[tailwind("pb-5"), { fontFamily: "NunitoBold" }]}>
+                  No more profiles
+                </Text>
                 <Image
                   style={tailwind("h-20 w-20")}
                   height={100}

@@ -667,22 +667,34 @@ const ProfileScreen = ({ firstTime }) => {
         )}
         <ScrollView style={tailwind("px-5")}>
           <Text
-            style={tailwind(
-              "font-bold mb-1 text-2xl text-center text-purple-700"
-            )}
+            style={[
+              tailwind("mb-1 text-2xl text-center text-purple-700"),
+              { fontFamily: "NunitoBold" },
+            ]}
           >
             Let's fill your profile!
           </Text>
           <Text
-            style={tailwind(
-              "font-bold mb-5 text-3xl text-center text-purple-700"
-            )}
+            style={[
+              tailwind("mb-5 text-3xl text-center text-purple-700"),
+              { fontFamily: "NunitoBold" },
+            ]}
           >
             😜
           </Text>
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>
+          <Text
+            style={[
+              tailwind("px-4 text-lg "),
+              { fontFamily: "NunitoSemiBold" },
+            ]}
+          >
             Display Name{" "}
-            <Text style={tailwind("font-semibold text-lg text-red-600")}>
+            <Text
+              style={[
+                tailwind("text-lg text-red-600"),
+                { fontFamily: "NunitoSemiBold" },
+              ]}
+            >
               *
             </Text>
           </Text>
@@ -695,29 +707,50 @@ const ProfileScreen = ({ firstTime }) => {
             value={displayName}
             onChangeText={setDisplayname}
           />
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>
+          <Text
+            style={[
+              tailwind("px-4 text-lg "),
+              { fontFamily: "NunitoSemiBold" },
+            ]}
+          >
             Email{" "}
-            <Text style={tailwind("font-semibold text-lg text-red-600")}>
+            <Text
+              style={[
+                tailwind("text-lg text-red-600"),
+                { fontFamily: "NunitoSemiBold" },
+              ]}
+            >
               *
             </Text>
           </Text>
           <TextInput
-            style={tailwind(
-              "w-full h-11 mt-2 mb-2 rounded-full border border-gray-300 pl-4 text-lg"
-            )}
+            style={[
+              tailwind(
+                "w-full h-11 mt-2 mb-2 rounded-full border border-gray-300 pl-4 text-lg"
+              ),
+              { fontFamily: "Nunito" },
+            ]}
             autoCapitalize="none"
             keyboardType="email-address"
             textContentType="emailAddress"
             value={email}
             onChangeText={setEmail}
           />
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>
+          <Text
+            style={[
+              tailwind("px-4 text-lg "),
+              { fontFamily: "NunitoSemiBold" },
+            ]}
+          >
             Phone Number{" "}
           </Text>
           <TextInput
-            style={tailwind(
-              "w-full h-11 mt-2 mb-2 rounded-full border border-gray-300 pl-4 text-lg"
-            )}
+            style={[
+              tailwind(
+                "w-full h-11 mt-2 mb-2 rounded-full border border-gray-300 pl-4 text-lg"
+              ),
+              { fontFamily: "Nunito" },
+            ]}
             autoCapitalize="none"
             keyboardType="phone-pad"
             textContentType="telephoneNumber"
@@ -725,9 +758,16 @@ const ProfileScreen = ({ firstTime }) => {
             value={phone}
             onChangeText={setPhone}
           />
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>
+          <Text
+            style={[tailwind("px-4 text-lg"), { fontFamily: "NunitoSemiBold" }]}
+          >
             Gender{" "}
-            <Text style={tailwind("font-semibold text-lg text-red-600")}>
+            <Text
+              style={[
+                tailwind("text-lg text-red-600"),
+                { fontFamily: "NunitoSemiBold" },
+              ]}
+            >
               *
             </Text>
           </Text>
@@ -737,16 +777,29 @@ const ProfileScreen = ({ firstTime }) => {
           </RadioButton.Group>
 
           <TouchableOpacity onPress={showDatePicker}>
-            <Text style={tailwind("font-semibold px-4 text-lg ")}>
+            <Text
+              style={[
+                tailwind("px-4 text-lg"),
+                { fontFamily: "NunitoSemiBold" },
+              ]}
+            >
               Date Of Birth{" "}
-              <Text style={tailwind("font-semibold text-lg text-red-600")}>
+              <Text
+                style={[
+                  tailwind("text-lg text-red-600"),
+                  { fontFamily: "NunitoSemiBold" },
+                ]}
+              >
                 *
               </Text>
             </Text>
             <Text
-              style={tailwind(
-                "w-full h-11 mt-2 mb-2 rounded-full border border-gray-300 pl-4 text-lg pt-2"
-              )}
+              style={[
+                tailwind(
+                  "w-full h-11 mt-2 mb-2 rounded-full border border-gray-300 pl-4 text-lg pt-2"
+                ),
+                { fontFamily: "Nunito" },
+              ]}
             >
               {date?.toJSON().slice(0, 10).split("-").reverse().join("/")}
             </Text>
@@ -757,16 +810,26 @@ const ProfileScreen = ({ firstTime }) => {
             onConfirm={handleConfirm}
             onCancel={hideDatePicker}
           />
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>
+          <Text
+            style={[tailwind("px-4 text-lg"), { fontFamily: "NunitoSemiBold" }]}
+          >
             Job{" "}
-            <Text style={tailwind("font-semibold text-lg text-red-600")}>
+            <Text
+              style={[
+                tailwind("text-lg text-red-600"),
+                { fontFamily: "NunitoSemiBold" },
+              ]}
+            >
               *
             </Text>
           </Text>
           <TextInput
-            style={tailwind(
-              "w-full h-11 mt-2 mb-2 rounded-full border border-gray-300 pl-4 text-lg"
-            )}
+            style={[
+              tailwind(
+                "w-full h-11 mt-2 mb-2 rounded-full border border-gray-300 pl-4 text-lg"
+              ),
+              { fontFamily: "Nunito" },
+            ]}
             autoCapitalize="none"
             value={job}
             onChangeText={setJob}
@@ -777,7 +840,12 @@ const ProfileScreen = ({ firstTime }) => {
           style={[tailwind("w-11/12 p-3 mx-auto rounded-xl bg-red-400 my-5")]}
           onPress={handleStep1}
         >
-          <Text style={tailwind("text-center font-bold text-white text-xl")}>
+          <Text
+            style={[
+              tailwind("text-center text-white text-xl"),
+              { fontFamily: "NunitoBold" },
+            ]}
+          >
             Continue
           </Text>
         </TouchableOpacity>
@@ -803,31 +871,45 @@ const ProfileScreen = ({ firstTime }) => {
             source={{ uri: "https://i.imgur.com/z2hrGPr.png" }}
           />
           <Text
-            style={tailwind(
-              "font-bold mb-1 text-2xl text-center text-purple-700"
-            )}
+            style={[
+              tailwind("mb-1 text-2xl text-center text-purple-700"),
+              { fontFamily: "NunitoBold" },
+            ]}
           >
             Nice to meet you, {displayName}. Meet people nearly
           </Text>
           <Text
-            style={tailwind(
-              "font-bold mb-3 text-3xl text-center text-purple-700"
-            )}
+            style={[
+              tailwind("mb-3 text-3xl text-center text-purple-700"),
+              { fontFamily: "NunitoBold" },
+            ]}
           >
             👋
           </Text>
 
-          <Text style={tailwind("leading-5 mb-2 text-justify")}>
+          <Text
+            style={[
+              tailwind("leading-5 mb-2 text-justify"),
+              { fontFamily: "Nunito" },
+            ]}
+          >
             Make sure that your filled location is true.{" "}
-            <Text style={tailwind("font-bold")}>MyDestiny</Text> will help you
-            make new relationship nearby.
+            <Text style={{ fontFamily: "NunitoBold" }}>MyDestiny</Text> will
+            help you make new relationship nearby.
           </Text>
 
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>Living In</Text>
           <Text
-            style={tailwind(
-              "w-full mt-2 mb-2 py-2 rounded-full border border-gray-300 pl-4 text-base text-something"
-            )}
+            style={[tailwind("px-4 text-lg"), { fontFamily: "NunitoSemiBold" }]}
+          >
+            Living In
+          </Text>
+          <Text
+            style={[
+              tailwind(
+                "w-full mt-2 mb-2 py-2 rounded-full border border-gray-300 pl-4 text-base text-something"
+              ),
+              { fontFamily: "Nunito" },
+            ]}
           >
             {location.province !== "" &&
             location.district !== "" &&
@@ -863,11 +945,15 @@ const ProfileScreen = ({ firstTime }) => {
                 }
               )
             ) : (
-              <Text>Please select your place to display on profile</Text>
+              <Text style={{ fontFamily: "Nunito" }}>
+                Please select your place to display on profile
+              </Text>
             )}
           </Text>
 
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>
+          <Text
+            style={[tailwind("px-4 text-lg"), { fontFamily: "NunitoSemiBold" }]}
+          >
             City/Province
           </Text>
           <LocationSelect
@@ -878,7 +964,9 @@ const ProfileScreen = ({ firstTime }) => {
             options={provinces}
           />
 
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>
+          <Text
+            style={[tailwind("px-4 text-lg"), { fontFamily: "NunitoSemiBold" }]}
+          >
             District/State
           </Text>
           <LocationSelect
@@ -887,7 +975,9 @@ const ProfileScreen = ({ firstTime }) => {
             options={districts}
           />
 
-          <Text style={tailwind("font-semibold px-4 text-lg ")}>
+          <Text
+            style={[tailwind("px-4 text-lg"), { fontFamily: "NunitoSemiBold" }]}
+          >
             Ward/Village
           </Text>
           <LocationSelect
@@ -897,21 +987,34 @@ const ProfileScreen = ({ firstTime }) => {
           />
 
           <Text
-            style={tailwind("font-semibold text-center text-xl font-bold my-1")}
+            style={[
+              tailwind("text-center text-xl font-bold my-1"),
+              { fontFamily: "NunitoSemiBold" },
+            ]}
           >
             DISTANCE
           </Text>
 
-          <Text style={tailwind("leading-5 text-justify")}>
+          <Text
+            style={[
+              tailwind("leading-5 text-justify"),
+              { fontFamily: "Nunito" },
+            ]}
+          >
             You'll need to enable your location in order to use{" "}
-            <Text style={tailwind("font-bold")}>My Destiny</Text> properly. You
-            will see the real distance to others.
+            <Text style={{ fontFamily: "NunitoBold" }}>My Destiny</Text>{" "}
+            properly. You will see the real distance to others.
           </Text>
           <TouchableOpacity
             onPress={handleLocation}
             style={[tailwind("w-full p-3 mx-auto rounded-xl bg-red-400 my-3")]}
           >
-            <Text style={tailwind("text-center font-bold text-white text-xl")}>
+            <Text
+              style={[
+                tailwind("text-center text-white text-xl"),
+                { fontFamily: "NunitoBold" },
+              ]}
+            >
               Allow Location
             </Text>
           </TouchableOpacity>
@@ -924,7 +1027,12 @@ const ProfileScreen = ({ firstTime }) => {
             setStep3(true);
           }}
         >
-          <Text style={tailwind("text-center font-bold text-white text-xl")}>
+          <Text
+            style={[
+              tailwind("text-center text-white text-xl"),
+              { fontFamily: "NunitoBold" },
+            ]}
+          >
             Continue
           </Text>
         </TouchableOpacity>
@@ -940,21 +1048,23 @@ const ProfileScreen = ({ firstTime }) => {
         )}
         <ScrollView style={tailwind("px-5")}>
           <Text
-            style={tailwind(
-              "font-bold mb-1 text-2xl text-center text-purple-700"
-            )}
+            style={[
+              tailwind("mb-1 text-2xl text-center text-purple-700"),
+              { fontFamily: "NunitoBold" },
+            ]}
           >
             Add your best photos
           </Text>
           <Text
-            style={tailwind(
-              "font-bold mb-5 text-3xl text-center text-purple-700"
-            )}
+            style={[
+              tailwind("mb-5 text-3xl text-center text-purple-700"),
+              { fontFamily: "NunitoBold" },
+            ]}
           >
             😎
           </Text>
 
-          <Text style={tailwind("leading-5")}>
+          <Text style={[tailwind("leading-5"), { fontFamily: "Nunito" }]}>
             Add your best photos to get a higher amount of daily matches. Upload
             at least 1 photos to get started.
           </Text>
@@ -1055,7 +1165,12 @@ const ProfileScreen = ({ firstTime }) => {
           style={[tailwind("w-11/12 p-3 mx-auto rounded-xl bg-red-400 my-5")]}
           onPress={handleStep3}
         >
-          <Text style={tailwind("text-center font-bold text-white text-xl")}>
+          <Text
+            style={[
+              tailwind("text-center text-white text-xl"),
+              { fontFamily: "NunitoBold" },
+            ]}
+          >
             Continue
           </Text>
         </TouchableOpacity>
@@ -1070,9 +1185,10 @@ const ProfileScreen = ({ firstTime }) => {
           <Header title="Set up profile" />
         )}
         <Text
-          style={tailwind(
-            "font-bold mb-1 text-2xl text-center text-purple-700"
-          )}
+          style={[
+            tailwind("mb-1 text-2xl text-center text-purple-700"),
+            { fontFamily: "NunitoBold" },
+          ]}
         >
           Select your interests
         </Text>
@@ -1084,7 +1200,9 @@ const ProfileScreen = ({ firstTime }) => {
           👍
         </Text>
 
-        <Text style={tailwind("leading-5 pb-3 px-5")}>
+        <Text
+          style={[tailwind("leading-5 pb-3 px-5"), { fontFamily: "Nunito" }]}
+        >
           Select your interests to match with users who have similar things in
           common.
         </Text>
@@ -1108,12 +1226,18 @@ const ProfileScreen = ({ firstTime }) => {
                       updateInterest(interest.id, !interest.selected)
                     }
                   >
-                    <Text style={tailwind("text-xl font-bold")}>
+                    <Text
+                      style={[
+                        tailwind("text-xl"),
+                        { fontFamily: "NunitoBold" },
+                      ]}
+                    >
                       {interest.icon}
                     </Text>
                     <Text
                       style={[
-                        tailwind("text-lg font-bold pl-1"),
+                        tailwind("text-lg pl-1"),
+                        { fontFamily: "NunitoBold" },
                         interest.selected
                           ? tailwind("text-white")
                           : tailwind("text-gray-800"),
@@ -1135,7 +1259,12 @@ const ProfileScreen = ({ firstTime }) => {
             setStep5(true);
           }}
         >
-          <Text style={tailwind("text-center font-bold text-white text-xl")}>
+          <Text
+            style={[
+              tailwind("text-center text-white text-xl"),
+              { fontFamily: "NunitoBold" },
+            ]}
+          >
             Continue
           </Text>
         </TouchableOpacity>
@@ -1154,9 +1283,10 @@ const ProfileScreen = ({ firstTime }) => {
           <Header title="Set up profile" />
         )}
         <Text
-          style={tailwind(
-            "font-bold mb-1 text-2xl text-center text-purple-700"
-          )}
+          style={[
+            tailwind("mb-1 text-2xl text-center text-purple-700"),
+            { fontFamily: "NunitoBold" },
+          ]}
         >
           Ideals match
         </Text>
@@ -1168,10 +1298,17 @@ const ProfileScreen = ({ firstTime }) => {
           🫶
         </Text>
 
-        <Text style={tailwind("leading-5 pb-3 px-5 text-base mb-3")}>
+        <Text
+          style={[
+            tailwind("leading-5 pb-3 px-5 text-base mb-3"),
+            { fontFamily: "Nunito" },
+          ]}
+        >
           What are you hoping to find on the{" "}
-          <Text style={tailwind("font-bold text-base")}>My Destiny</Text> dating
-          app?
+          <Text style={[tailwind("text-base"), { fontFamily: "NunitoBold" }]}>
+            My Destiny
+          </Text>{" "}
+          dating app?
         </Text>
         <ScrollView style={tailwind("px-5")}>
           <View style={tailwind("pb-40")}>
@@ -1198,7 +1335,8 @@ const ProfileScreen = ({ firstTime }) => {
                     />
                     <Text
                       style={[
-                        tailwind("text-xl font-bold pl-1 pt-1"),
+                        tailwind("text-xl pl-1 pt-1"),
+                        { fontFamily: "NunitoBold" },
                         item.selected
                           ? tailwind("text-white")
                           : tailwind("text-gray-800"),
@@ -1217,7 +1355,12 @@ const ProfileScreen = ({ firstTime }) => {
           style={[tailwind("w-11/12 p-3 mx-auto rounded-xl bg-red-400 my-5")]}
           onPress={handleStep5}
         >
-          <Text style={tailwind("text-center font-bold text-white text-xl")}>
+          <Text
+            style={[
+              tailwind("text-center text-white text-xl"),
+              { fontFamily: "NunitoBold" },
+            ]}
+          >
             Finish Up
           </Text>
         </TouchableOpacity>

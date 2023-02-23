@@ -90,10 +90,12 @@ const PostCard = ({ post }) => {
             }}
           />
           <View style={tailwind("ml-1 flex justify-center")}>
-            <Text style={tailwind("text-base font-bold")}>
+            <Text style={[tailwind("text-base"), { fontFamily: "NunitoBold" }]}>
               {post.user.displayName}
             </Text>
-            <Text>{moment(post.timestamp?.toDate()).fromNow()}</Text>
+            <Text style={{ fontFamily: "Nunito" }}>
+              {moment(post.timestamp?.toDate()).fromNow()}
+            </Text>
           </View>
         </View>
         {deleteBtn ? (
@@ -115,6 +117,7 @@ const PostCard = ({ post }) => {
         numberOfLines={textShown ? undefined : 4}
         style={[
           tailwind("px-3 mb-4 text-justify mt-0.5"),
+          { fontFamily: "Nunito" },
           { lineHeight: 18 },
           lengthMore ? tailwind("mb-1") : tailwind("mb-4"),
         ]}
@@ -132,7 +135,10 @@ const PostCard = ({ post }) => {
         <TouchableOpacity>
           <Text
             onPress={toggleNumberOfLines}
-            style={[tailwind("px-3 font-bold mb-2"), { lineHeight: 18 }]}
+            style={[
+              tailwind("px-3 mb-2"),
+              { fontFamily: "NunitoBold", lineHeight: 18 },
+            ]}
           >
             {textShown ? "See less" : "See more..."}
           </Text>
@@ -174,7 +180,14 @@ const PostCard = ({ post }) => {
         >
           <Ionicons name="ios-heart-circle-outline" size={32} color="#3D3B73" />
           {/* <Ionicons name="ios-heart-circle" size={32} color="#FF85A2" /> */}
-          <Text style={tailwind("self-center text-lightText")}>Like</Text>
+          <Text
+            style={[
+              tailwind("self-center text-lightText"),
+              { fontFamily: "Nunito" },
+            ]}
+          >
+            Like
+          </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -186,14 +199,28 @@ const PostCard = ({ post }) => {
             size={25}
             color="#3D3B73"
           />
-          <Text style={tailwind("self-center text-lightText")}>Comment</Text>
+          <Text
+            style={[
+              tailwind("self-center text-lightText"),
+              { fontFamily: "Nunito" },
+            ]}
+          >
+            Comment
+          </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={tailwind("flex-row justify-center rounded py-0.5 px-1")}
         >
           <Ionicons name="share-outline" size={27} color="#3D3B73" />
-          <Text style={tailwind("self-center text-lightText")}>Share</Text>
+          <Text
+            style={[
+              tailwind("self-center text-lightText"),
+              { fontFamily: "Nunito" },
+            ]}
+          >
+            Share
+          </Text>
         </TouchableOpacity>
       </View>
       <Modal visible={visible} transparent={true} style={tailwind("relative")}>
