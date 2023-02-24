@@ -274,30 +274,36 @@ const PolicyScreen = ({ agree }) => {
           />
         ) : (
           <View style={tailwind("relative h-96")}>
-            <Text
-              style={[
-                tailwind("text-3xl w-9/12 leading-10 pt-4 pl-4"),
-                { fontFamily: "NunitoBold" },
-              ]}
-            >
-              TO JOIN AS{"\n"}
-              <Text
-                style={[tailwind("text-primary"), { fontFamily: "Nunito" }]}
-              >
-                MY DESTINY
-              </Text>{" "}
-              MEMBER YOU MUST BE AT LEAST{"\n"}
-              <Text
-                style={[tailwind("text-something"), { fontFamily: "Nunito" }]}
-              >
-                18 YEARS OLD!
-              </Text>
-            </Text>
             <Image
               style={tailwind("w-52 h-52 absolute bottom-0 right-4")}
               resizeMode="contain"
               source={{ uri: "https://i.imgur.com/eVv2aQH.png" }}
             />
+            <Text
+              style={[
+                tailwind("text-3xl w-9/12 leading-10 pt-4 pl-4"),
+                { fontFamily: "NunitoSemiBold" },
+              ]}
+            >
+              TO JOIN AS{"\n"}
+              <Text
+                style={[
+                  tailwind("text-primary"),
+                  { fontFamily: "NunitoExtraBold" },
+                ]}
+              >
+                MY DESTINY
+              </Text>{" "}
+              MEMBER YOU MUST BE AT LEAST{"\n"}
+              <Text
+                style={[
+                  tailwind("text-something"),
+                  { fontFamily: "NunitoExtraBold" },
+                ]}
+              >
+                18 YEARS OLD!
+              </Text>
+            </Text>
           </View>
         )}
       </View>
@@ -364,7 +370,9 @@ const PolicyScreen = ({ agree }) => {
               </Text>
             ) : (
               <View style={tailwind("relative")}>
-                <Text style={tailwind("text-justify text-base mb-1.5")}>
+                <Text
+                  style={tailwind("font-nunito text-justify text-base mb-1.5")}
+                >
                   <Text style={{ fontFamily: "NunitoBold" }}>My Destiny</Text>{" "}
                   may contain
                   <Text style={{ fontFamily: "NunitoSemiBold" }}>

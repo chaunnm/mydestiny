@@ -308,7 +308,13 @@ const AccountStack = () => {
           ),
         }}
       />
-      <AccountStack.Screen name="Edit Profile" component={EditProfileScreen} />
+      <AccountStack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="Edit Profile"
+        component={ProfileScreen}
+      />
       <AccountStack.Screen
         name="Safety"
         component={SafetyScreen}

@@ -90,20 +90,12 @@
   left: 3rem
 }
 
-.-left-14 {
-  left: -3.5rem
-}
-
 .-bottom-3 {
   bottom: -0.75rem
 }
 
-.z-auto {
-  z-index: auto
-}
-
-.z-50 {
-  z-index: 50
+.-left-14 {
+  left: -3.5rem
 }
 
 .m-auto {
@@ -507,12 +499,12 @@
   width: 16rem
 }
 
-.w-9\/12 {
-  width: 75%
-}
-
 .w-52 {
   width: 13rem
+}
+
+.w-9\/12 {
+  width: 75%
 }
 
 .w-40 {
@@ -539,16 +531,16 @@
   width: 88px
 }
 
+.w-9 {
+  width: 2.25rem
+}
+
 .w-11 {
   width: 2.75rem
 }
 
 .w-15 {
   width: 3.8rem
-}
-
-.w-9 {
-  width: 2.25rem
 }
 
 .flex-1 {
@@ -899,6 +891,11 @@
   padding-bottom: 1rem
 }
 
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem
+}
+
 .px-12 {
   padding-left: 3rem;
   padding-right: 3rem
@@ -912,11 +909,6 @@
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem
-}
-
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem
 }
 
 .py-7 {

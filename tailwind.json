@@ -114,24 +114,14 @@
 			"left": 48
 		}
 	},
-	"-left-14": {
-		"style": {
-			"left": -56
-		}
-	},
 	"-bottom-3": {
 		"style": {
 			"bottom": -12
 		}
 	},
-	"z-auto": {
+	"-left-14": {
 		"style": {
-			"zIndex": "auto"
-		}
-	},
-	"z-50": {
-		"style": {
-			"zIndex": 50
+			"left": -56
 		}
 	},
 	"m-auto": {
@@ -644,14 +634,14 @@
 			"width": 256
 		}
 	},
-	"w-9/12": {
-		"style": {
-			"width": "75%"
-		}
-	},
 	"w-52": {
 		"style": {
 			"width": 208
+		}
+	},
+	"w-9/12": {
+		"style": {
+			"width": "75%"
 		}
 	},
 	"w-40": {
@@ -684,6 +674,11 @@
 			"width": 88
 		}
 	},
+	"w-9": {
+		"style": {
+			"width": 36
+		}
+	},
 	"w-11": {
 		"style": {
 			"width": 44
@@ -692,11 +687,6 @@
 	"w-15": {
 		"style": {
 			"width": 60.8
-		}
-	},
-	"w-9": {
-		"style": {
-			"width": 36
 		}
 	},
 	"flex-1": {
@@ -1221,6 +1211,12 @@
 			"paddingBottom": 16
 		}
 	},
+	"px-4": {
+		"style": {
+			"paddingLeft": 16,
+			"paddingRight": 16
+		}
+	},
 	"px-12": {
 		"style": {
 			"paddingLeft": 48,
@@ -1237,12 +1233,6 @@
 		"style": {
 			"paddingLeft": 40,
 			"paddingRight": 40
-		}
-	},
-	"px-4": {
-		"style": {
-			"paddingLeft": 16,
-			"paddingRight": 16
 		}
 	},
 	"py-7": {

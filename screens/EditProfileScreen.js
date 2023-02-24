@@ -47,7 +47,7 @@ const EditProfileScreen = () => {
       )}
       <Button
         title="Update Display Name"
-        onPress={() => updateDisplayName("Test")}
+        onPress={() => updateDisplayName("Minh Quốc")}
       />
     </View>
   );

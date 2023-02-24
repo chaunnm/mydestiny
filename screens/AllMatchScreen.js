@@ -155,7 +155,7 @@ const AllMatchScreen = () => {
           </Text>
         </View>
       )}
-      <BottomNavigator />
+      {/* <BottomNavigator /> */}
     </SafeAreaView>
   );
 };
