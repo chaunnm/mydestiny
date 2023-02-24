@@ -47,7 +47,9 @@ const ChatList = () => {
           uri: "https://drive.google.com/uc?id=1RuT7AHy40dLoSGk6AQUlCuFDnJTSDqi_",
         }}
       />
-      <Text style={tailwind("text-center text-base")}>
+      <Text
+        style={[tailwind("text-center text-base"), { fontFamily: "Nunito" }]}
+      >
         No messages at the moment 📰
       </Text>
     </View>

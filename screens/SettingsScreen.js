@@ -6,6 +6,7 @@ import {
   Switch,
   Alert,
   Image,
+  ToastAndroid,
 } from "react-native";
 import { Divider } from "react-native-paper";
 import React, { useState } from "react";
@@ -167,9 +168,9 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   buttonText: {
+    fontFamily: "NunitoBold",
     marginLeft: 20,
     fontSize: 18,
-    fontWeight: "bold",
     width: "70%",
   },
   version: {

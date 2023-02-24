@@ -83,7 +83,11 @@ const LikeScreen = () => {
     <SafeAreaView
       style={tailwind("flex-1 relative justify-center items-center")}
     >
-      <Text style={tailwind("text-base text-lightText text-center my-3 px-3")}>
+      <Text
+        style={tailwind(
+          "text-base font-nunito text-lightText text-center my-3 px-3"
+        )}
+      >
         Upgrade to My Destiny Gold to see people who already like you.
       </Text>
       <FlatList
@@ -123,9 +127,10 @@ const LikeScreen = () => {
             colors={["#FBBC05", "#F59124"]}
           />
           <Text
-            style={tailwind(
-              "text-center text-white text-lg font-semibold px-8 py-2"
-            )}
+            style={[
+              tailwind("text-center text-white text-lg px-8 py-2"),
+              { fontFamily: "NunitoBold" },
+            ]}
           >
             SEE WHO LIKES YOU
           </Text>

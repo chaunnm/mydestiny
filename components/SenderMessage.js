@@ -93,11 +93,21 @@ const SenderMessage = ({ message, matchId }) => {
         style={tailwind("flex-row")}
       >
         {message.removedAt === "" ? (
-          <Text style={tailwind("self-center mr-1.5 text-lightText")}>
+          <Text
+            style={[
+              tailwind("self-center mr-1.5 text-lightText"),
+              { fontFamily: "Nunito" },
+            ]}
+          >
             {message.timestamp?.toDate().toLocaleTimeString().slice(0, -3)}
           </Text>
         ) : (
-          <Text style={tailwind("self-center mr-1.5 text-lightText")}>
+          <Text
+            style={[
+              tailwind("self-center mr-1.5 text-lightText"),
+              { fontFamily: "Nunito" },
+            ]}
+          >
             Removed at {""}
             {message.removedAt?.toDate().toLocaleTimeString().slice(0, -3)}
           </Text>
@@ -124,7 +134,12 @@ const SenderMessage = ({ message, matchId }) => {
           ]}
         >
           {message.media === "" && message.message !== "" ? (
-            <Text style={tailwind("text-white text-base")}>
+            <Text
+              style={[
+                tailwind("text-white text-base"),
+                { fontFamily: "Nunito" },
+              ]}
+            >
               {message.message}
             </Text>
           ) : message.media?.slice(36, 41) === "image" ? (
@@ -151,7 +166,9 @@ const SenderMessage = ({ message, matchId }) => {
               isLooping
             />
           ) : (
-            <Text style={tailwind("text-white")}>You unsent a message</Text>
+            <Text style={[tailwind("text-white"), { fontFamily: "Nunito" }]}>
+              You unsent a message
+            </Text>
           )}
         </View>
       </TouchableOpacity>

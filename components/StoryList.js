@@ -89,7 +89,10 @@ const StoryList = () => {
         </View>
 
         <Text
-          style={tailwind("text-center pt-1")}
+          style={[
+            tailwind("text-center pt-1"),
+            { fontFamily: "NunitoSemiBold" },
+          ]}
           numberOfLines={1}
           ellipsizeMode="tail"
         >
@@ -122,7 +125,7 @@ const StoryList = () => {
               </TouchableOpacity>
             </LinearGradient>
             <Text
-              style={tailwind("text-center pt-1")}
+              style={[tailwind("text-center pt-1"), { fontFamily: "Nunito" }]}
               numberOfLines={1}
               ellipsizeMode="tail"
             >

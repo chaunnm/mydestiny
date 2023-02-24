@@ -1,9 +1,17 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Button, Avatar, Card } from "react-native-paper";
+import { useTailwind } from "tailwind-rn";
+import { Avatar, Card } from "react-native-paper";
 
 const InviteFriendsScreen = () => {
+  const tailwind = useTailwind();
   const friendsList = [
     {
       id: 1,
@@ -77,25 +85,59 @@ const InviteFriendsScreen = () => {
           return (
             <Card style={styles.cardContainer} key={friend.id}>
               <View style={styles.cardFriend}>
-                <Avatar.Image
-                  style={styles.avatar}
-                  size={80}
-                  source={{
-                    uri: friend.avatar,
-                  }}
-                />
-                <View style={styles.text}>
-                  <Text style={styles.name}>{friend.name}</Text>
-                  <Text style={styles.phone}>{friend.phone}</Text>
+                <View style={tailwind("flex-row")}>
+                  <Avatar.Image
+                    style={styles.avatar}
+                    size={75}
+                    source={{
+                      uri: friend.avatar,
+                    }}
+                  />
+                  <View style={styles.text}>
+                    <Text style={styles.name}>{friend.name}</Text>
+                    <Text style={styles.phone}>{friend.phone}</Text>
+                  </View>
                 </View>
+
                 {friend.isInvited ? (
-                  <Button mode="contained" buttonColor="#FF85A2">
-                    Invited
-                  </Button>
+                  <TouchableOpacity
+                    style={[
+                      tailwind("px-4 py-2 rounded-lg"),
+                      {
+                        backgroundColor: "#FF85A2",
+                        paddingTop: 10,
+                      },
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        tailwind("text-white"),
+                        { fontFamily: "NunitoSemiBold" },
+                      ]}
+                    >
+                      Invited
+                    </Text>
+                  </TouchableOpacity>
                 ) : (
-                  <Button mode="outlined" textColor="#FF85A2">
-                    Invite
-                  </Button>
+                  <TouchableOpacity
+                    style={[
+                      tailwind("py-2 rounded-lg border border-gray-300"),
+                      {
+                        paddingTop: 10,
+                        paddingLeft: 20,
+                        paddingRight: 19,
+                      },
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        tailwind("text-lightText"),
+                        { fontFamily: "NunitoSemiBold", textColor: "#FF85A2" },
+                      ]}
+                    >
+                      Invite
+                    </Text>
+                  </TouchableOpacity>
                 )}
               </View>
             </Card>
@@ -116,22 +158,24 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   cardFriend: {
-    margin: 10,
+    padding: 10,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "space-between",
   },
   text: {
-    width: 200,
+    justifyContent: "center",
   },
   name: {
     marginLeft: 10,
-    fontSize: 20,
-    fontWeight: "bold",
+    fontSize: 18,
+    fontFamily: "NunitoBold",
   },
   phone: {
     marginLeft: 10,
-    fontSize: 16,
+    fontSize: 14,
+    fontFamily: "Nunito",
     paddingTop: 5,
   },
 });

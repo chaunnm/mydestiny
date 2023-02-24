@@ -104,10 +104,10 @@ const HomeTopBar = ({ state, descriptors, navigation, position }) => {
                 style={[
                   tailwind(
                     isFocused
-                      ? "text-base font-semibold bg-white text-center rounded-full p-2"
-                      : "text-base text-center rounded-full p-2"
+                      ? "text-base bg-white text-center rounded-full p-2"
+                      : "text-base font-nunito text-center rounded-full p-2"
                   ),
-                  styles.textHome,
+                  isFocused ? styles.textHome : null,
                 ]}
               >
                 {label}
@@ -204,7 +204,7 @@ const LikeTopBar = ({ state, descriptors, navigation, position }) => {
                 tailwind(
                   isFocused
                     ? "text-lg text-others font-semibold bg-white text-center rounded-full p-2"
-                    : "text-lg text-center rounded-full p-2"
+                    : "text-lg font-nunito text-center rounded-full p-2"
                 ),
                 styles.textHome,
               ]}
@@ -295,7 +295,7 @@ const AccountStack = () => {
         options={{
           headerTitleStyle: {
             color: "#3D3B73",
-            fontWeight: "bold",
+            fontFamily: "NunitoExtraBold",
             fontSize: 24,
           },
           headerLeft: () => (
@@ -308,14 +308,20 @@ const AccountStack = () => {
           ),
         }}
       />
-      <AccountStack.Screen name="Edit Profile" component={EditProfileScreen} />
+      <AccountStack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="Edit Profile"
+        component={ProfileScreen}
+      />
       <AccountStack.Screen
         name="Safety"
         component={SafetyScreen}
         options={{
           headerTitleStyle: {
             color: "#3D3B73",
-            fontWeight: "bold",
+            fontFamily: "NunitoExtraBold",
             fontSize: 24,
           },
           headerLeft: () => (
@@ -334,7 +340,7 @@ const AccountStack = () => {
         options={{
           headerTitleStyle: {
             color: "#3D3B73",
-            fontWeight: "bold",
+            fontFamily: "NunitoExtraBold",
             fontSize: 24,
           },
           headerLeft: () => (
@@ -353,7 +359,7 @@ const AccountStack = () => {
         options={{
           headerTitleStyle: {
             color: "#3D3B73",
-            fontWeight: "bold",
+            fontFamily: "NunitoExtraBold",
             fontSize: 24,
           },
           headerLeft: () => (
@@ -451,6 +457,7 @@ const BottomNavigator = () => {
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
+  const navigation = useNavigation();
   const { currentUser } = useAuth();
   const [firstProfile, setFirstProfile] = useState(false);
 
@@ -526,9 +533,63 @@ const StackNavigator = () => {
         <>
           <Stack.Screen name="Policy" component={PolicyScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Email" component={EmailScreen} />
-          <Stack.Screen name="Signup" component={SignupScreen} />
-          <Stack.Screen name="Phone" component={PhoneScreen} />
+          <Stack.Screen
+            options={{
+              headerTitleStyle: {
+                color: "#3D3B73",
+                fontFamily: "NunitoExtraBold",
+                fontSize: 24,
+              },
+              headerLeft: () => (
+                <TouchableOpacity
+                  style={styles.headerArrowBack}
+                  onPress={() => navigation.goBack()}
+                >
+                  <Ionicons name="arrow-back" size={34} color="#FF85A2" />
+                </TouchableOpacity>
+              ),
+            }}
+            name="Email"
+            component={EmailScreen}
+          />
+          <Stack.Screen
+            options={{
+              headerTitleStyle: {
+                color: "#3D3B73",
+                fontFamily: "NunitoExtraBold",
+                fontSize: 24,
+              },
+              headerLeft: () => (
+                <TouchableOpacity
+                  style={styles.headerArrowBack}
+                  onPress={() => navigation.goBack()}
+                >
+                  <Ionicons name="arrow-back" size={34} color="#FF85A2" />
+                </TouchableOpacity>
+              ),
+            }}
+            name="Sign Up"
+            component={SignupScreen}
+          />
+          <Stack.Screen
+            options={{
+              headerTitleStyle: {
+                color: "#3D3B73",
+                fontFamily: "NunitoExtraBold",
+                fontSize: 24,
+              },
+              headerLeft: () => (
+                <TouchableOpacity
+                  style={styles.headerArrowBack}
+                  onPress={() => navigation.goBack()}
+                >
+                  <Ionicons name="arrow-back" size={34} color="#FF85A2" />
+                </TouchableOpacity>
+              ),
+            }}
+            name="Phone"
+            component={PhoneScreen}
+          />
         </>
       )}
     </Stack.Navigator>
@@ -540,7 +601,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFD1DC",
     width: "50%",
   },
-  textHome: {},
+  textHome: {
+    fontFamily: "NunitoBold",
+  },
   headerArrowBack: {
     width: 27,
     height: 34,

@@ -39,7 +39,10 @@ const MatchHeader = ({ title, notification, filter, opened }) => {
         <Text
           numberOfLines={1}
           ellipsizeMode="tail"
-          style={tailwind("text-2xl font-bold pl-2 text-others")}
+          style={[
+            tailwind("text-2xl pl-2 text-others"),
+            { fontFamily: "NunitoBold" },
+          ]}
         >
           {title.length < 17 ? `${title}` : `${title.substring(0, 17)}...`}
         </Text>

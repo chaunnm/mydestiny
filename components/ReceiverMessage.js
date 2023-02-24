@@ -45,7 +45,9 @@ const ReceiverMessage = ({ message, matchId }) => {
           source={{ uri: message.photoURL }}
         />
         {message.media === "" ? (
-          <Text style={tailwind("text-base")}>{message.message}</Text>
+          <Text style={[tailwind("text-base"), { fontFamily: "Nunito" }]}>
+            {message.message}
+          </Text>
         ) : message.media.slice(36, 41) === "image" ? (
           <TouchableOpacity
             onPress={() => {
@@ -71,7 +73,12 @@ const ReceiverMessage = ({ message, matchId }) => {
           />
         )}
       </View>
-      <Text style={tailwind("self-center mr-1.5 text-lightText")}>
+      <Text
+        style={[
+          tailwind("self-center mr-1.5 text-lightText"),
+          { fontFamily: "Nunito" },
+        ]}
+      >
         {message.timestamp?.toDate().toLocaleTimeString().slice(0, -3)}
       </Text>
       <Modal visible={visible} transparent={true} style={tailwind("relative")}>

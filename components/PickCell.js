@@ -24,13 +24,28 @@ const PickCell = ({ pickInfor }) => {
           colors={["rgba(255,235,239,0)", "rgba(255,133,162,1)"]}
         />
         <View style={tailwind("absolute bottom-0 mb-1 p-3")}>
-          <Text style={tailwind("text-white font-bold text-2xl")}>
+          <Text
+            style={[
+              tailwind("text-white text-2xl"),
+              { fontFamily: "NunitoBold" },
+            ]}
+          >
             {pickInfor.name},{" "}
-            <Text style={tailwind("text-white font-normal text-2xl ")}>
+            <Text
+              style={[
+                tailwind("text-white text-2xl "),
+                { fontFamily: "Nunito" },
+              ]}
+            >
               {pickInfor.age}
             </Text>
           </Text>
-          <Text style={tailwind("font-semibold text-base text-white")}>
+          <Text
+            style={[
+              tailwind("text-base text-white"),
+              { fontFamily: "NunitoSemiBold" },
+            ]}
+          >
             {pickInfor.job}
           </Text>
         </View>

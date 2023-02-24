@@ -128,10 +128,15 @@ const SignupScreen = () => {
     <SafeAreaView style={tailwind("flex-1")}>
       <View>
         <Text style={tailwind("text-4xl my-3 text-center leading-10")}>🥳</Text>
-        <Text style={tailwind("leading-5 px-5 justify-center")}>
+        <Text
+          style={[
+            tailwind("leading-5 px-5 justify-center"),
+            { fontFamily: "Nunito" },
+          ]}
+        >
           You will need to fill in some information fields to create an{" "}
-          <Text style={tailwind("font-bold")}>My Destiny</Text> account. Don't
-          worry, we will secure your information.
+          <Text style={{ fontFamily: "NunitoBold" }}>My Destiny</Text> account.
+          Don't worry, we will secure your information.
         </Text>
       </View>
       <TouchableOpacity
@@ -160,9 +165,12 @@ const SignupScreen = () => {
       <ScrollView style={tailwind("px-5")}>
         <View>
           <TextInput
-            style={tailwind(
-              "w-full h-12 bg-white mt-2 mb-2 rounded-lg border border-gray-300"
-            )}
+            style={[
+              tailwind(
+                "w-full h-12 bg-white mt-2 mb-2 rounded-lg border border-gray-300"
+              ),
+              { fontFamily: "Nunito" },
+            ]}
             placeholder="Your email"
             autoCapitalize="none"
             keyboardType="email-address"
@@ -173,9 +181,12 @@ const SignupScreen = () => {
             onChangeText={setEmail}
           />
           <TextInput
-            style={tailwind(
-              "w-full h-12 bg-white mt-2 mb-2 rounded-lg border border-gray-300"
-            )}
+            style={[
+              tailwind(
+                "w-full h-12 bg-white mt-2 mb-2 rounded-lg border border-gray-300"
+              ),
+              { fontFamily: "Nunito" },
+            ]}
             placeholder="Enter password"
             autoCapitalize="none"
             autoCorrect={false}
@@ -186,9 +197,12 @@ const SignupScreen = () => {
             onChangeText={setPassword}
           />
           <TextInput
-            style={tailwind(
-              "w-full h-12 bg-white mt-2 mb-2 rounded-lg border border-gray-300"
-            )}
+            style={[
+              tailwind(
+                "w-full h-12 bg-white mt-2 mb-2 rounded-lg border border-gray-300"
+              ),
+              { fontFamily: "Nunito" },
+            ]}
             placeholder="Enter password again"
             autoCapitalize="none"
             autoCorrect={false}
@@ -202,18 +216,28 @@ const SignupScreen = () => {
             style={[tailwind("w-11/12 p-3 mx-auto rounded-xl bg-red-400 mt-5")]}
             onPress={onHandleSignup}
           >
-            <Text style={tailwind("text-center font-bold text-white text-xl")}>
+            <Text
+              style={[
+                tailwind("text-center text-white text-xl"),
+                { fontFamily: "NunitoBold" },
+              ]}
+            >
               Sign Up
             </Text>
           </TouchableOpacity>
 
           <View style={tailwind("flex-row justify-center my-3 items-center")}>
-            <Text style={tailwind("text-gray-500 font-bold")}>
+            <Text
+              style={[tailwind("text-gray-500"), { fontFamily: "NunitoBold" }]}
+            >
               Already have an account?{" "}
             </Text>
             <TouchableOpacity onPress={() => navigation.navigate("Email")}>
               <Text
-                style={tailwind("text-primary font-bold text-xl underline")}
+                style={[
+                  tailwind("text-primary text-xl underline"),
+                  { fontFamily: "NunitoBold" },
+                ]}
               >
                 {" "}
                 Log In

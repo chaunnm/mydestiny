@@ -156,9 +156,10 @@ const AddPost = () => {
           onPress={() => uploadPost()}
         >
           <Text
-            style={tailwind(
-              "text-lg font-bold px-3 py-1 rounded self-center bg-gray-300"
-            )}
+            style={[
+              tailwind("text-lg px-3 py-1 rounded self-center bg-gray-300"),
+              { fontFamily: "NunitoBold" },
+            ]}
           >
             Post
           </Text>
@@ -168,7 +169,12 @@ const AddPost = () => {
             style={tailwind("w-10 h-10 rounded-full")}
             source={{ uri: currentUser.photoURL }}
           />
-          <Text style={tailwind("font-bold text-base self-center ml-2")}>
+          <Text
+            style={[
+              tailwind("text-base self-center ml-2"),
+              { fontFamily: "NunitoBold" },
+            ]}
+          >
             {currentUser.displayName}
           </Text>
         </View>
@@ -181,7 +187,10 @@ const AddPost = () => {
             // keyboardVerticalOffset={headerHeight}
           >
             <TextInput
-              style={tailwind("w-full text-base p-3 mb-0")}
+              style={[
+                tailwind("w-full text-base p-3 mb-0"),
+                { fontFamily: "Nunito" },
+              ]}
               placeholder="What's on your mind?"
               autoCapitalize="none"
               multiline

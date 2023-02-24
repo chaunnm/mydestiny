@@ -68,10 +68,14 @@ const ChatRow = ({ matchDetails }) => {
       />
 
       <View style={tailwind("flex-1")}>
-        <Text style={tailwind("text-lg font-semibold")}>
+        <Text style={[tailwind("text-lg "), { fontFamily: "NunitoSemiBold" }]}>
           {matchedUserInfo?.displayName}
         </Text>
-        <Text numberOfLines={1} ellipsizeMode="tail">
+        <Text
+          style={{ fontFamily: "Nunito" }}
+          numberOfLines={1}
+          ellipsizeMode="tail"
+        >
           {lastMessage}
         </Text>
       </View>

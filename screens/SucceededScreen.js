@@ -26,8 +26,20 @@ const SucceededScreen = () => {
           style={tailwind("w-44 h-44")}
           resizeMode="contain"
         />
-        <Text style={tailwind("text-primary text-3xl font-bold")}>Great</Text>
-        <Text style={tailwind("font-bold text-xl text-primary text-center")}>
+        <Text
+          style={[
+            tailwind("text-primary text-3xl"),
+            { fontFamily: "NunitoBold" },
+          ]}
+        >
+          Great
+        </Text>
+        <Text
+          style={[
+            tailwind("text-xl text-primary text-center"),
+            { fontFamily: "NunitoBold" },
+          ]}
+        >
           Your profile has been created successfully!
         </Text>
         <TouchableOpacity
@@ -43,7 +55,12 @@ const SucceededScreen = () => {
             });
           }}
         >
-          <Text style={tailwind("text-white font-bold text-center text-xl")}>
+          <Text
+            style={[
+              tailwind("text-white text-center text-xl"),
+              { fontFamily: "NunitoBold" },
+            ]}
+          >
             Go to home 🏠
           </Text>
         </TouchableOpacity>

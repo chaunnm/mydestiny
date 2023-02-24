@@ -82,9 +82,10 @@ const TopPickScreen = () => {
   return (
     <SafeAreaView style={tailwind("flex-1 justify-center items-center")}>
       <Text
-        style={tailwind(
-          "text-base text-lightText text-center mt-3 px-3 font-semibold"
-        )}
+        style={[
+          tailwind("text-base text-lightText text-center mt-3 px-3"),
+          { fontFamily: "NunitoSemiBold" },
+        ]}
       >
         Upgrade to My Destiny Gold to for more Top Picks.
       </Text>
@@ -105,9 +106,10 @@ const TopPickScreen = () => {
             colors={["#FBBC05", "#F59124"]}
           />
           <Text
-            style={tailwind(
-              "text-center text-white text-lg font-semibold px-8 py-2"
-            )}
+            style={[
+              tailwind("text-center text-white text-lg px-8 py-2"),
+              { fontFamily: "NunitoBold" },
+            ]}
           >
             UNLOCK TOP PICKS
           </Text>

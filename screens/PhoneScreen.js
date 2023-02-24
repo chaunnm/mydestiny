@@ -95,10 +95,15 @@ const PhoneScreen = () => {
             value={phoneNumber}
           />
         </TouchableOpacity>
-        <Text style={tailwind("leading-5 pb-3 text-justify")}>
+        <Text
+          style={[
+            tailwind("leading-5 pb-3 text-justify"),
+            { fontFamily: "Nunito" },
+          ]}
+        >
           We will send a SMS with a verification code. Message and data rates
           may apply.{" "}
-          <Text style={tailwind("underline")}>
+          <Text style={[tailwind("underline"), { fontFamily: "Nunito" }]}>
             Learn what happens when your number changes.
           </Text>
         </Text>
@@ -107,11 +112,23 @@ const PhoneScreen = () => {
         style={[tailwind("w-11/12 p-3 mx-auto rounded-xl bg-primary my-0.5")]}
         onPress={() => signInWithPhoneNumber("+84" + phoneNumber)}
       >
-        <Text style={tailwind("text-center font-bold text-white text-xl")}>
+        <Text
+          style={[
+            tailwind("text-center text-white text-xl"),
+            { fontFamily: "NunitoBold" },
+          ]}
+        >
           Send OTP
         </Text>
       </TouchableOpacity>
-      <Text style={tailwind("text-center text-lg my-1")}>Or</Text>
+      <Text
+        style={[
+          tailwind("text-center text-lg my-1"),
+          { fontFamily: "NunitoBold" },
+        ]}
+      >
+        Or
+      </Text>
       <TouchableOpacity
         style={[
           tailwind(
@@ -126,7 +143,12 @@ const PhoneScreen = () => {
             uri: "https://pbs.twimg.com/profile_images/1605297940242669568/q8-vPggS_400x400.jpg",
           }}
         />
-        <Text style={tailwind("text-center font-bold text-gray-600 text-lg")}>
+        <Text
+          style={[
+            tailwind("text-center text-gray-600 text-lg"),
+            { fontFamily: "NunitoBold" },
+          ]}
+        >
           SIGN IN WITH GOOGLE
         </Text>
       </TouchableOpacity>
@@ -138,16 +160,26 @@ const PhoneScreen = () => {
         ]}
       >
         <MaterialIcons name="email" size={22} color="black" />
-        <Text style={tailwind("text-center font-bold text-gray-600 text-lg")}>
+        <Text
+          style={[
+            tailwind("text-center text-gray-600 text-lg"),
+            { fontFamily: "NunitoBold" },
+          ]}
+        >
           SIGN IN WITH EMAIL
         </Text>
       </TouchableOpacity>
       <View style={tailwind("flex-row justify-center my-3 items-center")}>
-        <Text style={tailwind("text-gray-500 font-bold")}>
+        <Text style={[tailwind("text-gray-500"), { fontFamily: "NunitoBold" }]}>
           Don't have an account?{" "}
         </Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
-          <Text style={tailwind("text-primary font-bold text-xl underline")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Sign Up")}>
+          <Text
+            style={[
+              tailwind("text-primary text-xl underline"),
+              { fontFamily: "NunitoBold" },
+            ]}
+          >
             {" "}
             Sign Up
           </Text>
@@ -172,16 +204,18 @@ const PhoneScreen = () => {
           defautValue={code}
           textInputStyle={tailwind("rounded-xl border-4")}
         />
-        <Text style={tailwind("my-2 text-center")}>6-digit verification</Text>
+        <Text style={[tailwind("my-2 text-center"), { fontFamily: "Nunito" }]}>
+          6-digit verification
+        </Text>
         <View>
           <Text style={tailwind("text-center text-base")}>
             Enter OTP code we sent to{" "}
-            <Text style={tailwind("font-bold")}>
+            <Text style={{ fontFamily: "NunitoBold" }}>
               {"0" + phoneNumber.slice(0, -2) + "xx"}
             </Text>
           </Text>
           <View style={tailwind("justify-center items-center flex")}>
-            <Text style={tailwind("text-base")}>
+            <Text style={[tailwind("text-base"), { fontFamily: "Nunito" }]}>
               This code will expire in{" "}
               {/* <CountDown
                 // until={60 + 30}
@@ -197,7 +231,7 @@ const PhoneScreen = () => {
             </Text>
           </View>
         </View>
-        <Text style={tailwind("text-center mt-5")}>
+        <Text style={[tailwind("text-center mt-5"), { fontFamily: "Nunito" }]}>
           Haven't received the code yet?
         </Text>
         <TouchableOpacity
@@ -209,7 +243,10 @@ const PhoneScreen = () => {
           onPress={() => setConfirm(null)}
         >
           <Text
-            style={tailwind("text-center font-bold text-something text-xl")}
+            style={[
+              tailwind("text-center text-something text-xl"),
+              { fontFamily: "NunitoBold" },
+            ]}
           >
             Resend Code
           </Text>
@@ -218,7 +255,12 @@ const PhoneScreen = () => {
           style={[tailwind("w-full p-3 mx-auto rounded-xl bg-primary my-4")]}
           onPress={() => confirmCode()}
         >
-          <Text style={tailwind("text-center font-bold text-white text-xl")}>
+          <Text
+            style={[
+              tailwind("text-center text-white text-xl"),
+              { fontFamily: "NunitoBold" },
+            ]}
+          >
             Confirm Code
           </Text>
         </TouchableOpacity>
