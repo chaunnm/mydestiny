@@ -49,6 +49,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { useTailwind } from "tailwind-rn";
 import StoryList from "./components/StoryList";
 import TopPickScreen from "./screens/TopPickScreen";
+import UserScreen from "./screens/UserScreen";
 
 const HomeTopBar = ({ state, descriptors, navigation, position }) => {
   const tailwind = useTailwind();
@@ -571,6 +572,7 @@ const StackNavigator = () => {
             <Stack.Screen name="Profile" component={ProfileScreen} />
             <Stack.Screen name="Message" component={MessageScreen} />
             <Stack.Screen name="Individual" component={IndividualScreen} />
+            <Stack.Screen name="User" component={UserScreen} />
             <Stack.Screen name="Vibe" component={VibeScreen} />
             <Stack.Screen name="Post" component={AddPost} />
           </Stack.Group>

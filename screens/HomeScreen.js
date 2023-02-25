@@ -90,60 +90,62 @@ const HomeScreen = () => {
     // console.log("User yeu thich: ", userSwiped);
 
     // Check if the user swiped on you...
-    firestore()
-      .collection("users")
-      .doc(userSwiped.id)
-      .collection("swipes")
-      .doc(currentUser.uid)
-      .onSnapshot({
-        next: (documentSnapshot) => {
-          // console.log("check exists: ", documentSnapshot.exists);
-          if (documentSnapshot.exists) {
-            console.log(`YEAH, you MATCHED with ${userSwiped.displayName}`);
+    // const unsubcribe = firestore()
+    //   .collection("users")
+    //   .doc(userSwiped.id)
+    //   .collection("swipes")
+    //   .doc(currentUser.uid)
+    //   .onSnapshot({
+    //     next: (documentSnapshot) => {
+    //       // console.log("check exists: ", documentSnapshot.exists);
+    //       if (documentSnapshot.exists) {
+    //         console.log(`YEAH, you MATCHED with ${userSwiped.displayName}`);
 
-            firestore()
-              .collection("users")
-              .doc(currentUser.uid)
-              .collection("swipes")
-              .doc(userSwiped.id)
-              .set(userSwiped);
-            //Create a match
-            firestore()
-              .collection("matches")
-              .doc(generateId(currentUser.uid, userSwiped.id))
-              .set({
-                users: {
-                  [currentUser.uid]: loggedInProfile,
-                  [userSwiped.id]: userSwiped,
-                },
-                usersMatched: [currentUser.uid, userSwiped.id],
-                theme: {
-                  id: 1,
-                  background: "https://wallpaperaccess.com/full/1076238.jpg",
-                  senderColor: "#FD697F",
-                  receiverColor: "#E6E8EB",
-                  selected: true,
-                },
-              });
+    //         firestore()
+    //           .collection("users")
+    //           .doc(currentUser.uid)
+    //           .collection("swipes")
+    //           .doc(userSwiped.id)
+    //           .set(userSwiped);
+    //         //Create a match
+    //         firestore()
+    //           .collection("matches")
+    //           .doc(generateId(currentUser.uid, userSwiped.id))
+    //           .set({
+    //             users: {
+    //               [currentUser.uid]: loggedInProfile,
+    //               [userSwiped.id]: userSwiped,
+    //             },
+    //             usersMatched: [currentUser.uid, userSwiped.id],
+    //             theme: {
+    //               id: 1,
+    //               background: "https://wallpaperaccess.com/full/1076238.jpg",
+    //               senderColor: "#FD697F",
+    //               receiverColor: "#E6E8EB",
+    //               selected: true,
+    //             },
+    //           });
 
-            navigation.navigate("Match", {
-              loggedInProfile,
-              userSwiped,
-            });
-          } else {
-            console.log(
-              `You swiped MATCH on ${userSwiped.displayName} (${userSwiped.job})`
-            );
+    //         navigation.navigate("Match", {
+    //           loggedInProfile,
+    //           userSwiped,
+    //         });
+    //       } else {
+    //         console.log(
+    //           `You swiped MATCH on ${userSwiped.displayName} (${userSwiped.job})`
+    //         );
 
-            firestore()
-              .collection("users")
-              .doc(currentUser.uid)
-              .collection("swipes")
-              .doc(userSwiped.id)
-              .set(userSwiped);
-          }
-        },
-      });
+    //         firestore()
+    //           .collection("users")
+    //           .doc(currentUser.uid)
+    //           .collection("swipes")
+    //           .doc(userSwiped.id)
+    //           .set(userSwiped);
+    //       }
+    //     },
+    //   });
+    // return () => unsubcribe();
+    // unsubcribe();
   };
 
   const showInfor = async (cardIndex) => {

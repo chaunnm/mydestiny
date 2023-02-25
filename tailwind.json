@@ -887,6 +887,11 @@
 			"borderLeftWidth": 1
 		}
 	},
+	"border-b-0": {
+		"style": {
+			"borderBottomWidth": 0
+		}
+	},
 	"border-gray-300": {
 		"style": {
 			"--tw-border-opacity": 1,
@@ -1338,6 +1343,16 @@
 	"pt-7": {
 		"style": {
 			"paddingTop": 28
+		}
+	},
+	"pb-1": {
+		"style": {
+			"paddingBottom": 4
+		}
+	},
+	"pl-2": {
+		"style": {
+			"paddingLeft": 8
 		}
 	},
 	"pr-0": {
