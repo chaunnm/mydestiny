@@ -79,18 +79,28 @@ const AllMatchScreen = () => {
   return (
     <SafeAreaView style={tailwind("bg-white flex-1")}>
       <MatchHeader
-        title={"All match " + "(" + matchUsers.length + ")"}
+        title={
+          "All match " +
+          "(" +
+          matchUsers.filter((item) => item.id !== currentUser.uid).length +
+          ")"
+        }
         notification
         filter
       />
-      {matchUsers.length > 0 ? (
+      {matchUsers.filter((item) => item.id !== currentUser.uid).length > 0 ? (
         <FlatList
           numColumns={2}
-          data={matchUsers}
+          data={matchUsers.filter((item) => item.id !== currentUser.uid)}
           keyExtractor={(item) => item.id}
           contentContainerStyle={tailwind("h-full mx-auto")}
           renderItem={({ item }) => (
             <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("User", {
+                  item,
+                });
+              }}
               style={tailwind("h-62 w-43 rounded-xl overflow-hidden mx-3 my-4")}
             >
               <ImageBackground

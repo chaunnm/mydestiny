@@ -218,62 +218,64 @@ const IndividualScreen = () => {
 
     const loggedInProfile = infor.data();
 
-    firestore()
-      .collection("users")
-      .doc(userSelected.id)
-      .collection("swipes")
-      .doc(currentUser.uid)
-      .onSnapshot({
-        next: (documentSnapshot) => {
-          if (documentSnapshot.exists) {
-            console.log(`YEAH, you MATCHED with ${userSelected.displayName}`);
+    // const unsubcribe = firestore()
+    //   .collection("users")
+    //   .doc(userSelected.id)
+    //   .collection("swipes")
+    //   .doc(currentUser.uid)
+    //   .onSnapshot({
+    //     next: (documentSnapshot) => {
+    //       if (documentSnapshot.exists) {
+    //         console.log(`YEAH, you MATCHED with ${userSelected.displayName}`);
 
-            firestore()
-              .collection("users")
-              .doc(currentUser.uid)
-              .collection("swipes")
-              .doc(userSelected.id)
-              .set(userSelected);
+    //         firestore()
+    //           .collection("users")
+    //           .doc(currentUser.uid)
+    //           .collection("swipes")
+    //           .doc(userSelected.id)
+    //           .set(userSelected);
 
-            //Create a match
-            firestore()
-              .collection("matches")
-              .doc(generateId(currentUser.uid, userSelected.id))
-              .set({
-                users: {
-                  [currentUser.uid]: loggedInProfile,
-                  [userSelected.id]: userSelected,
-                },
-                usersMatched: [currentUser.uid, userSelected.id],
-                theme: {
-                  id: 1,
-                  background: "https://wallpaperaccess.com/full/1076238.jpg",
-                  senderColor: "#FD697F",
-                  receiverColor: "#E6E8EB",
-                  selected: true,
-                },
-              });
+    //         //Create a match
+    //         firestore()
+    //           .collection("matches")
+    //           .doc(generateId(currentUser.uid, userSelected.id))
+    //           .set({
+    //             users: {
+    //               [currentUser.uid]: loggedInProfile,
+    //               [userSelected.id]: userSelected,
+    //             },
+    //             usersMatched: [currentUser.uid, userSelected.id],
+    //             theme: {
+    //               id: 1,
+    //               background: "https://wallpaperaccess.com/full/1076238.jpg",
+    //               senderColor: "#FD697F",
+    //               receiverColor: "#E6E8EB",
+    //               selected: true,
+    //             },
+    //           });
 
-            navigation.navigate("Match", {
-              loggedInProfile,
-              userSelected,
-            });
-          } else {
-            ToastAndroid.showWithGravity(
-              `You swiped MATCH on ${userSelected.displayName}`,
-              ToastAndroid.SHORT,
-              ToastAndroid.BOTTOM
-            );
+    //         navigation.navigate("Match", {
+    //           loggedInProfile,
+    //           userSelected,
+    //         });
+    //       } else {
+    //         ToastAndroid.showWithGravity(
+    //           `You swiped MATCH on ${userSelected.displayName}`,
+    //           ToastAndroid.SHORT,
+    //           ToastAndroid.BOTTOM
+    //         );
 
-            firestore()
-              .collection("users")
-              .doc(currentUser.uid)
-              .collection("swipes")
-              .doc(userSelected.id)
-              .set(userSelected);
-          }
-        },
-      });
+    //         firestore()
+    //           .collection("users")
+    //           .doc(currentUser.uid)
+    //           .collection("swipes")
+    //           .doc(userSelected.id)
+    //           .set(userSelected);
+    //       }
+    //     },
+    //   });
+    // return unsubcribe();
+    // unsubcribe();
   };
 
   const getDistance = (lat1, lon1, lat2, lon2) => {
