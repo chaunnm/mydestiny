@@ -28,7 +28,11 @@ import ExploreScreen from "./screens/ExploreScreen";
 import LikeScreen from "./screens/LikeScreen";
 import AccountScreen from "./screens/AccountScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { MaterialCommunityIcons, Ionicons } from "@expo/vector-icons";
+import {
+  MaterialCommunityIcons,
+  Ionicons,
+  MaterialIcons,
+} from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import SettingsScreen from "./screens/SettingsScreen";
 import EditProfileScreen from "./screens/EditProfileScreen";
@@ -277,6 +281,67 @@ const LogoHeader = () => {
   );
 };
 
+const HomeHeader = () => {
+  const navigation = useNavigation();
+  return (
+    <View
+      style={{
+        flex: 1,
+        height: 37,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        marginHorizontal: 4,
+      }}
+    >
+      <TouchableOpacity
+        width={Dimensions.get("screen").width}
+        style={{ width: 290 }}
+        onPress={() => navigation.navigate("Home")}
+      >
+        <Image
+          style={{ width: 214, height: 37 }}
+          source={{
+            uri: "https://drive.google.com/uc?export=view&id=10ckuZCn5Mt9t8VFRAlrKpT2eDH--GFkP",
+          }}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() =>
+          ToastAndroid.showWithGravity(
+            "This feature is under development",
+            ToastAndroid.SHORT,
+            ToastAndroid.BOTTOM
+          )
+        }
+      >
+        <MaterialCommunityIcons
+          style={{ paddingEnd: 10 }}
+          name="bell"
+          size={28}
+          color="#3d3b73"
+        />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() =>
+          ToastAndroid.showWithGravity(
+            "This feature is under development",
+            ToastAndroid.SHORT,
+            ToastAndroid.BOTTOM
+          )
+        }
+      >
+        <MaterialIcons
+          style={{ paddingEnd: 30 }}
+          name="filter-list"
+          size={28}
+          color="#3d3b73"
+        />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
 const AccountStack = () => {
   const AccountStack = createNativeStackNavigator();
   const navigation = useNavigation();
@@ -425,7 +490,7 @@ const BottomNavigator = () => {
       <Tab.Screen
         name="Home"
         component={HomeStackScreen}
-        options={{ headerTitle: (props) => <LogoHeader {...props} /> }}
+        options={{ headerTitle: (props) => <HomeHeader {...props} /> }}
       />
       <Tab.Screen
         name="Explore"

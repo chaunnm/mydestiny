@@ -69,7 +69,7 @@ const SettingsScreen = () => {
               color="#fff"
             />
           </LinearGradient>
-          <Text style={styles.buttonText}>Settings</Text>
+          <Text style={styles.buttonText}>Notification</Text>
           <Entypo name="chevron-right" size={30} color="#FF9EB5" />
         </TouchableOpacity>
         <Divider />
