@@ -1547,7 +1547,7 @@
 
 "@react-native-async-storage/async-storage@~1.17.3":
   version "1.17.11"
-  resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-1.17.11.tgz#7ec329c1b9f610e344602e806b04d7c928a2341d"
+  resolved "https://registry.npmjs.org/@react-native-async-storage/async-storage/-/async-storage-1.17.11.tgz"
   integrity sha512-bzs45n5HNcDq6mxXnSsOHysZWn1SbbebNxldBXCQs8dSvF8Aor9KCdpm+TpnnGweK3R6diqsT8lFhX77VX0NFw==
   dependencies:
     merge-options "^3.0.4"
@@ -1749,6 +1749,11 @@
   resolved "https://registry.npmjs.org/@react-native-community/hooks/-/hooks-2.8.1.tgz"
   integrity sha512-DCmCIC0Gn9m6K0Mlg2MwNmTxMEpBu5lTLsI6b/XUAv/vLGa6o+X7RhCai4FWeqkjCU36+ZOwaLzDo4NBWMXaoQ==
 
+"@react-native-community/slider@4.2.4":
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/@react-native-community/slider/-/slider-4.2.4.tgz#8d88adceeb32f7997a122feba48d7186fca80346"
+  integrity sha512-uY51UoipQW4ELnFWMU6rTHRc4EUYaW+Z1O9Teijej6NYVYdUcUKq+t7WeBGjMAEc1ipyooMeBqRXToWO5zAU2Q==
+
 "@react-native-firebase/app@^16.5.0":
   version "16.5.0"
   resolved "https://registry.npmjs.org/@react-native-firebase/app/-/app-16.5.0.tgz"
@@ -1772,9 +1777,9 @@
   integrity sha512-LBoe2pCKCFVFFKofOEu4YERT3CBIGgASK+COjt60p10yIXfxHVv89tW6d1W39iganPajSYYTLqIj4X//CYO+jA==
 
 "@react-native-firebase/messaging@^17.1.0":
-  version "17.1.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/messaging/-/messaging-17.1.0.tgz#d0c6a7f0cd20e72835d5fda0c6425c2af788773f"
-  integrity sha512-rbl3Ump2IgC6PFzm27Fd5NepbOM6yN1bqYFCEbnzckSxNmw09fglj98uhmhFbbMCugKYn0Lh2JyjOeALW3Cfjw==
+  version "17.3.1"
+  resolved "https://registry.npmjs.org/@react-native-firebase/messaging/-/messaging-17.3.1.tgz"
+  integrity sha512-ApXTjrFaTBgSXtrHtrmpCqAsBXmgE7zpWZ6CHg3RPo0t4W//MoP4xl0KzoNMkH6X9ADe9c0aS9VIrATQ26pNKA==
 
 "@react-native-firebase/storage@^16.5.0":
   version "16.5.0"
@@ -1788,7 +1793,7 @@
 
 "@react-native-picker/picker@2.4.8":
   version "2.4.8"
-  resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.4.8.tgz#a1a21f3d6ecadedbc3f0b691a444ddd7baa081f8"
+  resolved "https://registry.npmjs.org/@react-native-picker/picker/-/picker-2.4.8.tgz"
   integrity sha512-5NQ5XPo1B03YNqKFrV6h9L3CQaHlB80wd4ETHUEABRP2iLh7FHLVObX2GfziD+K/VJb8G4KZcZ23NFBFP1f7bg==
 
 "@react-native-picker/picker@^1.8.3":
@@ -1848,9 +1853,9 @@
   integrity sha512-iVcLIYg/XJk1p6X1rSFhNhCjAJ3ORqNT2/bJqw7I/liujeJAoz1oZ5JDoEcZaA0wMDts1txxLuqAYJmhCgU2aA==
 
 "@react-navigation/material-top-tabs@^6.6.0":
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/@react-navigation/material-top-tabs/-/material-top-tabs-6.6.0.tgz#97fde71959920a7394a052c2ffd280e203ae16ec"
-  integrity sha512-0yBEWqK+TfIHGxHqQXpzwqnIT3B/lt1IWMnWspTE8pJ8WKPZF45bhcos/qMnTnnTbZkiutqAL2qhtrJXyleGEg==
+  version "6.6.1"
+  resolved "https://registry.npmjs.org/@react-navigation/material-top-tabs/-/material-top-tabs-6.6.1.tgz"
+  integrity sha512-GJ5Easgcz6aOGP3cWclzofiOoeyzNcaDF4dBto/YAtHibqCnnvKaby8anSkxSHuD07y44biFCzTecrCARfhf6w==
   dependencies:
     color "^4.2.3"
     warn-once "^0.1.0"
@@ -3497,7 +3502,7 @@ expo-linear-gradient@~12.0.1:
 
 expo-location@~15.0.1:
   version "15.0.1"
-  resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-15.0.1.tgz#b132b8b50ce4d2dd9257b7b66cec44beeba253a4"
+  resolved "https://registry.npmjs.org/expo-location/-/expo-location-15.0.1.tgz"
   integrity sha512-GOAP24m8fMahFcBT75H07f2+IQAOCOdNTzb8Ci/19NZ+Y/CY2lIvb55V8zu7Gn0+76FKPb7XC3ebQaq4ctn1QA==
 
 expo-manifests@~0.4.0:
@@ -4376,7 +4381,7 @@ is-plain-obj@^1.1.0:
 
 is-plain-obj@^2.1.0:
   version "2.1.0"
-  resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-2.1.0.tgz#45e42e37fccf1f40da8e5f76ee21515840c09287"
+  resolved "https://registry.npmjs.org/is-plain-obj/-/is-plain-obj-2.1.0.tgz"
   integrity sha512-YWnfyRwxL/+SsrWYfOpUtz5b3YD+nyfkHvjbcanzk8zgyO4ASD67uVMRt8k5bM4lLMDnXfriRhOpemw+NfT1eA==
 
 is-plain-object@^2.0.3, is-plain-object@^2.0.4:
@@ -4895,7 +4900,7 @@ meow@^7.0.1:
 
 merge-options@^3.0.4:
   version "3.0.4"
-  resolved "https://registry.yarnpkg.com/merge-options/-/merge-options-3.0.4.tgz#84709c2aa2a4b24c1981f66c179fe5565cc6dbb7"
+  resolved "https://registry.npmjs.org/merge-options/-/merge-options-3.0.4.tgz"
   integrity sha512-2Sug1+knBjkaMsMgf1ctR1Ujx+Ayku4EdJN4Z+C2+JzoeF7A3OZ9KM2GY0CpQS51NR61LTurMJrRKPhSs3ZRTQ==
   dependencies:
     is-plain-obj "^2.1.0"
@@ -6155,6 +6160,11 @@ react-native-picker-select@^8.0.4:
     "@react-native-picker/picker" "^1.8.3"
     lodash.isequal "^4.5.0"
 
+react-native-range-slider-expo@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.npmjs.org/react-native-range-slider-expo/-/react-native-range-slider-expo-1.4.3.tgz"
+  integrity sha512-EAIXfuCxJYffi6yqOcmCMWzvPNRSJ7zgDhQtVXXe2fokYaXVLG1uq2jM+cpTStMusIIGIo9HGZAja94N+rnNyg==
+
 react-native-reanimated@~2.12.0:
   version "2.12.0"
   resolved "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-2.12.0.tgz"
@@ -6191,7 +6201,7 @@ react-native-snap-carousel@^4.0.0-beta.6:
 
 react-native-tab-view@^3.5.0:
   version "3.5.0"
-  resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-3.5.0.tgz#eee4af05708578a1a0c6bcd2c98bf9f204778cc6"
+  resolved "https://registry.npmjs.org/react-native-tab-view/-/react-native-tab-view-3.5.0.tgz"
   integrity sha512-Dvvs54zPtI4f8x6GuTGy4VUMeMSnmjQFa0PsJkogWuRnxcYT+CunCDMOvxzSesh2AbL6UaTNPmTQ0Le9ybYsHg==
   dependencies:
     use-latest-callback "^0.1.5"

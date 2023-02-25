@@ -9,9 +9,18 @@ import {
 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-const MatchHeader = ({ title, notification, filter, opened }) => {
+const MatchHeader = ({ title, notification, filter, moreClicked, opened }) => {
   const tailwind = useTailwind();
   const navigation = useNavigation();
+  const [clicked, setClicked] = useState(false);
+
+  useEffect(() => {
+    setClicked(opened);
+  }, [opened]);
+
+  useEffect(() => {
+    moreClicked(clicked);
+  }, [clicked]);
 
   return (
     <View
@@ -70,13 +79,9 @@ const MatchHeader = ({ title, notification, filter, opened }) => {
         )}
         {filter && (
           <TouchableOpacity
-            onPress={() =>
-              ToastAndroid.showWithGravity(
-                "This feature is under development",
-                ToastAndroid.SHORT,
-                ToastAndroid.BOTTOM
-              )
-            }
+            onPress={(e) => {
+              setClicked(!clicked);
+            }}
             style={tailwind("mr-2 ")}
           >
             <MaterialIcons
